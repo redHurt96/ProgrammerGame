@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using AP.ProgrammerGame.Logic;
+using RH.Utilities.UI;
 
-public class WriteCodeButton : MonoBehaviour
+namespace AP.ProgrammerGame.Ui
 {
-    // Start is called before the first frame update
-    void Start()
+    public class WriteCodeButton : BaseActionButton
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void PerformOnClick() =>
+            Wallet.Instance.Add(Settings.Instance.MoneyForCode);
     }
 }

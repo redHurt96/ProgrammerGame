@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27767a10ea3efbe429d0aded1e3385ab, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  MoneyForCode: 3
+  MoneyForCode: 1
+  MoneyForBug: 3
   MoneyUiCoefficient: 10

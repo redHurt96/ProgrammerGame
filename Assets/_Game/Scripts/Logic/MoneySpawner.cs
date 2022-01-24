@@ -1,6 +1,8 @@
+using System;
 using RH.Utilities.SingletonAccess;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace AP.ProgrammerGame.Logic
 {
@@ -8,7 +10,7 @@ namespace AP.ProgrammerGame.Logic
     {
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _moneysObjectsParent;
-        [SerializeField] private float _spawnZoneRadius;
+        [SerializeField] private Vector3 _spawnZone;
 
         [SerializeField] private GameObject _moneyPrefab;
 
@@ -24,8 +26,20 @@ namespace AP.ProgrammerGame.Logic
 
         private GameObject SpawnMoney()
         {
-            Vector3 spawnPoint = _spawnPoint.position + Random.insideUnitSphere * _spawnZoneRadius;
+            Vector3 spawnPoint = _spawnPoint.position
+                                 + new Vector3(
+                                     Random.Range(-_spawnZone.x, _spawnZone.x),
+                                     Random.Range(-_spawnZone.y, _spawnZone.y),
+                                     Random.Range(-_spawnZone.z, _spawnZone.z));
+
+            Debug.DrawLine(spawnPoint, spawnPoint + Vector3.down * 2, Color.green, 10f);
             return Instantiate(_moneyPrefab, spawnPoint, Random.rotation, _moneysObjectsParent);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(1f, 0f, 0f, .2f);
+            Gizmos.DrawCube(_spawnPoint.position, _spawnZone * 2);
         }
     }
 }

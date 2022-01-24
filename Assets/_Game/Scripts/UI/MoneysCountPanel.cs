@@ -15,6 +15,6 @@ namespace AP.ProgrammerGame.Ui
         }
 
         private void UpdateText() => 
-            _title.text = Wallet.Instance.FakeMoneyCount.ToString();
+            _title.text = Wallet.Instance.MoneyCount.ToString();
     }
 }

@@ -8,7 +8,7 @@ namespace AP.ProgrammerGame
         public static Settings Instance { get; private set; }
 
         public int MoneyForCode = 1;
-        public int MoneyUiCoefficient = 10;
+        public int MoneyForBug = 10;
 
         public void CreateInstance()
         {

@@ -9,7 +9,6 @@ namespace AP.ProgrammerGame.Logic
     {
         public event Action CountChanged;
 
-        public int FakeMoneyCount => MoneyCount * Settings.Instance.MoneyUiCoefficient;
         public int MoneyCount => _moneys.Count;
 
         private List<GameObject> _moneys = new List<GameObject>();

@@ -13,6 +13,10 @@ namespace AP.ProgrammerGame
         public AnimationCurve HousePrices;
         public AnimationCurve FurniturePrices;
 
+        [Space]
+        public AnimationCurve HouseMoneyCoefficient;
+        public AnimationCurve FurnitureMoneyCoefficient;
+
         public void CreateInstance()
         {
             Instance = this;

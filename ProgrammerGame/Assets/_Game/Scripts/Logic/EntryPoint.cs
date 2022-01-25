@@ -12,8 +12,11 @@ namespace AP.ProgrammerGame.Logic
             _settings.CreateInstance();
             new Wallet();
 
-            new HouseManager().Init(_environmentAssets);
-            new FurnitureManager().Set(HouseManager.Instance.Current, 0);
+            var furnitureManager = new FurnitureManager();
+            var houseManager = new HouseManager();
+
+            houseManager.Init(_environmentAssets, furnitureManager);
+            furnitureManager.Set(houseManager.Current);
 
             new HouseUpgradeManager(HouseManager.Instance, _settings.HousePrices);
             new FurnitureUpgradeManager(FurnitureManager.Instance, _settings.FurniturePrices);

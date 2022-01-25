@@ -1,17 +1,19 @@
-﻿using RH.Utilities.SingletonAccess;
+﻿using System;
+using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace AP.ProgrammerGame.Logic
 {
     public abstract class BaseUpgradeManager<TSelf> : Singleton<TSelf>, IUpgradeManager where TSelf : Singleton<TSelf>
     {
+        public event Action Buyed;
         public bool CanBuy => Wallet.Instance.MoneyCount >= CalculatePrice() && _objectsManager.CanUpgrade;
 
-        private int _level;
+        public int Level { get; private set; }
         private readonly IUpgradeObjectManager _objectsManager;
         private readonly AnimationCurve _pricesCurve;
 
-        public BaseUpgradeManager(IUpgradeObjectManager objectsManager, AnimationCurve pricesCurve)
+        protected BaseUpgradeManager(IUpgradeObjectManager objectsManager, AnimationCurve pricesCurve)
         {
             _objectsManager = objectsManager;
             _pricesCurve = pricesCurve;
@@ -21,8 +23,9 @@ namespace AP.ProgrammerGame.Logic
         {
             Wallet.Instance.Spend(CalculatePrice());
             _objectsManager.Upgrade();
+            Level++;
         }
 
-        public int CalculatePrice() => (int)_pricesCurve.Evaluate(_level);
+        public int CalculatePrice() => (int)_pricesCurve.Evaluate(Level);
     }
 }

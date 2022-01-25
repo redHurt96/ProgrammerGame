@@ -7,20 +7,27 @@ namespace AP.ProgrammerGame.Logic
     {
         public House Current { get; private set; }
         public bool CanUpgrade => true;
+        public int Level { get; private set; }
 
         private EnvironmentAssets _assets;
-        private int _level = 0;
+        private FurnitureManager _furnitureManager;
 
-        public void Init(EnvironmentAssets assets)
+        public void Init(EnvironmentAssets assets, FurnitureManager furnitureManager)
         {
             _assets = assets;
+            _furnitureManager = furnitureManager;
+
             SetHouse();
         }
 
         public void Upgrade()
         {
-            _level %= _assets.Houses.Length;
+            Level++;
+            Level %= _assets.Houses.Length;
+
             SetHouse();
+
+            _furnitureManager.Set(Current);
         }
 
         private void SetHouse()
@@ -28,7 +35,7 @@ namespace AP.ProgrammerGame.Logic
             if (Current != null)
                 Object.Destroy(Current.gameObject);
 
-            Current = Object.Instantiate(_assets.Houses[_level]);
+            Current = Object.Instantiate(_assets.Houses[Level]);
             Current.DisableAll();
 
             MoneySpawner.Instance.AttachSpawnZone(Current.SpawnZone);

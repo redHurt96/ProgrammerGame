@@ -6,6 +6,6 @@ namespace AP.ProgrammerGame.Ui
     public class WriteCodeButton : BaseActionButton
     {
         protected override void PerformOnClick() =>
-            Wallet.Instance.Add(Settings.Instance.MoneyForCode);
+            Wallet.Instance.Add(MoneyCalculator.MoneyForCode);
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace AP.ProgrammerGame.Logic
 {
@@ -24,7 +25,11 @@ namespace AP.ProgrammerGame.Logic
             if (_moneys.Count > amount)
             {
                 for (int i = 0; i < amount; i++)
+                {
+                    GameObject moneyObject = _moneys[0];
                     _moneys.RemoveAt(0);
+                    Object.Destroy(moneyObject);
+                }
 
                 CountChanged?.Invoke();
             }

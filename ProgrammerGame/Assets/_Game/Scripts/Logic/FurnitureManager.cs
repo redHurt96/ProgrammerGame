@@ -5,14 +5,14 @@ namespace AP.ProgrammerGame.Logic
 {
     public class FurnitureManager : Singleton<FurnitureManager>, IUpgradeObjectManager
     {
-        public bool CanUpgrade => CurrentLevel < _currentHouse.Furnitures.Length - 1;
-        public int CurrentLevel { get; private set; }
+        public bool CanUpgrade => Level < _currentHouse.Furnitures.Length - 1;
+        public int Level { get; private set; }
 
         private House _currentHouse;
 
-        public void Set(House house, int level)
+        public void Set(House house)
         {
-            CurrentLevel = level;
+            Level = 0;
             _currentHouse = house;
             CreateCurrentFurniture();
         }
@@ -21,12 +21,12 @@ namespace AP.ProgrammerGame.Logic
         {
             if (CanUpgrade)
             {
-                CurrentLevel++;
+                Level++;
                 CreateCurrentFurniture();
             }
         }
 
         private void CreateCurrentFurniture() =>
-            _currentHouse.Furnitures[CurrentLevel].Enable();
+            _currentHouse.Furnitures[Level].Enable();
     }
 }

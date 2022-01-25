@@ -6,6 +6,6 @@ namespace AP.ProgrammerGame.Ui
     public class CatchBugButton : BaseActionButton
     {
         protected override void PerformOnClick() => 
-            Wallet.Instance.Add(Settings.Instance.MoneyForBug);
+            Wallet.Instance.Add(MoneyCalculator.MoneyForBug);
     }
 }

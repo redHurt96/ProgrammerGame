@@ -25,6 +25,8 @@ namespace AP.ProgrammerGame.Logic
             {
                 for (int i = 0; i < amount; i++)
                     _moneys.RemoveAt(0);
+
+                CountChanged?.Invoke();
             }
         }
     }

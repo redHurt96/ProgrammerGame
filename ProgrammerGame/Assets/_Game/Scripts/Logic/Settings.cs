@@ -10,6 +10,9 @@ namespace AP.ProgrammerGame
         public int MoneyForCode = 1;
         public int MoneyForBug = 10;
 
+        public AnimationCurve HousePrices;
+        public AnimationCurve FurniturePrices;
+
         public void CreateInstance()
         {
             Instance = this;

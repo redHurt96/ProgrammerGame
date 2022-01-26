@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RH.Utilities.Extensions;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace AP.ProgrammerGame.Logic
@@ -9,11 +10,7 @@ namespace AP.ProgrammerGame.Logic
 
         public GameObject Instantiate(GameObject prefab, Transform toParent)
         {
-            Vector3 spawnPoint = transform.position
-                     + new Vector3(
-                         Random.Range(-_spawnZone.x, _spawnZone.x),
-                         Random.Range(-_spawnZone.y, _spawnZone.y),
-                         Random.Range(-_spawnZone.z, _spawnZone.z));
+            Vector3 spawnPoint = transform.position.AddRandomInBox(_spawnZone);
 
             return Instantiate(prefab, spawnPoint, Random.rotation, toParent);
         }

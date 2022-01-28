@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a291ed0fcd6ca48ab8e3ec148a3efe, type: 3}
+  m_Name: CodeSourcesArray
+  m_EditorClassIdentifier: 
+  _codeSources:
+  - Source: "using UnityEngine;\r\nusing UnityEngine.UI;\r\n\r\nnamespace AP.ProgrammerGame_v2.UI\r\n{\r\n   
+      public class CodeWritingPanel : MonoBehaviour\r\n    {\r\n        [SerializeField]
+      private Text _code;\r\n\r\n        [Space]\r\n        [SerializeField] private
+      CodeSourcesArray _sources;\r\n\r\n        private string _source => _sources.Current;\r\n\r\n       
+      private void Start()\r\n        {\r\n            GlobalEvents.CodeWritten +=
+      Write;\r\n            GlobalEvents.CodeWrittenComplete += UpdateSource;\r\n       
+      }\r\n\r\n        private void OnDestroy()\r\n        {\r\n            GlobalEvents.CodeWritten
+      -= Write;\r\n            GlobalEvents.CodeWrittenComplete -= UpdateSource;\r\n       
+      }\r\n\r\n        private void Write()\r\n        {\r\n            int symbolsCount
+      = (int)(GameData.Instance.CodeWritingProgress * _source.Length);\r\n           
+      symbolsCount = Mathf.Min(symbolsCount, _source.Length);\r\n\r\n           
+      _code.text = _source.Substring(0, symbolsCount);\r\n        }\r\n\r\n       
+      private void UpdateSource() => _sources.GetNext();\r\n    }\r\n}"
+  - Source: "using RH.Utilities.Coroutines;\r\nusing System;\r\nusing System.Collections;\r\nusing
+      UnityEngine;\r\n\r\nnamespace AP.ProgrammerGame_v2.Logic\r\n{\r\n    public
+      class CodeWritingProcess : IDisposable\r\n    {\r\n        private GameData
+      _gameData => GameData.Instance;\r\n\r\n        public CodeWritingProcess()\r\n       
+      {\r\n            CoroutineLauncher.Start(ExecuteProcess());\r\n        }\r\n\r\n       
+      public void Dispose() => \r\n            CoroutineLauncher.Stop(ExecuteProcess());\r\n\r\n       
+      private IEnumerator ExecuteProcess()\r\n        {\r\n            while (Application.isPlaying)\r\n           
+      {\r\n                WriteCode();\r\n                CompleteWriteCodeIfPossible();\r\n\r\n               
+      yield return null;\r\n            }\r\n        }\r\n\r\n        private void
+      WriteCode()\r\n        {\r\n            _gameData.CodeWritingProgress += Time.deltaTime
+      / _gameData.CodeWritingTime;\r\n            GlobalEvents.WriteCode();\r\n       
+      }\r\n\r\n        private void CompleteWriteCodeIfPossible()\r\n        {\r\n           
+      if (_gameData.CodeWritingProgress >= 1)\r\n            {\r\n               
+      _gameData.CodeWritingProgress = 0;\r\n                GlobalEvents.CompleteWriteCode();\r\n           
+      }\r\n        }\r\n    }\r\n}"

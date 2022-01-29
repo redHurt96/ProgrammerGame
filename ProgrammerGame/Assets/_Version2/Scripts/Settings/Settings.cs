@@ -6,6 +6,10 @@ namespace AP.ProgrammerGame_v2
     public class Settings : ScriptableObject
     {
         public GameObject MoneyPrefab;
+        public AnimationCurve MoneyPerLevel;
+
+        public float LevelPerFurniture;
+        public float LevelPerHouse;
 
         public static Settings Instance { get; private set; }
 

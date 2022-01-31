@@ -6,5 +6,7 @@ namespace AP.ProgrammerGame_v2
     public class SceneObjects : MonoBehaviourSingleton<SceneObjects>
     {
         public Transform MoneyParentObject;
+        public Transform HouseParentObject;
+        public Transform StaticHouseParentObject;
     }
 }

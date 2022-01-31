@@ -9,11 +9,11 @@ namespace AP.ProgrammerGame_v2.Logic
 
         public CodeWritingAccelerator()
         {
-            GlobalEvents.OnCodingAccelerationIntent += Accelerate;
+            GlobalEvents.OnCodingAccelerated += Accelerate;
         }
 
         public void Dispose() => 
-            GlobalEvents.OnCodingAccelerationIntent -= Accelerate;
+            GlobalEvents.OnCodingAccelerated -= Accelerate;
 
         private void Accelerate()
         {

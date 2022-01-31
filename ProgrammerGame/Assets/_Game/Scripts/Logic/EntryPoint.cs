@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AP.ProgrammerGame_v2;
+using UnityEngine;
 
 namespace AP.ProgrammerGame.Logic
 {
@@ -10,6 +11,7 @@ namespace AP.ProgrammerGame.Logic
         private void Start()
         {
             _settings.CreateInstance();
+
             new Wallet();
 
             new HouseManager().Init(_environmentAssets);

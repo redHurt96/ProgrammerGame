@@ -7,6 +7,14 @@ namespace AP.ProgrammerGame_v2.Logic
         PC,
         Walls,
         CenterTrash,
-        WallTrash
+        WallTrash,
+        Gym,
+        Carpet,
+        TrashCan,
+        Paintings,
+        Bookshelf,
+        Chair,
+        AirConditioner,
+        Television
     }
 }

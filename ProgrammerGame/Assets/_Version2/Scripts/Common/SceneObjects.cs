@@ -7,6 +7,5 @@ namespace AP.ProgrammerGame_v2
     {
         public Transform MoneyParentObject;
         public Transform HouseParentObject;
-        public Transform StaticHouseParentObject;
     }
 }

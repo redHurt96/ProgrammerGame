@@ -13,7 +13,7 @@ namespace AP.ProgrammerGame_v2.UI
         private void OnDestroy() => 
             GlobalEvents.MoneyCountChanged -= UpdateText;
 
-        private void UpdateText(float obj) => 
-            _text.text = GameData.Instance.MoneyCount.ToString();
+        private void UpdateText(int obj) => 
+            _text.text = GameData.Instance.MoneyCount.ToString("F0");
     }
 }

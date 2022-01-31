@@ -8,23 +8,23 @@ namespace AP.ProgrammerGame_v2
         public float CodeWritingProgress = 0f;
         public float AccelerationCodeProgressPercent = .05f;
 
-        public float MoneyForCode => _moneyForCodeBase * _levelMoneyCoefficient;
-        public float MoneyForBug => _moneyForBugBase * _levelMoneyCoefficient;
+        public int MoneyForCode => (int)(_moneyForCodeBase * _levelMoneyCoefficient);
+        public int MoneyForBug => (int)(_moneyForBugBase * _levelMoneyCoefficient);
 
-        public float MoneyCount = 0f;
+        public int MoneyCount = 0;
 
         public float Level = 0f;
 
-        public float FurniturePrice => _baseFurniturePrice * _levelMoneyCoefficient;
-        public float PcPrice => _basePcPrice * _levelMoneyCoefficient;
-        public float DeveloperPrice => _baseDeveloperPrice * _levelMoneyCoefficient;
+        public int FurniturePrice => (int)Settings.Instance.MoneyPerFurniture.Evaluate(PurchasedFurnitureCount);
+        public int PcPrice => (int)Settings.Instance.MoneyPerComputer.Evaluate(PurchasedComputersCount);
+        public int DeveloperPrice => (int)Settings.Instance.MoneyPerDeveloper.Evaluate(PurchasedDevelopersCount);
 
-        private float _moneyForCodeBase = 1f;
-        private float _moneyForBugBase = 3f;
+        public int PurchasedFurnitureCount = 0;
+        public int PurchasedComputersCount = 1;
+        public int PurchasedDevelopersCount = 0;
 
-        private float _baseFurniturePrice = 10f;
-        private float _basePcPrice = 100f;
-        private float _baseDeveloperPrice = 1000f;
+        private int _moneyForCodeBase = 1;
+        private int _moneyForBugBase = 3;
 
         private float _levelMoneyCoefficient => Settings.Instance.MoneyPerLevel.Evaluate(Level);
     }

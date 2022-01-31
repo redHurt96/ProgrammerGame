@@ -17,73 +17,108 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.060028076
       value: 1
-      inSlope: 9102.938
-      outSlope: 9102.938
+      inSlope: 1.110313
+      outSlope: 1.110313
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.095
+      outWeight: 0.098333344
     - serializedVersion: 3
-      time: 30
-      value: 1000000
-      inSlope: 96483.66
-      outSlope: 96483.66
+      time: 1
+      value: 2.1
+      inSlope: 0.90218127
+      outSlope: 0.90218127
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03666668
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 30
+      value: 100
+      inSlope: 11.345293
+      outSlope: 11.345293
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08166664
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  FurniturePrices:
+  MoneyPerFurniture:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.033332825
+      value: 1
+      inSlope: 18.055971
+      outSlope: 18.055971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07846413
+    - serializedVersion: 3
+      time: 20
+      value: 2000
+      inSlope: 260.24686
+      outSlope: 260.24686
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.041736256
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MoneyPerComputer:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 1.5330406
-      outSlope: 1.5330406
+      value: 300
+      inSlope: 70.09939
+      outSlope: 70.09939
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.111816324
+      outWeight: 0.35045514
     - serializedVersion: 3
-      time: 30
-      value: 100
-      inSlope: 5.8346024
-      outSlope: 5.8346024
+      time: 20
+      value: 10000
+      inSlope: 1323.4886
+      outSlope: 1323.4886
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05542927
+      inWeight: 0.046676733
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  PcPrices:
+  MoneyPerDeveloper:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 1.5330406
-      outSlope: 1.5330406
+      value: 1000
+      inSlope: 70.09939
+      outSlope: 70.09939
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.111816324
+      outWeight: 0.35045514
     - serializedVersion: 3
-      time: 30
-      value: 100
-      inSlope: 5.8346024
-      outSlope: 5.8346024
+      time: 20.033325
+      value: 20000
+      inSlope: 2069.0708
+      outSlope: 2069.0708
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05542927
+      inWeight: 0.04000007
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  LevelPerFurniture: 0
-  LevelPerHouse: 0
+  AccelerationPerFurniture: 0.9
+  LevelPerFurniture: 0.75
+  LevelPerPc: 3
+  LevelPerDeveloper: 10

@@ -8,7 +8,12 @@ namespace AP.ProgrammerGame_v2
     public class FurnitureRefs : SingletonScriptableObject<FurnitureRefs>
     {
         public GameObject HouseBase;
+
+        [Space]
         public FurnitureSlot[] DefaultFurniture;
+        public FurnitureSlot[] FurnitureToPurchase;
+
+        [Space]
         public FurnitureSlot[] Computers;
     }
 }

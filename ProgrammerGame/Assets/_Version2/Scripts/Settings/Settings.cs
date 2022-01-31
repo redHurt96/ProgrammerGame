@@ -10,10 +10,15 @@ namespace AP.ProgrammerGame_v2
         public AnimationCurve MoneyPerLevel;
 
         [Space]
-        public AnimationCurve FurniturePrices;
-        public AnimationCurve PcPrices;
+        public AnimationCurve MoneyPerFurniture;
+        public AnimationCurve MoneyPerComputer;
+        public AnimationCurve MoneyPerDeveloper;
 
-        public float LevelPerFurniture;
-        public float LevelPerHouse;
+        [Space]
+        public float AccelerationPerFurniture = .05f;
+
+        public float LevelPerFurniture = 1f;
+        public float LevelPerPc = 3f;
+        public float LevelPerDeveloper = 10f;
     }
 }

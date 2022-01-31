@@ -20,6 +20,7 @@ namespace AP.ProgrammerGame_v2
             new MoneyStorage();
             new FurnitureStorage();
             new BaseHouseSpawnSystem();
+            new HouseUpgradeManager();
         }
     }
 }

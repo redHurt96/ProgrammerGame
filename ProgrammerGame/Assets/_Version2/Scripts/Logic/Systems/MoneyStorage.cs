@@ -20,10 +20,9 @@ namespace AP.ProgrammerGame_v2.Logic
             GlobalEvents.MoneyCountChanged -= RemoveIfAmountNegative;
         }
 
-        private void Keep(GameObject money) => 
-            _moneys.Add(money);
+        private void Keep(GameObject money) => _moneys.Add(money);
 
-        private void RemoveIfAmountNegative(float amount)
+        private void RemoveIfAmountNegative(int amount)
         {
             if (amount > 0)
                 return;
@@ -31,9 +30,9 @@ namespace AP.ProgrammerGame_v2.Logic
             Remove(amount);
         }
 
-        private void Remove(float amount)
+        private void Remove(int amount)
         {
-            var count = (int)amount;
+            var count = -amount;
 
             for (int i = 0; i < count; i++)
                 Remove();
@@ -41,9 +40,17 @@ namespace AP.ProgrammerGame_v2.Logic
 
         private void Remove()
         {
-            GameObject money = _moneys[0];
-            _moneys.RemoveAt(0);
-            UnityEngine.Object.Destroy(money);
+            try
+            {
+                GameObject money = _moneys[0];
+                _moneys.RemoveAt(0);
+                UnityEngine.Object.Destroy(money);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+                throw;
+            }
         }
     }
 }

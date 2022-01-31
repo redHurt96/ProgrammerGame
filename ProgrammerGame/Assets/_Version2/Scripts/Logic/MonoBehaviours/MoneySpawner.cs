@@ -17,14 +17,12 @@ namespace AP.ProgrammerGame_v2.Logic
         private void OnDestroy() => 
             GlobalEvents.MoneyCountChanged += SpawnMoney;
 
-        private void SpawnMoney(float amount)
+        private void SpawnMoney(int amount)
         {
             if (amount <= 0)
                 return;
 
-            var count = (int)amount;
-
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < amount; i++)
                 Spawn();
         }
 

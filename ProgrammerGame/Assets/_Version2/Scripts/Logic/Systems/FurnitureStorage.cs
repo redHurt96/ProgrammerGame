@@ -1,20 +1,35 @@
-using System;
+using RH.Utilities.SingletonAccess;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace AP.ProgrammerGame_v2.Logic
 {
-    public class FurnitureStorage : IDisposable
+    public class FurnitureStorage : Singleton<FurnitureStorage>
     {
         private readonly Dictionary<FurnitureSlotType, GameObject> _furnitures = new Dictionary<FurnitureSlotType, GameObject>();
 
-        public FurnitureStorage() => 
+        public FurnitureStorage() =>
             GlobalEvents.FurnitureCreated += AddFurniture;
 
-        public void Dispose() => 
+        protected override void PrepareToDestroy() =>
             GlobalEvents.FurnitureCreated -= AddFurniture;
 
-        private void AddFurniture(FurnitureSlotType type, GameObject furniture) => 
+        public void RemoveFurnitures(FurnitureSlotType[] types)
+        {
+            foreach (FurnitureSlotType type in types)
+                RemoveFurnitureIfContains(type);
+        }
+
+        private void AddFurniture(FurnitureSlotType type, GameObject furniture) =>
             _furnitures.Add(type, furniture);
+
+        private void RemoveFurnitureIfContains(FurnitureSlotType type)
+        {
+            if (_furnitures.ContainsKey(type))
+            {
+                Object.Destroy(_furnitures[type]);
+                _furnitures.Remove(type);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace AP.ProgrammerGame_v2.UI
+namespace AP.ProgrammerGame.UI
 {
     public class PcPriceTitle : BasePriceText
     {

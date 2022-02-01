@@ -2,7 +2,7 @@ using RH.Utilities.Extensions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AP.ProgrammerGame_v2.Logic
+namespace AP.ProgrammerGame.Logic
 {
     public class MoneySpawner : MonoBehaviour
     {

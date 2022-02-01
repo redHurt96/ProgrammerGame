@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AP.ProgrammerGame_v2.UI
+namespace AP.ProgrammerGame.UI
 {
     public class CodeWritingPanel : MonoBehaviour
     {

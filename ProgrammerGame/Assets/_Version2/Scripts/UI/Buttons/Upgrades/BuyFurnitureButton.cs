@@ -1,7 +1,7 @@
-using AP.ProgrammerGame_v2.Logic;
+using AP.ProgrammerGame.Logic;
 using RH.Utilities.UI;
 
-namespace AP.ProgrammerGame_v2.UI
+namespace AP.ProgrammerGame.UI
 {
     public class BuyFurnitureButton : BaseActionButton
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2
+namespace AP.ProgrammerGame
 {
     [CreateAssetMenu(fileName = "CodeSourcesArray", menuName = "Game/V2/CodeSourcesArray", order = 1)]
     public class CodeSourcesArray : ScriptableObject

@@ -1,6 +1,6 @@
 using RH.Utilities.SingletonAccess;
 
-namespace AP.ProgrammerGame_v2
+namespace AP.ProgrammerGame
 {
     public class GameData : Singleton<GameData>
     {

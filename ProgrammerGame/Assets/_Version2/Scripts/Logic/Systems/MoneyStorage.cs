@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2.Logic
+namespace AP.ProgrammerGame.Logic
 {
     public class MoneyStorage : IDisposable
     {

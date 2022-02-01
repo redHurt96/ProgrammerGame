@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AP.ProgrammerGame_v2.UI
+namespace AP.ProgrammerGame.UI
 {
     [RequireComponent(typeof(Text))]
     public abstract class BasePriceText : MonoBehaviour

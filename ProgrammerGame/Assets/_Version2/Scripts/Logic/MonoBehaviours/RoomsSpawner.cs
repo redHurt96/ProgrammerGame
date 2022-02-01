@@ -1,7 +1,7 @@
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2.Logic
+namespace AP.ProgrammerGame.Logic
 {
     public class RoomsSpawner : MonoBehaviourSingleton<RoomsSpawner>
     {

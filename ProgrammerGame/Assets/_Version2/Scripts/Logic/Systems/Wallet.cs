@@ -1,7 +1,7 @@
 using RH.Utilities.SingletonAccess;
 using System;
 
-namespace AP.ProgrammerGame_v2.Logic
+namespace AP.ProgrammerGame.Logic
 {
     public class Wallet : Singleton<Wallet>
     {

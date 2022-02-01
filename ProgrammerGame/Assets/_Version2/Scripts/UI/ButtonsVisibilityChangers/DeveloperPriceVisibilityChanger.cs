@@ -1,6 +1,6 @@
-﻿using AP.ProgrammerGame_v2.Logic;
+﻿using AP.ProgrammerGame.Logic;
 
-namespace AP.ProgrammerGame_v2.UI
+namespace AP.ProgrammerGame.UI
 {
     public class DeveloperPriceVisibilityChanger : BasePricebuttonVisibilityChanger
     {

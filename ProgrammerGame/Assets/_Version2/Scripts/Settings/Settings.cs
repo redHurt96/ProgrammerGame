@@ -1,7 +1,7 @@
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2
+namespace AP.ProgrammerGame
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/V2/Settings", order = 0)]
     public class Settings : SingletonScriptableObject<Settings>

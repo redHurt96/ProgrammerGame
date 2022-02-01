@@ -1,8 +1,8 @@
 using System;
-using AP.ProgrammerGame_v2.Logic;
+using AP.ProgrammerGame.Logic;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2
+namespace AP.ProgrammerGame
 {
     public static class GlobalEvents
     {

@@ -1,8 +1,8 @@
-﻿using AP.ProgrammerGame_v2.Logic;
+﻿using AP.ProgrammerGame.Logic;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
-namespace AP.ProgrammerGame_v2
+namespace AP.ProgrammerGame
 {
     public class SceneObjects : MonoBehaviourSingleton<SceneObjects>
     {

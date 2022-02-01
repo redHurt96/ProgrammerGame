@@ -42,8 +42,9 @@ namespace AP.ProgrammerGame_v2.Logic
         {
             try
             {
-                GameObject money = _moneys[0];
-                _moneys.RemoveAt(0);
+                var index = _moneys.Count - 1;
+                GameObject money = _moneys[index];
+                _moneys.RemoveAt(index);
                 UnityEngine.Object.Destroy(money);
             }
             catch (Exception e)

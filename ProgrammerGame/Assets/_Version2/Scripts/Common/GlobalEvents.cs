@@ -19,6 +19,8 @@ namespace AP.ProgrammerGame_v2
 
         public static event Action<FurnitureSlotType, GameObject> FurnitureCreated;
 
+        public static event Action BuyDeveloperCompleted;
+
         public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
         public static void CatchBug() => BugCatched?.Invoke();
@@ -27,5 +29,6 @@ namespace AP.ProgrammerGame_v2
         public static void CreateMoney(GameObject money) => MoneyCreated?.Invoke(money);
         public static void CreateFurniture(FurnitureSlotType type, GameObject furniture) => FurnitureCreated?.Invoke(type, furniture);
         public static void UpdateMoneyCount() => ChangeMoneyCount(0);
+        public static void BuyDeveloperComplete() => BuyDeveloperCompleted?.Invoke();
     }
 }

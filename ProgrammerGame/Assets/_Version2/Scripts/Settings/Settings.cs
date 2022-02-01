@@ -20,5 +20,8 @@ namespace AP.ProgrammerGame_v2
         public float LevelPerFurniture = 1f;
         public float LevelPerPc = 3f;
         public float LevelPerDeveloper = 10f;
+
+        [Space]
+        public float MoneyRigidbodyRemoveTime = 5f;
     }
 }

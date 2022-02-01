@@ -30,6 +30,10 @@ MonoBehaviour:
     ReplacingTypes: 
     Type: 3
     Furniture: {fileID: 2317863075466465605, guid: 7dba57de18c6476438fdd1e2ba9ced4c, type: 3}
+  - Level: 0
+    ReplacingTypes: 
+    Type: 2
+    Furniture: {fileID: 4912348885659636599, guid: 17b94ce27c123f647aa65aeaf6d81830, type: 3}
   FurnitureToPurchase:
   - Level: 1
     ReplacingTypes: 03000000
@@ -96,15 +100,11 @@ MonoBehaviour:
     Type: 13
     Furniture: {fileID: 4542796669774197349, guid: b2b7b9876132e1b45b85f0bba8103488, type: 3}
   Computers:
-  - Level: 0
-    ReplacingTypes: 
-    Type: 2
-    Furniture: {fileID: 4912348885659636599, guid: 17b94ce27c123f647aa65aeaf6d81830, type: 3}
-  - Level: 0
+  - Level: 1
     ReplacingTypes: 02000000
     Type: 2
     Furniture: {fileID: 9144531276924982992, guid: cb38807890fced04a80e7a73276a5e66, type: 3}
-  - Level: 0
+  - Level: 2
     ReplacingTypes: 02000000
     Type: 2
     Furniture: {fileID: 3372049866683523838, guid: 4898be4d92f399e4dab7cc5dc17d2122, type: 3}

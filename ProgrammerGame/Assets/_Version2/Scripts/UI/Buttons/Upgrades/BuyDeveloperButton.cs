@@ -8,17 +8,14 @@ namespace AP.ProgrammerGame_v2.UI
         protected override void PerformOnClick()
         {
             RemoveMoney();
-            BuyFurniture();
             ChangeGameData();
 
             GlobalEvents.UpdateMoneyCount();
+            GlobalEvents.BuyDeveloperComplete();
         }
 
         private static void RemoveMoney() =>
             Wallet.Instance.ChangeMoneyCount(-GameData.Instance.DeveloperPrice);
-
-        private static void BuyFurniture() =>
-            OfficeUpgradeManager.Instance.BuyFurniture();
 
         private static void ChangeGameData()
         {

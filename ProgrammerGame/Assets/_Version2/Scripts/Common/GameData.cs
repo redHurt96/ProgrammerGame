@@ -20,7 +20,7 @@ namespace AP.ProgrammerGame_v2
         public int DeveloperPrice => (int)Settings.Instance.MoneyPerDeveloper.Evaluate(PurchasedDevelopersCount);
 
         public int PurchasedFurnitureCount = 0;
-        public int PurchasedComputersCount = 1;
+        public int PurchasedComputersCount = 0;
         public int PurchasedDevelopersCount = 0;
 
         private int _moneyForCodeBase = 1;

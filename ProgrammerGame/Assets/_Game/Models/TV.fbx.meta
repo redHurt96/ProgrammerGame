@@ -33,17 +33,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: UberTexture
-    second: {fileID: 2100000, guid: 821c05f53508f5646a8ccc9b50c3dbb6, type: 2}
+    second: {fileID: 2100000, guid: 7550dcc76520939448b150b4ece34b4b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wood
-    second: {fileID: 2100000, guid: 634aa8a126e28be4dae2ec43b7fa58b1, type: 2}
+    second: {fileID: 2100000, guid: 21b11698561266d4eb3aed9e340c4f36, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: black
-    second: {fileID: 2100000, guid: 9d2f49fb98c85854887fec5cd8fae85b, type: 2}
+    second: {fileID: 2100000, guid: 823b23dbad90b3046ad13db4fe23fe8a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -128,7 +128,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0001
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

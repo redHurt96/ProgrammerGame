@@ -13,12 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.006
-    second: {fileID: 2100000, guid: 3607e695b43906a40beedc11161e772a, type: 2}
+    second: {fileID: 2100000, guid: 0c9f9048e70233b4799eb8db57441122, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal
-    second: {fileID: 2100000, guid: b00615d5b64a58f4daf71ded0ff9d7ed, type: 2}
+    second: {fileID: 2100000, guid: d4333995086266b4a8536fa416a4df98, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,17 +28,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red
-    second: {fileID: 2100000, guid: 1dd08897fb0d0f242b7a1793829ecea2, type: 2}
+    second: {fileID: 2100000, guid: 69969cfe1d2c72e428d431ab9c76cc92, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: UberTexture
-    second: {fileID: 2100000, guid: f8e72775c2617ea40bae49a9b06d6463, type: 2}
+    second: {fileID: 2100000, guid: 7550dcc76520939448b150b4ece34b4b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: black
-    second: {fileID: 2100000, guid: 3dbaeac96d1a95c4e971e3a0631250b0, type: 2}
+    second: {fileID: 2100000, guid: 823b23dbad90b3046ad13db4fe23fe8a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -138,7 +138,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0001
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

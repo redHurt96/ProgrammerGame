@@ -7,6 +7,13 @@ namespace RH.Utilities.SimpleCi
 {
     public static class Builder
     {
+        static Builder()
+        {
+            if (!Directory.Exists(Path.Combine(Application.dataPath, "..", "Artifacts")))
+                Directory.CreateDirectory(Path.Combine(Application.dataPath, "..", "Artifacts"));
+        }
+
+
         [MenuItem("Build/📦 Android")]
         public static void ToAndroid()
         {

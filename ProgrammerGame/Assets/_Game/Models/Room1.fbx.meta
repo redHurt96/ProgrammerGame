@@ -18,12 +18,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 27299cbeeda2bc147a54a50dabf32dc2, type: 2}
+    second: {fileID: 2100000, guid: d5401ddab0a8e6b46911773cbc7c6a8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: 9a1d5ec4c95112d4b99ee3bf55eceb6c, type: 2}
+    second: {fileID: 2100000, guid: 927908f8a43ac824cbdabd5eb3d9d7cd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -43,27 +43,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal
-    second: {fileID: 2100000, guid: a96da1421ea8b64479ee6ad5c51e0145, type: 2}
+    second: {fileID: 2100000, guid: d4333995086266b4a8536fa416a4df98, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal.001
-    second: {fileID: 2100000, guid: 95b0ea1c06f8fd243aa0f476b82cb8c3, type: 2}
+    second: {fileID: 2100000, guid: 77902172a144d21499f3eb683b5c61aa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red
-    second: {fileID: 2100000, guid: e090b9df11cc36142b7f0dcda0865ebe, type: 2}
+    second: {fileID: 2100000, guid: 69969cfe1d2c72e428d431ab9c76cc92, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: UberTexture
-    second: {fileID: 2100000, guid: 71c6735f260e6cb4f984726111bc407f, type: 2}
+    second: {fileID: 2100000, guid: 7550dcc76520939448b150b4ece34b4b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: black
-    second: {fileID: 2100000, guid: bf69699cf5491024280e8d4f5bb7d84f, type: 2}
+    second: {fileID: 2100000, guid: 823b23dbad90b3046ad13db4fe23fe8a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -78,12 +78,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat15
-    second: {fileID: 2100000, guid: 5bd7f1d1be30ae1498633ed2240d9fcb, type: 2}
+    second: {fileID: 2100000, guid: b714c5b5eea015944b02df04b83edbe0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat21
-    second: {fileID: 2100000, guid: 6f61a853b05966f41aebd2c0739aee14, type: 2}
+    second: {fileID: 2100000, guid: a82b873c82fd71544953d6d4eabe7d0b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -93,7 +93,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat23.002
-    second: {fileID: 2100000, guid: fbd0270f24c081444b1d83469a5ee2f4, type: 2}
+    second: {fileID: 2100000, guid: a7056b63c79b3b244800019a6046e031, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -113,12 +113,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: white
-    second: {fileID: 2100000, guid: 14fa39efb512af541bc22034feddd65e, type: 2}
+    second: {fileID: 2100000, guid: 0ef88a1c97a6afb4ebab23470cb88aff, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wood
-    second: {fileID: 2100000, guid: 4ba496221f9b25a479e4c8589ff0e689, type: 2}
+    second: {fileID: 2100000, guid: 21b11698561266d4eb3aed9e340c4f36, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -203,7 +203,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0001
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

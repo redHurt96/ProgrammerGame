@@ -23,5 +23,9 @@ namespace AP.ProgrammerGame
 
         [Space]
         public float MoneyRigidbodyRemoveTime = 5f;
+
+        [Space]
+        public float BugMoveTime;
+        public float BugMoveDelay;
     }
 }

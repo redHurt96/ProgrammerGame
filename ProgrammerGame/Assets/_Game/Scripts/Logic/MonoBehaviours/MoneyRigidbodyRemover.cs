@@ -12,6 +12,7 @@ namespace AP.ProgrammerGame.Logic
             InitYieldInstruction();
 
             yield return _waitForSeconds;
+
             Destroy(GetComponent<Rigidbody>());
             Destroy(this);
         }

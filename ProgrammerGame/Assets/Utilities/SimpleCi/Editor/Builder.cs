@@ -13,7 +13,6 @@ namespace RH.Utilities.SimpleCi
                 Directory.CreateDirectory(Path.Combine(Application.dataPath, "..", "Artifacts"));
         }
 
-
         [MenuItem("Build/📦 Android")]
         public static void ToAndroid()
         {

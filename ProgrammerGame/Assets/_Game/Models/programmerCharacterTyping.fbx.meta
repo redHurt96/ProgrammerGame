@@ -6,27 +6,7 @@ ModelImporter:
   - first:
       74: -8642952768357025412
     second: Idle
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Fabric 1.005
-    second: {fileID: 2100000, guid: 9d9d88d9eb37ac046bfff309d2f9dcfd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Hair 1.005
-    second: {fileID: 2100000, guid: 15854ab0fef8cd946a5d7f0f21d1b080, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shirt 2.005
-    second: {fileID: 2100000, guid: 0ad56d169e6e10942a6d20a032006cf1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Skin 1.005
-    second: {fileID: 2100000, guid: 6a9d6d77b8ac71b4691c2fdd6dfb0861, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

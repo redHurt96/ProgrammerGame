@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac1c5dbe9a15964dae91e0cc1dc7c2c, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  MoneyPrefab: {fileID: 6627809338925039204, guid: e74f0bad6affce54092a0566f574b3c6, type: 3}
+  MoneyPrefab: {fileID: 9153575133739193299, guid: 2c88379fc7873a04fb6330e3740eb06e, type: 3}
   MoneyPerLevel:
     serializedVersion: 2
     m_Curve:

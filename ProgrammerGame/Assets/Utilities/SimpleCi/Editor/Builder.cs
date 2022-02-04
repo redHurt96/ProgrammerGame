@@ -13,7 +13,7 @@ namespace RH.Utilities.SimpleCi
                 Directory.CreateDirectory(Path.Combine(Application.dataPath, "..", "Artifacts"));
         }
 
-        [MenuItem("Build/📦 Android")]
+        [MenuItem("📦 Build/Android")]
         public static void ToAndroid()
         {
             BuildPipeline.BuildPlayer(
@@ -25,7 +25,7 @@ namespace RH.Utilities.SimpleCi
                 });
         }
 
-        [MenuItem("Build/📁 Show build folder")]
+        [MenuItem("📦 Build/📁 Show build folder")]
         private static void OpenBuildsFolder()
         {
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo() {

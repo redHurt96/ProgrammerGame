@@ -14,97 +14,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HouseBase: {fileID: 903773530159137489, guid: 3dc6950daa556ae4b8bddbd40d4e26cc, type: 3}
   DefaultFurniture:
-  - Level: 0
-    ReplacingTypes: 
+  - ReplacingTypes: 
     Type: 1
-    Furniture: {fileID: 3767920853273419874, guid: 82da539448b0b9f428dd73cec2825808, type: 3}
-  - Level: 0
-    ReplacingTypes: 
+    Furniture: {fileID: 6439615217822172593, guid: 669e71cce41ff5247b12962b2d43e6ef, type: 3}
+  - ReplacingTypes: 
     Type: 5
-    Furniture: {fileID: 5175494530057714776, guid: 4c5a542343cb87146a366e71ace396a1, type: 3}
-  - Level: 0
-    ReplacingTypes: 
+    Furniture: {fileID: 1023792063383459102, guid: ef5135fa063dc2543ae1f7ec8e57ec26, type: 3}
+  - ReplacingTypes: 
     Type: 4
-    Furniture: {fileID: 3152668752393601173, guid: c8d5e007c452a7043ac34725d31b0b45, type: 3}
-  - Level: 0
-    ReplacingTypes: 
+    Furniture: {fileID: 7673289154610958929, guid: 335b86cad5e653b41a85f8e5f6f82652, type: 3}
+  - ReplacingTypes: 
     Type: 3
-    Furniture: {fileID: 2317863075466465605, guid: 7dba57de18c6476438fdd1e2ba9ced4c, type: 3}
-  - Level: 0
-    ReplacingTypes: 
+    Furniture: {fileID: 5361779547336535107, guid: 0952990f0b19338449cf841555949837, type: 3}
+  - ReplacingTypes: 
     Type: 2
-    Furniture: {fileID: 4912348885659636599, guid: 17b94ce27c123f647aa65aeaf6d81830, type: 3}
+    Furniture: {fileID: 825340223089466579, guid: b174e89b99a217c4282ed88d2842b346, type: 3}
   FurnitureToPurchase:
-  - Level: 1
-    ReplacingTypes: 03000000
+  - ReplacingTypes: 03000000
     Type: 3
-    Furniture: {fileID: 2815462340348647966, guid: 898b0188d546b8c42aaa54a0e63070e2, type: 3}
-  - Level: 1
-    ReplacingTypes: 01000000
+    Furniture: {fileID: 6609681289953020909, guid: 6dd268585ad09ba4bac2f17a9e7c9a8f, type: 3}
+  - ReplacingTypes: 01000000
     Type: 1
-    Furniture: {fileID: 7346785906602221224, guid: 5f50bcab69914474684b748c00e625f8, type: 3}
-  - Level: 1
-    ReplacingTypes: 05000000
+    Furniture: {fileID: 3441284538822890209, guid: 9999bb21a78487b498051ba48448f977, type: 3}
+  - ReplacingTypes: 05000000
     Type: 6
-    Furniture: {fileID: 2853862585053577246, guid: 531b6da6c9a87724186bde56e9386e1c, type: 3}
-  - Level: 1
-    ReplacingTypes: 
+    Furniture: {fileID: 3663402715896491756, guid: 09175d284246ffd4eb5f33c710e9d11a, type: 3}
+  - ReplacingTypes: 
     Type: 9
-    Furniture: {fileID: 1175945206053166882, guid: a9b4def30f0d13344a44f087754031d0, type: 3}
-  - Level: 1
-    ReplacingTypes: 
+    Furniture: {fileID: 5487103300428745801, guid: cdfcce1485510d04a9a6f7a1a5f538fd, type: 3}
+  - ReplacingTypes: 
     Type: 10
-    Furniture: {fileID: 514149307636329036, guid: 3223e6624eb5a5441ba82d1f64044c92, type: 3}
-  - Level: 1
-    ReplacingTypes: 
+    Furniture: {fileID: 1604112146917938613, guid: 69ce4217158a3ff43bc72c308c8ab15c, type: 3}
+  - ReplacingTypes: 
     Type: 8
-    Furniture: {fileID: 1307531082970728313, guid: 4a498bf25676ea44b8b49b336219fc9e, type: 3}
-  - Level: 1
-    ReplacingTypes: 04000000
+    Furniture: {fileID: 1929771310436701961, guid: a273c6a821de1e84f9e660bbd1cb471e, type: 3}
+  - ReplacingTypes: 04000000
     Type: 7
-    Furniture: {fileID: 7654406936699133765, guid: bb157ae13b8df114eba4b44369541533, type: 3}
-  - Level: 2
-    ReplacingTypes: 03000000
+    Furniture: {fileID: 1061979162049298523, guid: 6df5bde23a506d3489f0f4bc0ea73d1f, type: 3}
+  - ReplacingTypes: 03000000
     Type: 3
-    Furniture: {fileID: 884785804146644547, guid: 1999756d5a6b0004f851470cd7f840b6, type: 3}
-  - Level: 2
-    ReplacingTypes: 01000000
+    Furniture: {fileID: 5269279887721607344, guid: 3653e213443198c4484773c06cac8cef, type: 3}
+  - ReplacingTypes: 01000000
     Type: 1
-    Furniture: {fileID: 6971883352140306821, guid: a9ca007f0511bb3478e81645a763cf86, type: 3}
-  - Level: 2
-    ReplacingTypes: 
+    Furniture: {fileID: 4627964724577146364, guid: 1b187ebb28862cd4e8eee9a64ffa2dc1, type: 3}
+  - ReplacingTypes: 
     Type: 11
-    Furniture: {fileID: 1012386252642305885, guid: e9d46f6a82c655741ab10b24d9035161, type: 3}
-  - Level: 2
-    ReplacingTypes: 
+    Furniture: {fileID: 4579077512182909973, guid: 9c27a92c1a3d40e48ba1ebabdb2a5131, type: 3}
+  - ReplacingTypes: 
     Type: 12
-    Furniture: {fileID: 749704681532262184, guid: 2033a6fa53766f44c87ed9e46944ebbc, type: 3}
-  - Level: 2
-    ReplacingTypes: 07000000
+    Furniture: {fileID: 5777698287056311886, guid: cc967b13d1cf6d944a22c32101c4a938, type: 3}
+  - ReplacingTypes: 07000000
     Type: 7
-    Furniture: {fileID: 5950546848007665670, guid: 8e2abc3ca79d72845b922e6b7e7af67a, type: 3}
-  - Level: 2
-    ReplacingTypes: 06000000
+    Furniture: {fileID: 8632133705607362857, guid: 9d7cedc0d310ccd4ea4949eb3fddee98, type: 3}
+  - ReplacingTypes: 06000000
     Type: 6
-    Furniture: {fileID: 9082802537166299470, guid: bcb61fa859913c849b2394a9d876b557, type: 3}
-  - Level: 2
-    ReplacingTypes: 09000000
+    Furniture: {fileID: 2765578119657064728, guid: ac5fdb132aa41444ba2c80dafb6d4559, type: 3}
+  - ReplacingTypes: 09000000
     Type: 9
-    Furniture: {fileID: 206035427775219940, guid: c7ebf468fee5fdd46b9c62e644cf4ab0, type: 3}
-  - Level: 2
-    ReplacingTypes: 08000000
+    Furniture: {fileID: 3673762269393151444, guid: 40563ebf78f803f4ea0c22c53d2029b6, type: 3}
+  - ReplacingTypes: 08000000
     Type: 8
-    Furniture: {fileID: 6965378040217744864, guid: 458a7a05aa9e87844943c9a723ca0d62, type: 3}
-  - Level: 2
-    ReplacingTypes: 08000000
+    Furniture: {fileID: 1887923630666700069, guid: 54108c975b890b941892bd8c2e2a6941, type: 3}
+  - ReplacingTypes: 08000000
     Type: 13
     Furniture: {fileID: 4542796669774197349, guid: b2b7b9876132e1b45b85f0bba8103488, type: 3}
   Computers:
-  - Level: 1
-    ReplacingTypes: 02000000
+  - ReplacingTypes: 02000000
     Type: 2
     Furniture: {fileID: 9144531276924982992, guid: cb38807890fced04a80e7a73276a5e66, type: 3}
-  - Level: 2
-    ReplacingTypes: 02000000
+  - ReplacingTypes: 02000000
     Type: 2
     Furniture: {fileID: 3372049866683523838, guid: 4898be4d92f399e4dab7cc5dc17d2122, type: 3}

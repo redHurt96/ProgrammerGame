@@ -13,19 +13,47 @@ MonoBehaviour:
   m_Name: CodeSourcesArray
   m_EditorClassIdentifier: 
   _codeSources:
-  - Source: "using UnityEngine;\r\nusing UnityEngine.UI;\r\n\r\nnamespace AP.ProgrammerGame_v2.UI\r\n{\r\n   
-      public class CodeWritingPanel : MonoBehaviour\r\n    {\r\n        [SerializeField]
-      private Text _code;\r\n\r\n        [Space]\r\n        [SerializeField] private
-      CodeSourcesArray _sources;\r\n\r\n        private string _source => _sources.Current;\r\n\r\n       
-      private void Start()\r\n        {\r\n            GlobalEvents.CodeWritten +=
-      Write;\r\n            GlobalEvents.CodeWrittenComplete += UpdateSource;\r\n       
-      }\r\n\r\n        private void OnDestroy()\r\n        {\r\n            GlobalEvents.CodeWritten
-      -= Write;\r\n            GlobalEvents.CodeWrittenComplete -= UpdateSource;\r\n       
-      }\r\n\r\n        private void Write()\r\n        {\r\n            int symbolsCount
-      = (int)(GameData.Instance.CodeWritingProgress * _source.Length);\r\n           
-      symbolsCount = Mathf.Min(symbolsCount, _source.Length);\r\n\r\n           
-      _code.text = _source.Substring(0, symbolsCount);\r\n        }\r\n\r\n       
-      private void UpdateSource() => _sources.GetNext();\r\n    }\r\n}"
+  - Source: "using AP.ProgrammerGame.Logic;\r\nusing UnityEngine;\r\n\r\nnamespace
+      AP.ProgrammerGame\r\n{\r\n    public class EntryPoint : MonoBehaviour\r\n   
+      {\r\n        [SerializeField] private Settings _settings;\r\n        [SerializeField]
+      private FurnitureRefs _furnitureRefs;\r\n\r\n        private void Awake()\r\n       
+      {\r\n            _settings.CreateInstance();\r\n            _furnitureRefs.CreateInstance();\r\n\r\n           
+      new GameData();\r\n            new CodeWritingProcess();\r\n            new
+      Wallet();\r\n            new CodeWritingAccelerator();\r\n            new MoneyStorage();\r\n           
+      new FurnitureStorage();\r\n            new BaseHouseSpawnSystem();\r\n           
+      new HouseUpgradeManager();\r\n        }\r\n    }\r\n}\nusing RH.Utilities.SingletonAccess;\r\n\r\nnamespace
+      AP.ProgrammerGame\r\n{\r\n    public class GameData : Singleton<GameData>\r\n   
+      {\r\n        public float CodeWritingTime = 5f;\r\n        public float CodeWritingProgress
+      = 0f;\r\n        public float AccelerationCodeProgressPercent = .05f;\r\n\r\n       
+      public int MoneyForCode => (int)(_moneyForCodeBase * _levelMoneyCoefficient);\r\n       
+      public int MoneyForBug => (int)(_moneyForBugBase * _levelMoneyCoefficient);\r\n\r\n       
+      public int MoneyCount = 0;\r\n\r\n        public float Level = 0f;\r\n\r\n       
+      public int FurniturePrice => (int)Settings.Instance.MoneyPerFurniture.Evaluate(PurchasedFurnitureCount);\r\n       
+      public int PcPrice => (int)Settings.Instance.MoneyPerComputer.Evaluate(PurchasedComputersCount)\n\nusing
+      System;\r\nusing AP.ProgrammerGame.Logic;\r\nusing UnityEngine;\r\n\r\nnamespace
+      AP.ProgrammerGame\r\n{\r\n    public static class GlobalEvents\r\n    {\r\n       
+      public static event Action CodeWrittenComplete;\r\n        public static event
+      Action CodeWritten;\r\n\r\n        public static event Action BugCatched;\r\n\r\n       
+      public static event Action<int> MoneyCountChanged;\r\n\r\n        public static
+      event Action OnCodingAccelerated;\r\n\r\n        public static event Action<GameObject>
+      MoneyCreated;\r\n\r\n        public static event Action<FurnitureSlotType,
+      GameObject> FurnitureCreated;\r\n\r\n        public static event Action BuyDeveloperCompleted;\r\n\r\n       
+      public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();\r\n       
+      public static void WriteCode() => CodeWritten?.Invoke();\r\n        public
+      static void CatchBug() => BugCatched?.Invoke();\r\n        public static void
+      ChangeMoneyCount(int amount) => MoneyCountChanged?.Invoke(amount);\r\n       
+      public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();\r\n       
+      public static void CreateMoney(GameObject money) => MoneyCreated?.Invoke(money);\r\n       
+      public static void CreateFurniture(FurnitureSlotType type, GameObject furniture)
+      => FurnitureCreated?.Invoke(type, furniture);\r\n        public static void
+      UpdateMoneyCount() => ChangeMoneyCount(0);\r\n        public static void BuyDeveloperComplete()
+      => BuyDeveloperCompleted?.Invoke();\r\n    }\r\n};\r\n        public int DeveloperPrice
+      => (int)Settings.Instance.MoneyPerDeveloper.Evaluate(PurchasedDevelopersCount);\r\n\r\n       
+      public int PurchasedFurnitureCount = 0;\r\n        public int PurchasedComputersCount
+      = 0;\r\n        public int PurchasedDevelopersCount = 0;\r\n\r\n     \n\n  
+      private int _moneyForCodeBase = 1;\r\n        private int _moneyForBugBase
+      = 3;\r\n\r\n        private float _levelMoneyCoefficient => Settings.Instance.MoneyPerLevel.Evaluate(Level);\r\n   
+      }\r\n}"
   - Source: "using RH.Utilities.Coroutines;\r\nusing System;\r\nusing System.Collections;\r\nusing
       UnityEngine;\r\n\r\nnamespace AP.ProgrammerGame_v2.Logic\r\n{\r\n    public
       class CodeWritingProcess : IDisposable\r\n    {\r\n        private GameData
@@ -40,4 +68,21 @@ MonoBehaviour:
       }\r\n\r\n        private void CompleteWriteCodeIfPossible()\r\n        {\r\n           
       if (_gameData.CodeWritingProgress >= 1)\r\n            {\r\n               
       _gameData.CodeWritingProgress = 0;\r\n                GlobalEvents.CompleteWriteCode();\r\n           
-      }\r\n        }\r\n    }\r\n}"
+      }\r\n        }\r\n    }\r\n}\n\nusing Cinemachine;\r\nusing UnityEngine;\r\n\r\nnamespace
+      AP.ProgrammerGame.Logic\r\n{\r\n    public class CamerasPositionsArray : MonoBehaviour\r\n   
+      {\r\n        public CinemachineVirtualCamera[] CamerasPerDeveloper;\r\n\r\n       
+      private void Start() => GlobalEvents.BuyDeveloperCompleted += UpdateCameraPosition;\r\n       
+      private void OnDestroy() => GlobalEvents.BuyDeveloperCompleted -= UpdateCameraPosition;\r\n\r\n       
+      private void UpdateCameraPosition()\r\n        {\r\n            for (int i
+      = 0; i < CamerasPerDeveloper.Length; i++)\r\n                CamerasPerDeveloper[i].Priority
+      = i == GameData.Instance.PurchasedDevelopersCount ? 1 : 0;\r\n        }\r\n   
+      }\r\n}\n\nusing UnityEngine;\r\n\r\nnamespace AP.ProgrammerGame.Logic\r\n{\r\n   
+      public class CharacterMaterialColorChanger : MonoBehaviour\r\n    {\r\n       
+      [SerializeField] private int _materialIndex = 0;\r\n        [SerializeField]
+      private Color[] _possibleColors;\r\n\r\n        private Material _material;\r\n\r\n       
+      private void Start()\r\n        {\r\n            ChangeColor();\r\n           
+      Destroy(this);\r\n        }\r\n\r\n        private void ChangeColor()\r\n       
+      {\r\n            _material = GetComponent<SkinnedMeshRenderer>().materials[_materialIndex];\r\n           
+      _material.color = GetRandomColor();\r\n        }\r\n\r\n        private Color
+      GetRandomColor()\r\n        {\r\n            var index = Random.Range(0, _possibleColors.Length);\r\n           
+      return _possibleColors[index];\r\n        }\r\n    }\r\n}"

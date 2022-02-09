@@ -122,6 +122,6 @@ MonoBehaviour:
   LevelPerFurniture: 0.75
   LevelPerPc: 3
   LevelPerDeveloper: 10
-  MoneyRigidbodyRemoveTime: 3
+  MoneyRigidbodyRemoveTime: 2
   BugMoveTime: 3
   BugMoveDelay: 3

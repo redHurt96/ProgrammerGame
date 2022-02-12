@@ -7,15 +7,15 @@ namespace AP.ProgrammerGame.UI
 {
     public class BugButtonMover : MonoBehaviour
     {
-        [SerializeField] private CatchBugButton _bugButton;
-        private float _moveTime => Settings.Instance.BugMoveTime;
         private Vector2 _sizeDelta;
-
+        private CatchBugButton _bugButton;
         private WaitForSeconds _delay;
+
+        private float _moveTime => Settings.Instance.BugMoveTime;
 
         private void Awake()
         {
-            _sizeDelta = new Vector2(Screen.width, (transform as RectTransform).sizeDelta.y);
+            _sizeDelta = new Vector2(Screen.width, 300f);
             _delay = new WaitForSeconds(Settings.Instance.BugMoveDelay);
         }
 
@@ -63,6 +63,10 @@ namespace AP.ProgrammerGame.UI
 
         private void PrepareBugButton(Vector2 startPosition, Vector2 endPosition)
         {
+            if (_bugButton != null)
+                Destroy(_bugButton.gameObject);
+
+            _bugButton = Instantiate(Settings.Instance.BugPrefab, transform);
             _bugButton.Enable();
             _bugButton.Rotate((endPosition - startPosition).normalized);
             _bugButton.AnchoredPosition = startPosition;

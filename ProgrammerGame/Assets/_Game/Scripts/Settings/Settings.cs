@@ -1,3 +1,4 @@
+using AP.ProgrammerGame.UI;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
@@ -30,5 +31,6 @@ namespace AP.ProgrammerGame
 
         [Space]
         public GameObject TapFxPrefab;
+        public CatchBugButton BugPrefab;
     }
 }

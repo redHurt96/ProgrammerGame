@@ -24,8 +24,14 @@ namespace AP.ProgrammerGame.UI
 
         public void Enable() => SetActive(true);
 
-        public void Rotate(Vector2 direction) =>
-            _rectTransform.up = direction;
+        public void Rotate(Vector2 direction)
+        {
+            float angle = Vector2.SignedAngle(transform.up, direction);
+            Debug.Log(angle);
+            _rectTransform.Rotate(0f, 0f, angle);
+            //_rectTransform.Rotate(0f, 0f, angle);
+            //_rectTransform.up = direction;
+        }
 
         protected override void PerformOnClick()
         {

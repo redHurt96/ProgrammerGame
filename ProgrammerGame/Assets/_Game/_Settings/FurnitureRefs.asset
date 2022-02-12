@@ -81,7 +81,7 @@ MonoBehaviour:
   Computers:
   - ReplacingTypes: 02000000
     Type: 2
-    Furniture: {fileID: 9144531276924982992, guid: cb38807890fced04a80e7a73276a5e66, type: 3}
+    Furniture: {fileID: 175414568852422907, guid: be7f3babda485504ea030e27655f593e, type: 3}
   - ReplacingTypes: 02000000
     Type: 2
-    Furniture: {fileID: 3372049866683523838, guid: 4898be4d92f399e4dab7cc5dc17d2122, type: 3}
+    Furniture: {fileID: 5548258908480520981, guid: b3aa31a9a33d6454ca80d938b7b09d9f, type: 3}

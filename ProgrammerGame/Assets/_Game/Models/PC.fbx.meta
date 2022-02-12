@@ -1,32 +1,29 @@
 fileFormatVersion: 2
-guid: 67ec2d899233cf04dbc075f6ccb54098
+guid: e9e956edc1006af4eb2b49f5e0515390
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -8642952768357025412
-    second: Idle
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Fabric 1.005
-    second: {fileID: 2100000, guid: 0c5b0ad1209f62740b1039b8d02f59d1, type: 2}
+      name: Mat
+    second: {fileID: 2100000, guid: 4e766e34ff05caa4b81245bde34f41c7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Hair 1.005
-    second: {fileID: 2100000, guid: 26f84737308bf574fbab7ff94d9b0b6f, type: 2}
+      name: Material.001
+    second: {fileID: 2100000, guid: df3f94549223d5c478d03804dc916aca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Shirt 2.005
-    second: {fileID: 2100000, guid: 9908ac773ba40ff4b80f0d4feb004a87, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: df784364f2797fc4f89e5df9e43c388e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Skin 1.005
-    second: {fileID: 2100000, guid: 167ff3e5276b06f469ad44861bcf5feb, type: 2}
+      name: Material.003
+    second: {fileID: 2100000, guid: f4f15a964dadade449897c83795077b8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,40 +50,11 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Idle
-      takeName: Male Bones.001|Male Bones.001|mixamo.com|Layer0.001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 494
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -137,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

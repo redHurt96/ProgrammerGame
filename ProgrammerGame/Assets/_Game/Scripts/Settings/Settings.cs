@@ -27,5 +27,8 @@ namespace AP.ProgrammerGame
         [Space]
         public float BugMoveTime;
         public float BugMoveDelay;
+
+        [Space]
+        public GameObject TapFxPrefab;
     }
 }

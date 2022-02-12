@@ -12,5 +12,8 @@ namespace AP.ProgrammerGame
         [Space]
         public CamerasPositionsArray CamerasPositionsArray;
         public RoomsSpawner roomsSpawner;
+
+        [Space] 
+        public Transform FxCanvas;
     }
 }

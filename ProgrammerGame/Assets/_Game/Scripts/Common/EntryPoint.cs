@@ -21,6 +21,7 @@ namespace AP.ProgrammerGame
             new FurnitureStorage();
             new BaseHouseSpawnSystem();
             new HouseUpgradeManager();
+            new TapFxCreateSystem();
         }
     }
 }

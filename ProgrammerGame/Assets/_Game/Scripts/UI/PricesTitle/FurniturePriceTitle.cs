@@ -1,5 +1,3 @@
-using System.Globalization;
-
 namespace AP.ProgrammerGame.UI
 {
     public class FurniturePriceTitle : BasePriceText

@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using _Game.Scripts.Exception;
+using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,33 +9,57 @@ namespace AP.ProgrammerGame.UI.Projects
 {
     public class ActiveContent : MonoBehaviour
     {
+        [SerializeField] private Image _icon;
         [SerializeField] private Text _level;
         [SerializeField] private Text _income;
         [SerializeField] private Text _price;
         [SerializeField] private Image _progressBarFill;
         [SerializeField] private Text _timer;
+        [SerializeField] private Button _buyButton;
+        [SerializeField] private Button _runButton;
 
         private ProjectData _projectData;
 
-        public void Setup(ProjectData projectData)
+        public void Setup(ProjectData projectData, ProjectSettings settings, Action buyAction, Action runAction)
         {
             _projectData = projectData;
 
+            _icon.sprite = settings.Icon;
+
+            AddButtonsListeners(buyAction, runAction);
             UpdateTitles();
             UpdateContent();
             Subscribe();
         }
 
-        private void Subscribe()
+        private void AddButtonsListeners(Action buyAction, Action runAction)
         {
-            _projectData.ProgressUpdated += UpdateContent;
-            _projectData.Finished += UpdateTitles;
+            _buyButton.onClick.RemoveAllListeners();
+            _buyButton.onClick.AddListener(buyAction.Invoke);
+            
+            _runButton.onClick.RemoveAllListeners();
+            _runButton.onClick.AddListener(runAction.Invoke);
         }
+
+        private void Subscribe() => 
+            _projectData.DataUpdated += UpdateContent;
 
         private void OnDestroy()
         {
-            _projectData.ProgressUpdated -= UpdateContent;
-            _projectData.Finished -= UpdateTitles;
+            if (_projectData != null)
+                _projectData.DataUpdated -= UpdateContent;
+        }
+
+        private void UpdateContent()
+        {
+            UpdateTitles();
+
+            _progressBarFill.fillAmount = _projectData.Progress;
+
+            if (!_projectData.Progress.Approximately(0f) && !_projectData.Progress.Approximately(1f))
+                _timer.text = _projectData.CurrentTimeToFinish.ToString(@"h\:mm\:ss");
+            else
+                _timer.text = TimeSpan.FromSeconds(_projectData.TimeToFinish).ToString(@"h\:mm\:ss");
         }
 
         private void UpdateTitles()
@@ -41,12 +67,6 @@ namespace AP.ProgrammerGame.UI.Projects
             _level.text = $"{_projectData.Level}/{GetCloseLevelTarget(_projectData.Level)}";
             _income.text = _projectData.Income.ToPriceString();
             _price.text = _projectData.Price.ToPriceString();
-        }
-
-        private void UpdateContent()
-        {
-            _progressBarFill.fillAmount = _projectData.Progress;
-            _timer.text = _projectData.TimeToFinish.ToString("h:mm:ss");
         }
 
         private string GetCloseLevelTarget(int level) =>

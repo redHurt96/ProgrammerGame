@@ -1,16 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace AP.ProgrammerGame.UI.Projects
 {
     public class ProjectPanel : MonoBehaviour
     {
         [SerializeField] private ProjectSettings _settings;
-        [SerializeField] private ProjectSettings _previousProjectSettings;
-
-        [Space]
-        [SerializeField] private Image _icon;
 
         [Space]
         [SerializeField] private NotAvailableContent _notAvailableContent;
@@ -22,24 +16,22 @@ namespace AP.ProgrammerGame.UI.Projects
         private void Start()
         {
             SetupProjectData();
-            SetupIcon();
             UpdatePanel();
             Subscribe();
         }
 
-        private void Subscribe()
-        {
-            _projectData.Purchased += UpdatePanel;
-        }
+        private void Subscribe() => 
+            _projectData.DataUpdated += UpdatePanel;
 
         private void OnDestroy()
         {
-            _projectData.Purchased -= UpdatePanel;
+            if (_projectData != null)
+                _projectData.DataUpdated -= UpdatePanel;
         }
 
         public void UpdatePanel()
         {
-            switch (_projectData.ProjectState)
+            switch (_projectData.State)
             {
                 case ProjectState.NotAvailable:
                     SetupNotAvailableContent();
@@ -62,24 +54,24 @@ namespace AP.ProgrammerGame.UI.Projects
             }
         }
 
-        private void BuyProject()
+        private void BuyProject() => 
+            _projectData.Buy();
+
+        private void RunProject()
         {
-            throw new NotImplementedException();
+            _projectData.Run();
         }
 
         private void SetupProjectData() => 
             _projectData = GameData.Instance.Projects.Find(x => x.Name == _settings.Name);
 
-        private void SetupIcon() => 
-            _icon.sprite = _settings.Icon;
-
         private void SetupNotAvailableContent() => 
-            _notAvailableContent.Setup(_settings, _previousProjectSettings);
+            _notAvailableContent.Setup(_settings);
 
         private void SetupNotPurchasedContent() => 
-            _notPurchasedContent.Setup(_projectData, BuyProject);
+            _notPurchasedContent.Setup(_projectData, _settings, BuyProject);
 
         private void SetupOpenContent() => 
-            _activeContent.Setup(_projectData);
+            _activeContent.Setup(_projectData, _settings, BuyProject, RunProject);
     }
 }

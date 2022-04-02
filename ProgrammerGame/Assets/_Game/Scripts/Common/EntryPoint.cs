@@ -15,6 +15,7 @@ namespace AP.ProgrammerGame
 
             new GameData();
             new SaveLoadSystem();
+            new UpdateProjectAvailabilitySystem();
             new CodeWritingProcess();
             new Wallet();
             new CodeWritingAccelerator();

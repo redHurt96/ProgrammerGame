@@ -8,11 +8,15 @@
         {
             foreach (ProjectSettings projectSettings in Settings.Instance.ProjectsSettings)
             {
-                GameData.Instance.Projects.Add(
-                    new ProjectData
-                    {
-                        Name = projectSettings.Name
-                    });
+                var projectData = new ProjectData();
+                projectData.Name = projectSettings.Name;
+
+                if (projectSettings.OpenLevel > 0)
+                    projectData.State = ProjectState.NotAvailable;
+                else
+                    projectData.State = ProjectState.NotPurchased;
+
+                GameData.Instance.Projects.Add(projectData);
             }
         }
     }

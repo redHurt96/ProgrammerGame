@@ -2,23 +2,29 @@
 
 namespace AP.ProgrammerGame.Logic
 {
-    public class UpdateProjectAvailabilityDataSystem
+    public class UpdateProjectAvailabilitySystem
     {
-        public UpdateProjectAvailabilityDataSystem()
+        public UpdateProjectAvailabilitySystem()
         {
             foreach (ProjectData project in GameData.Instance.Projects) 
-                project.Purchased += UpdateProjectDatas;
+                project.DataUpdated += UpdateProjectDatas;
         }
 
         private void UpdateProjectDatas()
         {
             foreach (ProjectData project in GameData.Instance.Projects)
             {
+                if (project.State != ProjectState.NotAvailable)
+                    continue;
+
                 ProjectSettings settings = Settings.Instance.ProjectsSettings
                     .First(x => x.Name == project.Name);
-                
-                if (settings.BlockProject == null || project.ProjectState != ProjectState.NotAvailable)
-                    continue;
+
+                ProjectData blockProject = GameData.Instance.Projects
+                    .First(x => x.Name == settings.BlockProject.Name);
+
+                if (blockProject.Level >= settings.OpenLevel)
+                    project.SetAvailable();
             }
         }
     }

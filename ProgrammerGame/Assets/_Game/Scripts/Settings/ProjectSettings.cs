@@ -7,10 +7,8 @@ namespace AP.ProgrammerGame
     {
         public string Name;
         public Sprite Icon;
-        public int OpenLevel = 0;
 
-        [Header("Balance")]
-        public float BaseCost;
-        public float BaseTime;
+        public int OpenLevel = 0;
+        public ProjectSettings BlockProject;
     }
 }

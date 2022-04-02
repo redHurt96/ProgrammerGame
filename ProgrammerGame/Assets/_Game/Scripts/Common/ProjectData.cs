@@ -6,19 +6,39 @@ namespace AP.ProgrammerGame
     public class ProjectData
     {
         //for save
-        public ProjectState ProjectState;
+        public ProjectState State;
         public string Name;
         public int Level;
         public float Income;
         public float Price;
+        public long TimeToFinish;
 
         //not for save
-        public TimeSpan TimeToFinish;
+        public TimeSpan CurrentTimeToFinish;
         public float Progress;
 
-        public event Action ProgressUpdated;
-        public event Action Finished;
-        public event Action Purchased;
+        public event Action DataUpdated;
+
+        public void Buy()
+        {
+            if (Level == 0)
+                State = ProjectState.Active;
+
+            Level++;
+
+            DataUpdated?.Invoke();
+        }
+
+        public void Run()
+        {
+            throw new Exception("There is no run logic");
+        }
+
+        public void SetAvailable()
+        {
+            State = ProjectState.NotPurchased;
+            DataUpdated?.Invoke();
+        }
     }
 
     public enum ProjectState

@@ -1,4 +1,4 @@
-using _Game.Scripts.UI.Main;
+using System.Collections.Generic;
 using AP.ProgrammerGame.UI;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
@@ -33,5 +33,11 @@ namespace AP.ProgrammerGame
         [Space]
         public GameObject TapFxPrefab;
         public CatchBugButton BugPrefab;
+
+        [Space]
+        public int[] TargetLevels = {25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 750, 1000};
+
+        [Space]
+        public ProjectSettings[] ProjectsSettings;
     }
 }

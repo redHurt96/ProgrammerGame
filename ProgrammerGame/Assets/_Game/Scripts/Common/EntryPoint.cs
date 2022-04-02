@@ -14,6 +14,7 @@ namespace AP.ProgrammerGame
             _furnitureRefs.CreateInstance();
 
             new GameData();
+            new SaveLoadSystem();
             new CodeWritingProcess();
             new Wallet();
             new CodeWritingAccelerator();

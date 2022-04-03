@@ -54,6 +54,14 @@ namespace AP.ProgrammerGame.UI.Projects
             }
         }
 
+#if UNITY_EDITOR
+        public void Test_Buy25Projects()
+        {
+            for (int i = 0; i < 25; i++) 
+                _projectData.Buy();
+        }
+#endif
+
         private void BuyProject() => 
             _projectData.Buy();
 

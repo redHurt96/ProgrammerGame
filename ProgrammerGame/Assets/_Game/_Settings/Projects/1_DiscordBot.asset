@@ -17,3 +17,5 @@ MonoBehaviour:
   OpenLevel: 0
   BlockProject: {fileID: 0}
   Time: 2
+  Price: 2
+  Income: 2

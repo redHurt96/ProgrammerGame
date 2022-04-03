@@ -1,4 +1,5 @@
 using System.Collections;
+using _Game.Configs;
 using UnityEngine;
 
 namespace AP.ProgrammerGame.Logic

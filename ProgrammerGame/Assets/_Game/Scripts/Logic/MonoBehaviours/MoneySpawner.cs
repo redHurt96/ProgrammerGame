@@ -1,8 +1,9 @@
+using _Game.Configs;
+using AP.ProgrammerGame;
 using RH.Utilities.Extensions;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace AP.ProgrammerGame.Logic
+namespace _Game.Logic.MonoBehaviours
 {
     public class MoneySpawner : MonoBehaviour
     {
@@ -15,9 +16,9 @@ namespace AP.ProgrammerGame.Logic
             GlobalEvents.MoneyCountChanged += SpawnMoney;
 
         private void OnDestroy() => 
-            GlobalEvents.MoneyCountChanged += SpawnMoney;
+            GlobalEvents.MoneyCountChanged -= SpawnMoney;
 
-        private void SpawnMoney(int amount)
+        private void SpawnMoney(long amount)
         {
             if (amount <= 0)
                 return;

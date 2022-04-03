@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
+using _Game.Configs;
 using _Game.Logic.Data;
 using _Game.Scripts.Exception;
+using AP.ProgrammerGame;
 using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AP.ProgrammerGame.UI.Projects
+namespace _Game.UI.Projects
 {
     public class ActiveContent : MonoBehaviour
     {
@@ -61,6 +63,8 @@ namespace AP.ProgrammerGame.UI.Projects
                 _timer.text = _projectData.CurrentTimeToFinish.ToString(@"h\:mm\:ss");
             else
                 _timer.text = TimeSpan.FromSeconds(_projectData.TimeToFinish).ToString(@"h\:mm\:ss");
+
+            DisableRunButtonIfProjectAutorunned();
         }
 
         private void UpdateTitles()
@@ -74,5 +78,11 @@ namespace AP.ProgrammerGame.UI.Projects
             Settings.Instance.TargetLevels
                 .First(x => x > level)
                 .ToString();
+
+        private void DisableRunButtonIfProjectAutorunned()
+        {
+            if (GameData.Instance.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
+                _runButton.interactable = false;
+        }
     }
 }

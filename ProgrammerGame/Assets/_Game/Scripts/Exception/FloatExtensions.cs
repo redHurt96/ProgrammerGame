@@ -6,5 +6,10 @@
         {
             return value.ToString();
         }
+        
+        public static string ToPriceString(this long value)
+        {
+            return value.ToString();
+        }
     }
 }

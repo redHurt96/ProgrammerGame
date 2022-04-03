@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Game.Configs;
 using _Game.Logic.Data;
 using RH.Utilities.SingletonAccess;
 
@@ -13,7 +14,7 @@ namespace AP.ProgrammerGame
         public int MoneyForCode => (int)(_moneyForCodeBase * _levelMoneyCoefficient);
         public int MoneyForBug => (int)(_moneyForBugBase * _levelMoneyCoefficient);
 
-        public int MoneyCount = 0;
+        public long MoneyCount = 0;
 
         public float Level = 0f;
 
@@ -32,5 +33,6 @@ namespace AP.ProgrammerGame
 
         public List<ProjectData> Projects = new List<ProjectData>();
         public List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();
+        public List<string> AutoRunnedProjects = new List<string>();
     }
 }

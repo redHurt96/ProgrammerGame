@@ -8,10 +8,10 @@ namespace _Game.Logic.Systems
     public class AddMoneyForProjectSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.ProjectRunned += AddMoneyWhenProjectComplete;
+            GlobalEvents.ProjectStarted += AddMoneyWhenProjectComplete;
 
         public override void Dispose() => 
-            GlobalEvents.ProjectRunned -= AddMoneyWhenProjectComplete;
+            GlobalEvents.ProjectStarted -= AddMoneyWhenProjectComplete;
 
         private void AddMoneyWhenProjectComplete(ProjectData projectData)
         {
@@ -22,6 +22,6 @@ namespace _Game.Logic.Systems
         }
 
         private void AddMoney(RunProjectProcess process) => 
-            GlobalEvents.ChangeMoneyCount((int)process.ProjectData.Income);
+            GlobalEvents.IntentChangeMoney((int)process.ProjectData.Income);
     }
 }

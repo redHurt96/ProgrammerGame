@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using _Game.Configs;
 using _Game.Logic.Data;
+using _Game.UI.Projects;
 using UnityEngine;
 
 namespace AP.ProgrammerGame.UI.Projects
@@ -60,7 +62,7 @@ namespace AP.ProgrammerGame.UI.Projects
             _projectData.Buy();
 
         private void RunProject() => 
-            GlobalEvents.IntentRunProject(_projectData);
+            GlobalEvents.IntentToRunProject(_projectData);
 
         private void SetupProjectData() => 
             _projectData = GameData.Instance.Projects.Find(x => x.Name == _settings.Name);

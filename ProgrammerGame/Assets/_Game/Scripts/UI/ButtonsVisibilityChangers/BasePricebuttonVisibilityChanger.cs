@@ -21,7 +21,7 @@ namespace AP.ProgrammerGame.UI
         private void OnDestroy() =>
             GlobalEvents.MoneyCountChanged -= UpdateButtonVisibility;
 
-        private void UpdateButtonVisibility(int obj)
+        private void UpdateButtonVisibility(long l)
         {
             _button.interactable = IsInteractable;
         }

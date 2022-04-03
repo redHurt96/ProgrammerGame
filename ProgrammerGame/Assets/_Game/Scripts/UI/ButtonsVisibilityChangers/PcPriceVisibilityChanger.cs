@@ -1,4 +1,6 @@
-﻿namespace AP.ProgrammerGame.UI
+﻿using _Game.Configs;
+
+namespace AP.ProgrammerGame.UI
 {
     public class PcPriceVisibilityChanger : BasePricebuttonVisibilityChanger
     {

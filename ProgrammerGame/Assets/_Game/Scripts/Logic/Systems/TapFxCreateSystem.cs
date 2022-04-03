@@ -1,4 +1,5 @@
-﻿using AP.ProgrammerGame;
+﻿using _Game.Configs;
+using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
 

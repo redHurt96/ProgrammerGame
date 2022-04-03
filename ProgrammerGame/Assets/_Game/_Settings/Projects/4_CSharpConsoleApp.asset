@@ -17,3 +17,5 @@ MonoBehaviour:
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 8bc0091d59f07634aa778c61f6095d26, type: 2}
   Time: 300
+  Price: 5
+  Income: 5

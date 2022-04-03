@@ -1,3 +1,4 @@
+using _Game.Configs;
 using _Game.Logic.Systems;
 using AP.ProgrammerGame;
 using AP.ProgrammerGame.Logic;
@@ -15,6 +16,8 @@ namespace _Game.Common
 
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+
             _settings.CreateInstance();
             _furnitureRefs.CreateInstance();
 
@@ -27,6 +30,9 @@ namespace _Game.Common
                 .Add(new UpdateProjectAvailabilitySystem())
                 .Add(new RunProjectSystem())
                 .Add(new AddMoneyForProjectSystem())
+                .Add(new ChangeMoneyCountSystem())
+                .Add(new MoneyStorageSystem())
+                .Add(new BuyProgrammerSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())
@@ -34,9 +40,8 @@ namespace _Game.Common
                 .Init();
 
             new CodeWritingProcess();
-            new Wallet();
             new CodeWritingAccelerator();
-            new MoneyStorage();
+            new MoneyStorageSystem();
             new FurnitureStorage();
             new BaseHouseSpawnSystem();
             new HouseUpgradeManager();

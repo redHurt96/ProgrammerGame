@@ -1,14 +1,24 @@
 ﻿using System.Linq;
+using _Game.Configs;
 using _Game.Logic.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 
 namespace _Game.Logic.Systems
 {
-    public class UpdateProjectAvailabilitySystem : IInitSystem
+    public class UpdateProjectAvailabilitySystem : BaseInitSystem
     {
-        public void Init() => 
-            UpdateProjectDatas();
+        public override void Init()
+        {
+            foreach (ProjectData project in GameData.Instance.Projects) 
+                project.DataUpdated += UpdateProjectDatas;
+        }
+        
+        public override void Dispose()
+        {
+            foreach (ProjectData project in GameData.Instance.Projects) 
+                project.DataUpdated += UpdateProjectDatas;
+        }
 
         private void UpdateProjectDatas()
         {

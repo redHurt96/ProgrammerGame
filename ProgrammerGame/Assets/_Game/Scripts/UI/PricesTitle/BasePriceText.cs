@@ -18,6 +18,6 @@ namespace AP.ProgrammerGame.UI
 
         private void OnDestroy() => GlobalEvents.MoneyCountChanged -= UpdateTitle;
 
-        private void UpdateTitle(int changes) => _text.text = _price;
+        private void UpdateTitle(long l) => _text.text = _price;
     }
 }

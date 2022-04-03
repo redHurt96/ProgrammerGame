@@ -1,4 +1,6 @@
-﻿using _Game.Logic.Data;
+﻿using System;
+using _Game.Configs;
+using _Game.Logic.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 
@@ -16,7 +18,10 @@ namespace _Game.Logic.Systems
                 ProjectData data = new ProjectData();
 
                 data.Name = settings.Name;
+                data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.Time);
                 data.TimeToFinish = settings.Time;
+                data.Price = settings.Price;
+                data.Income = settings.Income;
 
                 if (settings.OpenLevel > 0)
                     data.State = ProjectState.NotAvailable;

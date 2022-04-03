@@ -1,4 +1,5 @@
-﻿using RH.Utilities.SingletonAccess;
+﻿using _Game.Configs;
+using RH.Utilities.SingletonAccess;
 
 namespace AP.ProgrammerGame.Logic
 {

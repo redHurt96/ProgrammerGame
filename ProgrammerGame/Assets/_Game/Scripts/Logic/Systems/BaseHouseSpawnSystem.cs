@@ -1,3 +1,5 @@
+using _Game.Configs;
+
 namespace AP.ProgrammerGame.Logic
 {
     public class BaseHouseSpawnSystem

@@ -1,22 +1,29 @@
-﻿namespace AP.ProgrammerGame.Logic
+﻿using _Game.Logic.Data;
+using AP.ProgrammerGame;
+using RH.Utilities.ComponentSystem;
+
+namespace _Game.Logic.Systems
 {
-    public class SaveLoadSystem
+    public class SaveLoadSystem : IInitSystem
     {
-        public SaveLoadSystem() => CreateProjectsData();
+        public void Init() => 
+            CreateProjectsData();
 
         private void CreateProjectsData()
         {
-            foreach (ProjectSettings projectSettings in Settings.Instance.ProjectsSettings)
+            foreach (ProjectSettings settings in Settings.Instance.ProjectsSettings)
             {
-                var projectData = new ProjectData();
-                projectData.Name = projectSettings.Name;
+                ProjectData data = new ProjectData();
 
-                if (projectSettings.OpenLevel > 0)
-                    projectData.State = ProjectState.NotAvailable;
+                data.Name = settings.Name;
+                data.TimeToFinish = settings.Time;
+
+                if (settings.OpenLevel > 0)
+                    data.State = ProjectState.NotAvailable;
                 else
-                    projectData.State = ProjectState.NotPurchased;
+                    data.State = ProjectState.NotPurchased;
 
-                GameData.Instance.Projects.Add(projectData);
+                GameData.Instance.Projects.Add(data);
             }
         }
     }

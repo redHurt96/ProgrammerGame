@@ -16,5 +16,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 7f5077902f34e4dcda6e69df4ced83a7, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
-  BaseCost: 10
-  BaseTime: 2
+  Time: 15

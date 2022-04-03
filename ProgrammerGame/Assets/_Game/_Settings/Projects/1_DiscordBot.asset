@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: discord bot
   Icon: {fileID: 21300000, guid: 0a581261c6564475292652140798ad51, type: 3}
   OpenLevel: 0
-  BaseCost: 10
-  BaseTime: 2
+  BlockProject: {fileID: 0}
+  Time: 2

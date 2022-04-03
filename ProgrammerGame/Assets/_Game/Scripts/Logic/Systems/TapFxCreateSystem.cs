@@ -1,20 +1,16 @@
-﻿using System;
+﻿using AP.ProgrammerGame;
+using RH.Utilities.ComponentSystem;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace AP.ProgrammerGame.Logic
+namespace _Game.Logic.Systems
 {
-    public class TapFxCreateSystem : IDisposable
+    public class TapFxCreateSystem : BaseInitSystem
     {
-        private readonly Camera _camera;
-
-        public TapFxCreateSystem()
-        {
-            _camera = Camera.main;
+        public override void Init() => 
             GlobalEvents.OnCodingAccelerated += CreateFx;
-        }
 
-        public void Dispose() => GlobalEvents.OnCodingAccelerated -= CreateFx;
+        public override void Dispose() => 
+            GlobalEvents.OnCodingAccelerated -= CreateFx;
 
         private void CreateFx()
         {

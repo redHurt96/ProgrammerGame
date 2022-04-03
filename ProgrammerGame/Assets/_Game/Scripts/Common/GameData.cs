@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Game.Logic.Data;
 using RH.Utilities.SingletonAccess;
 
 namespace AP.ProgrammerGame
@@ -30,5 +31,6 @@ namespace AP.ProgrammerGame
         private float _levelMoneyCoefficient => Settings.Instance.MoneyPerLevel.Evaluate(Level);
 
         public List<ProjectData> Projects = new List<ProjectData>();
+        public List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();
     }
 }

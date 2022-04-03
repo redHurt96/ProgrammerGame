@@ -10,5 +10,7 @@ namespace AP.ProgrammerGame
 
         public int OpenLevel = 0;
         public ProjectSettings BlockProject;
+
+        public long Time;
     }
 }

@@ -1,12 +1,17 @@
+using _Game.Logic.Systems;
+using AP.ProgrammerGame;
 using AP.ProgrammerGame.Logic;
+using RH.Utilities.ComponentSystem;
 using UnityEngine;
 
-namespace AP.ProgrammerGame
+namespace _Game.Common
 {
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private Settings _settings;
         [SerializeField] private FurnitureRefs _furnitureRefs;
+
+        private SystemsArray _systems;
 
         private void Awake()
         {
@@ -14,8 +19,20 @@ namespace AP.ProgrammerGame
             _furnitureRefs.CreateInstance();
 
             new GameData();
-            new SaveLoadSystem();
-            new UpdateProjectAvailabilitySystem();
+
+            _systems = new SystemsArray()
+                
+                //game logic
+                .Add(new SaveLoadSystem())
+                .Add(new UpdateProjectAvailabilitySystem())
+                .Add(new RunProjectSystem())
+                .Add(new AddMoneyForProjectSystem())
+
+                //fx
+                .Add(new TapFxCreateSystem())
+
+                .Init();
+
             new CodeWritingProcess();
             new Wallet();
             new CodeWritingAccelerator();
@@ -23,7 +40,9 @@ namespace AP.ProgrammerGame
             new FurnitureStorage();
             new BaseHouseSpawnSystem();
             new HouseUpgradeManager();
-            new TapFxCreateSystem();
         }
+
+        private void OnDestroy() => 
+            _systems.Dispose();
     }
 }

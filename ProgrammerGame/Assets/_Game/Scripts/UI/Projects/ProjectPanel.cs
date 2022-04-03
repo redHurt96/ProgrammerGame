@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using _Game.Logic.Data;
+using UnityEngine;
 
 namespace AP.ProgrammerGame.UI.Projects
 {
@@ -54,21 +56,11 @@ namespace AP.ProgrammerGame.UI.Projects
             }
         }
 
-#if UNITY_EDITOR
-        public void Test_Buy25Projects()
-        {
-            for (int i = 0; i < 25; i++) 
-                _projectData.Buy();
-        }
-#endif
-
         private void BuyProject() => 
             _projectData.Buy();
 
-        private void RunProject()
-        {
-            _projectData.Run();
-        }
+        private void RunProject() => 
+            GlobalEvents.IntentRunProject(_projectData);
 
         private void SetupProjectData() => 
             _projectData = GameData.Instance.Projects.Find(x => x.Name == _settings.Name);
@@ -81,5 +73,18 @@ namespace AP.ProgrammerGame.UI.Projects
 
         private void SetupOpenContent() => 
             _activeContent.Setup(_projectData, _settings, BuyProject, RunProject);
+
+#if UNITY_EDITOR
+        public void Test_Buy25Projects()
+        {
+            for (int i = 0; i < 25; i++) 
+                _projectData.Buy();
+        }
+
+        public void Test_ForceComplete() =>
+            GameData.Instance.RunnedProjects
+                .First(x => x.ProjectData.Name == _settings.Name)
+                .Test_ForceComplete();
+#endif
     }
 }

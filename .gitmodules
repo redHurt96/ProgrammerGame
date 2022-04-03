@@ -1,0 +1,3 @@
+[submodule "ProgrammerGame/Assets/Utilities"]
+	path = ProgrammerGame/Assets/Utilities
+	url = https://github.com/redHurt96/Utilities.git

@@ -11,14 +11,14 @@ namespace _Game.Logic.Data
         public ProjectState State;
         public string Name;
         public int Level;
-        public float Income;
-        public float Price;
-        public long TimeToFinish;
+        public long Income;
+        public long Price;
+        public long Time;
 
         //not for save
         public TimeSpan CurrentTimeToFinish;
 
-        public float Progress => 1 - (float) (CurrentTimeToFinish.TotalSeconds / TimeToFinish);
+        public float Progress => 1 - (float) (CurrentTimeToFinish.TotalSeconds / Time);
 
         public event Action DataUpdated;
 
@@ -41,14 +41,14 @@ namespace _Game.Logic.Data
 
         public void SetTime(float time)
         {
-            CurrentTimeToFinish = TimeSpan.FromSeconds(TimeToFinish - time);
+            CurrentTimeToFinish = TimeSpan.FromSeconds(Time - time);
 
             DataUpdated?.Invoke();
         }
 
         public void CompleteProcess()
         {
-            CurrentTimeToFinish = TimeSpan.FromSeconds(TimeToFinish);
+            CurrentTimeToFinish = TimeSpan.FromSeconds(Time);
 
             DataUpdated?.Invoke();
         }

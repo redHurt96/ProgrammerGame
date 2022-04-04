@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 1930193372763930479}
   - component: {fileID: 1930193372763930476}
   - component: {fileID: 1930193372763930477}
+  - component: {fileID: 626328619640857913}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -510,6 +511,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &626328619640857913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930193372763930465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385fc3c6f5514846b8e7735796ec8213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1930193372763930477}
 --- !u!1 &1930193372900924092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1357,7 @@ MonoBehaviour:
   _name: {fileID: 6731531263932800185}
   _price: {fileID: 1967336607838640133}
   _button: {fileID: 2586264614415881979}
+  priceButtonVisibilityComponent: {fileID: 2503954355852393495}
 --- !u!1 &5173960279785557791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1524,7 @@ GameObject:
   - component: {fileID: 4391428470084280843}
   - component: {fileID: 5077608396069618055}
   - component: {fileID: 2586264614415881979}
+  - component: {fileID: 2503954355852393495}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -1619,6 +1635,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2503954355852393495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769545826360267322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385fc3c6f5514846b8e7735796ec8213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2586264614415881979}
 --- !u!1 &6036960172778533953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1710,7 @@ MonoBehaviour:
   _timer: {fileID: 1930193372348915629}
   _buyButton: {fileID: 1930193372763930477}
   _runButton: {fileID: 2173628952817057831}
+  priceButtonVisibilityComponent: {fileID: 626328619640857913}
 --- !u!1 &6111442293948331158
 GameObject:
   m_ObjectHideFlags: 0

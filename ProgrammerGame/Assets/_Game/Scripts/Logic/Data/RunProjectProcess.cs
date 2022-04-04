@@ -25,7 +25,7 @@ namespace _Game.Logic.Data
         {
             float time = 0f;
 
-            while (time < ProjectData.TimeToFinish)
+            while (time < ProjectData.Time)
             {
                 yield return null;
 

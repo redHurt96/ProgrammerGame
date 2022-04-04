@@ -19,7 +19,7 @@ namespace _Game.Logic.Systems
 
                 data.Name = settings.Name;
                 data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.Time);
-                data.TimeToFinish = settings.Time;
+                data.Time = settings.Time;
                 data.Price = settings.Price;
                 data.Income = settings.Income;
 

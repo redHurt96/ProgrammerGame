@@ -1,18 +1,17 @@
-﻿using System;
+﻿using AP.ProgrammerGame;
+using RH.Utilities.ComponentSystem;
 using UnityEngine;
 
-namespace AP.ProgrammerGame.Logic
+namespace _Game.Logic.Systems
 {
-    public class CodeWritingAccelerator : IDisposable
+    public class CodeWritingAccelerationSystem : BaseInitSystem
     {
         private GameData _gameData => GameData.Instance;
 
-        public CodeWritingAccelerator()
-        {
+        public override void Init() => 
             GlobalEvents.OnCodingAccelerated += Accelerate;
-        }
 
-        public void Dispose() => 
+        public override void Dispose() => 
             GlobalEvents.OnCodingAccelerated -= Accelerate;
 
         private void Accelerate()

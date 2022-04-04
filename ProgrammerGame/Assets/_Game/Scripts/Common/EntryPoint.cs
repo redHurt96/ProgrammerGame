@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using _Game.Configs;
 using _Game.Logic.Systems;
 using AP.ProgrammerGame;
@@ -33,18 +35,25 @@ namespace _Game.Common
                 .Add(new ChangeMoneyCountSystem())
                 .Add(new MoneyStorageSystem())
                 .Add(new BuyProgrammerSystem())
+                .Add(new CodeWritingProcessSystem())
+                .Add(new AddMoneyForTapSystem())
+                .Add(new CodeWritingAccelerationSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())
 
                 .Init();
 
-            new CodeWritingProcess();
-            new CodeWritingAccelerator();
-            new MoneyStorageSystem();
             new FurnitureStorage();
             new BaseHouseSpawnSystem();
             new HouseUpgradeManager();
+        }
+
+        private IEnumerator Start()
+        {
+            yield return null;
+
+            GlobalEvents.IntentToChangeMoney(Settings.Instance.StartMoney);
         }
 
         private void OnDestroy() => 

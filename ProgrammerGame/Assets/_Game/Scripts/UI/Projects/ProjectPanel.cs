@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using _Game.Configs;
 using _Game.Logic.Data;
-using _Game.UI.Projects;
+using AP.ProgrammerGame;
+using AP.ProgrammerGame.UI.Projects;
 using UnityEngine;
 
-namespace AP.ProgrammerGame.UI.Projects
+namespace _Game.UI.Projects
 {
     public class ProjectPanel : MonoBehaviour
     {
@@ -12,7 +14,7 @@ namespace AP.ProgrammerGame.UI.Projects
 
         [Space]
         [SerializeField] private NotAvailableContent _notAvailableContent;
-        [SerializeField] private NotPuchasedContent _notPurchasedContent;
+        [SerializeField] private NotPurchasedContent _notPurchasedContent;
         [SerializeField] private ActiveContent _activeContent;
 
         private ProjectData _projectData;
@@ -58,8 +60,11 @@ namespace AP.ProgrammerGame.UI.Projects
             }
         }
 
-        private void BuyProject() => 
+        private void BuyProject()
+        {
+            GlobalEvents.IntentToChangeMoney(-_projectData.Price);
             _projectData.Buy();
+        }
 
         private void RunProject() => 
             GlobalEvents.IntentToRunProject(_projectData);

@@ -28,7 +28,7 @@ namespace AP.ProgrammerGame
         public static void CreateFurniture(FurnitureSlotType type, GameObject furniture) => FurnitureCreated?.Invoke(type, furniture);
         public static void IntentToRunProject(ProjectData projectData) => RunProjectIntent?.Invoke(projectData);
         public static void RunProject(ProjectData projectData) => ProjectStarted?.Invoke(projectData);
-        public static void IntentChangeMoney(long amount) => ChangeMoneyIntent?.Invoke(amount);
+        public static void IntentToChangeMoney(long amount) => ChangeMoneyIntent?.Invoke(amount);
 
         public static void IntentToBuyProgrammer(string automatedProjectName) =>  BuyProgrammerIntent?.Invoke(automatedProjectName);
     }

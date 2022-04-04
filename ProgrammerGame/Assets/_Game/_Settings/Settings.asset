@@ -118,15 +118,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  AccelerationPerFurniture: 0.9
-  LevelPerFurniture: 0.75
-  LevelPerPc: 3
-  LevelPerDeveloper: 10
   MoneyRigidbodyRemoveTime: 2
-  BugMoveTime: 3
-  BugMoveDelay: 3
   TapFxPrefab: {fileID: 7577056058165911897, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
-  BugPrefab: {fileID: 4009357141631138065, guid: b3b3a1e772e63ff45ad7309f37dbd921, type: 3}
   TargetLevels: 19000000320000004b0000006400000096000000c8000000fa0000002c01000090010000f4010000ee020000e8030000
   ProjectsSettings:
   - {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
@@ -138,3 +131,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: abe71b92e509ea142a94ab664c49a695, type: 2}
   - {fileID: 11400000, guid: fa36b65d647a6a7478139ec60c19ef38, type: 2}
   - {fileID: 11400000, guid: 2ba25e0a7670e1944b825811caa6ccbc, type: 2}
+  MoneyForTapPercent: 1
+  StartMoney: 10

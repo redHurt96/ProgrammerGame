@@ -20,6 +20,7 @@ namespace _Game.UI.Projects
         [SerializeField] private Text _timer;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _runButton;
+        [SerializeField] private PriceButtonVisibilityComponent priceButtonVisibilityComponent;
 
         private ProjectData _projectData;
 
@@ -29,8 +30,9 @@ namespace _Game.UI.Projects
 
             _icon.sprite = settings.Icon;
 
+            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.Price);
+
             AddButtonsListeners(buyAction, runAction);
-            UpdateTitles();
             UpdateContent();
             Subscribe();
         }
@@ -56,15 +58,22 @@ namespace _Game.UI.Projects
         private void UpdateContent()
         {
             UpdateTitles();
+            UpdateProgressBar();
+            UpdateTimer();
+            DisableRunButtonIfProjectAutorunned();
+        }
 
+        private void UpdateProgressBar()
+        {
             _progressBarFill.fillAmount = _projectData.Progress;
+        }
 
+        private void UpdateTimer()
+        {
             if (!_projectData.Progress.Approximately(0f) && !_projectData.Progress.Approximately(1f))
                 _timer.text = _projectData.CurrentTimeToFinish.ToString(@"h\:mm\:ss");
             else
-                _timer.text = TimeSpan.FromSeconds(_projectData.TimeToFinish).ToString(@"h\:mm\:ss");
-
-            DisableRunButtonIfProjectAutorunned();
+                _timer.text = TimeSpan.FromSeconds(_projectData.Time).ToString(@"h\:mm\:ss");
         }
 
         private void UpdateTitles()

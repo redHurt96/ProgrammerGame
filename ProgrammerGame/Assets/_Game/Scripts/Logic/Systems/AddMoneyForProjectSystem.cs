@@ -22,6 +22,6 @@ namespace _Game.Logic.Systems
         }
 
         private void AddMoney(RunProjectProcess process) => 
-            GlobalEvents.IntentChangeMoney((int)process.ProjectData.Income);
+            GlobalEvents.IntentToChangeMoney((int)process.ProjectData.Income);
     }
 }

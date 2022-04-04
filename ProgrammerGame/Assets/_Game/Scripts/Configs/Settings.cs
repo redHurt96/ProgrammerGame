@@ -26,7 +26,9 @@ namespace _Game.Configs
         [Space]
         public ProjectSettings[] ProjectsSettings;
 
-        [Space]
-        public ProgrammerSettings[] ProgrammerSettings;
+        public float MoneyForTapPercent;
+
+        [Header("Start options")] 
+        public long StartMoney;
     }
 }

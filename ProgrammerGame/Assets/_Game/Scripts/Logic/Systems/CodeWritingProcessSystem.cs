@@ -1,20 +1,19 @@
-using RH.Utilities.Coroutines;
-using System;
 using System.Collections;
+using AP.ProgrammerGame;
+using RH.Utilities.ComponentSystem;
+using RH.Utilities.Coroutines;
 using UnityEngine;
 
-namespace AP.ProgrammerGame.Logic
+namespace _Game.Logic.Systems
 {
-    public class CodeWritingProcess : IDisposable
+    public class CodeWritingProcessSystem : BaseInitSystem
     {
         private GameData _gameData => GameData.Instance;
 
-        public CodeWritingProcess()
-        {
+        public override void Init() => 
             CoroutineLauncher.Start(ExecuteProcess());
-        }
 
-        public void Dispose() => 
+        public override void Dispose() => 
             CoroutineLauncher.Stop(ExecuteProcess());
 
         private IEnumerator ExecuteProcess()

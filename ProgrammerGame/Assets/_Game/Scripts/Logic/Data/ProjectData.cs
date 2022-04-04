@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace _Game.Logic.Data
 {
@@ -18,7 +19,7 @@ namespace _Game.Logic.Data
         //not for save
         public TimeSpan CurrentTimeToFinish;
 
-        public float Progress => 1 - (float) (CurrentTimeToFinish.TotalSeconds / Time);
+        public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
 
         public event Action DataUpdated;
 

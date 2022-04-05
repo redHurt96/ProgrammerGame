@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using _Game.Configs;
-using _Game.Logic.Data;
+using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 

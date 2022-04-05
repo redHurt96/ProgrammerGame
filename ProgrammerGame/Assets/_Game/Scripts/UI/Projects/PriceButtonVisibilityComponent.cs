@@ -9,12 +9,13 @@ namespace _Game.UI.Projects
     public class PriceButtonVisibilityComponent : MonoBehaviour
     {
         [SerializeField] private Button _button;
+
         private Func<long> _calculatePrice;
 
         public void SetPriceFunc(Func<long> calculatePrice)
         {
             _calculatePrice = calculatePrice;
-            
+
             GlobalEvents.MoneyCountChanged += UpdateVisibility;
 
             UpdateVisibility();

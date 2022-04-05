@@ -7,12 +7,6 @@ namespace _Game.Configs
     public class Settings : SingletonScriptableObject<Settings>
     {
         public GameObject MoneyPrefab;
-        public AnimationCurve MoneyPerLevel;
-
-        [Space]
-        public AnimationCurve MoneyPerFurniture;
-        public AnimationCurve MoneyPerComputer;
-        public AnimationCurve MoneyPerDeveloper;
 
         [Space]
         public float MoneyRigidbodyRemoveTime = 3f;
@@ -30,5 +24,17 @@ namespace _Game.Configs
 
         [Header("Start options")] 
         public long StartMoney;
+        
+        [Header("Code writing process")]
+        public float CodeWritingTime = 5f;
+        public float AccelerationCodeProgressPercent = .05f;
+        
+        [Header("Upgrades")]
+        public float IncreaseSpeedEffectStrength;
+        public float IncreaseMoneyEffectStrength;
+
+        [Header("House")]
+        public RoomSettings[] Rooms;
+        public PcSettings PcSettings;
     }
 }

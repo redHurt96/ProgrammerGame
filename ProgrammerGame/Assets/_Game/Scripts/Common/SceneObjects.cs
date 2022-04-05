@@ -1,17 +1,11 @@
-﻿using AP.ProgrammerGame.Logic;
-using RH.Utilities.SingletonAccess;
+﻿using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
-namespace AP.ProgrammerGame
+namespace _Game.Common
 {
     public class SceneObjects : MonoBehaviourSingleton<SceneObjects>
     {
         public Transform MoneyParentObject;
-        public Transform HouseParentObject;
-
-        [Space]
-        public CamerasPositionsArray CamerasPositionsArray;
-        public RoomsSpawner roomsSpawner;
 
         [Space] 
         public Transform FxCanvas;

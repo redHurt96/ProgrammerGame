@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using _Game.Configs;
-using _Game.Logic.Data;
+using _Game.Data;
 using _Game.Scripts.Exception;
 using AP.ProgrammerGame;
 using RH.Utilities.Extensions;
@@ -73,7 +73,7 @@ namespace _Game.UI.Projects
             if (!_projectData.Progress.Approximately(0f) && !_projectData.Progress.Approximately(1f))
                 _timer.text = _projectData.CurrentTimeToFinish.ToString(@"h\:mm\:ss");
             else
-                _timer.text = TimeSpan.FromSeconds(_projectData.Time).ToString(@"h\:mm\:ss");
+                _timer.text = TimeSpan.FromSeconds(_projectData.BaseTime).ToString(@"h\:mm\:ss");
         }
 
         private void UpdateTitles()

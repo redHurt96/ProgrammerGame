@@ -1,6 +1,6 @@
 ﻿using System;
 using _Game.Configs;
-using _Game.Logic.Data;
+using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 
@@ -8,8 +8,11 @@ namespace _Game.Logic.Systems
 {
     public class SaveLoadSystem : IInitSystem
     {
-        public void Init() => 
+        public void Init()
+        {
             CreateProjectsData();
+            CreateUpgradesData();
+        }
 
         private void CreateProjectsData()
         {
@@ -19,7 +22,7 @@ namespace _Game.Logic.Systems
 
                 data.Name = settings.Name;
                 data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.Time);
-                data.Time = settings.Time;
+                data.BaseTime = settings.Time;
                 data.Price = settings.Price;
                 data.Income = settings.Income;
 
@@ -30,6 +33,17 @@ namespace _Game.Logic.Systems
 
                 GameData.Instance.Projects.Add(data);
             }
+        }
+
+        private void CreateUpgradesData()
+        {
+            var interior = new UpgradeData { Type = UpgradeType.Interior };
+            var pc = new UpgradeData { Type = UpgradeType.PC };
+            var house = new UpgradeData { Type = UpgradeType.House };
+
+            GameData.Instance.Upgrades.Add(interior);
+            GameData.Instance.Upgrades.Add(pc);
+            GameData.Instance.Upgrades.Add(house);
         }
     }
 }

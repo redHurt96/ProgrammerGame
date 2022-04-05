@@ -1,3 +1,4 @@
+using _Game.Configs;
 using UnityEngine;
 using UnityEngine.UI;
 

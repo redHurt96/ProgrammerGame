@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using _Game.Configs;
 using _Game.Logic.Systems;
+using _Game.Services;
 using AP.ProgrammerGame;
-using AP.ProgrammerGame.Logic;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
 
@@ -12,7 +11,6 @@ namespace _Game.Common
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private Settings _settings;
-        [SerializeField] private FurnitureRefs _furnitureRefs;
 
         private SystemsArray _systems;
 
@@ -21,12 +19,13 @@ namespace _Game.Common
             Application.targetFrameRate = 60;
 
             _settings.CreateInstance();
-            _furnitureRefs.CreateInstance();
 
             new GameData();
+            new GameDataPresenter();
+            new Apartment();
 
             _systems = new SystemsArray()
-                
+
                 //game logic
                 .Add(new SaveLoadSystem())
                 .Add(new UpdateProjectAvailabilitySystem())
@@ -38,15 +37,15 @@ namespace _Game.Common
                 .Add(new CodeWritingProcessSystem())
                 .Add(new AddMoneyForTapSystem())
                 .Add(new CodeWritingAccelerationSystem())
+                .Add(new BuyUpgradeSystem())
+                .Add(new CreateRoomsSystem())
+                .Add(new CreateInteriorSystem())
+                .Add(new CreatePcSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())
 
                 .Init();
-
-            new FurnitureStorage();
-            new BaseHouseSpawnSystem();
-            new HouseUpgradeManager();
         }
 
         private IEnumerator Start()

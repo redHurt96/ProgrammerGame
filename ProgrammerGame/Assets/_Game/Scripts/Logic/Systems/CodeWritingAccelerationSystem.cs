@@ -1,4 +1,5 @@
-﻿using AP.ProgrammerGame;
+﻿using _Game.Configs;
+using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
 
@@ -6,8 +7,6 @@ namespace _Game.Logic.Systems
 {
     public class CodeWritingAccelerationSystem : BaseInitSystem
     {
-        private GameData _gameData => GameData.Instance;
-
         public override void Init() => 
             GlobalEvents.OnCodingAccelerated += Accelerate;
 
@@ -16,8 +15,8 @@ namespace _Game.Logic.Systems
 
         private void Accelerate()
         {
-            _gameData.CodeWritingProgress = 
-                Mathf.Min(_gameData.CodeWritingProgress + _gameData.AccelerationCodeProgressPercent, 1f);
+            GameData.Instance.CodeWritingProgress = 
+                Mathf.Min(GameData.Instance.CodeWritingProgress + Settings.Instance.AccelerationCodeProgressPercent, 1f);
             GlobalEvents.WriteCode();
         }
     }

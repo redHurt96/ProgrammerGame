@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Game.Configs;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AP.ProgrammerGame.UI

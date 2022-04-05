@@ -42,10 +42,14 @@ namespace _Game.Logic.Systems
         private void Remove()
         {
             int index = _moneys.Count - 1;
+
+            if (index < 0 || index >= _moneys.Count)
+                return;
+
             GameObject money = _moneys[index];
 
             _moneys.RemoveAt(index);
-            UnityEngine.Object.Destroy(money);
+            Object.Destroy(money);
         }
     }
 }

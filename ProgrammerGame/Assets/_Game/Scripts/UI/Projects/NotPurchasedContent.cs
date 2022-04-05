@@ -1,6 +1,6 @@
 ﻿using System;
 using _Game.Configs;
-using _Game.Logic.Data;
+using _Game.Data;
 using _Game.Scripts.Exception;
 using UnityEngine;
 using UnityEngine.UI;

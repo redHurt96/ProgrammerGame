@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using _Game.Configs;
-using _Game.Logic.Data;
+using _Game.Data;
 using AP.ProgrammerGame;
 using AP.ProgrammerGame.UI.Projects;
 using UnityEngine;

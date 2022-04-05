@@ -1,4 +1,5 @@
 using System.Collections;
+using _Game.Configs;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using RH.Utilities.Coroutines;
@@ -29,7 +30,7 @@ namespace _Game.Logic.Systems
 
         private void WriteCode()
         {
-            _gameData.CodeWritingProgress += Time.deltaTime / _gameData.CodeWritingTime;
+            _gameData.CodeWritingProgress += Time.deltaTime / Settings.Instance.CodeWritingTime;
             GlobalEvents.WriteCode();
         }
 

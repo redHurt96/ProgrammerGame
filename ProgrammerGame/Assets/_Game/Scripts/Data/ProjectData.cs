@@ -17,11 +17,11 @@ namespace _Game.Data
 
         //not for save
         public TimeSpan CurrentTimeToFinish;
-        public ProjectSettings ProjectSettings;
+        public ProjectSettings projectSettings;
 
-        public long BaseIncome => ProjectSettings.GetIncome(Level);
-        public long Price => ProjectSettings.GetPrice(Level);
-        public long BaseTime => ProjectSettings.GetTime(Level);
+        public long BaseIncome => projectSettings.GetIncome(Level);
+        public long Price => projectSettings.GetPrice(Level);
+        public long BaseTime => projectSettings.GetTime(Level);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
         public long Time => (long) (BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect));

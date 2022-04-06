@@ -20,7 +20,7 @@ namespace _Game.Logic.Systems
             {
                 ProjectData data = new ProjectData();
 
-                data.ProjectSettings = settings;
+                data.projectSettings = settings;
 
                 data.Name = settings.Name;
                 data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.GetTime(0));

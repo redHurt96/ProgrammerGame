@@ -29,7 +29,7 @@ MonoBehaviour:
   StartMoney: 10
   CodeWritingTime: 5
   AccelerationCodeProgressPercent: 0.05
-  MoneyForTapPercent: 1
+  MoneyForTapPercent: 0.1
   IncreaseSpeedEffectStrength: 0.05
   IncreaseMoneyEffectStrength: 0.05
   Rooms:

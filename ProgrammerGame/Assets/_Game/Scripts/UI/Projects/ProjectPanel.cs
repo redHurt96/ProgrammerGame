@@ -10,7 +10,7 @@ namespace _Game.UI.Projects
 {
     public class ProjectPanel : MonoBehaviour
     {
-        [SerializeField] private ProjectSettings _settings;
+        [SerializeField] private ProjectSettings settings;
 
         [Space]
         [SerializeField] private NotAvailableContent _notAvailableContent;
@@ -70,16 +70,16 @@ namespace _Game.UI.Projects
             GlobalEvents.IntentToRunProject(_projectData);
 
         private void SetupProjectData() => 
-            _projectData = GameData.Instance.Projects.Find(x => x.Name == _settings.Name);
+            _projectData = GameData.Instance.Projects.Find(x => x.Name == settings.Name);
 
         private void SetupNotAvailableContent() => 
-            _notAvailableContent.Setup(_settings);
+            _notAvailableContent.Setup(settings);
 
         private void SetupNotPurchasedContent() => 
-            _notPurchasedContent.Setup(_projectData, _settings, BuyProject);
+            _notPurchasedContent.Setup(_projectData, settings, BuyProject);
 
         private void SetupOpenContent() => 
-            _activeContent.Setup(_projectData, _settings, BuyProject, RunProject);
+            _activeContent.Setup(_projectData, settings, BuyProject, RunProject);
 
 #if UNITY_EDITOR
         public void Test_Buy25Projects()
@@ -90,7 +90,7 @@ namespace _Game.UI.Projects
 
         public void Test_ForceComplete() =>
             GameData.Instance.RunnedProjects
-                .First(x => x.ProjectData.Name == _settings.Name)
+                .First(x => x.ProjectData.Name == settings.Name)
                 .Test_ForceComplete();
 #endif
     }

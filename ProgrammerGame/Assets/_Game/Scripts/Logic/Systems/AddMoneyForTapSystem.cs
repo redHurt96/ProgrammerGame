@@ -3,6 +3,7 @@ using _Game.Configs;
 using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
+using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
@@ -16,10 +17,10 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            double income = 0;
+            float income = 0;
 
             foreach (ProjectData project in GameData.Instance.Projects.Where(x => x.State == ProjectState.Active))
-                income += ((double)project.Income / project.Time * Settings.Instance.MoneyForTapPercent);
+                income += Mathf.Max((float)project.Income / project.Time * Settings.Instance.MoneyForTapPercent, 1f);
 
             GlobalEvents.IntentToChangeMoney((long)income);
         }

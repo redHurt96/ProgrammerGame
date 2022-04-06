@@ -11,7 +11,7 @@ namespace _Game.UI.UpgradesTab
 {
     public abstract class BaseUpgradePanel : MonoBehaviour
     {
-        [SerializeField] private PriceSettings _priceSettings;
+        [SerializeField] private PriceSettingsScriptable priceSettingsScriptable;
         [SerializeField] private UpgradeType _upgradeType;
 
         [Space]
@@ -23,7 +23,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private PriceButtonVisibilityComponent _buttonVisibilityComponent;
 
         private UpgradeData _upgradeData;
-        private long _price => _priceSettings.GetPrice(_upgradeData.Level);
+        private long _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
 
         protected abstract string EffectTitle { get; }
         protected abstract string TotalEffectTitle { get; }

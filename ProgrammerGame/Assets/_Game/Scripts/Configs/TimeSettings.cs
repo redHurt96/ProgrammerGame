@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Game.Configs
 {
-    [CreateAssetMenu(fileName = "Time settings", menuName = "Game/Time settings", order = 0)]
-    public class TimeSettings : ScriptableObject
+    [Serializable]
+    public class TimeSettings
     {
-        [SerializeField] private long _startTime;
-        [SerializeField] private long _endDecreasingLevel;
-        [SerializeField] private long _endTime;
+        public long _startTime;
+        public long _endDecreasingLevel;
+        public long _endTime;
 
         private float _linear => -(_startTime - _endTime) / (float)_endDecreasingLevel;
 

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using _Game.Logic.MonoBehaviours;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
@@ -7,7 +9,7 @@ namespace _Game.Logic.Systems
 {
     public class MoneyStorageSystem : BaseInitSystem
     {
-        private List<GameObject> _moneys = new List<GameObject>();
+        private List<Money> _moneys = new List<Money>();
 
         public override void Init()
         {
@@ -21,7 +23,7 @@ namespace _Game.Logic.Systems
             GlobalEvents.MoneyCountChanged -= RemoveIfAmountNegative;
         }
 
-        private void Keep(GameObject money) => _moneys.Add(money);
+        private void Keep(Money money) => _moneys.Add(money);
 
         private void RemoveIfAmountNegative(long amount)
         {
@@ -33,23 +35,21 @@ namespace _Game.Logic.Systems
 
         private void Remove(long amount)
         {
-            var count = -amount;
+            amount = -amount;
+            _moneys.OrderBy(x => x.Value);
 
-            for (int i = 0; i < count; i++)
-                Remove();
-        }
+            while (amount > 0)
+            {
+                Money money = _moneys.FirstOrDefault(x => x.Value < amount);
 
-        private void Remove()
-        {
-            int index = _moneys.Count - 1;
+                if (money == null)
+                    break;
 
-            if (index < 0 || index >= _moneys.Count)
-                return;
+                _moneys.Remove(money);
+                amount -= money.Value;
 
-            GameObject money = _moneys[index];
-
-            _moneys.RemoveAt(index);
-            Object.Destroy(money);
+                Object.Destroy(money);
+            }
         }
     }
 }

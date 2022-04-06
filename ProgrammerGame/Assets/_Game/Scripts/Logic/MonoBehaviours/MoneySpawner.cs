@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
@@ -10,11 +12,15 @@ namespace _Game.Logic.MonoBehaviours
     {
         [SerializeField] private Vector3 _spawnZone;
 
-        private GameObject _prefab => Settings.Instance.MoneyPrefab;
+        private Dictionary<long, Money> Prefabs;
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
-        private void Start() => 
+        private void Start()
+        {
+            Prefabs = Settings.Instance.MoneyPrefabs.ToDictionary(x => x.Value, y => y);
+
             GlobalEvents.MoneyCountChanged += SpawnMoney;
+        }
 
         private void OnDestroy() => 
             GlobalEvents.MoneyCountChanged -= SpawnMoney;
@@ -24,14 +30,20 @@ namespace _Game.Logic.MonoBehaviours
             if (amount <= 0)
                 return;
 
-            for (int i = 0; i < amount; i++)
-                Spawn();
+            while (amount > 0)
+            {
+                Money prefab = Prefabs.Last(x => x.Key <= amount).Value;
+
+                Spawn(prefab);
+
+                amount -= prefab.Value;
+            }
         }
 
-        private void Spawn()
+        private void Spawn(Money prefab)
         {
             Vector3 spawnPoint = transform.position.AddRandomInBox(_spawnZone);
-            var money = Instantiate(_prefab, spawnPoint, Random.rotation, _parent);
+            Money money = Instantiate(prefab, spawnPoint, Random.rotation, _parent);
 
             GlobalEvents.CreateMoney(money);
         }

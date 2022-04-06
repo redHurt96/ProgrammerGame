@@ -1,3 +1,4 @@
+using _Game.Logic.MonoBehaviours;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace _Game.Configs
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
     public class Settings : SingletonScriptableObject<Settings>
     {
-        public GameObject MoneyPrefab;
+        public Money[] MoneyPrefabs;
         public GameObject TapFxPrefab;
 
         [Space]

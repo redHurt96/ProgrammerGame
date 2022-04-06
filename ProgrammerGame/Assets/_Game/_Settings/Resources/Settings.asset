@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac1c5dbe9a15964dae91e0cc1dc7c2c, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  MoneyPrefab: {fileID: 9153575133739193299, guid: 2c88379fc7873a04fb6330e3740eb06e, type: 3}
+  MoneyPrefabs:
+  - {fileID: 3785540177810785152, guid: 2c88379fc7873a04fb6330e3740eb06e, type: 3}
+  - {fileID: 3785540177810785152, guid: ca563eb020da1444a9f794eec0c68d06, type: 3}
+  - {fileID: 3785540177810785152, guid: 77b17c1dc33fe534592757075461f182, type: 3}
   TapFxPrefab: {fileID: 7577056058165911897, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
   MoneyRigidbodyRemoveTime: 2
   TargetLevels: 19000000320000004b0000006400000096000000c8000000fa0000002c01000090010000f4010000ee020000e8030000

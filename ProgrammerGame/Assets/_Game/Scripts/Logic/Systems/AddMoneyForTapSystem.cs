@@ -2,6 +2,7 @@
 using _Game.Configs;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
+using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
@@ -14,6 +15,6 @@ namespace _Game.Logic.Systems
             GlobalEvents.OnCodingAccelerated -= AddMoney;
 
         private void AddMoney() => 
-            GlobalEvents.IntentToChangeMoney((long) (GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent));
+            GlobalEvents.IntentToChangeMoney( (long) Mathf.Max(1, (GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent)));
     }
 }

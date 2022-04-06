@@ -33,7 +33,7 @@ namespace _Game.UI.Projects
         }
 
         private void UpdateVisibility(long obj) => 
-            _button.interactable = GameData.Instance.MoneyCount >= _calculatePrice?.Invoke() 
+            _button.interactable = GameData.Instance.SavableData.MoneyCount >= _calculatePrice?.Invoke() 
                                    && (_additionalCondition?.Invoke() ?? true);
 
         private void UpdateVisibility() => 

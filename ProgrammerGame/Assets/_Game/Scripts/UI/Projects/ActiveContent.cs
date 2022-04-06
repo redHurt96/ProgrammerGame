@@ -90,7 +90,7 @@ namespace _Game.UI.Projects
 
         private void DisableRunButtonIfProjectAutorunned()
         {
-            if (GameData.Instance.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
+            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
                 _runButton.interactable = false;
         }
     }

@@ -32,7 +32,7 @@ namespace _Game.UI.UpgradesTab
 
         private void Start()
         {
-            _upgradeData = GameData.Instance.Upgrades.First(x => x.Type == _upgradeType);
+            _upgradeData = GameData.Instance.SavableData.Upgrades.First(x => x.Type == _upgradeType);
 
             UpdateContent();
             Subscribe();

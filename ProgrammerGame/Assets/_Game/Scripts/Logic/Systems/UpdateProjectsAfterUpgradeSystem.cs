@@ -14,7 +14,7 @@ namespace _Game.Logic.Systems
 
         private void UpdateProjects()
         {
-            foreach (ProjectData project in GameData.Instance.Projects) 
+            foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
                 project.InvokeUpdateEvent();
         }
     }

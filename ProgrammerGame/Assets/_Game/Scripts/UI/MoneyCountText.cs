@@ -14,6 +14,6 @@ namespace AP.ProgrammerGame.UI
             GlobalEvents.MoneyCountChanged -= UpdateText;
 
         private void UpdateText(long l) => 
-            _text.text = GameData.Instance.MoneyCount.ToString("F0");
+            _text.text = GameData.Instance.SavableData.MoneyCount.ToString("F0");
     }
 }

@@ -3,15 +3,45 @@ using _Game.Configs;
 using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
+using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
-    public class SaveLoadSystem : IInitSystem
+    public class SaveLoadSystem : BaseInitSystem
     {
-        public void Init()
+        public override void Init()
         {
-            CreateProjectsData();
-            CreateUpgradesData();
+            if (PlayerPrefs.HasKey("Save"))
+            {
+                LoadData();
+            }
+            else
+            {
+                CreateProjectsData();
+                CreateUpgradesData();
+            }
+        }
+
+        public override void Dispose() => 
+            Save();
+
+        private void Save()
+        {
+            GameData.Instance.SavableData.SaveDateTime = DateTime.Now.ToBinary();
+
+            string data = JsonUtility.ToJson(GameData.Instance.SavableData);
+            UnityEngine.Debug.Log(data);
+
+            PlayerPrefs.SetString("Save", data);
+            PlayerPrefs.Save();
+        }
+
+        private void LoadData()
+        {
+            string rawData = PlayerPrefs.GetString("Save");
+            SavableData data = JsonUtility.FromJson<SavableData>(rawData);
+
+            GameData.Instance.SavableData = data;
         }
 
         private void CreateProjectsData()
@@ -30,7 +60,7 @@ namespace _Game.Logic.Systems
                 else
                     data.State = ProjectState.NotPurchased;
 
-                GameData.Instance.Projects.Add(data);
+                GameData.Instance.SavableData.Projects.Add(data);
             }
         }
 
@@ -40,9 +70,9 @@ namespace _Game.Logic.Systems
             var pc = new UpgradeData { Type = UpgradeType.PC };
             var house = new UpgradeData { Type = UpgradeType.House };
 
-            GameData.Instance.Upgrades.Add(interior);
-            GameData.Instance.Upgrades.Add(pc);
-            GameData.Instance.Upgrades.Add(house);
+            GameData.Instance.SavableData.Upgrades.Add(interior);
+            GameData.Instance.SavableData.Upgrades.Add(pc);
+            GameData.Instance.SavableData.Upgrades.Add(house);
         }
     }
 }

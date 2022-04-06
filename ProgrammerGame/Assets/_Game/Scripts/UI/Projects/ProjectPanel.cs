@@ -70,7 +70,7 @@ namespace _Game.UI.Projects
             GlobalEvents.IntentToRunProject(_projectData);
 
         private void SetupProjectData() => 
-            _projectData = GameData.Instance.Projects.Find(x => x.Name == settings.Name);
+            _projectData = GameData.Instance.SavableData.Projects.Find(x => x.Name == settings.Name);
 
         private void SetupNotAvailableContent() => 
             _notAvailableContent.Setup(settings);

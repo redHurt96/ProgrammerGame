@@ -24,7 +24,7 @@ namespace _Game.UI.ProgrammersTab
         {
             SetupCommonData();
 
-            if (GameData.Instance.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
+            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();

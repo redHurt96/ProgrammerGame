@@ -10,16 +10,21 @@ namespace _Game.Logic.Systems
 {
     public class BuyProgrammerSystem : BaseInitSystem
     {
-        public override void Init() => 
+        public override void Init()
+        {
+            foreach (string project in GameData.Instance.SavableData.AutoRunnedProjects)
+                AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == project));
+
             GlobalEvents.BuyProgrammerIntent += BuyProgrammer;
+        }
 
         public override void Dispose() => 
             GlobalEvents.BuyProgrammerIntent -= BuyProgrammer;
 
         private void BuyProgrammer(string forProject)
         {
-            GameData.Instance.AutoRunnedProjects.Add(forProject);
-            AutoRunProject(GameData.Instance.Projects.Find(x => x.Name == forProject));
+            GameData.Instance.SavableData.AutoRunnedProjects.Add(forProject);
+            AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == forProject));
         }
 
         private void AutoRunProject(ProjectData projectData)

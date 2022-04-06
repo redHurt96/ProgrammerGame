@@ -18,6 +18,9 @@ namespace _Game.Configs
         [Space]
         public ProjectSettings[] ProjectsSettings;
 
+        [Space] 
+        public long IdleIncomeSeconds;
+
         [Header("Start options")] 
         public long StartMoney;
         

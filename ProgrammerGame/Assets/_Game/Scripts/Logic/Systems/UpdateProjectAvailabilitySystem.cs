@@ -10,19 +10,19 @@ namespace _Game.Logic.Systems
     {
         public override void Init()
         {
-            foreach (ProjectData project in GameData.Instance.Projects) 
+            foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
                 project.DataUpdated += UpdateProjectDatas;
         }
         
         public override void Dispose()
         {
-            foreach (ProjectData project in GameData.Instance.Projects) 
+            foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
                 project.DataUpdated += UpdateProjectDatas;
         }
 
         private void UpdateProjectDatas()
         {
-            foreach (ProjectData project in GameData.Instance.Projects)
+            foreach (ProjectData project in GameData.Instance.SavableData.Projects)
             {
                 if (project.State != ProjectState.NotAvailable)
                     continue;
@@ -30,7 +30,7 @@ namespace _Game.Logic.Systems
                 ProjectSettings settings = Settings.Instance.ProjectsSettings
                     .First(x => x.Name == project.Name);
 
-                ProjectData blockProject = GameData.Instance.Projects
+                ProjectData blockProject = GameData.Instance.SavableData.Projects
                     .First(x => x.Name == settings.BlockProject.Name);
 
                 if (blockProject.Level >= settings.OpenLevel)

@@ -13,7 +13,7 @@ namespace _Game.Logic.Systems
 
         private void ChangeMoneyCount(long amount)
         {
-            GameData.Instance.MoneyCount += amount;
+            GameData.Instance.SavableData.MoneyCount += amount;
             GlobalEvents.ChangeMoneyCount(amount, this);
         }
     }

@@ -22,6 +22,8 @@ namespace _Game.Scripts.UI.Main
 
         Python,
         CSharp,
-        CPlusPlus
+        CPlusPlus,
+
+        ClearForBoost
     }
 }

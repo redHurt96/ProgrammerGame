@@ -11,21 +11,30 @@ namespace _Game.UI.Projects
         [SerializeField] private Button _button;
 
         private Func<long> _calculatePrice;
+        private Func<bool> _additionalCondition;
 
         public void SetPriceFunc(Func<long> calculatePrice)
         {
             _calculatePrice = calculatePrice;
 
             GlobalEvents.MoneyCountChanged += UpdateVisibility;
+            GlobalEvents.OnUpgraded += UpdateVisibility;
 
             UpdateVisibility();
         }
 
-        private void OnDestroy() => 
+        public void SetAdditionalCondition(Func<bool> additionalCondition) => 
+            _additionalCondition = additionalCondition;
+
+        private void OnDestroy()
+        {
+            GlobalEvents.OnUpgraded -= UpdateVisibility;
             GlobalEvents.MoneyCountChanged -= UpdateVisibility;
+        }
 
         private void UpdateVisibility(long obj) => 
-            _button.interactable = GameData.Instance.MoneyCount >= _calculatePrice?.Invoke();
+            _button.interactable = GameData.Instance.MoneyCount >= _calculatePrice?.Invoke() 
+                                   && (_additionalCondition?.Invoke() ?? true);
 
         private void UpdateVisibility() => 
             UpdateVisibility(0);

@@ -17,9 +17,11 @@ namespace AP.ProgrammerGame
         public static event Action<ProjectData> ProjectStarted;
         public static event Action<string> BuyProgrammerIntent;
         public static event Action<UpgradeType, long> BuyUpgradeIntent;
+        public static event Action OnUpgraded;
 
         public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
+
         public static void ChangeMoneyCount(long amount, ChangeMoneyCountSystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();
         public static void CreateMoney(GameObject money) => MoneyCreated?.Invoke(money);
@@ -29,5 +31,7 @@ namespace AP.ProgrammerGame
         public static void IntentToChangeMoney(long amount) => ChangeMoneyIntent?.Invoke(amount);
         public static void IntentToBuyProgrammer(string automatedProjectName) =>  BuyProgrammerIntent?.Invoke(automatedProjectName);
         public static void IntentToBuyUpgrade(UpgradeType upgradeType, long price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
+
+        public static void InvokeAfterUpgradeEvent() => OnUpgraded?.Invoke();
     }
 }

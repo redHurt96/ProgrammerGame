@@ -7,12 +7,10 @@ namespace _Game.Configs
     public class Settings : SingletonScriptableObject<Settings>
     {
         public GameObject MoneyPrefab;
+        public GameObject TapFxPrefab;
 
         [Space]
         public float MoneyRigidbodyRemoveTime = 3f;
-
-        [Space]
-        public GameObject TapFxPrefab;
 
         [Space]
         public int[] TargetLevels = {25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 750, 1000};
@@ -20,15 +18,14 @@ namespace _Game.Configs
         [Space]
         public ProjectSettings[] ProjectsSettings;
 
-        public float MoneyForTapPercent;
-
         [Header("Start options")] 
         public long StartMoney;
         
         [Header("Code writing process")]
         public float CodeWritingTime = 5f;
         public float AccelerationCodeProgressPercent = .05f;
-        
+        public float MoneyForTapPercent;
+
         [Header("Upgrades")]
         public float IncreaseSpeedEffectStrength;
         public float IncreaseMoneyEffectStrength;

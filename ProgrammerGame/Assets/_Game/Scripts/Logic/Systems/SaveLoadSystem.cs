@@ -20,11 +20,10 @@ namespace _Game.Logic.Systems
             {
                 ProjectData data = new ProjectData();
 
+                data.ProjectSettings = settings;
+
                 data.Name = settings.Name;
-                data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.Time);
-                data.BaseTime = settings.Time;
-                data.Price = settings.Price;
-                data.Income = settings.Income;
+                data.CurrentTimeToFinish = TimeSpan.FromSeconds(settings.GetTime(0));
 
                 if (settings.OpenLevel > 0)
                     data.State = ProjectState.NotAvailable;

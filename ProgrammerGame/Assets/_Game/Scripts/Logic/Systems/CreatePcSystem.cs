@@ -31,13 +31,13 @@ namespace _Game.Logic.Systems
             foreach (FurnitureSlot slot in pcSettings.DefaultFurniture) 
                 Apartment.Instance.AddFurniture(slot);
 
-            for (int i = 0; i < _roomsUpgradeData.Level + 1; i++) 
+            for (int i = 0; i < _roomsUpgradeData.Level; i++) 
                 CreatePc(i);
         }
 
         private void UpgradePc() => CreatePc(_pcUpgradeData.Level);
 
         private void CreatePc(int number) => 
-            Apartment.Instance.AddFurniture(Settings.Instance.PcSettings.FurnitureForPurchase[number]);
+            Apartment.Instance.AddFurniture(Settings.Instance.PcSettings.FurnitureForPurchase[number - 1]);
     }
 }

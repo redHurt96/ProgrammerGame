@@ -1,5 +1,6 @@
 ﻿using System;
 using _Game.Common;
+using _Game.Configs;
 using UnityEngine;
 
 namespace _Game.Data
@@ -13,15 +14,18 @@ namespace _Game.Data
         public ProjectState State;
         public string Name;
         public int Level;
-        public long Income;
-        public long Price;
-        public long BaseTime;
 
         //not for save
         public TimeSpan CurrentTimeToFinish;
+        public ProjectSettings ProjectSettings;
 
-        public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / BaseTime));
-        public long Time => Time / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect);
+        public long BaseIncome => ProjectSettings.GetIncome(Level);
+        public long Price => ProjectSettings.GetPrice(Level);
+        public long BaseTime => ProjectSettings.GetTime(Level);
+
+        public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
+        public long Time => (long) (BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect));
+        public long Income => (long) (BaseIncome * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect));
 
         public event Action DataUpdated;
 
@@ -32,28 +36,31 @@ namespace _Game.Data
 
             Level++;
 
-            DataUpdated?.Invoke();
+            InvokeUpdateEvent();
         }
 
         public void SetAvailable()
         {
             State = ProjectState.NotPurchased;
 
-            DataUpdated?.Invoke();
+            InvokeUpdateEvent();
         }
 
         public void SetTime(float time)
         {
-            CurrentTimeToFinish = TimeSpan.FromSeconds(BaseTime - time);
+            CurrentTimeToFinish = TimeSpan.FromSeconds(Time - time);
 
-            DataUpdated?.Invoke();
+            InvokeUpdateEvent();
         }
 
         public void CompleteProcess()
         {
-            CurrentTimeToFinish = TimeSpan.FromSeconds(BaseTime);
+            CurrentTimeToFinish = TimeSpan.FromSeconds(Time);
 
-            DataUpdated?.Invoke();
+            InvokeUpdateEvent();
         }
+
+        public void InvokeUpdateEvent() => 
+            DataUpdated?.Invoke();
     }
 }

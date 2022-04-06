@@ -8,13 +8,11 @@ namespace _Game.Logic.Systems
 {
     public class CreateInteriorSystem : BaseInitSystem
     {
-        private UpgradeData _roomsUpgradeData;
         private UpgradeData _interiorUpgradeData;
 
         public override void Init()
         {
             _interiorUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior);
-            _roomsUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.House);
 
             CreateInteriors();
 
@@ -26,12 +24,12 @@ namespace _Game.Logic.Systems
 
         private void CreateInteriors()
         {
-            for (int i = 0; i < _roomsUpgradeData.Level + 1; i++) 
+            for (int i = 0; i < _interiorUpgradeData.Level; i++) 
                 CreateInterior(i);
         }
 
         private void UpgradeInterior() => 
-            CreateInterior(_interiorUpgradeData.Level);
+            CreateInterior(_interiorUpgradeData.Level - 1);
 
         private void CreateInterior(int number)
         {

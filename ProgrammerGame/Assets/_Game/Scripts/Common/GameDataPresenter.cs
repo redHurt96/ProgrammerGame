@@ -10,18 +10,18 @@ namespace _Game.Common
     {
         private GameData _gameData => GameData.Instance;
 
-        public int IncreaseSpeedTotalEffect => 
-            (int) (_gameData.Upgrades.First(x => x.Type == UpgradeType.Interior).Level *
-                                                        (Settings.Instance.IncreaseSpeedEffectStrength));
+        public float IncreaseSpeedTotalEffect => 
+            _gameData.Upgrades.First(x => x.Type == UpgradeType.Interior).Level *
+            Settings.Instance.IncreaseSpeedEffectStrength;
 
-        public int IncreaseMoneyTotalEffect =>
-            (int) (_gameData.Upgrades.First(x => x.Type == UpgradeType.PC).Level *
-                   (Settings.Instance.IncreaseMoneyEffectStrength));
-
-        public int NewProgrammersCount => 999;
-        public int TotalProgrammersCount => 1000;
+        public float IncreaseMoneyTotalEffect =>
+            _gameData.Upgrades.First(x => x.Type == UpgradeType.PC).Level *
+            Settings.Instance.IncreaseMoneyEffectStrength;
 
         public UpgradeData GetUpgradeData(UpgradeType type) => 
             _gameData.Upgrades.First(x => x.Type == type);
+
+        public int RoomLevel => 
+            GetUpgradeData(UpgradeType.House).Level;
     }
 }

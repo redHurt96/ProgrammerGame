@@ -11,8 +11,12 @@ namespace _Game.Configs
         public int OpenLevel = 0;
         public ProjectSettings BlockProject;
 
-        public long Time;
-        public int Price;
-        public int Income;
+        public long GetPrice(int forLevel) => _priceSettings.GetPrice(forLevel);
+        public long GetIncome(int forLevel) => _incomeSettings.GetPrice(forLevel);
+        public long GetTime(int forLevel) => _timeSettings.GetTime(forLevel);
+
+        [SerializeField] private PriceSettings _priceSettings;
+        [SerializeField] private PriceSettings _incomeSettings;
+        [SerializeField] private TimeSettings _timeSettings;
     }
 }

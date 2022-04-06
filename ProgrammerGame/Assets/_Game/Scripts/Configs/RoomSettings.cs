@@ -9,5 +9,6 @@ namespace _Game.Configs
 
         public FurnitureSlot[] DefaultFurniture;
         public FurnitureSlot[] FurnitureForPurchase;
+        public ProgrammerSpot[] ProgrammerSpots;
     }
 }

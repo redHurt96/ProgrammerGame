@@ -16,6 +16,6 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 7f5077902f34e4dcda6e69df4ced83a7, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
-  Time: 15
-  Price: 3
-  Income: 3
+  _priceSettings: {fileID: 11400000, guid: 0bbd53dc84b921d41b8d144788a1b40b, type: 2}
+  _incomeSettings: {fileID: 11400000, guid: b1f2f40635864f34881468b6d0327cd6, type: 2}
+  _timeSettings: {fileID: 11400000, guid: e2cc293374e7c7043b49a86783bc1115, type: 2}

@@ -25,7 +25,7 @@ namespace _Game.Data
         {
             float time = 0f;
 
-            while (time < ProjectData.BaseTime)
+            while (time < ProjectData.Time)
             {
                 yield return null;
 

@@ -17,6 +17,7 @@ namespace _Game.Logic.Systems
         {
             GlobalEvents.IntentToChangeMoney(-price);
             GameDataPresenter.Instance.GetUpgradeData(type).Upgrade();
+            GlobalEvents.InvokeAfterUpgradeEvent();
         }
     }
 }

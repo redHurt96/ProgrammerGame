@@ -25,8 +25,10 @@ namespace _Game.UI.UpgradesTab
         private UpgradeData _upgradeData;
         private long _price => _priceSettings.GetPrice(_upgradeData.Level);
 
-        public abstract string EffectTitle { get; }
-        public abstract string TotalEffectTitle { get; }
+        protected abstract string EffectTitle { get; }
+        protected abstract string TotalEffectTitle { get; }
+
+        protected abstract bool CheckAdditionalBuyAvailability();
 
         private void Start()
         {
@@ -40,6 +42,7 @@ namespace _Game.UI.UpgradesTab
         {
             _buyButton.onClick.AddListener(BuyUpgrade);
             _buttonVisibilityComponent.SetPriceFunc(() => _price);
+            _buttonVisibilityComponent.SetAdditionalCondition(CheckAdditionalBuyAvailability);
             _upgradeData.Upgraded += UpdateContent;
         }
 

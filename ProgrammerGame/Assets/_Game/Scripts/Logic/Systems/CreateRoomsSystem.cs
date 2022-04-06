@@ -9,7 +9,6 @@ namespace _Game.Logic.Systems
     public class CreateRoomsSystem : BaseInitSystem
     {
         private UpgradeData _roomsUpgradeData;
-        private readonly CreateInteriorSystem _createInteriorSystem;
 
         public override void Init()
         {
@@ -31,10 +30,14 @@ namespace _Game.Logic.Systems
                 CreateRoom(i);
         }
 
+        private void UpgradeRooms() => 
+            CreateRoom(_roomsUpgradeData.Level);
 
-        private void UpgradeRooms() => CreateRoom(_roomsUpgradeData.Level);
+        private void CreateRoom(int number)
+        {
+            RoomSettings room = Settings.Instance.Rooms[number];
 
-        private void CreateRoom(int number) => 
-            Apartment.Instance.AddRoom(Settings.Instance.Rooms[number]);
+            Apartment.Instance.AddRoom(room);
+        }
     }
 }

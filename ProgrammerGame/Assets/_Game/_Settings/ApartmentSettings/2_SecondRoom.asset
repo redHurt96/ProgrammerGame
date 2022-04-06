@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b44f6afe854b14ae15e75eb3c01aae, type: 3}
   m_Name: 2_SecondRoom
   m_EditorClassIdentifier: 
-  Name: Default
   Base: {fileID: 5079101582985100957, guid: 9d455f0147d685b40be13f57cc979a41, type: 3}
   DefaultFurniture:
   - Type: 4
@@ -28,3 +27,6 @@ MonoBehaviour:
   - Type: 7
     ReplacingTypes: 04000000
     Furniture: {fileID: 590585878542515247, guid: 6d37375aa3c4fea4f8b78dc5c5095f60, type: 3}
+  ProgrammerSpots:
+  - Spot: {fileID: 56529713577053319, guid: 5661f905408a7ed49aeb643fd15a2bc2, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 9e27cdbcbd3c18745983b69709d3c7c7, type: 2}

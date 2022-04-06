@@ -19,7 +19,7 @@ namespace _Game.Logic.Systems
             double income = 0;
 
             foreach (ProjectData project in GameData.Instance.Projects.Where(x => x.State == ProjectState.Active))
-                income += ((double)project.Income / project.BaseTime * Settings.Instance.MoneyForTapPercent);
+                income += ((double)project.Income / project.Time * Settings.Instance.MoneyForTapPercent);
 
             GlobalEvents.IntentToChangeMoney((long)income);
         }

@@ -1,5 +1,6 @@
 ﻿using _Game.Configs;
 using _Game.Scripts.Exception;
+using _Game.Services;
 using _Game.UI.Projects;
 using AP.ProgrammerGame;
 using UnityEngine;
@@ -44,13 +45,19 @@ namespace _Game.UI.ProgrammersTab
             _price.text = _programmer.Price.ToPriceString();
             _button.onClick.AddListener(BuyProgrammer);
             _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.Price);
+            _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
         }
+
+        private bool CheckProgrammerAvailability() => 
+            Apartment.Instance.ContainSpotFor(_programmer.Name);
 
         private void BuyProgrammer()
         {
             GlobalEvents.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
 
             SetupForPurchasedProgrammer();
+
+            GlobalEvents.IntentToChangeMoney(-_programmer.Price);
         }
     }
 }

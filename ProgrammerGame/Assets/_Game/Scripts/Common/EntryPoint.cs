@@ -41,6 +41,7 @@ namespace _Game.Common
                 .Add(new CreateRoomsSystem())
                 .Add(new CreateInteriorSystem())
                 .Add(new CreatePcSystem())
+                .Add(new UpdateProjectsAfterUpgradeSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

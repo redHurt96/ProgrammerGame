@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Game.Configs
 {
@@ -23,10 +22,10 @@ namespace _Game.Configs
 #if UNITY_EDITOR
         public void SetPrice(PriceSettings priceSettings) => 
             _priceSettings = priceSettings;
-        public void SetIncome(PriceSettings priceSettings) => 
-            _priceSettings = priceSettings;
-        public void SetTime(PriceSettings priceSettings) => 
-            _priceSettings = priceSettings;
+        public void SetIncome(PriceSettings incomeSettings) => 
+            _incomeSettings = incomeSettings;
+        public void SetTime(TimeSettings timeSettings) => 
+            _timeSettings = timeSettings;
 #endif
     }
 }

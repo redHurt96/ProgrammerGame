@@ -16,17 +16,17 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: b8eceded76aa34c38baaa18c3f16a5ae, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: abe71b92e509ea142a94ab664c49a695, type: 2}
-  priceSettings:
+  _priceSettings:
     _offset: 100000000
     _linear: 20
-    _exponential: 4.5
-    _additional: 3.9
-  incomeSettings:
+    _exponential: 2.4
+    _additional: 2
+  _incomeSettings:
     _offset: 31500000
     _linear: 20
-    _exponential: 3.8
-    _additional: 3.9
-  timeSettings:
+    _exponential: 1.7
+    _additional: 2
+  _timeSettings:
     _startTime: 1800
     _endDecreasingLevel: 500
     _endTime: 200

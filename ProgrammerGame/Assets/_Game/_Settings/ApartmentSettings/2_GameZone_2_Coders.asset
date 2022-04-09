@@ -24,12 +24,6 @@ MonoBehaviour:
   - Type: wall1-full
     ReplacingTypes: []
     Furniture: {fileID: 4685526276021212657, guid: bc39d588bd2a5e340870312724cebfe2, type: 3}
-  - Type: Programmer_2_spot
-    ReplacingTypes: []
-    Furniture: {fileID: 1940703143317312731, guid: d766471f21f804b4480b27ba50de33f9, type: 3}
-  - Type: Programmer_3_spot
-    ReplacingTypes: []
-    Furniture: {fileID: 4782374799677189344, guid: ffe2b3e79dec4db409b4f5344b4d6273, type: 3}
   FurnitureForPurchase:
   - Type: sofa-old
     ReplacingTypes: []

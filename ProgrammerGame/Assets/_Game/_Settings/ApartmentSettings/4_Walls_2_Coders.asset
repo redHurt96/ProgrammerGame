@@ -15,34 +15,29 @@ MonoBehaviour:
   DefaultFurniture:
   - Type: Blue-walls
     ReplacingTypes:
-    - floor1-full
-    - floor1-right-half
-    - wall1-right-half
-    - walls1-corner
-    - floor1-full.001
-    - wall1-full
-    Furniture: {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
-  - Type: 4_SteveGates
-    ReplacingTypes: []
-    Furniture: {fileID: 1356647842305028653, guid: 67381aa441837714c89b90160b5ab2c0, type: 3}
-  - Type: 5_SidClancy
-    ReplacingTypes: []
-    Furniture: {fileID: 1088467241670193502, guid: 59f0e2979835fde468b7a536137fc880, type: 3}
+    - Blue-walls
+    Furniture: {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
   FurnitureForPurchase:
-  - Type: coffee-machine (1)
+  - Type: chair2.001 (1)
     ReplacingTypes:
-    - kettle
-    Furniture: {fileID: 3547644423007222822, guid: f3569988f9ba3df4081035f3c4b9027f, type: 3}
-  - Type: kitchen table2 (1)
-    ReplacingTypes:
-    - kitchen table-old
-    Furniture: {fileID: 2267798943077037339, guid: ae501e06d10831f4fb5da8baa37d0e0b, type: 3}
-  - Type: water cooler2 (1)
-    ReplacingTypes:
-    - water cooler
-    Furniture: {fileID: 8300492768842728890, guid: 5a4b608e578593d49bfe4fd6340e81a5, type: 3}
+    - sofa-old
+    - tv-1lvl
+    - dendy
+    Furniture: {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
+  - Type: chair2.002 (1)
+    ReplacingTypes: []
+    Furniture: {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
+  - Type: plant (1)
+    ReplacingTypes: []
+    Furniture: {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
+  - Type: ps2.001 (1)
+    ReplacingTypes: []
+    Furniture: {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
+  - Type: tv-2lvl (1)
+    ReplacingTypes: []
+    Furniture: {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
   ProgrammerSpots:
-  - Spot: {fileID: 7929380129503683455, guid: ebb45a5e20bc6c649b96b44ae90aa723, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}
-  - Spot: {fileID: 6696376402181922546, guid: 60969ccd8d1ab89478c799cb019b3714, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: d21844df271c6a94589c9c80e0adffbe, type: 2}
+  - Spot: {fileID: 4718465844570708937, guid: 26fd60ba7d394714eb8d28fe662019d4, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 6f7744bc9bac31840bc09a526d464fed, type: 2}
+  - Spot: {fileID: 1087477690748890207, guid: 70b553668f9e0474ea9e686a2e59d5a7, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 1bd47fe110ac90549bd976e6fd5335a8, type: 2}

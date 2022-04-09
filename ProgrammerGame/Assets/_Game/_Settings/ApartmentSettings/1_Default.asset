@@ -52,9 +52,6 @@ MonoBehaviour:
   - Type: Table_default
     ReplacingTypes: []
     Furniture: {fileID: 4390983465077866016, guid: 2cd19d8752e27f34cab94934b11e74d1, type: 3}
-  - Type: Programmer_1_spot
-    ReplacingTypes: []
-    Furniture: {fileID: 7067968245111146768, guid: 7fc05ff40cb1e014fb5e7f5b55131a9b, type: 3}
   FurnitureForPurchase:
   - Type: kitchen table-old
     ReplacingTypes: []

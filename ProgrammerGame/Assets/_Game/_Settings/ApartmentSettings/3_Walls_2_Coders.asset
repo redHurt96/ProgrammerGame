@@ -22,12 +22,9 @@ MonoBehaviour:
     - floor1-full.001
     - wall1-full
     Furniture: {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
-  - Type: 4_SteveGates
+  - Type: basement-right-half(Clone) (1)
     ReplacingTypes: []
-    Furniture: {fileID: 1356647842305028653, guid: 67381aa441837714c89b90160b5ab2c0, type: 3}
-  - Type: 5_SidClancy
-    ReplacingTypes: []
-    Furniture: {fileID: 1088467241670193502, guid: 59f0e2979835fde468b7a536137fc880, type: 3}
+    Furniture: {fileID: 413651868757640987, guid: faab3d38d9d4a5b48be3e340fe92fcb4, type: 3}
   FurnitureForPurchase:
   - Type: coffee-machine (1)
     ReplacingTypes:

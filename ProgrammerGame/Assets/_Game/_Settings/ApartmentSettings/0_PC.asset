@@ -13,13 +13,67 @@ MonoBehaviour:
   m_Name: 0_PC
   m_EditorClassIdentifier: 
   DefaultFurniture:
-  - Type: Computer_0
-    ReplacingTypes: []
+  - Type: 0_Computer
     Furniture: {fileID: 5657351146153829455, guid: a4108e8df4271f5489d4cc036b612a88, type: 3}
-  - Type: Keyboard_0
     ReplacingTypes: []
+  - Type: 0_Keyboard
     Furniture: {fileID: 6786465002926468592, guid: 608052fa84239c34989068324c63198a, type: 3}
-  - Type: Mouse_0
     ReplacingTypes: []
+  - Type: 0_Mouse
     Furniture: {fileID: 177125144747517279, guid: 8cf7f9601dc67ea4b8a9c7ae8d9311f4, type: 3}
-  FurnitureForPurchase: []
+    ReplacingTypes: []
+  FurnitureForPurchase:
+  - Type: 1_Mouse
+    Furniture: {fileID: 7179582448742993132, guid: 0824181753e2ee54bb1652a8015d92fb, type: 3}
+    ReplacingTypes:
+    - 0_Mouse
+  - Type: 1_Keyboard
+    Furniture: {fileID: 2665133357104983994, guid: ae407b4535825704596cd09b6804c568, type: 3}
+    ReplacingTypes:
+    - 0_Keyboard
+  - Type: 1_Computer
+    Furniture: {fileID: 4205753268478335314, guid: 5c605536e14ae8c4586111b45e7181aa, type: 3}
+    ReplacingTypes: []
+  - Type: 1_Screen
+    Furniture: {fileID: 5216554803772393809, guid: 8d6b11cc8e240e0459d94d63c9106a84, type: 3}
+    ReplacingTypes:
+    - 0_Computer
+  - Type: 2_Mouse
+    Furniture: {fileID: 2325679058214809564, guid: 25bf01d6ed7691c4a9580f436ebee1e8, type: 3}
+    ReplacingTypes:
+    - 1_Mouse
+  - Type: 2_Keyboard
+    Furniture: {fileID: 8528431001181547370, guid: 050e9dca4db1ff048b7a322918168878, type: 3}
+    ReplacingTypes:
+    - 1_Keyboard
+  - Type: 2_Computer
+    Furniture: {fileID: 5909044687985300371, guid: 431e1cae5bbaf1d4f8727c1953460b4c, type: 3}
+    ReplacingTypes:
+    - 1_Computer
+  - Type: 2_Screen
+    Furniture: {fileID: 2359771084091278443, guid: 32a88820df07d7b4896cbe3b70b58f58, type: 3}
+    ReplacingTypes:
+    - 1_Screen
+  - Type: 2_Screen_1
+    Furniture: {fileID: 3377236833038866530, guid: 16fc0490083fdae43910833efb33f15c, type: 3}
+    ReplacingTypes: []
+  - Type: 3_Mouse
+    Furniture: {fileID: 8572213602995019494, guid: add78b8a3dae7c24892769635bf2ac3a, type: 3}
+    ReplacingTypes:
+    - 2_Mouse
+  - Type: 3_Keyboard
+    Furniture: {fileID: 9094879016195393918, guid: b0951188299e8c346a59a8a1a470089c, type: 3}
+    ReplacingTypes:
+    - 2_Keyboard
+  - Type: 3_Screen
+    Furniture: {fileID: 3184275347388475814, guid: 8c09c1123cb99c240b1179bb60ce55c4, type: 3}
+    ReplacingTypes:
+    - 2_Screen_1
+    - 2_Screen
+  - Type: 3_Computer
+    Furniture: {fileID: 5348465991662459172, guid: af463275257bdcd4fa58c33596e10273, type: 3}
+    ReplacingTypes:
+    - 2_Computer
+  - Type: 3_Tab
+    Furniture: {fileID: 5439008610958476456, guid: 30abf78130afaec4a9ca9e914698b955, type: 3}
+    ReplacingTypes: []

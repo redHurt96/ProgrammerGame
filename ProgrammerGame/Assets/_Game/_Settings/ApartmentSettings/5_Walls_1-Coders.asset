@@ -13,31 +13,31 @@ MonoBehaviour:
   m_Name: 5_Walls_1-Coders
   m_EditorClassIdentifier: 
   DefaultFurniture:
-  - Type: Blue-walls
+  - Type: PurpleWalls
+    Furniture: {fileID: 9084999777103709748, guid: 8a982d2a429e8d94890ea30ff41e177d, type: 3}
     ReplacingTypes:
-    - Blue-walls
-    Furniture: {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
+    - LightBlueWalls
   FurnitureForPurchase:
-  - Type: chair2.001 (1)
+  - Type: coffee-machine (1)(Clone)
+    Furniture: {fileID: 8082326028649024175, guid: 43851255067667d40bcd28828ebc6a29, type: 3}
     ReplacingTypes:
-    - sofa-old
-    - tv-1lvl
-    - dendy
-    Furniture: {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
-  - Type: chair2.002 (1)
-    ReplacingTypes: []
-    Furniture: {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
-  - Type: plant (1)
-    ReplacingTypes: []
-    Furniture: {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
-  - Type: ps2.001 (1)
-    ReplacingTypes: []
-    Furniture: {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
-  - Type: tv-2lvl (1)
-    ReplacingTypes: []
-    Furniture: {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
+    - coffee-machine (1)
+  - Type: water cooler3
+    Furniture: {fileID: 288408476196121041, guid: 492282deb1ba8f846a62b0bdc15ad90f, type: 3}
+    ReplacingTypes:
+    - water cooler2 (1)
+  - Type: kitchen table3.001
+    Furniture: {fileID: 7272436666387111006, guid: d78b197b8a81a894896868f55436e302, type: 3}
+    ReplacingTypes:
+    - kitchen table2 (1)
+  - Type: Table
+    Furniture: {fileID: 3370792431220134397, guid: c1cfdfef26ed9bc428a952fb5ebd3a6c, type: 3}
+    ReplacingTypes:
+    - Table2
+  - Type: Chair
+    Furniture: {fileID: 8387816176324449789, guid: 47a32c2ab0ebc4d4fa785b11104c72dc, type: 3}
+    ReplacingTypes:
+    - Chair2
   ProgrammerSpots:
-  - Spot: {fileID: 4718465844570708937, guid: 26fd60ba7d394714eb8d28fe662019d4, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: 6f7744bc9bac31840bc09a526d464fed, type: 2}
-  - Spot: {fileID: 1087477690748890207, guid: 70b553668f9e0474ea9e686a2e59d5a7, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: 1bd47fe110ac90549bd976e6fd5335a8, type: 2}
+  - Spot: {fileID: 5709928035530952490, guid: 7a35d2b305d5f2944848405c87c013b6, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 53e4ca4b66ad7574cbc043097edeb683, type: 2}

@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175427205c1a49d8b9bb4e0f7f3712b1, type: 3}
   m_Name: HouseUpgrades
   m_EditorClassIdentifier: 
-  _offset: 10
-  _linear: 1
-  _exponential: 1
-  _additional: 1
+  _prices: 1027000000000000a08601000000000040420f0000000000809698000000000000e1f5050000000000ca9a3b00000000

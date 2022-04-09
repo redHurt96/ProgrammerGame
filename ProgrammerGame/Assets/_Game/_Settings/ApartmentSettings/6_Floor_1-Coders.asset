@@ -13,31 +13,45 @@ MonoBehaviour:
   m_Name: 6_Floor_1-Coders
   m_EditorClassIdentifier: 
   DefaultFurniture:
-  - Type: Blue-walls
+  - Type: YellowFloor
+    Furniture: {fileID: 682499487721772524, guid: 368970d276ab50242a04487971d3c4e2, type: 3}
     ReplacingTypes:
-    - Blue-walls
-    Furniture: {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
+    - DarkBlueFloor
   FurnitureForPurchase:
-  - Type: chair2.001 (1)
+  - Type: cactus.001
+    Furniture: {fileID: 4011065721084862494, guid: 7af2c709e93ce1249aa62e138ef379b6, type: 3}
     ReplacingTypes:
-    - sofa-old
-    - tv-1lvl
-    - dendy
-    Furniture: {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
-  - Type: chair2.002 (1)
+    - plant (1)
+    - ps2.001 (1)
+    - tv-2lvl (1)
+    - chair2.002 (1)
+    - chair2.001 (1)
+  - Type: cactus
+    Furniture: {fileID: 7893515063357137918, guid: f6768c35c5b79184093d216e2e3b2c1a, type: 3}
     ReplacingTypes: []
-    Furniture: {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
-  - Type: plant (1)
+  - Type: CARPET
+    Furniture: {fileID: 7914753439828196369, guid: 5c99b3c5d8576334a83788a6aaa83a31, type: 3}
     ReplacingTypes: []
-    Furniture: {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
-  - Type: ps2.001 (1)
+  - Type: soft-chair.001
+    Furniture: {fileID: 6498703106017558989, guid: 01a11a33bd0d1ed4d8301ff048521fcd, type: 3}
     ReplacingTypes: []
-    Furniture: {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
-  - Type: tv-2lvl (1)
+  - Type: soft-chair
+    Furniture: {fileID: 1399711259232532602, guid: ef963e15d9ab67e4686732f6e497cca4, type: 3}
     ReplacingTypes: []
-    Furniture: {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
+  - Type: tv-table3
+    Furniture: {fileID: 2078751813892382126, guid: e1ddf2447dc0d81459314eb106ab2c66, type: 3}
+    ReplacingTypes: []
+  - Type: tv3
+    Furniture: {fileID: 8712822927485232621, guid: 46a83b69d44e7694585cf5e2e5f470f4, type: 3}
+    ReplacingTypes: []
+  - Type: Table
+    Furniture: {fileID: 4001786164679882721, guid: 451482d73f8a3bb418712f597e08613b, type: 3}
+    ReplacingTypes:
+    - Table
+  - Type: Chair
+    Furniture: {fileID: 2507385558864352308, guid: bf542a493d443df42b0d72f1e2b0a708, type: 3}
+    ReplacingTypes:
+    - Chair
   ProgrammerSpots:
-  - Spot: {fileID: 4718465844570708937, guid: 26fd60ba7d394714eb8d28fe662019d4, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: 6f7744bc9bac31840bc09a526d464fed, type: 2}
-  - Spot: {fileID: 1087477690748890207, guid: 70b553668f9e0474ea9e686a2e59d5a7, type: 3}
-    ProgrammerSettings: {fileID: 11400000, guid: 1bd47fe110ac90549bd976e6fd5335a8, type: 2}
+  - Spot: {fileID: 1906324870990981001, guid: a491f822301c04d43912db279db9f4c9, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 01768c5b711cdaf4f8721f639d304886, type: 2}

@@ -23,6 +23,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private PriceButtonVisibilityComponent _buttonVisibilityComponent;
 
         private UpgradeData _upgradeData;
+
         private long _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
 
         protected abstract string EffectTitle { get; }

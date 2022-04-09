@@ -7,7 +7,7 @@ namespace _Game.Configs
     public class FurnitureSlot
     {
         public string Type;
-        public string[] ReplacingTypes;
         public GameObject Furniture;
+        public string[] ReplacingTypes;
     }
 }

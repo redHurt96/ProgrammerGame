@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultFurniture:
   - Type: Blue-walls
+    Furniture: {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
     ReplacingTypes:
     - floor1-full
     - floor1-right-half
@@ -21,23 +22,30 @@ MonoBehaviour:
     - walls1-corner
     - floor1-full.001
     - wall1-full
-    Furniture: {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
   - Type: basement-right-half(Clone) (1)
-    ReplacingTypes: []
     Furniture: {fileID: 413651868757640987, guid: faab3d38d9d4a5b48be3e340fe92fcb4, type: 3}
+    ReplacingTypes: []
   FurnitureForPurchase:
   - Type: coffee-machine (1)
+    Furniture: {fileID: 3547644423007222822, guid: f3569988f9ba3df4081035f3c4b9027f, type: 3}
     ReplacingTypes:
     - kettle
-    Furniture: {fileID: 3547644423007222822, guid: f3569988f9ba3df4081035f3c4b9027f, type: 3}
   - Type: kitchen table2 (1)
+    Furniture: {fileID: 2267798943077037339, guid: ae501e06d10831f4fb5da8baa37d0e0b, type: 3}
     ReplacingTypes:
     - kitchen table-old
-    Furniture: {fileID: 2267798943077037339, guid: ae501e06d10831f4fb5da8baa37d0e0b, type: 3}
   - Type: water cooler2 (1)
+    Furniture: {fileID: 8300492768842728890, guid: 5a4b608e578593d49bfe4fd6340e81a5, type: 3}
     ReplacingTypes:
     - water cooler
-    Furniture: {fileID: 8300492768842728890, guid: 5a4b608e578593d49bfe4fd6340e81a5, type: 3}
+  - Type: Chair2
+    Furniture: {fileID: 8682255501285403996, guid: 88fc5712d30cf0c4e990654012b80f8b, type: 3}
+    ReplacingTypes:
+    - taburetka
+  - Type: Table2
+    Furniture: {fileID: 1877001270400858238, guid: cf22bc6d319e98346a28fc0bfd05371d, type: 3}
+    ReplacingTypes:
+    - Table_default
   ProgrammerSpots:
   - Spot: {fileID: 7929380129503683455, guid: ebb45a5e20bc6c649b96b44ae90aa723, type: 3}
     ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}

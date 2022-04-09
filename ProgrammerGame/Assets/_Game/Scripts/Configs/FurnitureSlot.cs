@@ -6,8 +6,8 @@ namespace _Game.Configs
     [Serializable]
     public class FurnitureSlot
     {
-        public FurnitureSlotType Type;
-        public FurnitureSlotType[] ReplacingTypes;
+        public string Type;
+        public string[] ReplacingTypes;
         public GameObject Furniture;
     }
 }

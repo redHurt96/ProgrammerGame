@@ -25,12 +25,9 @@ namespace _Game.Logic.Systems
         private void CreatePcs()
         {
             PcSettings pcSettings = Settings.Instance.PcSettings;
-            
+
             foreach (FurnitureSlot slot in pcSettings.DefaultFurniture) 
                 Apartment.Instance.AddFurniture(slot);
-
-            for (int i = 1; i <= _pcUpgradeData.Level; i++) 
-                CreatePc(i);
         }
 
         private void UpgradePc() => 

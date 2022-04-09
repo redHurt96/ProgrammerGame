@@ -38,5 +38,6 @@ MonoBehaviour:
   IncreaseMoneyEffectStrength: 0.05
   Rooms:
   - {fileID: 11400000, guid: 482737b4754bcf149b4a573a43b9a335, type: 2}
-  - {fileID: 11400000, guid: 0bb00a6eae612c24383e7bc81489afbb, type: 2}
+  - {fileID: 11400000, guid: ade27cfe49a8a844ebf8e3796c6bff29, type: 2}
+  - {fileID: 11400000, guid: fa14f7b4841924e48ad8a192ca613244, type: 2}
   PcSettings: {fileID: 11400000, guid: 4eaa1559d3ef6a44ebccf0261d09c4ee, type: 2}

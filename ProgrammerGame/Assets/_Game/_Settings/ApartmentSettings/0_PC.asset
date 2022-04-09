@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 0_PC
   m_EditorClassIdentifier: 
   DefaultFurniture:
-  - Type: 8
-    ReplacingTypes: 
-    Furniture: {fileID: 9165806585899678533, guid: eb41010f2cc76b54c85c3934a32ca923, type: 3}
-  FurnitureForPurchase:
-  - Type: 9
-    ReplacingTypes: 08000000
-    Furniture: {fileID: 3606297784990624887, guid: dbad48a15ef3a9045aeff25b72c99e12, type: 3}
-  - Type: 10
-    ReplacingTypes: 09000000
-    Furniture: {fileID: 3492491981091536305, guid: c3ebb88a3e4339f4e92299b113458490, type: 3}
+  - Type: Computer_0
+    ReplacingTypes: []
+    Furniture: {fileID: 5657351146153829455, guid: a4108e8df4271f5489d4cc036b612a88, type: 3}
+  - Type: Keyboard_0
+    ReplacingTypes: []
+    Furniture: {fileID: 6786465002926468592, guid: 608052fa84239c34989068324c63198a, type: 3}
+  - Type: Mouse_0
+    ReplacingTypes: []
+    Furniture: {fileID: 177125144747517279, guid: 8cf7f9601dc67ea4b8a9c7ae8d9311f4, type: 3}
+  FurnitureForPurchase: []

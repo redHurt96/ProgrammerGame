@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b44f6afe854b14ae15e75eb3c01aae, type: 3}
+  m_Name: 3_Walls_2_Coders
+  m_EditorClassIdentifier: 
+  DefaultFurniture:
+  - Type: Blue-walls
+    ReplacingTypes:
+    - floor1-full
+    - floor1-right-half
+    - wall1-right-half
+    - walls1-corner
+    - floor1-full.001
+    - wall1-full
+    Furniture: {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
+  - Type: 4_SteveGates
+    ReplacingTypes: []
+    Furniture: {fileID: 1356647842305028653, guid: 67381aa441837714c89b90160b5ab2c0, type: 3}
+  - Type: 5_SidClancy
+    ReplacingTypes: []
+    Furniture: {fileID: 1088467241670193502, guid: 59f0e2979835fde468b7a536137fc880, type: 3}
+  FurnitureForPurchase:
+  - Type: coffee-machine (1)
+    ReplacingTypes:
+    - kettle
+    Furniture: {fileID: 3547644423007222822, guid: f3569988f9ba3df4081035f3c4b9027f, type: 3}
+  - Type: kitchen table2 (1)
+    ReplacingTypes:
+    - kitchen table-old
+    Furniture: {fileID: 2267798943077037339, guid: ae501e06d10831f4fb5da8baa37d0e0b, type: 3}
+  - Type: water cooler2 (1)
+    ReplacingTypes:
+    - water cooler
+    Furniture: {fileID: 8300492768842728890, guid: 5a4b608e578593d49bfe4fd6340e81a5, type: 3}
+  ProgrammerSpots:
+  - Spot: {fileID: 7929380129503683455, guid: ebb45a5e20bc6c649b96b44ae90aa723, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}
+  - Spot: {fileID: 6696376402181922546, guid: 60969ccd8d1ab89478c799cb019b3714, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: d21844df271c6a94589c9c80e0adffbe, type: 2}

@@ -12,21 +12,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b44f6afe854b14ae15e75eb3c01aae, type: 3}
   m_Name: 1_Default
   m_EditorClassIdentifier: 
-  Base: {fileID: 3257702667870952537, guid: d264c21ae28598145a86c6b019a499c4, type: 3}
   DefaultFurniture:
-  - Type: 0
-    ReplacingTypes: 
-    Furniture: {fileID: 4054967571441268853, guid: 061384bb5b512e94ba4ec0abb798f7f3, type: 3}
-  - Type: 1
-    ReplacingTypes: 
-    Furniture: {fileID: 3208595332146863028, guid: a8b7cd64ed5b991409e4c67a9575c479, type: 3}
+  - Type: basement-corner
+    ReplacingTypes: []
+    Furniture: {fileID: 1672696165012809418, guid: a4f5e8b2389c856439cca1c811f28a0d, type: 3}
+  - Type: door
+    ReplacingTypes: []
+    Furniture: {fileID: 7828919618544742400, guid: bfbe6c9fd0d07974d8fb033934d0bbcb, type: 3}
+  - Type: money-tube.001
+    ReplacingTypes: []
+    Furniture: {fileID: 7679371719250991573, guid: 66a1946518a75f14ab58737b1e8f7a79, type: 3}
+  - Type: floor1-full
+    ReplacingTypes: []
+    Furniture: {fileID: 5169632903217528197, guid: 06afb252011c24a40ab6a5dc877aaf8d, type: 3}
+  - Type: walls1-corner
+    ReplacingTypes: []
+    Furniture: {fileID: 6842388688530838963, guid: d8b47d1698a56ec429872521d03c90c7, type: 3}
+  - Type: basement-right-half
+    ReplacingTypes: []
+    Furniture: {fileID: 8139174961673838025, guid: 00866486b09be674e9af528434272be8, type: 3}
+  - Type: wall1-right-half
+    ReplacingTypes: []
+    Furniture: {fileID: 2126015262619367783, guid: c0db92aa63e668f4baf1547957dc83e3, type: 3}
+  - Type: floor1-right-half
+    ReplacingTypes: []
+    Furniture: {fileID: 3450275661655291567, guid: 5924947e4a854714eb48f35127628bec, type: 3}
+  - Type: posters
+    ReplacingTypes: []
+    Furniture: {fileID: 1888770206781951812, guid: c1e3adf1c185ea8459cb35c6ea727201, type: 3}
+  - Type: Pizza
+    ReplacingTypes: []
+    Furniture: {fileID: 3403485212040748053, guid: 7175b310dc11c4f499da77b49def864e, type: 3}
+  - Type: taburetka
+    ReplacingTypes: []
+    Furniture: {fileID: 6022945923224826731, guid: 785f3558cfe6e134b9fe7604a180fb43, type: 3}
+  - Type: Trash
+    ReplacingTypes: []
+    Furniture: {fileID: 2101073312153300716, guid: 2d7a856680f5478419e0554bef78574d, type: 3}
+  - Type: Table_default
+    ReplacingTypes: []
+    Furniture: {fileID: 4390983465077866016, guid: 2cd19d8752e27f34cab94934b11e74d1, type: 3}
+  - Type: Programmer_1_spot
+    ReplacingTypes: []
+    Furniture: {fileID: 7067968245111146768, guid: 7fc05ff40cb1e014fb5e7f5b55131a9b, type: 3}
   FurnitureForPurchase:
-  - Type: 2
-    ReplacingTypes: 
-    Furniture: {fileID: 7287434617136832696, guid: d491598754a5c9a4bb246f84a0191710, type: 3}
-  - Type: 3
-    ReplacingTypes: 00000000
-    Furniture: {fileID: 5642987113131706731, guid: 731cdaa1b342d0b42903a677214d0251, type: 3}
+  - Type: kitchen table-old
+    ReplacingTypes: []
+    Furniture: {fileID: 2675973648318214003, guid: fc929b2dfd4efea4fbcc3b3746b0e703, type: 3}
+  - Type: water cooler
+    ReplacingTypes: []
+    Furniture: {fileID: 4999140666541461476, guid: c23ac12433861d4449db81fa3935e3c6, type: 3}
+  - Type: kettle
+    ReplacingTypes: []
+    Furniture: {fileID: 2554533105003625572, guid: a2d1b909caffcda499f52ba819cab2b4, type: 3}
   ProgrammerSpots:
-  - Spot: {fileID: 56529713577053319, guid: faf8006e4fa82b64d9bdc221b7fe96e7, type: 3}
+  - Spot: {fileID: 6019051242732082416, guid: 34062e0d3d5f2a84fa8c419788b939ed, type: 3}
     ProgrammerSettings: {fileID: 11400000, guid: acb9bf33df7fc7f41a9a5388a37d1ea0, type: 2}

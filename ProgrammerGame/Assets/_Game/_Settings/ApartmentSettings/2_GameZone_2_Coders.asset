@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b44f6afe854b14ae15e75eb3c01aae, type: 3}
+  m_Name: 2_GameZone_2_Coders
+  m_EditorClassIdentifier: 
+  DefaultFurniture:
+  - Type: basement-full
+    ReplacingTypes:
+    - Pizza
+    - Trash
+    Furniture: {fileID: 1289765048890675653, guid: 322c41198605c1a47bae1929a697567f, type: 3}
+  - Type: floor1-full.001
+    ReplacingTypes: []
+    Furniture: {fileID: 5398166274936699365, guid: 2fc3792b81f3eb147b4ca26ca1aca77c, type: 3}
+  - Type: wall1-full
+    ReplacingTypes: []
+    Furniture: {fileID: 4685526276021212657, guid: bc39d588bd2a5e340870312724cebfe2, type: 3}
+  - Type: Programmer_2_spot
+    ReplacingTypes: []
+    Furniture: {fileID: 1940703143317312731, guid: d766471f21f804b4480b27ba50de33f9, type: 3}
+  - Type: Programmer_3_spot
+    ReplacingTypes: []
+    Furniture: {fileID: 4782374799677189344, guid: ffe2b3e79dec4db409b4f5344b4d6273, type: 3}
+  FurnitureForPurchase:
+  - Type: sofa-old
+    ReplacingTypes: []
+    Furniture: {fileID: 6081968224422974020, guid: 713fef4af8e55674790ee71cccf5bef6, type: 3}
+  - Type: tv-1lvl
+    ReplacingTypes: []
+    Furniture: {fileID: 6432603558703927355, guid: ba7522d0b198e5143a8b49ce2ca27c97, type: 3}
+  - Type: dendy
+    ReplacingTypes: []
+    Furniture: {fileID: 5176126973960525446, guid: 8db6681b7268377448c14b54d365920c, type: 3}
+  ProgrammerSpots:
+  - Spot: {fileID: 7458924080652175756, guid: f3cafbf390618da46b82e7bf70364fde, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 50b364235b4d2b148b0c270cdabb4aad, type: 2}
+  - Spot: {fileID: 5810087823199274305, guid: 6849a619e02cb1c498ac779e038de74f, type: 3}
+    ProgrammerSettings: {fileID: 11400000, guid: 9e27cdbcbd3c18745983b69709d3c7c7, type: 2}

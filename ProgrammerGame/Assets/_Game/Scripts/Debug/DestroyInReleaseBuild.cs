@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Game.Debug
 {
-    public class DestroyInBuild : MonoBehaviour
+    public class DestroyInReleaseBuild : MonoBehaviour
     {
         private void Awake()
         {

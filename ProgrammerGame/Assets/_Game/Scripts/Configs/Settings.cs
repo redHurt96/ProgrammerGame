@@ -37,5 +37,7 @@ namespace _Game.Configs
         [Header("House")]
         public RoomSettings[] Rooms;
         public PcSettings PcSettings;
+        public AllProgrammersSettings AllProgrammersSettings;
+        public FurnitureSlot MainCharacter;
     }
 }

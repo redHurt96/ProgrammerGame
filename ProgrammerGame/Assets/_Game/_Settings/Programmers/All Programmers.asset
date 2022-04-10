@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294e9d6f74f94d50be770c170c281329, type: 3}
+  m_Name: All Programmers
+  m_EditorClassIdentifier: 
+  Workplaces:
+  - ProgrammerSettings: {fileID: 11400000, guid: acb9bf33df7fc7f41a9a5388a37d1ea0, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 50b364235b4d2b148b0c270cdabb4aad, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 9e27cdbcbd3c18745983b69709d3c7c7, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: d21844df271c6a94589c9c80e0adffbe, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 6f7744bc9bac31840bc09a526d464fed, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 1bd47fe110ac90549bd976e6fd5335a8, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 53e4ca4b66ad7574cbc043097edeb683, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []
+  - ProgrammerSettings: {fileID: 11400000, guid: 01768c5b711cdaf4f8721f639d304886, type: 2}
+    FurnitureSlot:
+      Type: 
+      Furniture: {fileID: 0}
+      ReplacingTypes: []

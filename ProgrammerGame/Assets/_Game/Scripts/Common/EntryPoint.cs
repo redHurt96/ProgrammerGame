@@ -43,6 +43,7 @@ namespace _Game.Common
                 .Add(new CreatePcSystem())
                 .Add(new UpdateProjectsAfterUpgradeSystem())
                 .Add(new IdleIncomeSystem())
+                .Add(new CreateProgrammerSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

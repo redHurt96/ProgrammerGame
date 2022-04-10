@@ -1,5 +1,7 @@
-﻿using AP.ProgrammerGame;
+﻿using _Game.Common;
+using AP.ProgrammerGame;
 using RH.Utilities.UI;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Game.Debug
@@ -9,9 +11,9 @@ namespace _Game.Debug
         public long Value = 100;
 
         private void Awake() => 
-            GetComponentInChildren<Text>().text = Value.ToString();
+            GetComponentInChildren<Text>().text = $"x{Value}";
 
         protected override void PerformOnClick() => 
-            GlobalEvents.IntentToChangeMoney(Value);
+            GlobalEvents.IntentToChangeMoney( (long) Mathf.Max(1, GameDataPresenter.Instance.IncomePerSec * Value));
     }
 }

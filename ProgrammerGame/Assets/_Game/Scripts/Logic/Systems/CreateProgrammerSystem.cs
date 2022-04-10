@@ -4,7 +4,6 @@ using _Game.Data;
 using _Game.Services;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
-using Settings = _Game.Configs.Settings;
 
 namespace _Game.Logic.Systems
 {
@@ -22,7 +21,7 @@ namespace _Game.Logic.Systems
             GlobalEvents.BuyProgrammerIntent -= CreateProgrammer;
 
         private void CreateMainCharacter() => 
-            Apartment.Instance.AddFurniture(Settings.Instance.MainCharacter);
+            Apartment.Instance.AddMainCharacter(Settings.Instance.MainCharacter);
 
         private void CreateExistedProgrammers()
         {
@@ -34,9 +33,9 @@ namespace _Game.Logic.Systems
         {
             AllProgrammersSettings.ProgrammerWorkplace workplace =
                 Settings.Instance.AllProgrammersSettings.Workplaces
-                    .First(x =>x.ProgrammerSettings.AutomatedProject.Name == name);
+                    .First(x => x.ProgrammerSettings.AutomatedProject.Name == name);
 
-            Apartment.Instance.AddFurnitureToReplacingPosition(workplace.FurnitureSlot);
+            Apartment.Instance.AddProgrammer(workplace.FurnitureSlot);
         }
     }
 }

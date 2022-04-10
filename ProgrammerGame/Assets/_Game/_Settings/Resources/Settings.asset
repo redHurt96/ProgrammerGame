@@ -44,3 +44,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: adc43a9baf13da541816fad07de5b4bd, type: 2}
   - {fileID: 11400000, guid: 8d61861436c141342ad34a313d371f72, type: 2}
   PcSettings: {fileID: 11400000, guid: 4eaa1559d3ef6a44ebccf0261d09c4ee, type: 2}
+  AllProgrammersSettings: {fileID: 11400000, guid: d664e9c194f1116418dce0f24bbbfa40, type: 2}
+  MainCharacter:
+    Type: Programmer
+    Furniture: {fileID: 1515153394964337836, guid: 3c50b1f86c59a324faa2af41aafed3d6, type: 3}
+    ReplacingTypes:
+    - MainCharacterSpot

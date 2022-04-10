@@ -11,22 +11,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fabric 1.005
-    second: {fileID: 2100000, guid: 0c5b0ad1209f62740b1039b8d02f59d1, type: 2}
+    second: {fileID: 2100000, guid: b453cfd7574d20e42851cb66cbe78887, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hair 1.005
-    second: {fileID: 2100000, guid: 26f84737308bf574fbab7ff94d9b0b6f, type: 2}
+    second: {fileID: 2100000, guid: 88643e71e9ce67d488e23c48ae59ceea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Shirt 2.005
-    second: {fileID: 2100000, guid: 9908ac773ba40ff4b80f0d4feb004a87, type: 2}
+    second: {fileID: 2100000, guid: ec9efdc090908f541ac51edd7c13e0cf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skin 1.005
-    second: {fileID: 2100000, guid: 167ff3e5276b06f469ad44861bcf5feb, type: 2}
+    second: {fileID: 2100000, guid: 0b05c121b1fa92d45869802ffa717362, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

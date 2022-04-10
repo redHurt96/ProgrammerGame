@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 namespace _Game.Debug
 {
-    public class CheatAddMoneyButton : BaseActionButton
+    public class CheatMultiplyMoneyButton : BaseActionButton
     {
         public long Value = 100;
 
         private void Awake() => 
-            GetComponentInChildren<Text>().text = $"+{Value}";
+            GetComponentInChildren<Text>().text = $"x{Value}";
 
         protected override void PerformOnClick() => 
-            GlobalEvents.IntentToChangeMoney( 100);
+            GlobalEvents.IntentToChangeMoney(GameData.Instance.SavableData.MoneyCount * Value);
     }
 }

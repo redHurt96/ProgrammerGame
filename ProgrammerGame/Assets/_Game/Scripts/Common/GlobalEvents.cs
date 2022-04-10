@@ -25,7 +25,7 @@ namespace AP.ProgrammerGame
 
         public static void ChangeMoneyCount(long amount, ChangeMoneyCountSystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();
-        public static void CreateMoney(Money money) => MoneyCreated?.Invoke(money);
+        public static void CreateMoney(Money money, MoneySpawner moneySpawner) => MoneyCreated?.Invoke(money);
         public static void IntentToRunProject(ProjectData projectData) => RunProjectIntent?.Invoke(projectData);
         public static void RunProject(ProjectData projectData) => ProjectStarted?.Invoke(projectData);
 

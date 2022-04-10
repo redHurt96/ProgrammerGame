@@ -31,7 +31,22 @@ namespace _Game.Services
             _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, _apartmentParent));
         }
 
-        public void AddFurnitureToReplacingPosition(FurnitureSlot slot)
+        public void AddProgrammer(FurnitureSlot slot)
+        {
+            string replacingType = slot.ReplacingTypes[0];
+
+            if (_programmerSpots[replacingType] == null)
+                throw new Exception($"There is no furniture with type {replacingType} to replace. Check your rooms settings");
+
+            GameObject replacingObject = _programmerSpots[replacingType];
+            Vector3 position = replacingObject.transform.position;
+
+            Object.Destroy(replacingObject);
+
+            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, Quaternion.identity, _apartmentParent));
+        }
+
+        public void AddMainCharacter(FurnitureSlot slot)
         {
             string replacingType = slot.ReplacingTypes[0];
 
@@ -44,7 +59,6 @@ namespace _Game.Services
             Object.Destroy(replacingObject);
 
             _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, Quaternion.identity, _apartmentParent));
-
         }
 
         public void AddRoom(RoomSettings room)
@@ -54,7 +68,7 @@ namespace _Game.Services
 
             foreach (ProgrammerSpot programmerSpot in room.ProgrammerSpots)
                 _programmerSpots.Add(
-                    programmerSpot.ProgrammerSettings.Name, 
+                    programmerSpot.ProgrammerSettings.name, 
                     Object.Instantiate(programmerSpot.Spot, _apartmentParent));
         }
 

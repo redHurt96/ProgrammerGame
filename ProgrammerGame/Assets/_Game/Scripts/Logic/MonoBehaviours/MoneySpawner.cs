@@ -45,7 +45,7 @@ namespace _Game.Logic.MonoBehaviours
             Vector3 spawnPoint = transform.position.AddRandomInBox(_spawnZone);
             Money money = Instantiate(prefab, spawnPoint, Random.rotation, _parent);
 
-            GlobalEvents.CreateMoney(money);
+            GlobalEvents.CreateMoney(money, this);
         }
 
         private void OnDrawGizmos()

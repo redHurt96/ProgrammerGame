@@ -35,7 +35,7 @@ namespace _Game.Scripts.Exception
             KeyValuePair<int, string> targetPair = _suffixPerValue
                 .LastOrDefault(x => x.Key <= valueLenght);
 
-            float shortValue = value / Mathf.Pow(10, targetPair.Key);
+            string shortValue = (value / Mathf.Pow(10, targetPair.Key)).ToString("F2");
 
             return $"{shortValue}{targetPair.Value}";
         }

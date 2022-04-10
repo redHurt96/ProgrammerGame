@@ -10,6 +10,14 @@ namespace _Game.Configs
         public Money[] MoneyPrefabs;
         public GameObject TapFxPrefab;
 
+        [Header("Money spawning")]
+        public float MoneyFallForce = 2f;
+        public float MoneySpawnTime;
+        public int MaxMoneySpawnCount = 50;
+        public float MoneyBasementForce = 20f;
+        public float MoneyBasementRandomizeForce = 100f;
+        public float MoneyBasementSpawnDelay = .5f;
+
         [Space]
         public float MoneyRigidbodyRemoveTime = 3f;
 
@@ -39,5 +47,8 @@ namespace _Game.Configs
         public PcSettings PcSettings;
         public AllProgrammersSettings AllProgrammersSettings;
         public FurnitureSlot MainCharacter;
+
+        [Header("Camera")]
+        public CameraSizesPerHouseLevel[] CameraSizesPerHouseLevel;
     }
 }

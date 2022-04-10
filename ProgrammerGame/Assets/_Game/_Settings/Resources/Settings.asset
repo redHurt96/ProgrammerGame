@@ -14,9 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyPrefabs:
   - {fileID: 3785540177810785152, guid: 2c88379fc7873a04fb6330e3740eb06e, type: 3}
+  - {fileID: 4408963661407793558, guid: 3a0016077e8e14849aa34546d477049f, type: 3}
+  - {fileID: 1642756940641289941, guid: a1bf8606316e6684bb3f3f2126bdcaed, type: 3}
   - {fileID: 3785540177810785152, guid: ca563eb020da1444a9f794eec0c68d06, type: 3}
   - {fileID: 3785540177810785152, guid: 77b17c1dc33fe534592757075461f182, type: 3}
+  - {fileID: 6968237193631797689, guid: 795faf8989c9a274daecc60c71de1900, type: 3}
+  - {fileID: 1110901431330550640, guid: ad217056b24f2ae49a4fad453c7141fb, type: 3}
+  - {fileID: 3641330207068289558, guid: 7d0f743dafc55b24c9d2a452fc19ef5f, type: 3}
+  - {fileID: 408941679757575002, guid: bf894fe9fc689f343ae9899bfce42bac, type: 3}
+  - {fileID: 69764277859703185, guid: c7cc482bb59a9ff48bc186c898b6c214, type: 3}
+  - {fileID: 61447697821237462, guid: eb408be0fe660774a8eb678364406f3a, type: 3}
+  - {fileID: 2186123660477493312, guid: d7aa02088d7b4224c8c8f57a5456af47, type: 3}
   TapFxPrefab: {fileID: 7577056058165911897, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
+  MoneyFallForce: 2
+  MoneySpawnTime: 1.5
+  MaxMoneySpawnCount: 50
+  MoneyBasementForce: 300
+  MoneyBasementRandomizeForce: 100
+  MoneyBasementSpawnDelay: 0.8
   MoneyRigidbodyRemoveTime: 2
   TargetLevels: 19000000320000004b0000006400000096000000c8000000fa0000002c01000090010000f4010000ee020000e8030000
   ProjectsSettings:
@@ -50,3 +65,10 @@ MonoBehaviour:
     Furniture: {fileID: 1515153394964337836, guid: 3c50b1f86c59a324faa2af41aafed3d6, type: 3}
     ReplacingTypes:
     - MainCharacterSpot
+  CameraSizesPerHouseLevel:
+  - Level: 3
+    Size: 8
+  - Level: 4
+    Size: 9
+  - Level: 5
+    Size: 10

@@ -1,4 +1,5 @@
-﻿using RH.Utilities.SingletonAccess;
+﻿using Cinemachine;
+using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Common
@@ -10,5 +11,8 @@ namespace _Game.Common
 
         [Space] 
         public Transform FxCanvas;
+
+        [Space]
+        public CinemachineVirtualCamera VirtualCamera;
     }
 }

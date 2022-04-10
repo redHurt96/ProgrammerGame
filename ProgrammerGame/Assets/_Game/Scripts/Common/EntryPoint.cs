@@ -19,6 +19,7 @@ namespace _Game.Common
             Application.targetFrameRate = 60;
 
             _settings.CreateInstance();
+            new SettingsPresenter();
 
             new GameData();
             new GameDataPresenter();
@@ -44,6 +45,7 @@ namespace _Game.Common
                 .Add(new UpdateProjectsAfterUpgradeSystem())
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
+                .Add(new CameraFlyAwaySystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

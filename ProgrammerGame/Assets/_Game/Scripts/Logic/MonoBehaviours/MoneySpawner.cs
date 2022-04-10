@@ -1,23 +1,22 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
-using RH.Utilities.Extensions;
 using UnityEngine;
 
 namespace _Game.Logic.MonoBehaviours
 {
     public class MoneySpawner : MonoBehaviour
     {
-        [SerializeField] private Vector3 _spawnZone;
+        private Transform _transform;
 
-        private Dictionary<long, Money> Prefabs;
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
         private void Start()
         {
-            Prefabs = Settings.Instance.MoneyPrefabs.ToDictionary(x => x.Value, y => y);
+            _transform = transform;
 
             GlobalEvents.MoneyCountChanged += SpawnMoney;
         }
@@ -30,28 +29,33 @@ namespace _Game.Logic.MonoBehaviours
             if (amount <= 0)
                 return;
 
-            while (amount > 0)
-            {
-                Money prefab = Prefabs.Last(x => x.Key <= amount).Value;
+            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysList(amount);
 
+            StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
+        }
+
+        private IEnumerator SpawnMoneyDelayed(List<Money> prefabs)
+        {
+            float spawnDelay = Settings.Instance.MoneySpawnTime / prefabs.Count;
+            WaitForSeconds wait = new WaitForSeconds(spawnDelay);
+
+            foreach (Money prefab in prefabs)
+            {
                 Spawn(prefab);
 
-                amount -= prefab.Value;
+                yield return wait;
             }
         }
 
         private void Spawn(Money prefab)
         {
-            Vector3 spawnPoint = transform.position.AddRandomInBox(_spawnZone);
-            Money money = Instantiate(prefab, spawnPoint, Random.rotation, _parent);
+            Vector3 position = _transform.position + Random.insideUnitSphere / 10f;
+            Money money = Instantiate(prefab, position, Random.rotation, _parent);
 
-            GlobalEvents.CreateMoney(money, this);
-        }
+            money.GetComponent<Collider>().isTrigger = true;
+            money.GetComponent<Rigidbody>().AddForce(Vector3.down * Settings.Instance.MoneyFallForce);
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = new Color(1f, 0f, 0f, .2f);
-            Gizmos.DrawCube(transform.position, _spawnZone * 2);
+            Destroy(money.gameObject, Settings.Instance.MoneyBasementSpawnDelay);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             GlobalEvents.OnUpgraded -= UpdateProjects;
 
-        private void UpdateProjects()
+        private void UpdateProjects(UpgradeType upgradeType)
         {
             foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
                 project.InvokeUpdateEvent();

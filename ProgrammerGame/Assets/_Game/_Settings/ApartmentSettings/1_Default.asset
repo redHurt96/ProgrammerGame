@@ -55,6 +55,9 @@ MonoBehaviour:
   - Type: MainCharacterSpot
     Furniture: {fileID: 6390064461403750431, guid: 1f80735740aafb648a5c6f7e0701a22e, type: 3}
     ReplacingTypes: []
+  - Type: basement-corner-border
+    Furniture: {fileID: 2850220132163711500, guid: aba221e5167254a44a8022a05ef15734, type: 3}
+    ReplacingTypes: []
   FurnitureForPurchase:
   - Type: kitchen table-old
     Furniture: {fileID: 2675973648318214003, guid: fc929b2dfd4efea4fbcc3b3746b0e703, type: 3}

@@ -1,4 +1,5 @@
-﻿using Cinemachine;
+﻿using _Game.UI.Windows;
+using Cinemachine;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
@@ -14,5 +15,8 @@ namespace _Game.Common
 
         [Space]
         public CinemachineVirtualCamera VirtualCamera;
+
+        [Space] 
+        public EarnedWhileAwayWindow EarnedWhileAwayWindow;
     }
 }

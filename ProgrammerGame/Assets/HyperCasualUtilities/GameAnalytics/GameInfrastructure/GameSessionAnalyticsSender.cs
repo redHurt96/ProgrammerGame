@@ -1,30 +1,48 @@
+using System;
 using UnityEngine;
 using GameAnalyticsSDK;
-using System;
+using _Game.Common;
+using _Game.Data;
+using _Game.Extensions;
+using AP.ProgrammerGame;
 
 namespace AP.Utilities.Analytics
 {
     public class GameSessionAnalyticsSender : MonoBehaviour
     {
-        private DateTime _startTime;
+        private void Awake() => 
+            GameAnalytics.Initialize();
 
-        private void Awake() => GameAnalytics.Initialize();
+        private void Start()
+        {
+            SendStats("Start session");
 
-        private void Start() => SetStartTime();
+            GlobalEvents.LevelChanged += SendOnNewLevel;
+            GlobalEvents.OnUpgraded += SendOnBuyUpgrade;
+            GlobalEvents.ProgrammedPurchased += SendOnProgrammedPurchased;
+            GlobalEvents.ResetForBoostIntent += SendOnReset;
+        }
 
         private void OnApplicationPause(bool pause)
         {
             if (pause)
-                SendQuitEvent();
-            else
-                SetStartTime();
+                SendStats("App pause");
         }
 
-        private void OnApplicationQuit() => SendQuitEvent();
+        private void OnDestroy()
+        {
+            GlobalEvents.LevelChanged -= SendOnNewLevel;
+            GlobalEvents.OnUpgraded -= SendOnBuyUpgrade;
+            GlobalEvents.ProgrammedPurchased -= SendOnProgrammedPurchased;
+            GlobalEvents.ResetForBoostIntent -= SendOnReset;
+        }
 
-        private void SetStartTime() => _startTime = DateTime.Now;
+        private void SendOnReset() => SendStats("Reset for boost");
+        private void SendOnProgrammedPurchased() => SendStats("Programmer purchased");
+        private void SendOnBuyUpgrade(UpgradeType arg1) => SendStats("Buy upgrade");
+        private void SendOnNewLevel() => SendStats("New level");
 
-        private void SendQuitEvent() =>
-            GameAnalytics.NewDesignEvent("GamePause", (float)DateTime.Now.Subtract(_startTime).TotalSeconds);
+        private void SendStats(string eventName) => 
+            GameAnalytics.NewDesignEvent(eventName, GameData.Instance.ToDictionary());
     }
 }

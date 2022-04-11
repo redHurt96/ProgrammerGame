@@ -34,7 +34,6 @@ namespace _Game.Common
                 .Add(new RunProjectSystem())
                 .Add(new AddMoneyForProjectSystem())
                 .Add(new ChangeMoneyCountSystem())
-                .Add(new MoneyStorageSystem())
                 .Add(new BuyProgrammerSystem())
                 .Add(new CodeWritingProcessSystem())
                 .Add(new AddMoneyForTapSystem())
@@ -47,6 +46,8 @@ namespace _Game.Common
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
                 .Add(new CameraFlyAwaySystem())
+                .Add(new AddCurrentMoneySystem())
+                .Add(new UpdatePlayerLevelSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

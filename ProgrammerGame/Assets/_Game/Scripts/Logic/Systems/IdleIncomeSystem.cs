@@ -21,7 +21,7 @@ namespace _Game.Logic.Systems
                 .Sum(x => Mathf.Max((float) x.Income / x.Time, 1f));
             long income = (long) (idleTime * autorunnedProjectsIncomePerSecond);
 
-            GlobalEvents.IntentToChangeMoney(income);
+            SceneObjects.Instance.EarnedWhileAwayWindow.Enable(income);
         }
     }
 }

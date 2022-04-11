@@ -4,7 +4,7 @@ using RH.Utilities.ComponentSystem;
 
 namespace _Game.Logic.Systems
 {
-    public class ChangeMoneyCountSystem : BaseInitSystem
+    public class ChangeMoneyCountSystem : BaseInitSystem, IChangeMoneySystem
     {
         public override void Init() => 
             GlobalEvents.ChangeMoneyIntent += ChangeMoneyCount;

@@ -26,6 +26,7 @@ namespace _Game.Logic.Systems
         {
             GameData.Instance.SavableData.AutoRunnedProjects.Add(forProject);
             AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == forProject));
+            GlobalEvents.InvokeOnBuyProgrammerEvent();
         }
 
         private void AutoRunProject(ProjectData projectData)

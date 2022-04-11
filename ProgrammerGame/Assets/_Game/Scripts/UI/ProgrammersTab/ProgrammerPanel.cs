@@ -50,7 +50,7 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private bool CheckProgrammerAvailability() => 
-            Apartment.Instance.ContainSpotFor(_programmer.Name);
+            Apartment.Instance.ContainSpotFor(_programmer.name);
 
         private void BuyProgrammer()
         {

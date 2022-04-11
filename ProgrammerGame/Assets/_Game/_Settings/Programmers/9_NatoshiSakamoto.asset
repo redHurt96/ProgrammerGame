@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
   m_Name: 9_NatoshiSakamoto
   m_EditorClassIdentifier: 
-  Name: natoshi sakamoto
-  Icon: {fileID: 21300000, guid: 96ff8090ed400444ca45e8ef17e76f0c, type: 3}
+  Name: Natoshi Sakamoto
+  Icon: {fileID: 21300000, guid: c0299d5ed0bb728469171ee20545d531, type: 3}
   AutomatedProject: {fileID: 11400000, guid: 2ba25e0a7670e1944b825811caa6ccbc, type: 2}
   Price: 100000000

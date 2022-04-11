@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
   m_Name: 2_TonyStank
   m_EditorClassIdentifier: 
-  Name: tony stank
-  Icon: {fileID: 21300000, guid: f3b7e31eb60b84b17870d0b5d926cfad, type: 3}
+  Name: Tony Stank
+  Icon: {fileID: 21300000, guid: c0299d5ed0bb728469171ee20545d531, type: 3}
   AutomatedProject: {fileID: 11400000, guid: a6eb3b5486981fb4998a1b48b59012a9, type: 2}
   Price: 100

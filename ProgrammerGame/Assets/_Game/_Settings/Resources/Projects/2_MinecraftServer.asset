@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf833a344ed4cd086c66f26a3ccaee1, type: 3}
   m_Name: 2_MinecraftServer
   m_EditorClassIdentifier: 
-  Name: minecraft server
-  Icon: {fileID: 21300000, guid: 7f5077902f34e4dcda6e69df4ced83a7, type: 3}
+  Name: Minecraft server
+  Icon: {fileID: 21300000, guid: a0b028731e9892c47945d7b539b19f63, type: 3}
   OpenLevel: 15
   BlockProject: {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
   _priceSettings:

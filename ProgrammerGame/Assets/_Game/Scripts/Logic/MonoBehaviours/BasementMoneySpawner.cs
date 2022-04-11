@@ -75,7 +75,7 @@ namespace _Game.Logic.MonoBehaviours
 
         private void Spawn(Money prefab)
         {
-            Money money = Instantiate(prefab, _transform.position, Random.rotation, _parent);
+            Money money = Instantiate(prefab, _transform.position + Random.insideUnitSphere / 4f, Random.rotation, _parent);
 
             Vector3 direction = 
                 _transform.right * Settings.Instance.MoneyBasementForce 

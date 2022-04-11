@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf833a344ed4cd086c66f26a3ccaee1, type: 3}
   m_Name: 1_DiscordBot
   m_EditorClassIdentifier: 
-  Name: discord bot
-  Icon: {fileID: 21300000, guid: 0a581261c6564475292652140798ad51, type: 3}
+  Name: Discord bot
+  Icon: {fileID: 21300000, guid: 3df02aecc753ff0428953d369bd363cd, type: 3}
   OpenLevel: 0
   BlockProject: {fileID: 0}
   _priceSettings:

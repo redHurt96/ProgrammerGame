@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
   m_Name: 1_Ilon Shmask
   m_EditorClassIdentifier: 
-  Name: ilon shmask
-  Icon: {fileID: 21300000, guid: 1ebe9d3ac5ce74f3589c006da297bdc7, type: 3}
+  Name: Ilon Shmask
+  Icon: {fileID: 21300000, guid: 4ed1ea4fd5cced84d9b161a79a9515d6, type: 3}
   AutomatedProject: {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
   Price: 10

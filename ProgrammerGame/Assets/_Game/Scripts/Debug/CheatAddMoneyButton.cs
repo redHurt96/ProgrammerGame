@@ -12,6 +12,6 @@ namespace _Game.Debug
             GetComponentInChildren<Text>().text = $"+{Value}";
 
         protected override void PerformOnClick() => 
-            GlobalEvents.IntentToChangeMoney( 100);
+            GlobalEvents.IntentToChangeMoney( Value);
     }
 }

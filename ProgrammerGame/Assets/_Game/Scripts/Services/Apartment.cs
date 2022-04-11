@@ -39,11 +39,16 @@ namespace _Game.Services
                 throw new Exception($"There is no furniture with type {replacingType} to replace. Check your rooms settings");
 
             GameObject replacingObject = _programmerSpots[replacingType];
-            Vector3 position = replacingObject.transform.position;
+
+            _furniture.Add(slot.Type, 
+                Object.Instantiate(
+                    slot.Furniture, 
+                    replacingObject.transform.position, 
+                    replacingObject.transform.rotation, 
+                    _apartmentParent));
 
             Object.Destroy(replacingObject);
 
-            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, Quaternion.identity, _apartmentParent));
         }
 
         public void AddMainCharacter(FurnitureSlot slot)

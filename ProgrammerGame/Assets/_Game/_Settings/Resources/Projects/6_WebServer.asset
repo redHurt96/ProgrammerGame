@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf833a344ed4cd086c66f26a3ccaee1, type: 3}
   m_Name: 6_WebServer
   m_EditorClassIdentifier: 
-  Name: web server
-  Icon: {fileID: 21300000, guid: 44f2803dad0404cbeb9ee038d70da104, type: 3}
+  Name: Web server
+  Icon: {fileID: 21300000, guid: 71b73d4cd6841b147af89b1a70251b41, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 206e2ddda66d71b438dc4b552707852c, type: 2}
   _priceSettings:

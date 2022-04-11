@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf833a344ed4cd086c66f26a3ccaee1, type: 3}
   m_Name: 4_CSharpConsoleApp
   m_EditorClassIdentifier: 
-  Name: c# console app
+  Name: C# console app
   Icon: {fileID: 21300000, guid: 949f7004ed54344bebb60dbafccfa660, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 8bc0091d59f07634aa778c61f6095d26, type: 2}

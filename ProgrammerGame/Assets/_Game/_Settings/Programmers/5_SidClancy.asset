@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
   m_Name: 5_SidClancy
   m_EditorClassIdentifier: 
-  Name: sid clancy
-  Icon: {fileID: 21300000, guid: 7135d585f82ae408d8713917af908381, type: 3}
+  Name: Sid Clancy
+  Icon: {fileID: 21300000, guid: c0299d5ed0bb728469171ee20545d531, type: 3}
   AutomatedProject: {fileID: 11400000, guid: 206e2ddda66d71b438dc4b552707852c, type: 2}
   Price: 100000

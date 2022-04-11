@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf833a344ed4cd086c66f26a3ccaee1, type: 3}
   m_Name: 5_UnityGame
   m_EditorClassIdentifier: 
-  Name: unity game
+  Name: Unity game
   Icon: {fileID: 21300000, guid: ccf97ddb50dc9437e9899ba23fab088a, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: f7d520c071511274d860aa4ecc36be4f, type: 2}

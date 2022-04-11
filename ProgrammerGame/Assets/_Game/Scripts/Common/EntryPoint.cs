@@ -29,6 +29,7 @@ namespace _Game.Common
 
                 //game logic
                 .Add(new SaveLoadSystem())
+                .Add(new ResetForBoostSystem())
                 .Add(new UpdateProjectAvailabilitySystem())
                 .Add(new RunProjectSystem())
                 .Add(new AddMoneyForProjectSystem())
@@ -46,7 +47,6 @@ namespace _Game.Common
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
                 .Add(new CameraFlyAwaySystem())
-                .Add(new ResetForBoostSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

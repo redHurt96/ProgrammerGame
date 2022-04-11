@@ -1,5 +1,6 @@
 ﻿using AP.ProgrammerGame;
 using RH.Utilities.UI;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Game.Debug
@@ -10,7 +11,8 @@ namespace _Game.Debug
 
         private void Awake() => 
             GetComponentInChildren<Text>().text = $"+{Value}";
-
+        
+        [ContextMenu("Click")]
         protected override void PerformOnClick() => 
             GlobalEvents.IntentToChangeMoney( Value);
     }

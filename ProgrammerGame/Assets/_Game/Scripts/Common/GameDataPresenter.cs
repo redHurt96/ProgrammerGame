@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using _Game.Data;
 using AP.ProgrammerGame;
 using GameAnalyticsSDK.Setup;
@@ -30,5 +31,11 @@ namespace _Game.Common
 
         public int RoomLevel => 
             GetUpgradeData(UpgradeType.House).Level;
+
+        public float BoostForProgress =>
+            1 + 
+            GameData.Instance.SavableData.Projects
+                .Where(x => x.State == ProjectState.Active)
+                .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;
     }
 }

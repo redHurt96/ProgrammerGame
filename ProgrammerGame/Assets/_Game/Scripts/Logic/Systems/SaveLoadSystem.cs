@@ -1,4 +1,5 @@
 ﻿using System;
+using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using AP.ProgrammerGame;
@@ -11,15 +12,24 @@ namespace _Game.Logic.Systems
     {
         public override void Init()
         {
-            if (PlayerPrefs.HasKey("Save"))
+            if (PlayerPrefs.HasKey("Need reset") || !PlayerPrefs.HasKey("Save"))
             {
-                LoadData();
+                PlayerPrefs.DeleteKey("Need reset");
+                PlayerPrefs.DeleteKey("Save");
+                PlayerPrefs.Save();
+
+                CreateNewData();
             }
             else
             {
-                CreateProjectsData();
-                CreateUpgradesData();
+                LoadData();
             }
+        }
+
+        private void CreateNewData()
+        {
+            CreateProjectsData();
+            CreateUpgradesData();
         }
 
         public override void Dispose() => 

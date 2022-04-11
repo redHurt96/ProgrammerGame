@@ -46,6 +46,7 @@ namespace _Game.Common
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
                 .Add(new CameraFlyAwaySystem())
+                .Add(new ResetForBoostSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())
@@ -60,7 +61,15 @@ namespace _Game.Common
             GlobalEvents.IntentToChangeMoney(Settings.Instance.StartMoney);
         }
 
-        private void OnDestroy() => 
+        private void OnDestroy()
+        {
             _systems.Dispose();
+
+            SettingsPresenter.DestroyInstance();
+
+            GameData.DestroyInstance();
+            GameDataPresenter.DestroyInstance();
+            Apartment.DestroyInstance();
+        }
     }
 }

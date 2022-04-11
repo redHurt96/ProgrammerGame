@@ -72,3 +72,4 @@ MonoBehaviour:
     Size: 9
   - Level: 5
     Size: 10
+  BoostForResetBaseValue: 1

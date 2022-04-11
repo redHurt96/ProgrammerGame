@@ -19,6 +19,7 @@ namespace AP.ProgrammerGame
         public static event Action<string> BuyProgrammerIntent;
         public static event Action<UpgradeType, long> BuyUpgradeIntent;
         public static event Action<UpgradeType> OnUpgraded;
+        public static event Action ResetForBoostIntent;
 
         public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
@@ -34,5 +35,7 @@ namespace AP.ProgrammerGame
         public static void IntentToBuyUpgrade(UpgradeType upgradeType, long price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
 
         public static void InvokeAfterUpgradeEvent(UpgradeType type) => OnUpgraded?.Invoke(type);
+
+        public static void ResetForBoost() => ResetForBoostIntent?.Invoke();
     }
 }

@@ -50,5 +50,8 @@ namespace _Game.Configs
 
         [Header("Camera")]
         public CameraSizesPerHouseLevel[] CameraSizesPerHouseLevel;
+
+        [Header("Boost for progress reset")]
+        public float BoostForResetBaseValue;
     }
 }

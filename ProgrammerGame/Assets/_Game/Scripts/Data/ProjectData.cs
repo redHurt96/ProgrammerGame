@@ -1,6 +1,7 @@
 ﻿using System;
 using _Game.Common;
 using _Game.Configs;
+using AP.ProgrammerGame;
 using UnityEngine;
 
 namespace _Game.Data
@@ -24,8 +25,8 @@ namespace _Game.Data
         public long BaseTime => projectSettings.GetTime(Level);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public long Time => (long) (BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect));
-        public long Income => (long) (BaseIncome * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect));
+        public long Time => (long) Mathf.Max(1,(BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.MainBoost));
+        public long Income => (long) (BaseIncome * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) * GameData.Instance.MainBoost);
 
         public event Action DataUpdated;
 

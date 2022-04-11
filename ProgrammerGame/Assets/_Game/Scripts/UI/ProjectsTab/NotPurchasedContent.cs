@@ -1,11 +1,13 @@
 ﻿using System;
+using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
+using GameAnalyticsSDK.Setup;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Projects
+namespace _Game.UI.ProjectsTab
 {
     public class NotPurchasedContent : MonoBehaviour
     {
@@ -19,8 +21,8 @@ namespace _Game.UI.Projects
         {
             _icon.sprite = settings.Icon;
             _name.text = projectData.Name;
-            _price.text = projectData.Price.ToPriceString();
-            priceButtonVisibilityComponent.SetPriceFunc(() => projectData.Price);
+            _price.text = projectData.GetPrice(1).ToPriceString();
+            priceButtonVisibilityComponent.SetPriceFunc(() => projectData.GetPrice(1));
 
             _button.onClick.AddListener(onBuyClick.Invoke);
         }

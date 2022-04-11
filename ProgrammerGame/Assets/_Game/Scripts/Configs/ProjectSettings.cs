@@ -15,9 +15,20 @@ namespace _Game.Configs
         [SerializeField] private PriceSettings _incomeSettings;
         [SerializeField] private TimeSettings _timeSettings;
 
-        public long GetPrice(int forLevel) => _priceSettings.GetPrice(forLevel);
         public long GetIncome(int forLevel) => _incomeSettings.GetPrice(forLevel);
         public long GetTime(int forLevel) => _timeSettings.GetTime(forLevel);
+
+        public long GetPrice(int level, int count)
+        {
+            long sum = 0L;
+
+            for (int i = 0; i < count; i++) 
+                sum += GetPrice(level + i);
+
+            return sum;
+        }
+
+        private long GetPrice(int forLevel) => _priceSettings.GetPrice(forLevel);
 
 #if UNITY_EDITOR
         public void SetPrice(PriceSettings priceSettings) => 

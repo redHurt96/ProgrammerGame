@@ -21,8 +21,8 @@ namespace _Game.Data
         public ProjectSettings projectSettings;
 
         public long BaseIncome => projectSettings.GetIncome(Level);
-        public long Price => projectSettings.GetPrice(Level);
         public long BaseTime => projectSettings.GetTime(Level);
+        public long GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
         public long Time => (long) Mathf.Max(1,(BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.MainBoost));
@@ -30,12 +30,12 @@ namespace _Game.Data
 
         public event Action DataUpdated;
 
-        public void Buy()
+        public void Buy(int count)
         {
             if (Level == 0)
                 State = ProjectState.Active;
 
-            Level++;
+            Level += count;
 
             InvokeUpdateEvent();
         }

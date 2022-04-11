@@ -9,7 +9,7 @@ using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Projects
+namespace _Game.UI.ProjectsTab
 {
     public class ActiveContent : MonoBehaviour
     {
@@ -31,7 +31,7 @@ namespace _Game.UI.Projects
 
             _icon.sprite = settings.Icon;
 
-            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.Price);
+            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.GetPrice(GameData.Instance.BuyCount));
 
             AddButtonsListeners(buyAction, runAction);
             UpdateContent();
@@ -47,8 +47,11 @@ namespace _Game.UI.Projects
             _runButton.onClick.AddListener(runAction.Invoke);
         }
 
-        private void Subscribe() => 
+        private void Subscribe()
+        {
+            GlobalEvents.BuyCountChanged += UpdatePrice;
             _projectData.DataUpdated += UpdateContent;
+        }
 
         private void OnDestroy()
         {
@@ -62,12 +65,14 @@ namespace _Game.UI.Projects
             UpdateProgressBar();
             UpdateTimer();
             DisableRunButtonIfProjectAutorunned();
+            UpdatePrice();
         }
 
-        private void UpdateProgressBar()
-        {
+        private void UpdatePrice() => 
+            _price.text = _projectData.GetPrice(GameData.Instance.BuyCount).ToPriceString();
+
+        private void UpdateProgressBar() => 
             _progressBarFill.fillAmount = _projectData.Progress;
-        }
 
         private void UpdateTimer()
         {
@@ -81,7 +86,6 @@ namespace _Game.UI.Projects
         {
             _level.text = $"{_projectData.Level}/{GetCloseLevelTarget(_projectData.Level)}";
             _income.text = _projectData.Income.ToPriceString();
-            _price.text = _projectData.Price.ToPriceString();
         }
 
         private string GetCloseLevelTarget(int level) =>

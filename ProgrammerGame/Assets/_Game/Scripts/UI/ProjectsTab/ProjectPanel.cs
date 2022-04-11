@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using AP.ProgrammerGame;
-using AP.ProgrammerGame.UI.Projects;
 using UnityEngine;
 
-namespace _Game.UI.Projects
+namespace _Game.UI.ProjectsTab
 {
     public class ProjectPanel : MonoBehaviour
     {
@@ -61,10 +59,16 @@ namespace _Game.UI.Projects
             }
         }
 
-        private void BuyProject()
+        private void BuyProjectOnce() => 
+            BuyProjectMultipleTimes(1);
+
+        private void BuyProject() => 
+            BuyProjectMultipleTimes(GameData.Instance.BuyCount);
+
+        private void BuyProjectMultipleTimes(int buyCount)
         {
-            GlobalEvents.IntentToChangeMoney(-_projectData.Price);
-            _projectData.Buy();
+            GlobalEvents.IntentToChangeMoney(-_projectData.GetPrice(buyCount));
+            _projectData.Buy(buyCount);
         }
 
         private void RunProject() => 
@@ -77,17 +81,14 @@ namespace _Game.UI.Projects
             _notAvailableContent.Setup(settings);
 
         private void SetupNotPurchasedContent() => 
-            _notPurchasedContent.Setup(_projectData, settings, BuyProject);
+            _notPurchasedContent.Setup(_projectData, settings, BuyProjectOnce);
 
         private void SetupOpenContent() => 
             _activeContent.Setup(_projectData, settings, BuyProject, RunProject);
 
 #if UNITY_EDITOR
-        public void Test_Buy25Projects()
-        {
-            for (int i = 0; i < 25; i++) 
-                _projectData.Buy();
-        }
+        public void Test_Buy25Projects() => 
+            _projectData.Buy(25);
 
         public void Test_ForceComplete() =>
             GameData.Instance.RunnedProjects

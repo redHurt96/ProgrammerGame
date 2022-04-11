@@ -16,7 +16,7 @@ namespace _Game.Logic.Systems
             CoroutineLauncher.Start(ExecuteProcess());
 
         public override void Dispose() => 
-            CoroutineLauncher.Stop(ExecuteProcess());
+            CoroutineLauncher.StopIfExist(ExecuteProcess());
 
         private IEnumerator ExecuteProcess()
         {

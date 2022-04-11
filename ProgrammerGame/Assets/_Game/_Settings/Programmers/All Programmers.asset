@@ -15,55 +15,55 @@ MonoBehaviour:
   Workplaces:
   - ProgrammerSettings: {fileID: 11400000, guid: acb9bf33df7fc7f41a9a5388a37d1ea0, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_0
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 1_Ilon Shmask
   - ProgrammerSettings: {fileID: 11400000, guid: 50b364235b4d2b148b0c270cdabb4aad, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_1
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 2_TonyStank
   - ProgrammerSettings: {fileID: 11400000, guid: 9e27cdbcbd3c18745983b69709d3c7c7, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_2
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 3_BillJobs
   - ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_3
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 4_SteveGates
   - ProgrammerSettings: {fileID: 11400000, guid: d21844df271c6a94589c9c80e0adffbe, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_4
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 5_SidClancy
   - ProgrammerSettings: {fileID: 11400000, guid: 6f7744bc9bac31840bc09a526d464fed, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_5
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 6_AlanTuborg
   - ProgrammerSettings: {fileID: 11400000, guid: 1bd47fe110ac90549bd976e6fd5335a8, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_6
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 7_LinusWindows
   - ProgrammerSettings: {fileID: 11400000, guid: 53e4ca4b66ad7574cbc043097edeb683, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_7
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 8_TomMeier
   - ProgrammerSettings: {fileID: 11400000, guid: 01768c5b711cdaf4f8721f639d304886, type: 2}
     FurnitureSlot:
-      Type: ProgramerWorkplace_default
+      Type: ProgramerWorkplace_default_8
       Furniture: {fileID: 100230696686965047, guid: 4bfee711a4bee714a98d91344bd7a2a6, type: 3}
       ReplacingTypes:
       - 9_NatoshiSakamoto

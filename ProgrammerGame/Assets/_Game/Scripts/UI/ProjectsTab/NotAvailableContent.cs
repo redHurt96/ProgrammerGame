@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AP.ProgrammerGame.UI.Projects
+namespace _Game.UI.ProjectsTab
 {
     public class NotAvailableContent : MonoBehaviour
     {

@@ -1,4 +1,5 @@
 using System;
+using _Game.Common;
 using _Game.Data;
 using _Game.Logic.MonoBehaviours;
 using _Game.Logic.Systems;
@@ -20,13 +21,13 @@ namespace AP.ProgrammerGame
         public static event Action<UpgradeType, long> BuyUpgradeIntent;
         public static event Action<UpgradeType> OnUpgraded;
         public static event Action ResetForBoostIntent;
+        public static event Action BuyCountChanged;
 
         public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
 
         public static void ChangeMoneyCount(long amount, ChangeMoneyCountSystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();
-        public static void CreateMoney(Money money, MoneySpawner moneySpawner) => MoneyCreated?.Invoke(money);
         public static void IntentToRunProject(ProjectData projectData) => RunProjectIntent?.Invoke(projectData);
         public static void RunProject(ProjectData projectData) => ProjectStarted?.Invoke(projectData);
 
@@ -35,7 +36,7 @@ namespace AP.ProgrammerGame
         public static void IntentToBuyUpgrade(UpgradeType upgradeType, long price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
 
         public static void InvokeAfterUpgradeEvent(UpgradeType type) => OnUpgraded?.Invoke(type);
-
         public static void ResetForBoost() => ResetForBoostIntent?.Invoke();
+        public static void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();
     }
 }

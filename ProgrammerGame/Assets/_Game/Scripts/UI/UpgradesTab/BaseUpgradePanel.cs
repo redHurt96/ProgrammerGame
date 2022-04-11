@@ -3,7 +3,7 @@ using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
-using _Game.UI.Projects;
+using _Game.UI.ProjectsTab;
 using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;

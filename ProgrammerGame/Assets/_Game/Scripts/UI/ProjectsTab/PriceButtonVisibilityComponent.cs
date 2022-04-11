@@ -5,7 +5,7 @@ using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Projects
+namespace _Game.UI.ProjectsTab
 {
     [RequireComponent(typeof(Button))]
     public class PriceButtonVisibilityComponent : MonoBehaviour
@@ -34,11 +34,22 @@ namespace _Game.UI.Projects
             GlobalEvents.MoneyCountChanged -= UpdateVisibility;
         }
 
-        private void UpdateVisibility(long obj) => 
-            _button.interactable = GameData.Instance.SavableData.MoneyCount >= _calculatePrice?.Invoke() 
-                                   && (_additionalCondition?.Invoke() ?? true);
+        public void UpdateVisibility() => 
+            UpdateVisibility(0L);
 
-        private void UpdateVisibility() => UpdateVisibility(0L);
-        private void UpdateVisibility(UpgradeType type) => UpdateVisibility(0L);
+        private void UpdateVisibility(UpgradeType type) => 
+            UpdateVisibility(0L);
+
+        private void UpdateVisibility(long obj)
+        {
+            if (GameData.Instance == null)
+            {
+                _button.interactable = false;
+                return;
+            }
+
+            _button.interactable = GameData.Instance.SavableData.MoneyCount >= _calculatePrice?.Invoke()
+                                   && (_additionalCondition?.Invoke() ?? true);
+        }
     }
 }

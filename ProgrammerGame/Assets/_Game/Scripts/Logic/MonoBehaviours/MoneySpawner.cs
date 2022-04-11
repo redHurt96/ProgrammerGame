@@ -21,8 +21,12 @@ namespace _Game.Logic.MonoBehaviours
             GlobalEvents.MoneyCountChanged += SpawnMoney;
         }
 
-        private void OnDestroy() => 
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+
             GlobalEvents.MoneyCountChanged -= SpawnMoney;
+        }
 
         private void SpawnMoney(long amount)
         {

@@ -1,8 +1,9 @@
-﻿using _Game.Common;
+﻿using System;
+using _Game.Common;
 using _Game.Configs;
 using _Game.Scripts.Exception;
 using _Game.Services;
-using _Game.UI.Projects;
+using _Game.UI.ProjectsTab;
 using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,9 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private Button _button;
         [SerializeField] private Text _price;
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
+
+        private void OnEnable() => 
+            _priceButtonVisibilityComponent.UpdateVisibility();
 
         private void Start()
         {

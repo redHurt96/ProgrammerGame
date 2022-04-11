@@ -46,7 +46,7 @@ namespace _Game.Data
 #if UNITY_EDITOR
         public void Test_ForceComplete()
         {
-            CoroutineLauncher.Stop(_coroutine);
+            CoroutineLauncher.StopIfExist(_coroutine);
             CompleteProcess();
         }
 #endif

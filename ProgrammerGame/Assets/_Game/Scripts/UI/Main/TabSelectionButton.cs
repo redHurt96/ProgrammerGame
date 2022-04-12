@@ -1,7 +1,8 @@
+using _Game.Scripts.UI.Main;
 using RH.Utilities.UI;
 using UnityEngine;
 
-namespace _Game.Scripts.UI.Main
+namespace _Game.UI.Main
 {
     public class TabSelectionButton : BaseActionButton
     {

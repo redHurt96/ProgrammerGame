@@ -12,16 +12,16 @@ namespace _Game.Logic.Systems
         public override void Init()
         {
             foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
-                project.DataUpdated += UpdateProjectDatas;
+                project.MainDataUpdated += UpdateProjectMainDatas;
         }
         
         public override void Dispose()
         {
             foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
-                project.DataUpdated += UpdateProjectDatas;
+                project.MainDataUpdated += UpdateProjectMainDatas;
         }
 
-        private void UpdateProjectDatas()
+        private void UpdateProjectMainDatas()
         {
             foreach (ProjectData project in GameData.Instance.SavableData.Projects)
             {

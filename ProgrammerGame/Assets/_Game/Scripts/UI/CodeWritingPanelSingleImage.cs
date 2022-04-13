@@ -1,5 +1,6 @@
 using _Game.Common;
 using _Game.Configs;
+using _Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 

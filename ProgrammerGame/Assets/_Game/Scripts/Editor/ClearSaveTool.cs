@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Game.Scripts.Editor
 {
@@ -23,7 +24,16 @@ namespace _Game.Scripts.Editor
             UnityEngine.Debug.Log("Main boost cleared");
         }
 
-        [MenuItem("🎮 Game/🧹 Clear/⚠ All")]
+        [MenuItem("🎮 Game/🧹 Clear/📖 Tutorials")]
+        public static void ClearTutorials()
+        {
+            PlayerPrefs.DeleteKey("PassedTutorials");
+            PlayerPrefs.Save();
+
+            UnityEngine.Debug.Log("Tutorials data cleared");
+        }
+
+        [MenuItem("🎮 Game/🧹 Clear/⚠ All %#t")]
         public static void ClearAll()
         {
             PlayerPrefs.DeleteAll();

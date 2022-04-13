@@ -50,13 +50,30 @@ namespace _Game.UI.ProjectsTab
         private void Subscribe()
         {
             GlobalEvents.BuyCountChanged += UpdatePrice;
-            _projectData.DataUpdated += UpdateContent;
+            _projectData.DynamicDataUpdated += UpdateDynamicContent;
+            _projectData.TimeUpdated += UpdateTimerAndProgressBar;
         }
 
         private void OnDestroy()
         {
             if (_projectData != null)
-                _projectData.DataUpdated -= UpdateContent;
+            {
+                _projectData.DynamicDataUpdated -= UpdateDynamicContent;
+                _projectData.TimeUpdated -= UpdateTimerAndProgressBar;
+            }
+        }
+
+        private void UpdateTimerAndProgressBar()
+        {
+            UpdateTimer();
+            UpdateProgressBar();
+        }
+
+        private void UpdateDynamicContent()
+        {
+            UpdatePrice();
+            UpdateTimer();
+            UpdateProgressBar();
         }
 
         private void UpdateContent()

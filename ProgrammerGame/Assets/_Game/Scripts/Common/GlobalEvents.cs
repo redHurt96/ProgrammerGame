@@ -1,9 +1,9 @@
 using System;
 using _Game.Data;
-using _Game.Logic.MonoBehaviours;
 using _Game.Logic.Systems;
+using _Game.Tutorial;
 
-namespace AP.ProgrammerGame
+namespace _Game.Common
 {
     public static class GlobalEvents
     {
@@ -21,6 +21,7 @@ namespace AP.ProgrammerGame
         public static event Action BuyCountChanged;
         public static event Action LevelChanged;
         public static event Action ProgrammedPurchased;
+        public static event Action TutorialStepPerformed;
 
         public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
@@ -39,5 +40,6 @@ namespace AP.ProgrammerGame
         public static void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();
         public static void InvokeChangeLevelEvent() => LevelChanged?.Invoke();
         public static void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
+        public static void InvokeOnTutorialStepEvent(TutorialEvents tutorialEvents) => TutorialStepPerformed?.Invoke();
     }
 }

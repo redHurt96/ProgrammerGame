@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace _Game.Data
 {
+    [Serializable]
     public class SavableData
     {
         public long MoneyCount = 0;

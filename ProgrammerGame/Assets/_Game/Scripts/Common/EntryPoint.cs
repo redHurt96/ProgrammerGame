@@ -1,7 +1,9 @@
 using System.Collections;
 using _Game.Configs;
+using _Game.Data;
 using _Game.Logic.Systems;
 using _Game.Services;
+using _Game.Tutorial;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
@@ -13,6 +15,7 @@ namespace _Game.Common
         [SerializeField] private Settings _settings;
 
         private SystemsArray _systems;
+        private TutorialSettings _tutorialSettings;
 
         private void Awake()
         {
@@ -24,6 +27,7 @@ namespace _Game.Common
             new GameData();
             new GameDataPresenter();
             new Apartment();
+            new TutorialEvents();
 
             _systems = new SystemsArray()
 
@@ -49,6 +53,13 @@ namespace _Game.Common
                 .Add(new AddCurrentMoneySystem())
                 .Add(new UpdatePlayerLevelSystem())
 
+                //tutorial
+                .Add(new PassedTutorialsSaveSystem())
+                .Add(new TutorialCreateSystem())
+                .Add(new TutorialFirstStepHandleSystem())
+                .Add(new TutorialTapMoneyStepHandleSystem())
+                .Add(new TutorialCanBuyMoreProjectsHandleSystem())
+
                 //fx
                 .Add(new TapFxCreateSystem())
 
@@ -71,6 +82,7 @@ namespace _Game.Common
             GameData.DestroyInstance();
             GameDataPresenter.DestroyInstance();
             Apartment.DestroyInstance();
+            TutorialEvents.DestroyInstance();
         }
     }
 }

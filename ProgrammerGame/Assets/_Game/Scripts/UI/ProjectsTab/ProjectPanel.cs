@@ -26,12 +26,12 @@ namespace _Game.UI.ProjectsTab
         }
 
         private void Subscribe() => 
-            _projectData.DataUpdated += UpdatePanel;
+            _projectData.MainDataUpdated += UpdatePanel;
 
         private void OnDestroy()
         {
             if (_projectData != null)
-                _projectData.DataUpdated -= UpdatePanel;
+                _projectData.MainDataUpdated -= UpdatePanel;
         }
 
         public void UpdatePanel()

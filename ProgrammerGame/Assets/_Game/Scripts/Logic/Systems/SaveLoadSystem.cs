@@ -8,6 +8,19 @@ using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
+    public class TutorialDataSaveSystem : BaseInitSystem
+    {
+        public override void Init()
+        {
+            
+        }
+
+        public override void Dispose()
+        {
+            
+        }
+    }
+
     public class SaveLoadSystem : BaseInitSystem
     {
         public override void Init()

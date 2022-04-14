@@ -21,8 +21,9 @@ namespace _Game.Logic.Systems
             SavableData savableData = GameData.Instance.SavableData;
 
             yield return new WaitUntil(() => 
-                savableData.MoneyCount >= savableData.Projects[0].GetPrice(1)
-                && GameData.Instance.TutorialData.Steps.Contains(TutorialStep.TapMoney_1));
+                savableData.MoneyCount >= savableData.Projects[1].GetPrice(1)
+                && GameData.Instance.TutorialData.Steps.Contains(TutorialStep.TapMoney_1)
+                && savableData.Projects[1].State == ProjectState.NotPurchased);
 
             yield return new WaitForSeconds(3f);
 

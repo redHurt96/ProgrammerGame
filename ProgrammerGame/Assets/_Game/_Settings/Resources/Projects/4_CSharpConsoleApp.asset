@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 4_CSharpConsoleApp
   m_EditorClassIdentifier: 
   Name: C# console app
-  Icon: {fileID: 21300000, guid: 949f7004ed54344bebb60dbafccfa660, type: 3}
+  Icon: {fileID: 21300000, guid: 1c636d9203a44f947b1f972213219af5, type: 3}
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: 8bc0091d59f07634aa778c61f6095d26, type: 2}
   _priceSettings:

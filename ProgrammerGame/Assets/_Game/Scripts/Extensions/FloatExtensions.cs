@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -35,7 +36,9 @@ namespace _Game.Scripts.Exception
             KeyValuePair<int, string> targetPair = _suffixPerValue
                 .LastOrDefault(x => x.Key <= valueLenght);
 
-            string shortValue = (value / Mathf.Pow(10, targetPair.Key)).ToString("F2");
+            string shortValue = string.IsNullOrEmpty(targetPair.Value) 
+                ? value.ToString("F0") 
+                : (value / Mathf.Pow(10, targetPair.Key)).ToString("F2");
 
             return $"{shortValue}{targetPair.Value}";
         }

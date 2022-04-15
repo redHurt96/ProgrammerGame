@@ -4,7 +4,6 @@ using _Game.Data;
 using _Game.Logic.Systems;
 using _Game.Services;
 using _Game.Tutorial;
-using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
 
@@ -15,13 +14,13 @@ namespace _Game.Common
         [SerializeField] private Settings _settings;
 
         private SystemsArray _systems;
-        private TutorialSettings _tutorialSettings;
 
         private void Awake()
         {
             Application.targetFrameRate = 60;
 
             _settings.CreateInstance();
+
             new SettingsPresenter();
 
             new GameData();
@@ -39,9 +38,7 @@ namespace _Game.Common
                 .Add(new AddMoneyForProjectSystem())
                 .Add(new ChangeMoneyCountSystem())
                 .Add(new BuyProgrammerSystem())
-                .Add(new CodeWritingProcessSystem())
                 .Add(new AddMoneyForTapSystem())
-                .Add(new CodeWritingAccelerationSystem())
                 .Add(new BuyUpgradeSystem())
                 .Add(new CreateRoomsSystem())
                 .Add(new CreateInteriorSystem())
@@ -62,6 +59,10 @@ namespace _Game.Common
 
                 //fx
                 .Add(new TapFxCreateSystem())
+                .Add(new FurnitureSpawnFxCreateSystem())
+
+                //must be the last
+                .Add(new ChangeGameStateToPlaySystem())
 
                 .Init();
         }
@@ -77,12 +78,15 @@ namespace _Game.Common
         {
             _systems.Dispose();
 
-            SettingsPresenter.DestroyInstance();
+            _settings.DestroyInstance();
 
+            SettingsPresenter.DestroyInstance();
             GameData.DestroyInstance();
             GameDataPresenter.DestroyInstance();
             Apartment.DestroyInstance();
             TutorialEvents.DestroyInstance();
+
+            GlobalEvents.Clear();
         }
     }
 }

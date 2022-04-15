@@ -38,7 +38,7 @@ namespace _Game.Logic.MonoBehaviours
 
         private void Spawn(long amount)
         {
-            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysList(amount);
+            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysPrefabsList(amount);
             StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 

@@ -14,5 +14,12 @@ namespace _Game.Data
         public readonly List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();
         public float CodeWritingProgress = 0f;
         public int BuyCount = 1;
+        public GameState GameState;
+    }
+
+    public enum GameState
+    {
+        Init,
+        Play
     }
 }

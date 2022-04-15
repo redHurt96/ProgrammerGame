@@ -2,12 +2,12 @@ using System;
 using _Game.Data;
 using _Game.Logic.Systems;
 using _Game.Tutorial;
+using UnityEngine;
 
 namespace _Game.Common
 {
     public static class GlobalEvents
     {
-        public static event Action CodeWrittenComplete;
         public static event Action CodeWritten;
         public static event Action<long> ChangeMoneyIntent;
         public static event Action<long> MoneyCountChanged;
@@ -22,8 +22,8 @@ namespace _Game.Common
         public static event Action LevelChanged;
         public static event Action ProgrammedPurchased;
         public static event Action TutorialStepPerformed;
+        public static event Action<Vector3> ApartmentObjectSpawned;
 
-        public static void CompleteWriteCode() => CodeWrittenComplete?.Invoke();
         public static void WriteCode() => CodeWritten?.Invoke();
 
         public static void ChangeMoneyCount(long amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
@@ -41,5 +41,11 @@ namespace _Game.Common
         public static void InvokeChangeLevelEvent() => LevelChanged?.Invoke();
         public static void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
         public static void InvokeOnTutorialStepEvent(TutorialEvents tutorialEvents) => TutorialStepPerformed?.Invoke();
+        public static void PerformOnFurnitureSpawned(Vector3 position) => ApartmentObjectSpawned?.Invoke(position);
+
+        public static void Clear()
+        {
+            MoneyCountChanged = null;
+        }
     }
 }

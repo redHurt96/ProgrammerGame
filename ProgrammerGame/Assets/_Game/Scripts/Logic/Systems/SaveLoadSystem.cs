@@ -2,6 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.Extensions;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
@@ -63,6 +64,8 @@ namespace _Game.Logic.Systems
         {
             string rawData = PlayerPrefs.GetString("Save");
             SavableData data = JsonUtility.FromJson<SavableData>(rawData);
+
+            data.Init();
 
             GameData.Instance.SavableData = data;
         }

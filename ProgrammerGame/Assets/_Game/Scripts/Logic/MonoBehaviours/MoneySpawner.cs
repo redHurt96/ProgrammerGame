@@ -32,7 +32,7 @@ namespace _Game.Logic.MonoBehaviours
             if (amount <= 0)
                 return;
 
-            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysList(amount);
+            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysPrefabsList(amount);
 
             StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }

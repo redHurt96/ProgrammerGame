@@ -25,8 +25,6 @@ namespace _Game.Logic.Systems
                 && GameData.Instance.TutorialData.Steps.Contains(TutorialStep.TapMoney_1)
                 && savableData.Projects[1].State == ProjectState.NotPurchased);
 
-            yield return new WaitForSeconds(3f);
-
             TutorialEvents.Instance.InvokeEvent(TutorialStep.CanBuyMoreProjects_2);
         }
     }

@@ -1,6 +1,6 @@
-﻿using _Game.Common;
+﻿using System;
+using _Game.Common;
 using _Game.Data;
-using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;
 

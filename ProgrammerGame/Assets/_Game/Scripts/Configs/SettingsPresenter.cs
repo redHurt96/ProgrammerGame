@@ -7,7 +7,7 @@ namespace _Game.Configs
 {
     public class SettingsPresenter : Singleton<SettingsPresenter>
     {
-        public List<Money> GetMoneysList(long amount)
+        public List<Money> GetMoneysPrefabsList(long amount)
         {
             List<Money> moneysPrefabs = new List<Money>();
 

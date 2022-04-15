@@ -34,7 +34,7 @@ namespace _Game.UI.ProjectsTab
                 _projectData.MainDataUpdated -= UpdatePanel;
         }
 
-        public void UpdatePanel()
+        private void UpdatePanel()
         {
             switch (_projectData.State)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Game.Common;
 using _Game.Configs;
+using _Game.Data;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -28,7 +29,11 @@ namespace _Game.Services
                 _furniture.Remove(replacingType);
             }
 
-            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, _apartmentParent));
+            GameObject furniture = Object.Instantiate(slot.Furniture, _apartmentParent);
+            _furniture.Add(slot.Type, furniture);
+
+            if (GameData.Instance.GameState == GameState.Play)
+                GlobalEvents.PerformOnFurnitureSpawned(furniture.transform.position);
         }
 
         public void AddProgrammer(FurnitureSlot slot)
@@ -40,15 +45,18 @@ namespace _Game.Services
 
             GameObject replacingObject = _programmerSpots[replacingType];
 
+            GameObject programmer = Object.Instantiate(
+                slot.Furniture, 
+                replacingObject.transform.position, 
+                replacingObject.transform.rotation, 
+                _apartmentParent);
             _furniture.Add(slot.Type, 
-                Object.Instantiate(
-                    slot.Furniture, 
-                    replacingObject.transform.position, 
-                    replacingObject.transform.rotation, 
-                    _apartmentParent));
+                programmer);
 
             Object.Destroy(replacingObject);
 
+            if (GameData.Instance.GameState == GameState.Play)
+                GlobalEvents.PerformOnFurnitureSpawned(programmer.transform.position);
         }
 
         public void AddMainCharacter(FurnitureSlot slot)

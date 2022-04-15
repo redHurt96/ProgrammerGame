@@ -9,6 +9,7 @@ namespace _Game.Configs
     {
         public Money[] MoneyPrefabs;
         public GameObject TapFxPrefab;
+        public GameObject FurnitureSpawnFxPrefab;
 
         [Header("Money spawning")]
         public float MoneyFallForce = 2f;
@@ -53,5 +54,6 @@ namespace _Game.Configs
 
         [Header("Boost for progress reset")]
         public float BoostForResetBaseValue;
+        public float OpenResetThreshold = .5f;
     }
 }

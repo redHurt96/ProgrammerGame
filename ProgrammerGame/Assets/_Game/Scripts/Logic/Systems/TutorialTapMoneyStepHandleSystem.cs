@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Tutorial;
@@ -22,7 +21,7 @@ namespace _Game.Logic.Systems
 
         private IEnumerator DelayedInvoke()
         {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(5f);
 
             TutorialEvents.Instance.InvokeEvent(TutorialStep.TapMoney_1);
         }

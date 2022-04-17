@@ -57,8 +57,5 @@ namespace _Game.Configs
 
         [Header("Daily bonus")]
         public float DailyBonusPerDay = .5f;
-
-        [Header("Move through apartment")]
-        public float MoveCoefficient;
     }
 }

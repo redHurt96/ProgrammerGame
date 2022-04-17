@@ -50,12 +50,15 @@ namespace _Game.UI.ProjectsTab
         private void Subscribe()
         {
             GlobalEvents.BuyCountChanged += UpdatePrice;
+
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
             _projectData.TimeUpdated += UpdateTimerAndProgressBar;
         }
 
         private void OnDestroy()
         {
+            GlobalEvents.BuyCountChanged -= UpdatePrice;
+
             if (_projectData != null)
             {
                 _projectData.DynamicDataUpdated -= UpdateDynamicContent;
@@ -85,8 +88,11 @@ namespace _Game.UI.ProjectsTab
             UpdatePrice();
         }
 
-        private void UpdatePrice() => 
+        private void UpdatePrice()
+        {
+            priceButtonVisibilityComponent.UpdateVisibility();
             _price.text = _projectData.GetPrice(GameData.Instance.BuyCount).ToPriceString();
+        }
 
         private void UpdateProgressBar() => 
             _progressBarFill.fillAmount = _projectData.Progress;

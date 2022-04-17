@@ -28,6 +28,9 @@ namespace _Game.UI.ProjectsTab
         public void SetAdditionalCondition(Func<bool> additionalCondition) => 
             _additionalCondition = additionalCondition;
 
+        private void OnEnable() => 
+            UpdateVisibility();
+
         private void OnDestroy()
         {
             GlobalEvents.OnUpgraded -= UpdateVisibility;

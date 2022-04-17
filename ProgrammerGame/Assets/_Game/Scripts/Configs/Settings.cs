@@ -33,10 +33,8 @@ namespace _Game.Configs
 
         [Header("Start options")] 
         public long StartMoney;
-        
+
         [Header("Code writing process")]
-        public float CodeWritingTime = 5f;
-        public float AccelerationCodeProgressPercent = .05f;
         public float MoneyForTapPercent;
 
         [Header("Upgrades")]
@@ -48,6 +46,7 @@ namespace _Game.Configs
         public PcSettings PcSettings;
         public AllProgrammersSettings AllProgrammersSettings;
         public FurnitureSlot MainCharacter;
+        public PriceSettings PcUpgradeSettings;
 
         [Header("Camera")]
         public CameraSizesPerHouseLevel[] CameraSizesPerHouseLevel;
@@ -55,5 +54,11 @@ namespace _Game.Configs
         [Header("Boost for progress reset")]
         public float BoostForResetBaseValue;
         public float OpenResetThreshold = .5f;
+
+        [Header("Daily bonus")]
+        public float DailyBonusPerDay = .5f;
+
+        [Header("Move through apartment")]
+        public float MoveCoefficient;
     }
 }

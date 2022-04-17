@@ -1,30 +1,23 @@
-﻿using System;
-using _Game.UI.Tutorial;
+﻿using _Game.UI.Tutorial;
 using RH.Utilities.SingletonAccess;
-using UnityEngine;
 
 namespace _Game.Configs
 {
     public class TutorialSettings : MonoBehaviourSingleton<TutorialSettings>
     {
-        public Setting[] Settings;
-
-        [Space]
-        public float WindowNonInteractableTime = 1f;
-        public float WindowLifeTime = 5f;
-
-        [Serializable]
-        public class Setting
-        {
-            public TutorialStep Name;
-            public TutorialWindow Window;
-        }
+        public TutorialWindow[] Windows;
     }
-    
+
     public enum TutorialStep
     {
-        FirstStart_0,
-        TapMoney_1,
-        CanBuyMoreProjects_2,
+        BuyFirstProject_1,
+        PerformFirstProject_2,
+        TapForMoney_3,
+        BuyFirstProgrammer_4,
+        UpgradeProject_5,
+        BuyAnotherProject_6,
+        UpgradePcOrFurniture_7,
+        BuyEnoughFurniture_8,
+        UpgradeHouse_9,
     }
 }

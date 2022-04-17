@@ -13,10 +13,12 @@ namespace _Game.Common
         [Space] 
         public Transform FxCanvas;
 
-        [Space]
+        [Space] 
+        public Camera Camera;
         public CinemachineVirtualCamera VirtualCamera;
 
         [Space] 
-        public EarnedWhileAwayWindow EarnedWhileAwayWindow;
+        public EarnedWhileAwayWindow _earnedWhileAwayWindow;
+        public DailyBonusWindow DailyBonusWindow;
     }
 }

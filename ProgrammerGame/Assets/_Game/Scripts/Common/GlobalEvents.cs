@@ -8,7 +8,6 @@ namespace _Game.Common
 {
     public static class GlobalEvents
     {
-        public static event Action CodeWritten;
         public static event Action<long> ChangeMoneyIntent;
         public static event Action<long> MoneyCountChanged;
         public static event Action OnCodingAccelerated;
@@ -23,8 +22,7 @@ namespace _Game.Common
         public static event Action ProgrammedPurchased;
         public static event Action TutorialStepPerformed;
         public static event Action<Vector3> ApartmentObjectSpawned;
-
-        public static void WriteCode() => CodeWritten?.Invoke();
+        public static event Action DailyBonusUpdated;
 
         public static void ChangeMoneyCount(long amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();
@@ -42,6 +40,7 @@ namespace _Game.Common
         public static void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
         public static void InvokeOnTutorialStepEvent(TutorialEvents tutorialEvents) => TutorialStepPerformed?.Invoke();
         public static void PerformOnFurnitureSpawned(Vector3 position) => ApartmentObjectSpawned?.Invoke(position);
+        public static void InvokeOnDailyBonusUpdate() => DailyBonusUpdated?.Invoke();
 
         public static void Clear()
         {

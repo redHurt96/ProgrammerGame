@@ -3,6 +3,7 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.Services;
 using AP.ProgrammerGame;
 using RH.Utilities.ComponentSystem;
 using UnityEngine;
@@ -22,7 +23,9 @@ namespace _Game.Logic.Systems
             long income = (long) (idleTime * autorunnedProjectsIncomePerSecond);
 
             if (income > 0)
-                SceneObjects.Instance.EarnedWhileAwayWindow.Enable(income);
+                WindowsManager
+                    .Show(SceneObjects.Instance._earnedWhileAwayWindow)
+                    .SetCount(income);
         }
     }
 }

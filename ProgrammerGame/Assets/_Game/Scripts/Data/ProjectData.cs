@@ -26,7 +26,11 @@ namespace _Game.Data
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
         public long Time => (long) Mathf.Max(1,(BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.MainBoost));
-        public long Income => (long) (BaseIncome * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) * GameData.Instance.MainBoost);
+        public long Income => (long) 
+            (BaseIncome 
+             * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) 
+             * GameData.Instance.MainBoost 
+             * GameData.Instance.DailyBonusData.Bonus);
 
         public event Action MainDataUpdated;
         public event Action TimeUpdated;

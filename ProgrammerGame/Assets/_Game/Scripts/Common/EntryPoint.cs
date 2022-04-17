@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _Game.Configs;
 using _Game.Data;
@@ -50,12 +51,23 @@ namespace _Game.Common
                 .Add(new AddCurrentMoneySystem())
                 .Add(new UpdatePlayerLevelSystem())
 
+                .Add(new DailyBonusSaveLoadSystem())
+                .Add(new DailyBonusUpdateSystem())
+                .Add(new DailyBonusShowWindowSystem())
+
                 //tutorial
                 .Add(new PassedTutorialsSaveSystem())
                 .Add(new TutorialCreateSystem())
-                .Add(new TutorialFirstStepHandleSystem())
+
+                .Add(new TutorialBuyFirstProjectStep())
+                .Add(new TutorialRunFirstProjectStep())
                 .Add(new TutorialTapMoneyStepHandleSystem())
-                .Add(new TutorialCanBuyMoreProjectsHandleSystem())
+                .Add(new TutorialBuyFirstProgrammerStep())
+                .Add(new TutorialUpgradeProjectStep())
+                .Add(new TutorialBuyAnotherProjectStep())
+                .Add(new TutorialUpgradePcStep())
+                .Add(new TutorialBuyEnoughFurnitureStep())
+                .Add(new TutorialUpgradeHouseStep())
 
                 //fx
                 .Add(new TapFxCreateSystem())
@@ -73,6 +85,9 @@ namespace _Game.Common
 
             GlobalEvents.IntentToChangeMoney(Settings.Instance.StartMoney);
         }
+
+        private void Update() => 
+            _systems.Update();
 
         private void OnDestroy()
         {

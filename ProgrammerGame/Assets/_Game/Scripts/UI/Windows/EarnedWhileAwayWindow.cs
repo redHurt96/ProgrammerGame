@@ -1,26 +1,17 @@
 using _Game.Common;
 using _Game.Scripts.Exception;
-using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Game.UI.Windows
 {
-    public class EarnedWhileAwayWindow : MonoBehaviour
+    public class EarnedWhileAwayWindow : BaseWindow
     {
         [SerializeField] private Text _countTitle;
-        [SerializeField] private Button _closeButton;
-        [SerializeField] private Button _backgroundCloseButton;
 
         private long _countValue;
 
-        private void Awake()
-        {
-            _closeButton.onClick.AddListener(Close);
-            _backgroundCloseButton.onClick.AddListener(Close);
-        }
-
-        public void Enable(long count)
+        public void SetCount(long count)
         {
             gameObject.SetActive(true);
 
@@ -29,13 +20,11 @@ namespace _Game.UI.Windows
             _countTitle.text = count.ToPriceString();
         }
 
-        private void Close()
+        protected override void PerformBeforeClose()
         {
             GlobalEvents.IntentToChangeMoney(_countValue);
 
             _countValue = 0;
-
-            gameObject.SetActive(false);
         }
     }
 }

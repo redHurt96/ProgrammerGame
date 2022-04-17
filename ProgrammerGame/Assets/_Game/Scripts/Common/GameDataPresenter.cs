@@ -40,5 +40,15 @@ namespace _Game.Common
 
         public int CalculateLevel() => 
             (int) (Mathf.Pow(Mathf.Log10(GameData.Instance.SavableData.TotalEarnedMoney), 2) - 3);
+
+        public bool CanBuyNewRoom()
+        {
+            int interiorLevel = GetUpgradeData(UpgradeType.Interior).Level;
+            int roomLevel = GetUpgradeData(UpgradeType.House).Level;
+            int furnitureToPurchase = Settings.Instance.Rooms.Take(roomLevel + 1).Sum(x => x.FurnitureForPurchase.Length);
+
+            return interiorLevel == furnitureToPurchase 
+                   && roomLevel < Settings.Instance.Rooms.Length - 1;
+        }
     }
 }

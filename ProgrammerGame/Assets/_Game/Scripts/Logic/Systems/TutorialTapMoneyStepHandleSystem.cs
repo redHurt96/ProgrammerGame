@@ -1,29 +1,15 @@
-﻿using System.Collections;
-using _Game.Configs;
+﻿using _Game.Configs;
 using _Game.Data;
-using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
-using RH.Utilities.Coroutines;
-using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialTapMoneyStepHandleSystem : IInitSystem
+    public class TutorialTapMoneyStepHandleSystem : BaseTutorialWaitForStepSystem
     {
-        public void Init()
-        {
-            if (!GameData.Instance.TutorialData.Steps.Contains(TutorialStep.TapMoney_1)
-                && GameData.Instance.TutorialData.Steps.Contains(TutorialStep.FirstStart_0))
-            {
-                CoroutineLauncher.Start(DelayedInvoke());
-            }
-        }
+        protected override TutorialStep Step => TutorialStep.TapForMoney_3;
 
-        private IEnumerator DelayedInvoke()
-        {
-            yield return new WaitForSeconds(5f);
+        protected override bool _waitCondition =>
+            GameData.Instance.TutorialData.Steps.Contains(TutorialStep.PerformFirstProject_2);
 
-            TutorialEvents.Instance.InvokeEvent(TutorialStep.TapMoney_1);
-        }
+        protected override float _delay => 5f;
     }
 }

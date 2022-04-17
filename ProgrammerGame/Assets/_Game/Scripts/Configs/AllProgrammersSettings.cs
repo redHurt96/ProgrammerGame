@@ -7,6 +7,7 @@ namespace _Game.Configs
     public class AllProgrammersSettings : ScriptableObject
     {
         public ProgrammerWorkplace[] Workplaces;
+        public ProgrammerSettings[] Programmers;
 
         [Serializable]
         public class ProgrammerWorkplace

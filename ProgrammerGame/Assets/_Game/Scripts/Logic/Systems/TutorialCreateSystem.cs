@@ -2,6 +2,7 @@
 using _Game.Configs;
 using _Game.Data;
 using _Game.Tutorial;
+using _Game.UI.Tutorial;
 using RH.Utilities.ComponentSystem;
 
 namespace _Game.Logic.Systems
@@ -10,10 +11,10 @@ namespace _Game.Logic.Systems
     {
         public void Init()
         {
-            foreach (TutorialSettings.Setting setting in TutorialSettings.Instance.Settings)
+            foreach (TutorialWindow window in TutorialSettings.Instance.Windows)
             {
-                if (!GameData.Instance.TutorialData.Steps.Contains(setting.Name))
-                    TutorialEvents.Instance.CreateActionFrom(setting);
+                if (!GameData.Instance.TutorialData.Steps.Contains(window.Step))
+                    TutorialEvents.Instance.CreateActionFrom(window);
             }
         }
     }

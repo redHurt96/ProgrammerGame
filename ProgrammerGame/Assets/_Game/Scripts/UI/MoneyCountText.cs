@@ -1,7 +1,7 @@
+using System;
 using _Game.Common;
 using _Game.Data;
 using _Game.Scripts.Exception;
-using AP.ProgrammerGame;
 using UnityEngine;
 using UnityEngine.UI;
 

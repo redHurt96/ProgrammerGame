@@ -11,15 +11,8 @@ namespace _Game.UI.UpgradesTab
         protected override string EffectTitle => $"+{GetNewProgrammersCount()} programmers";
         protected override string TotalEffectTitle => $"{Apartment.Instance.ProgrammersSpotCount} programmers";
 
-        protected override bool CheckAdditionalBuyAvailability()
-        {
-            int interiorLevel = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior).Level;
-            int roomLevel = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.House).Level;
-            int furnitureToPurchase = Settings.Instance.Rooms.Take(roomLevel + 1).Sum(x => x.FurnitureForPurchase.Length);
-
-            return interiorLevel == furnitureToPurchase 
-                   && roomLevel < Settings.Instance.Rooms.Length - 1;
-        }
+        protected override bool CheckAdditionalBuyAvailability() => 
+            GameDataPresenter.Instance.CanBuyNewRoom();
 
         private int GetNewProgrammersCount()
         {

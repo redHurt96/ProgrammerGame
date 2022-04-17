@@ -1,10 +1,8 @@
-﻿using System;
-using _Game.Configs;
+﻿using _Game.Configs;
 using RH.Utilities.Saving;
 
 namespace _Game.Data
 {
-    [Serializable]
     public class DailyBonusData : ISavableData
     {
         public int Day;

@@ -55,7 +55,7 @@ namespace _Game.Common
                 .Add(new DailyBonusShowWindowSystem())
 
                 //tutorial
-                .Add(new PassedTutorialsSaveSystem())
+                .Add(new TutorialsSaveSystem())
                 .Add(new TutorialCreateSystem())
 
                 .Add(new TutorialBuyFirstProjectStep())
@@ -95,10 +95,10 @@ namespace _Game.Common
             _settings.DestroyInstance();
 
             SettingsPresenter.DestroyInstance();
-            GameData.DestroyInstance();
             GameDataPresenter.DestroyInstance();
             Apartment.DestroyInstance();
             TutorialEvents.DestroyInstance();
+            GameData.DestroyInstance();
 
             GlobalEvents.Clear();
         }

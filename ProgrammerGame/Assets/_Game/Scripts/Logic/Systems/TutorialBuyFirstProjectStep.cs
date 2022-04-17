@@ -10,7 +10,11 @@ namespace _Game.Logic.Systems
         public void Init()
         {
             if (!GameData.Instance.TutorialData.Steps.Contains(TutorialStep.BuyFirstProject_1))
+            {
+                UnityEngine.Debug.LogWarning("Run first step");
+
                 TutorialEvents.Instance.InvokeEvent(TutorialStep.BuyFirstProject_1);
+            }
         }
     }
 }

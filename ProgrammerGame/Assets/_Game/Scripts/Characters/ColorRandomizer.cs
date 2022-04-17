@@ -10,24 +10,22 @@ namespace _Game.Characters
     {
         [SerializeField] private PossibleColors[] _possibleColors;
 
-        private List<Material> _materials = new List<Material>();
-
         private void Start()
         {
+            Dictionary<string, Color> randomColors = new Dictionary<string, Color>();
+
+            foreach (PossibleColors color in _possibleColors)
+                randomColors.Add(color.Name, color.GetRandom());
+
             Material[] materials = GetComponentsInChildren<SkinnedMeshRenderer>()
                 .SelectMany(x => x.materials)
                 .ToArray();
 
             foreach (Material material in materials)
             {
-                if (_materials.All(x => x.name != material.name))
-                {
-                    _materials.Add(material);
-                    
-                    material.color = _possibleColors
-                        .First(x => material.name.Contains(x.Name))
-                        .GetRandomColor();
-                }
+                material.color = randomColors
+                    .First(x => material.name.Contains(x.Key))
+                    .Value;
             }
         }
 
@@ -39,7 +37,7 @@ namespace _Game.Characters
 
             public string Name => _material.name;
 
-            public Color GetRandomColor() => 
+            public Color GetRandom() => 
                 _colors[Random.Range(0, _colors.Length)];
         }
     }

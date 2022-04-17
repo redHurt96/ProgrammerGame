@@ -4,12 +4,12 @@ using RH.Utilities.Saving;
 
 namespace _Game.Logic.Systems
 {
-    public class DailyBonusSaveLoadSystem : BaseInitSystem
+    public class TutorialsSaveSystem : BaseInitSystem
     {
         public override void Init() => 
-            GameData.Instance.DailyBonusData.LoadIfSaveExist();
+            GameData.Instance.TutorialData.LoadIfSaveExist();
 
         public override void Dispose() => 
-            GameData.Instance.DailyBonusData.Save();
+            GameData.Instance.TutorialData.Save();
     }
 }

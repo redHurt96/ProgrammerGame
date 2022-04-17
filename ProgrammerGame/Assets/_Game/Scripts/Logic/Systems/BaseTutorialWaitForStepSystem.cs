@@ -25,13 +25,17 @@ namespace _Game.Logic.Systems
         public sealed override void Dispose()
         {
             if (_coroutine != null)
-                CoroutineLauncher.Stop(_coroutine);
+                CoroutineLauncher.StopIfExist(_coroutine);
         }
 
         private IEnumerator WaitForPerform()
         {
+            UnityEngine.Debug.LogWarning($"Wait {Step} tutorial step");
+            
             yield return new WaitUntil(() => _waitCondition);
             yield return new WaitForSeconds(_delay);
+
+            UnityEngine.Debug.LogWarning($"Perform {Step} tutorial step");
 
             TutorialEvents.Instance.InvokeEvent(Step);
         }

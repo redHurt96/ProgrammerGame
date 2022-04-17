@@ -15,7 +15,12 @@ namespace _Game.Logic.Systems
                 AddMoney();
         }
 
-        private void AddMoney() => 
-            GlobalEvents.IntentToChangeMoney( (long) Mathf.Max(1, GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent));
+        private void AddMoney()
+        {
+            GlobalEvents.AccelerateCoding();
+
+            GlobalEvents.IntentToChangeMoney((long) Mathf.Max(1,
+                GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent));
+        }
     }
 }

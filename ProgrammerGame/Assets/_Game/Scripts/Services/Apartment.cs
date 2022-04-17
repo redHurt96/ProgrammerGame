@@ -68,10 +68,11 @@ namespace _Game.Services
 
             GameObject replacingObject = _furniture[replacingType];
             Vector3 position = replacingObject.transform.position;
+            Quaternion rotation = replacingObject.transform.rotation;
 
             Object.Destroy(replacingObject);
 
-            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, Quaternion.identity, _apartmentParent));
+            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, rotation, _apartmentParent));
         }
 
         public void AddRoom(RoomSettings room)

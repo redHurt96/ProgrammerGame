@@ -47,7 +47,6 @@ namespace _Game.Common
                 .Add(new UpdateProjectsAfterUpgradeSystem())
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
-                .Add(new CameraFlyAwaySystem())
                 .Add(new AddCurrentMoneySystem())
                 .Add(new UpdatePlayerLevelSystem())
 

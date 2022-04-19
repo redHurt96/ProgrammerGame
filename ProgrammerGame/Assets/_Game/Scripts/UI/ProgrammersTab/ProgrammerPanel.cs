@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
@@ -54,8 +55,11 @@ namespace _Game.UI.ProgrammersTab
             _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
         }
 
-        private bool CheckProgrammerAvailability() => 
-            Apartment.Instance.ContainSpotFor(_programmer.name);
+        private bool CheckProgrammerAvailability() =>
+            Apartment.Instance.ContainSpotFor(_programmer.name)
+            && GameData.Instance.SavableData.Projects
+                .First(x => x.projectSettings == _programmer.AutomatedProject)
+                .State == ProjectState.Active;
 
         private void BuyProgrammer()
         {

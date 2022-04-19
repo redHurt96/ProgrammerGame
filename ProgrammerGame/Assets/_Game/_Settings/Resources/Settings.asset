@@ -78,4 +78,4 @@ MonoBehaviour:
     Size: 10
   BoostForResetBaseValue: 1
   OpenResetThreshold: 0.25
-  DailyBonusPerDay: 0.5
+  DailyBonusPerDay: 0

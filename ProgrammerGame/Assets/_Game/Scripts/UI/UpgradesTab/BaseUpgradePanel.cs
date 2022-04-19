@@ -36,8 +36,8 @@ namespace _Game.UI.UpgradesTab
         {
             _upgradeData = GameData.Instance.SavableData.Upgrades.First(x => x.Type == _upgradeType);
 
-            UpdateContent();
             Subscribe();
+            UpdateContent();
         }
 
         private void Subscribe()
@@ -63,6 +63,8 @@ namespace _Game.UI.UpgradesTab
 
             _effect.text = EffectTitle;
             _totalEffect.text = TotalEffectTitle;
+            
+            _buttonVisibilityComponent.UpdateVisibility();
         }
 
 

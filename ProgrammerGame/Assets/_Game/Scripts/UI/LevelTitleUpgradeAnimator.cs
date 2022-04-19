@@ -11,10 +11,10 @@ namespace _Game.UI
         private static readonly int _bounceTriggerNameHash = Animator.StringToHash("Bounce");
 
         private void Start() => 
-            GlobalEvents.LevelChanged += EnableAnimation;
+            GlobalEvents.Instance.LevelChanged += EnableAnimation;
 
         private void OnDestroy() => 
-            GlobalEvents.LevelChanged -= EnableAnimation;
+            GlobalEvents.Instance.LevelChanged -= EnableAnimation;
 
         private void EnableAnimation() => 
             _animator.SetTrigger(_bounceTriggerNameHash);

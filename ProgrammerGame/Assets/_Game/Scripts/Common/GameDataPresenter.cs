@@ -33,7 +33,7 @@ namespace _Game.Common
             GetUpgradeData(UpgradeType.House).Level;
 
         public float BoostForProgress =>
-            1 + 
+            1 +
             GameData.Instance.SavableData.Projects
                 .Where(x => x.State == ProjectState.Active)
                 .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;

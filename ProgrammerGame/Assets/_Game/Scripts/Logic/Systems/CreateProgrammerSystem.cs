@@ -15,11 +15,11 @@ namespace _Game.Logic.Systems
             CreateMainCharacter();
             CreateExistedProgrammers();
 
-            GlobalEvents.BuyProgrammerIntent += CreateProgrammer;
+            GlobalEvents.Instance.BuyProgrammerIntent += CreateProgrammer;
         }
 
         public override void Dispose() => 
-            GlobalEvents.BuyProgrammerIntent -= CreateProgrammer;
+            GlobalEvents.Instance.BuyProgrammerIntent -= CreateProgrammer;
 
         private void CreateMainCharacter() => 
             Apartment.Instance.AddMainCharacter(Settings.Instance.MainCharacter);

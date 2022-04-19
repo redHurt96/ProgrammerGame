@@ -49,7 +49,7 @@ namespace _Game.UI.ProjectsTab
 
         private void Subscribe()
         {
-            GlobalEvents.BuyCountChanged += UpdatePrice;
+            GlobalEvents.Instance.BuyCountChanged += UpdatePrice;
 
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
             _projectData.TimeUpdated += UpdateTimerAndProgressBar;
@@ -57,7 +57,7 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            GlobalEvents.BuyCountChanged -= UpdatePrice;
+            GlobalEvents.Instance.BuyCountChanged -= UpdatePrice;
 
             if (_projectData != null)
             {

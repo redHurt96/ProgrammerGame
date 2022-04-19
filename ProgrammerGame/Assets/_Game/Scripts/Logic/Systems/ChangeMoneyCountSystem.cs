@@ -7,15 +7,15 @@ namespace _Game.Logic.Systems
     public class ChangeMoneyCountSystem : BaseInitSystem, IChangeMoneySystem
     {
         public override void Init() => 
-            GlobalEvents.ChangeMoneyIntent += ChangeMoneyCount;
+            GlobalEvents.Instance.ChangeMoneyIntent += ChangeMoneyCount;
 
         public override void Dispose() => 
-            GlobalEvents.ChangeMoneyIntent -= ChangeMoneyCount;
+            GlobalEvents.Instance.ChangeMoneyIntent -= ChangeMoneyCount;
 
         private void ChangeMoneyCount(double amount)
         {
             GameData.Instance.SavableData.MoneyCount += amount;
-            GlobalEvents.ChangeMoneyCount(amount, this);
+            GlobalEvents.Instance.ChangeMoneyCount(amount, this);
         }
     }
 }

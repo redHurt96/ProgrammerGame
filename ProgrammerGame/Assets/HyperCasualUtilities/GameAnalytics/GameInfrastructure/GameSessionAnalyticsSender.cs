@@ -17,10 +17,10 @@ namespace AP.Utilities.Analytics
         {
             SendStats("Start session");
 
-            GlobalEvents.LevelChanged += SendOnNewLevel;
-            GlobalEvents.OnUpgraded += SendOnBuyUpgrade;
-            GlobalEvents.ProgrammedPurchased += SendOnProgrammedPurchased;
-            GlobalEvents.ResetForBoostIntent += SendOnReset;
+            GlobalEvents.Instance.LevelChanged += SendOnNewLevel;
+            GlobalEvents.Instance.OnUpgraded += SendOnBuyUpgrade;
+            GlobalEvents.Instance.ProgrammedPurchased += SendOnProgrammedPurchased;
+            GlobalEvents.Instance.ResetForBoostIntent += SendOnReset;
         }
 
         private void OnApplicationPause(bool pause)
@@ -31,10 +31,10 @@ namespace AP.Utilities.Analytics
 
         private void OnDestroy()
         {
-            GlobalEvents.LevelChanged -= SendOnNewLevel;
-            GlobalEvents.OnUpgraded -= SendOnBuyUpgrade;
-            GlobalEvents.ProgrammedPurchased -= SendOnProgrammedPurchased;
-            GlobalEvents.ResetForBoostIntent -= SendOnReset;
+            GlobalEvents.Instance.LevelChanged -= SendOnNewLevel;
+            GlobalEvents.Instance.OnUpgraded -= SendOnBuyUpgrade;
+            GlobalEvents.Instance.ProgrammedPurchased -= SendOnProgrammedPurchased;
+            GlobalEvents.Instance.ResetForBoostIntent -= SendOnReset;
         }
 
         private void SendOnReset() => SendStats("Reset for boost");

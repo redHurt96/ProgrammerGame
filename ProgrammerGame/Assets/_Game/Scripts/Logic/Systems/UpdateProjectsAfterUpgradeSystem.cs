@@ -8,10 +8,10 @@ namespace _Game.Logic.Systems
     public class UpdateProjectsAfterUpgradeSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.OnUpgraded += UpdateProjects;
+            GlobalEvents.Instance.OnUpgraded += UpdateProjects;
 
         public override void Dispose() => 
-            GlobalEvents.OnUpgraded -= UpdateProjects;
+            GlobalEvents.Instance.OnUpgraded -= UpdateProjects;
 
         private void UpdateProjects(UpgradeType upgradeType)
         {

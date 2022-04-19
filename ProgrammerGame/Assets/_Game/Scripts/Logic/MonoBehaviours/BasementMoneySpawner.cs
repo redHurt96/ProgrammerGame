@@ -19,13 +19,13 @@ namespace _Game.Logic.MonoBehaviours
         {
             _transform = transform;
 
-            GlobalEvents.MoneyCountChanged += SpawnOrRemoveMoney;
+            GlobalEvents.Instance.MoneyCountChanged += SpawnOrRemoveMoney;
         }
 
         private void OnDestroy()
         {
             StopAllCoroutines();
-            GlobalEvents.MoneyCountChanged -= SpawnOrRemoveMoney;
+            GlobalEvents.Instance.MoneyCountChanged -= SpawnOrRemoveMoney;
         }
 
         private void SpawnOrRemoveMoney(double amount)

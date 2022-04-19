@@ -67,12 +67,12 @@ namespace _Game.UI.ProjectsTab
 
         private void BuyProjectMultipleTimes(int buyCount)
         {
-            GlobalEvents.IntentToChangeMoney(-_projectData.GetPrice(buyCount));
+            GlobalEvents.Instance.IntentToChangeMoney(-_projectData.GetPrice(buyCount));
             _projectData.Buy(buyCount);
         }
 
         private void RunProject() => 
-            GlobalEvents.IntentToRunProject(_projectData);
+            GlobalEvents.Instance.IntentToRunProject(_projectData);
 
         private void SetupProjectData() => 
             _projectData = GameData.Instance.SavableData.Projects.Find(x => x.Name == settings.Name);

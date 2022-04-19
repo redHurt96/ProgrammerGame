@@ -8,10 +8,10 @@ namespace _Game.Logic.Systems
     public class FurnitureSpawnFxCreateSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.ApartmentObjectSpawned += CreateFx;
+            GlobalEvents.Instance.ApartmentObjectSpawned += CreateFx;
 
         public override void Dispose() => 
-            GlobalEvents.ApartmentObjectSpawned -= CreateFx;
+            GlobalEvents.Instance.ApartmentObjectSpawned -= CreateFx;
 
         private void CreateFx(Vector3 position) => 
             Object.Instantiate(Settings.Instance.FurnitureSpawnFxPrefab, position, Quaternion.identity);

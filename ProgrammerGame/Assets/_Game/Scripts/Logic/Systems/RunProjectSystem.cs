@@ -12,10 +12,10 @@ namespace _Game.Logic.Systems
         private List<RunProjectProcess> _processes => GameData.Instance.RunnedProjects;
 
         public override void Init() => 
-            GlobalEvents.RunProjectIntent += RunProject;
+            GlobalEvents.Instance.RunProjectIntent += RunProject;
 
         public override void Dispose() => 
-            GlobalEvents.RunProjectIntent -= RunProject;
+            GlobalEvents.Instance.RunProjectIntent -= RunProject;
 
         private void RunProject(ProjectData projectData)
         {
@@ -26,7 +26,7 @@ namespace _Game.Logic.Systems
 
             _processes.Add(projectProcess);
 
-            GlobalEvents.RunProject(projectData);
+            GlobalEvents.Instance.RunProject(projectData);
 
             projectProcess.Run();
             projectProcess.Finished += ClearRunnedProjectFromData;

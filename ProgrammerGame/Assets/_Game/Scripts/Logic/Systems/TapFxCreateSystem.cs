@@ -10,10 +10,10 @@ namespace _Game.Logic.Systems
     public class TapFxCreateSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.OnTapForMoney += CreateFx;
+            GlobalEvents.Instance.OnTapForMoney += CreateFx;
 
         public override void Dispose() => 
-            GlobalEvents.OnTapForMoney -= CreateFx;
+            GlobalEvents.Instance.OnTapForMoney -= CreateFx;
 
         private void CreateFx(string value)
         {

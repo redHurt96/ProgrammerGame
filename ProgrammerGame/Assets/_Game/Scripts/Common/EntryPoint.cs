@@ -22,6 +22,7 @@ namespace _Game.Common
 
             _settings.CreateInstance();
 
+            new GlobalEvents();
             new SettingsPresenter();
 
             new GameData();
@@ -98,7 +99,7 @@ namespace _Game.Common
             TutorialEvents.DestroyInstance();
             GameData.DestroyInstance();
 
-            GlobalEvents.Clear();
+            GlobalEvents.DestroyInstance();
         }
     }
 }

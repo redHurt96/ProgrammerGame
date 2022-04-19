@@ -33,7 +33,7 @@ namespace _Game.Services
             _furniture.Add(slot.Type, furniture);
 
             if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.PerformOnFurnitureSpawned(furniture.transform.position);
+                GlobalEvents.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
         }
 
         public void AddProgrammer(FurnitureSlot slot)
@@ -56,7 +56,7 @@ namespace _Game.Services
             Object.Destroy(replacingObject);
 
             if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.PerformOnFurnitureSpawned(programmer.transform.position);
+                GlobalEvents.Instance.PerformOnFurnitureSpawned(programmer.transform.position);
         }
 
         public void AddMainCharacter(FurnitureSlot slot)

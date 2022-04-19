@@ -69,6 +69,6 @@ namespace _Game.UI.UpgradesTab
 
 
         private void BuyUpgrade() => 
-            GlobalEvents.IntentToBuyUpgrade(_upgradeType, _price);
+            GlobalEvents.Instance.IntentToBuyUpgrade(_upgradeType, _price);
     }
 }

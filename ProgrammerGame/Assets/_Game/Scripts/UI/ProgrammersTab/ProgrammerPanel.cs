@@ -38,11 +38,11 @@ namespace _Game.UI.ProgrammersTab
             else
                 SetupForAvailableProgrammer();
 
-            GlobalEvents.OnUpgraded += UpdateTip;
+            GlobalEvents.Instance.OnUpgraded += UpdateTip;
         }
 
         private void OnDestroy() => 
-            GlobalEvents.OnUpgraded -= UpdateTip;
+            GlobalEvents.Instance.OnUpgraded -= UpdateTip;
 
         private void SetupCommonData()
         {
@@ -71,11 +71,11 @@ namespace _Game.UI.ProgrammersTab
 
         private void BuyProgrammer()
         {
-            GlobalEvents.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
+            GlobalEvents.Instance.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
 
             SetupForPurchasedProgrammer();
 
-            GlobalEvents.IntentToChangeMoney(-_programmer.Price);
+            GlobalEvents.Instance.IntentToChangeMoney(-_programmer.Price);
         }
 
         private void UpdateTip(UpgradeType type)

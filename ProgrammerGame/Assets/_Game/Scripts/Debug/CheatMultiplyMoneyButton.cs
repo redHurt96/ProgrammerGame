@@ -17,6 +17,6 @@ namespace _Game.Debug
 
         [ContextMenu("Click")]
         protected override void PerformOnClick() => 
-            GlobalEvents.IntentToChangeMoney(GameData.Instance.SavableData.MoneyCount * Value);
+            GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.SavableData.MoneyCount * Value);
     }
 }

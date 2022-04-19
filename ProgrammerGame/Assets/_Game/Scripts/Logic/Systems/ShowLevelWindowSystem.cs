@@ -7,15 +7,15 @@ namespace _Game.Logic.Systems
     public class ShowLevelWindowSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.LevelChanged += ShowRewardWindow;
+            GlobalEvents.Instance.LevelChanged += ShowRewardWindow;
 
         public override void Dispose() => 
-            GlobalEvents.LevelChanged -= ShowRewardWindow;
+            GlobalEvents.Instance.LevelChanged -= ShowRewardWindow;
 
         private void ShowRewardWindow()
         {
             WindowsManager.Show(SceneObjects.Instance.LevelWindow);
-            GlobalEvents.IntentToChangeMoney(GameDataPresenter.Instance.GetRewardForLevel());
+            GlobalEvents.Instance.IntentToChangeMoney(GameDataPresenter.Instance.GetRewardForLevel());
         }
     }
 }

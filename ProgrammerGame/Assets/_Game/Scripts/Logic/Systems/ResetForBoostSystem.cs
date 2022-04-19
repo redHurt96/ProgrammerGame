@@ -12,10 +12,10 @@ namespace _Game.Logic.Systems
     public class ResetForBoostSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.ResetForBoostIntent += ResetProgressForBoost;
+            GlobalEvents.Instance.ResetForBoostIntent += ResetProgressForBoost;
 
         public override void Dispose() => 
-            GlobalEvents.ResetForBoostIntent -= ResetProgressForBoost;
+            GlobalEvents.Instance.ResetForBoostIntent -= ResetProgressForBoost;
 
         private void ResetProgressForBoost() => 
             CoroutineLauncher.Start(ResetAfterDelay());

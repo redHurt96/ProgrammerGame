@@ -14,11 +14,11 @@ namespace _Game.UI
         {
             UpdateTitle();
 
-            GlobalEvents.LevelChanged += UpdateTitle;
+            GlobalEvents.Instance.LevelChanged += UpdateTitle;
         }
 
         private void OnDestroy() => 
-            GlobalEvents.LevelChanged -= UpdateTitle;
+            GlobalEvents.Instance.LevelChanged -= UpdateTitle;
 
         private void UpdateTitle() => 
             _title.text = GameData.Instance.PersistentData.Level.ToString();

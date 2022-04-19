@@ -21,8 +21,8 @@ namespace _Game.Logic.Systems
             double value = Mathf.Max(1,
                 GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent);
 
-            GlobalEvents.AccelerateCoding(value.ToPriceString());
-            GlobalEvents.IntentToChangeMoney(value);
+            GlobalEvents.Instance.AccelerateCoding(value.ToPriceString());
+            GlobalEvents.Instance.IntentToChangeMoney(value);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace _Game.Logic.Systems
         {
             yield return null;
 
-            GlobalEvents.ChangeMoneyCount(GameData.Instance.SavableData.MoneyCount, this);
+            GlobalEvents.Instance.ChangeMoneyCount(GameData.Instance.SavableData.MoneyCount, this);
         }
     }
 }

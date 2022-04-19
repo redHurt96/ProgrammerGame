@@ -47,8 +47,11 @@ namespace _Game.Common
                 .Add(new UpdateProjectsAfterUpgradeSystem())
                 .Add(new IdleIncomeSystem())
                 .Add(new CreateProgrammerSystem())
+                .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
-                .Add(new UpdatePlayerLevelSystem())
+
+                .Add(new SaveLevelSystem())
+                .Add(new ShowLevelWindowSystem())
 
                 .Add(new DailyBonusSaveLoadSystem())
                 .Add(new DailyBonusUpdateSystem())
@@ -72,17 +75,12 @@ namespace _Game.Common
                 .Add(new TapFxCreateSystem())
                 .Add(new FurnitureSpawnFxCreateSystem())
 
+                .Add(new UpdatePlayerLevelSystem())
+
                 //must be the last
                 .Add(new ChangeGameStateToPlaySystem())
 
                 .Init();
-        }
-
-        private IEnumerator Start()
-        {
-            yield return null;
-
-            GlobalEvents.IntentToChangeMoney(Settings.Instance.StartMoney);
         }
 
         private void Update() => 

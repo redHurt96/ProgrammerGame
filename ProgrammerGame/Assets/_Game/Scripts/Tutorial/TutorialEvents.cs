@@ -23,8 +23,6 @@ namespace _Game.Tutorial
                 _actions[name]();
 
                 GameData.Instance.TutorialData.Steps.Add(name);
-                
-                GlobalEvents.InvokeOnTutorialStepEvent(this);
             }
         }
     }

@@ -7,35 +7,24 @@ namespace _Game.Extensions
 {
     public static class GameDataExtensions
     {
-        public static Dictionary<string, object> ToDictionary(this GameData gameData) =>
-            new Dictionary<string, object>
+        public static Dictionary<string, object> ToDictionary(this GameData gameData)
+        {
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                ["Main boost"] = gameData.MainBoost,
+                ["Main boost"] = gameData.PersistentData.MainBoost,
                 ["Money count"] = gameData.SavableData.MoneyCount,
-                ["Projects"] = gameData.SavableData.Projects.ToDictionary(
-                    x => x.Name,
-                    y => y.ToDictionary()),
                 ["Auto run projects"] = gameData.SavableData.AutoRunnedProjects,
-                ["Upgrades"] = gameData.SavableData.Upgrades.ToDictionary(
-                    x => x.Type.ToString(),
-                    y => y.ToDictionary()),
-                ["Level"] = gameData.SavableData.Level,
-                ["Total earned money"] = gameData.SavableData.TotalEarnedMoney,
+                ["Level"] = gameData.PersistentData.Level,
+                ["Total earned money"] = gameData.PersistentData.TotalEarnedMoney,
             };
 
-        private static Dictionary<string, object> ToDictionary(this ProjectData projectData) =>
-            new Dictionary<string, object>
-            {
-                ["Name"] = projectData.Name,
-                ["State"] = projectData.State.ToString(),
-                ["Level"] = projectData.Level,
-            };
+            foreach (ProjectData project in gameData.SavableData.Projects)
+                dictionary.Add(project.Name, project.Level);
 
-        private static Dictionary<string, object> ToDictionary(this UpgradeData upgradeData) =>
-            new Dictionary<string, object>
-            {
-                ["Type"] = upgradeData.Type,
-                ["Level"] = upgradeData.Level,
-            };
+            foreach (UpgradeData upgradeData in gameData.SavableData.Upgrades)
+                dictionary.Add(upgradeData.Type.ToString(), upgradeData.Level);
+
+            return dictionary;
+        }
     }
 }

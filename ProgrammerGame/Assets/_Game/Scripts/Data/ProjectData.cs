@@ -25,11 +25,11 @@ namespace _Game.Data
         public long GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public long Time => (long) Mathf.Max(1,(BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.MainBoost));
+        public long Time => (long) Mathf.Max(1,BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.PersistentData.MainBoost);
         public long Income => (long) 
             (BaseIncome 
              * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) 
-             * GameData.Instance.MainBoost 
+             * GameData.Instance.PersistentData.MainBoost 
              * GameData.Instance.DailyBonusData.Bonus);
 
         public event Action MainDataUpdated;

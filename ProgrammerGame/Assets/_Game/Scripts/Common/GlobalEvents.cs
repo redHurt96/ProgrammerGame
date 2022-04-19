@@ -1,7 +1,6 @@
 using System;
 using _Game.Data;
 using _Game.Logic.Systems;
-using _Game.Tutorial;
 using UnityEngine;
 
 namespace _Game.Common
@@ -20,7 +19,6 @@ namespace _Game.Common
         public static event Action BuyCountChanged;
         public static event Action LevelChanged;
         public static event Action ProgrammedPurchased;
-        public static event Action TutorialStepPerformed;
         public static event Action<Vector3> ApartmentObjectSpawned;
         public static event Action DailyBonusUpdated;
 
@@ -38,7 +36,6 @@ namespace _Game.Common
         public static void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();
         public static void InvokeChangeLevelEvent() => LevelChanged?.Invoke();
         public static void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
-        public static void InvokeOnTutorialStepEvent(TutorialEvents tutorialEvents) => TutorialStepPerformed?.Invoke();
         public static void PerformOnFurnitureSpawned(Vector3 position) => ApartmentObjectSpawned?.Invoke(position);
         public static void InvokeOnDailyBonusUpdate() => DailyBonusUpdated?.Invoke();
 

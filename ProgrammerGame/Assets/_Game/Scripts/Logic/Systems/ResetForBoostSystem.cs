@@ -11,17 +11,8 @@ namespace _Game.Logic.Systems
 {
     public class ResetForBoostSystem : BaseInitSystem
     {
-        private const string NEED_RESET = "Need reset";
-        private const string BOOST_KEY = "Boost";
-
-        public override void Init()
-        {
-            GameData.Instance.MainBoost = PlayerPrefs.HasKey(BOOST_KEY) 
-                ? PlayerPrefs.GetFloat(BOOST_KEY) 
-                : 1f;
-
+        public override void Init() => 
             GlobalEvents.ResetForBoostIntent += ResetProgressForBoost;
-        }
 
         public override void Dispose() => 
             GlobalEvents.ResetForBoostIntent -= ResetProgressForBoost;
@@ -31,12 +22,14 @@ namespace _Game.Logic.Systems
 
         private IEnumerator ResetAfterDelay()
         {
+            PlayerPrefs.DeleteKey("Save");
+            PlayerPrefs.SetInt("Need reset", 1);
+            PlayerPrefs.Save();
+
             yield return null;
 
-            PlayerPrefs.DeleteKey("Save");
-            PlayerPrefs.SetFloat(BOOST_KEY, GameDataPresenter.Instance.BoostForProgress * GameData.Instance.MainBoost);
-            PlayerPrefs.SetInt(NEED_RESET, 1);
-            PlayerPrefs.Save();
+            GameData.Instance.PersistentData.MainBoost = GameDataPresenter.Instance.BoostForProgress *
+                                                         GameData.Instance.PersistentData.MainBoost;
 
             SceneManager.LoadScene(0);
         }

@@ -20,5 +20,6 @@ namespace _Game.Common
         [Space] 
         public EarnedWhileAwayWindow _earnedWhileAwayWindow;
         public DailyBonusWindow DailyBonusWindow;
+        public LevelRewardWindow LevelWindow;
     }
 }

@@ -58,5 +58,8 @@ namespace _Game.Configs
 
         [Header("Daily bonus")]
         public float DailyBonusPerDay = .5f;
+
+        [Header("Level reward")]
+        public long TimeForLevelReward = 120;
     }
 }

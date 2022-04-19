@@ -21,6 +21,6 @@ namespace _Game.UI
             GlobalEvents.LevelChanged -= UpdateTitle;
 
         private void UpdateTitle() => 
-            _title.text = GameData.Instance.SavableData.Level.ToString();
+            _title.text = GameData.Instance.PersistentData.Level.ToString();
     }
 }

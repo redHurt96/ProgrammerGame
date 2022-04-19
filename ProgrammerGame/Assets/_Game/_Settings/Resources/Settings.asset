@@ -77,5 +77,6 @@ MonoBehaviour:
   - Level: 5
     Size: 10
   BoostForResetBaseValue: 1
-  OpenResetThreshold: 0.25
+  OpenResetThreshold: 0
   DailyBonusPerDay: 0
+  TimeForLevelReward: 30

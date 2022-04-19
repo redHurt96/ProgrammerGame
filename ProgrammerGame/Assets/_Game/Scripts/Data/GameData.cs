@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using _Game.Services;
 using _Game.UI.Windows;
 using RH.Utilities.SingletonAccess;
 
@@ -9,9 +8,9 @@ namespace _Game.Data
     {
         //saved
         public SavableData SavableData = new SavableData();
-        public float MainBoost;
         public TutorialData TutorialData = new TutorialData();
         public DailyBonusData DailyBonusData = new DailyBonusData();
+        public readonly PersistentData PersistentData = new PersistentData();
 
         //not saved
         public readonly List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();

@@ -38,8 +38,11 @@ namespace _Game.Common
                 .Where(x => x.State == ProjectState.Active)
                 .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;
 
+        public long GetRewardForLevel() => 
+            IncomePerSec * Settings.Instance.TimeForLevelReward;
+
         public int CalculateLevel() => 
-            (int) (Mathf.Pow(Mathf.Log10(GameData.Instance.SavableData.TotalEarnedMoney), 2) - 3);
+            (int) Mathf.Log10(GameData.Instance.PersistentData.TotalEarnedMoney);
 
         public bool CanBuyNewRoom()
         {

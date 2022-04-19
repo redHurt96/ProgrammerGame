@@ -42,7 +42,9 @@ namespace AP.Utilities.Analytics
         private void SendOnBuyUpgrade(UpgradeType arg1) => SendStats("Buy upgrade");
         private void SendOnNewLevel() => SendStats("New level");
 
-        private void SendStats(string eventName) => 
+        private void SendStats(string eventName)
+        {
             GameAnalytics.NewDesignEvent(eventName, GameData.Instance.ToDictionary());
+        }
     }
 }

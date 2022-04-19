@@ -23,9 +23,13 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private Button _button;
         [SerializeField] private Text _price;
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
+        [SerializeField] private Text _needUpgradeTip;
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
+            UpdateTip();
             _priceButtonVisibilityComponent.UpdateVisibility();
+        }
 
         private void Start()
         {
@@ -35,7 +39,12 @@ namespace _Game.UI.ProgrammersTab
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();
+
+            GlobalEvents.OnUpgraded += UpdateTip;
         }
+
+        private void OnDestroy() => 
+            GlobalEvents.OnUpgraded -= UpdateTip;
 
         private void SetupCommonData()
         {
@@ -53,6 +62,7 @@ namespace _Game.UI.ProgrammersTab
             _button.onClick.AddListener(BuyProgrammer);
             _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.Price);
             _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
+            UpdateTip();
         }
 
         private bool CheckProgrammerAvailability() =>
@@ -69,5 +79,14 @@ namespace _Game.UI.ProgrammersTab
 
             GlobalEvents.IntentToChangeMoney(-_programmer.Price);
         }
+
+        private void UpdateTip(UpgradeType type)
+        {
+            if (type == UpgradeType.House)
+                UpdateTip();
+        }
+
+        private void UpdateTip() => 
+            _needUpgradeTip.gameObject.SetActive(!Apartment.Instance.ContainSpotFor(_programmer.name));
     }
 }

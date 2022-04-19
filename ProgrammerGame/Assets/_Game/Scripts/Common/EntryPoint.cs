@@ -22,7 +22,11 @@ namespace _Game.Common
 
             _settings.CreateInstance();
 
+            if (GlobalEvents.Instance != null)
+                GlobalEvents.DestroyInstance();
+
             new GlobalEvents();
+
             new SettingsPresenter();
 
             new GameData();
@@ -98,8 +102,6 @@ namespace _Game.Common
             Apartment.DestroyInstance();
             TutorialEvents.DestroyInstance();
             GameData.DestroyInstance();
-
-            GlobalEvents.DestroyInstance();
         }
     }
 }

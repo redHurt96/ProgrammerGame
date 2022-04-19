@@ -13,11 +13,14 @@ namespace _Game.UI.Windows
 
         private void Awake()
         {
-            _closeButton.onClick.AddListener(Close);
-            _backgroundCloseButton.onClick.AddListener(Close);
+            if (_closeButton != null)
+                _closeButton.onClick.AddListener(Close);
+            
+            if (_backgroundCloseButton != null)
+                _backgroundCloseButton.onClick.AddListener(Close);
         }
 
-        private void Close()
+        protected void Close()
         {
             PerformBeforeClose();
             WindowsManager.Hide(this);

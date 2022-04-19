@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using _Game.Configs;
+using _Game.Services;
+using _Game.UI.Windows;
 using UnityEngine;
 
 namespace _Game.UI.Tutorial
 {
-    public class TutorialWindow : MonoBehaviour
+    public class TutorialWindow : BaseWindow
     {
         public TutorialStep Step => _step;
 
@@ -25,26 +27,13 @@ namespace _Game.UI.Tutorial
 
             yield return new WaitForSeconds(_windowLifeTime);
 
-            Destroy();
+            Close();
         }
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && _canClose)
-                Destroy();
-        }
-
-        public void Enable() => 
-            gameObject.SetActive(true);
-
-        private void Destroy()
-        {
-            if (_isDestroyed)
-                return;
-
-            _isDestroyed = true;
-
-            Destroy(gameObject);
+                Close();
         }
     }
 }

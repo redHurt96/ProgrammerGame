@@ -1,5 +1,6 @@
 ﻿using _Game.Common;
 using _Game.Configs;
+using _Game.Scripts.Exception;
 using RH.Utilities.ComponentSystem;
 using RH.Utilities.Extensions;
 using UnityEngine;
@@ -17,10 +18,11 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            GlobalEvents.AccelerateCoding();
+            long value = (long) Mathf.Max(1,
+                GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent);
 
-            GlobalEvents.IntentToChangeMoney((long) Mathf.Max(1,
-                GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent));
+            GlobalEvents.AccelerateCoding(value.ToPriceString());
+            GlobalEvents.IntentToChangeMoney(value);
         }
     }
 }

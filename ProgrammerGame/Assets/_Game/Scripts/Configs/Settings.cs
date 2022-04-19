@@ -1,3 +1,4 @@
+using _Game.Fx;
 using _Game.Logic.MonoBehaviours;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace _Game.Configs
     public class Settings : SingletonScriptableObject<Settings>
     {
         public Money[] MoneyPrefabs;
-        public GameObject TapFxPrefab;
+        public PriceFx TapFxPrefab;
         public GameObject FurnitureSpawnFxPrefab;
 
         [Header("Money spawning")]

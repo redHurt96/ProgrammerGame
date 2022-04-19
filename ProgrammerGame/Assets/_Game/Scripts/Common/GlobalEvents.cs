@@ -10,7 +10,7 @@ namespace _Game.Common
     {
         public static event Action<long> ChangeMoneyIntent;
         public static event Action<long> MoneyCountChanged;
-        public static event Action OnCodingAccelerated;
+        public static event Action<string> OnTapForMoney;
         public static event Action<ProjectData> RunProjectIntent;
         public static event Action<ProjectData> ProjectStarted;
         public static event Action<string> BuyProgrammerIntent;
@@ -25,7 +25,7 @@ namespace _Game.Common
         public static event Action DailyBonusUpdated;
 
         public static void ChangeMoneyCount(long amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
-        public static void AccelerateCoding() => OnCodingAccelerated?.Invoke();
+        public static void AccelerateCoding(string value) => OnTapForMoney?.Invoke(value);
         public static void IntentToRunProject(ProjectData projectData) => RunProjectIntent?.Invoke(projectData);
         public static void RunProject(ProjectData projectData) => ProjectStarted?.Invoke(projectData);
 

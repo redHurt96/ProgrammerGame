@@ -12,10 +12,10 @@ namespace _Game.UI.ProjectsTab
     {
         [SerializeField] private Button _button;
 
-        private Func<long> _calculatePrice;
+        private Func<double> _calculatePrice;
         private Func<bool> _additionalCondition;
 
-        public void SetPriceFunc(Func<long> calculatePrice)
+        public void SetPriceFunc(Func<double> calculatePrice)
         {
             _calculatePrice = calculatePrice;
 
@@ -38,12 +38,12 @@ namespace _Game.UI.ProjectsTab
         }
 
         public void UpdateVisibility() => 
-            UpdateVisibility(0L);
+            UpdateVisibility(0d);
 
         private void UpdateVisibility(UpgradeType type) => 
-            UpdateVisibility(0L);
+            UpdateVisibility(0d);
 
-        private void UpdateVisibility(long obj)
+        private void UpdateVisibility(double obj)
         {
             if (GameData.Instance == null)
             {

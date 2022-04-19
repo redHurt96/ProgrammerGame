@@ -28,7 +28,7 @@ namespace _Game.Logic.MonoBehaviours
             GlobalEvents.MoneyCountChanged -= SpawnOrRemoveMoney;
         }
 
-        private void SpawnOrRemoveMoney(long amount)
+        private void SpawnOrRemoveMoney(double amount)
         {
             if (amount > 0)
                 Spawn(amount);
@@ -36,13 +36,13 @@ namespace _Game.Logic.MonoBehaviours
                 Remove(amount);
         }
 
-        private void Spawn(long amount)
+        private void Spawn(double amount)
         {
             List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysPrefabsList(amount);
             StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 
-        private void Remove(long amount)
+        private void Remove(double amount)
         {
             amount = -amount;
             _existed.OrderBy(x => x.Value);

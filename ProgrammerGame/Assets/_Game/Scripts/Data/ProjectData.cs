@@ -20,13 +20,13 @@ namespace _Game.Data
         public TimeSpan CurrentTimeToFinish;
         public ProjectSettings projectSettings;
 
-        public long BaseIncome => projectSettings.GetIncome(Level);
+        public double BaseIncome => projectSettings.GetIncome(Level);
         public long BaseTime => projectSettings.GetTime(Level);
-        public long GetPrice(int count) => projectSettings.GetPrice(Level, count);
+        public double GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
         public long Time => (long) Mathf.Max(1,BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.PersistentData.MainBoost);
-        public long Income => (long) 
+        public double Income => (long) 
             (BaseIncome 
              * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) 
              * GameData.Instance.PersistentData.MainBoost 

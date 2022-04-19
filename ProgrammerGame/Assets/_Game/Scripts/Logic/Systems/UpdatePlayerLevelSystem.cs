@@ -21,7 +21,7 @@ namespace _Game.Logic.Systems
             GlobalEvents.MoneyCountChanged += UpdateLevel;
         }
         
-        private void UpdateLevel(long money)
+        private void UpdateLevel(double money)
         {
             if (money <= 0)
                 return;

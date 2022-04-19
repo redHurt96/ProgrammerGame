@@ -29,9 +29,9 @@ namespace _Game.Scripts.Exception
             [51] = "an",
         };
 
-        public static string ToPriceString(this long value)
+        public static string ToPriceString(this double value)
         {
-            int valueLenght = (int) Mathf.Log10(value);
+            int valueLenght = (int) Mathf.Log10((float) value);
 
             KeyValuePair<int, string> targetPair = _suffixPerValue
                 .LastOrDefault(x => x.Key <= valueLenght);

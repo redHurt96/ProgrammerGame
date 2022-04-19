@@ -9,9 +9,9 @@ namespace _Game.UI.Windows
     {
         [SerializeField] private Text _countTitle;
 
-        private long _countValue;
+        private double _countValue;
 
-        public void SetCount(long count)
+        public void SetCount(double count)
         {
             gameObject.SetActive(true);
 

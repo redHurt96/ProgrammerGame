@@ -8,6 +8,6 @@ namespace _Game.Configs
         public string Name;
         public Sprite Icon;
         public ProjectSettings AutomatedProject;
-        public long Price;
+        public double Price;
     }
 }

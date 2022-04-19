@@ -1,15 +1,20 @@
-﻿using System.Linq;
-using _Game.Common;
+﻿using _Game.Common;
 using _Game.Configs;
-using _Game.Data;
 using _Game.Services;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Game.UI.UpgradesTab
 {
     public class HouseUpgradePanel : BaseUpgradePanel
     {
+        [SerializeField] private Text _tip;
+
         protected override string EffectTitle => $"+{GetNewProgrammersCount()} programmers";
         protected override string TotalEffectTitle => $"{Apartment.Instance.ProgrammersSpotCount} programmers";
+
+        private void Update() => 
+            _tip.enabled = !GameDataPresenter.Instance.CanBuyNewRoom();
 
         protected override bool CheckAdditionalBuyAvailability() => 
             GameDataPresenter.Instance.CanBuyNewRoom();

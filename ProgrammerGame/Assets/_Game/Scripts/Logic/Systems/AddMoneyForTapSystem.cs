@@ -18,7 +18,7 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            long value = (long) Mathf.Max(1,
+            double value = Mathf.Max(1,
                 GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent);
 
             GlobalEvents.AccelerateCoding(value.ToPriceString());

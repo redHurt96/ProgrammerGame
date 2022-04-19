@@ -27,7 +27,7 @@ namespace _Game.Logic.MonoBehaviours
             GlobalEvents.MoneyCountChanged -= SpawnMoney;
         }
 
-        private void SpawnMoney(long amount)
+        private void SpawnMoney(double amount)
         {
             if (amount <= 0)
                 return;

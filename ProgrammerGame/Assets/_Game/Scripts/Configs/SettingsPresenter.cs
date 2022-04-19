@@ -7,7 +7,7 @@ namespace _Game.Configs
 {
     public class SettingsPresenter : Singleton<SettingsPresenter>
     {
-        public List<Money> GetMoneysPrefabsList(long amount)
+        public List<Money> GetMoneysPrefabsList(double amount)
         {
             List<Money> moneysPrefabs = new List<Money>();
 
@@ -26,7 +26,7 @@ namespace _Game.Configs
             return moneysPrefabs;
         }
 
-        private Money GetMoneyResourceByValue(long amount) =>
+        private Money GetMoneyResourceByValue(double amount) =>
             Settings.Instance.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

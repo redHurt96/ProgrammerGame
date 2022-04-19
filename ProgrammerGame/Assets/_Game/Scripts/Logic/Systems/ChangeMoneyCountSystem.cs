@@ -12,7 +12,7 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             GlobalEvents.ChangeMoneyIntent -= ChangeMoneyCount;
 
-        private void ChangeMoneyCount(long amount)
+        private void ChangeMoneyCount(double amount)
         {
             GameData.Instance.SavableData.MoneyCount += amount;
             GlobalEvents.ChangeMoneyCount(amount, this);

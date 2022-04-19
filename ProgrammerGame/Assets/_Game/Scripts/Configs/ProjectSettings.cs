@@ -15,12 +15,12 @@ namespace _Game.Configs
         [SerializeField] private PriceSettings _incomeSettings;
         [SerializeField] private TimeSettings _timeSettings;
 
-        public long GetIncome(int forLevel) => _incomeSettings.GetPrice(forLevel);
+        public double GetIncome(int forLevel) => _incomeSettings.GetPrice(forLevel);
         public long GetTime(int forLevel) => _timeSettings.GetTime(forLevel);
 
-        public long GetPrice(int level, int count)
+        public double GetPrice(int level, int count)
         {
-            long sum = 0L;
+            double sum = 0d;
 
             for (int i = 0; i < count; i++) 
                 sum += GetPrice(level + i);

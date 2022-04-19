@@ -25,7 +25,7 @@ namespace _Game.UI.UpgradesTab
 
         private UpgradeData _upgradeData;
 
-        private long _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
+        private double _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
 
         protected abstract string EffectTitle { get; }
         protected abstract string TotalEffectTitle { get; }

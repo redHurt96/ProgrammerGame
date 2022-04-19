@@ -17,7 +17,7 @@ namespace _Game.UI
         private void OnDestroy() => 
             GlobalEvents.MoneyCountChanged -= UpdateText;
 
-        private void UpdateText(long l) =>
+        private void UpdateText(double l) =>
             _text.text = GameData.Instance.SavableData.MoneyCount.ToPriceString();
     }
 }

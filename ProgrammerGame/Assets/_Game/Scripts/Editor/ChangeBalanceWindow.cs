@@ -48,6 +48,8 @@ namespace _Game.Scripts.Editor
 
             for (int i = 0; i < projects.Length; i++)
                 projects[i].SetTime(timers[i]);
+
+            SetProjectsDirty(projects);
         }
 
         private void SetNewPrices()
@@ -58,6 +60,8 @@ namespace _Game.Scripts.Editor
 
             for (int i = 0; i < projects.Length; i++)
                 projects[i].SetPrice(prices[i]);
+
+            SetProjectsDirty(projects);
         }
 
         private void SetNewIncomes()
@@ -68,11 +72,12 @@ namespace _Game.Scripts.Editor
 
             for (int i = 0; i < projects.Length; i++)
                 projects[i].SetIncome(prices[i]);
+
+            SetProjectsDirty(projects);
         }
 
         private float[] ParseFromSheet(string input) =>
             input
-                .Replace(',', '.')
                 .Split(new[] {' ', '\t'}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(float.Parse)
                 .ToArray();
@@ -114,6 +119,12 @@ namespace _Game.Scripts.Editor
             }
 
             return timers;
+        }
+
+        private void SetProjectsDirty(ProjectSettings[] projects)
+        {
+            foreach (ProjectSettings project in projects) 
+                EditorUtility.SetDirty(project);
         }
     }
 }

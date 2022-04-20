@@ -17,16 +17,16 @@ MonoBehaviour:
   OpenLevel: 25
   BlockProject: {fileID: 11400000, guid: a6eb3b5486981fb4998a1b48b59012a9, type: 2}
   _priceSettings:
-    _offset: 1000
-    _linear: 3
-    _exponential: 1.4
-    _additional: 2
+    _offset: 720
+    _linear: 0.1
+    _exponential: 3.3
+    _additional: 4
   _incomeSettings:
-    _offset: 320
-    _linear: 3
-    _exponential: 1.1
-    _additional: 2
+    _offset: 540
+    _linear: 0.8
+    _exponential: 2.5
+    _additional: 4
   _timeSettings:
-    _startTime: 60
+    _startTime: 12
     _endDecreasingLevel: 500
     _endTime: 5

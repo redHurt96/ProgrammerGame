@@ -39,6 +39,8 @@ namespace _Game.UI.ProgrammersTab
                 SetupForAvailableProgrammer();
 
             GlobalEvents.Instance.OnUpgraded += UpdateTip;
+
+            _priceButtonVisibilityComponent.UpdateVisibility();
         }
 
         private void OnDestroy() => 

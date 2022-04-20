@@ -1,6 +1,4 @@
-﻿using System;
-using System.Globalization;
-using _Game.Services;
+﻿using _Game.Services;
 using UnityEngine;
 using UnityEngine.UI;
 

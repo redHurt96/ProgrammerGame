@@ -19,6 +19,7 @@ namespace _Game.Configs
         public float MoneyBasementForce = 20f;
         public float MoneyBasementRandomizeForce = 100f;
         public float MoneyBasementSpawnDelay = .5f;
+        public int MaxBasementMoneysCount = 500;
 
         [Space]
         public float MoneyRigidbodyRemoveTime = 3f;
@@ -61,5 +62,7 @@ namespace _Game.Configs
 
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
+
+        
     }
 }

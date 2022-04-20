@@ -33,6 +33,7 @@ MonoBehaviour:
   MoneyBasementForce: 300
   MoneyBasementRandomizeForce: 100
   MoneyBasementSpawnDelay: 0.8
+  MaxBasementMoneysCount: 1000
   MoneyRigidbodyRemoveTime: 2
   TargetLevels: 19000000320000004b0000006400000096000000c8000000fa0000002c01000090010000f4010000ee020000e8030000d0070000b80b0000a00f000088130000
   ProjectsSettings:

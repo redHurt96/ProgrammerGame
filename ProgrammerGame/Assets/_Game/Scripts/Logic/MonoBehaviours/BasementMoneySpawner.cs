@@ -31,7 +31,10 @@ namespace _Game.Logic.MonoBehaviours
         private void SpawnOrRemoveMoney(double amount)
         {
             if (amount > 0)
-                Spawn(amount);
+            {
+                if (_existed.Count < Settings.Instance.MaxBasementMoneysCount)
+                    Spawn(amount);
+            }
             else
                 Remove(amount);
         }

@@ -79,4 +79,4 @@ MonoBehaviour:
   BoostForResetBaseValue: 1
   OpenResetThreshold: 0
   DailyBonusPerDay: 0
-  TimeForLevelReward: 30
+  TimeForLevelReward: 10

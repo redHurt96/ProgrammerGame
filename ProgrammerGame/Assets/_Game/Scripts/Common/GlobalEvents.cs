@@ -22,6 +22,7 @@ namespace _Game.Common
         public event Action ProgrammedPurchased;
         public event Action<Vector3> ApartmentObjectSpawned;
         public event Action DailyBonusUpdated;
+        public event Action ApplicationPaused;
 
         public void ChangeMoneyCount(double amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public void AccelerateCoding(string value) => OnTapForMoney?.Invoke(value);
@@ -37,5 +38,7 @@ namespace _Game.Common
         public void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
         public void PerformOnFurnitureSpawned(Vector3 position) => ApartmentObjectSpawned?.Invoke(position);
         public void InvokeOnDailyBonusUpdate() => DailyBonusUpdated?.Invoke();
+
+        public void InvokeOnApplicationPause() => ApplicationPaused?.Invoke();
     }
 }

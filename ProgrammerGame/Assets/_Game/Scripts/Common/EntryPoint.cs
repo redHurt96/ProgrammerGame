@@ -55,7 +55,7 @@ namespace _Game.Common
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
 
-                .Add(new SaveLevelSystem())
+                .Add(new PersistentDataSaveLoadSystem())
                 .Add(new ShowLevelWindowSystem())
 
                 .Add(new DailyBonusSaveLoadSystem())

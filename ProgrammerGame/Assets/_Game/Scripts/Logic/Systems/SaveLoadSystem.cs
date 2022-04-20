@@ -25,6 +25,9 @@ namespace _Game.Logic.Systems
             {
                 LoadData();
             }
+
+            GlobalEvents.Instance.LevelChanged += Save;
+            GlobalEvents.Instance.ApplicationPaused += Save;
         }
 
         private void CreateNewData()
@@ -33,8 +36,13 @@ namespace _Game.Logic.Systems
             CreateUpgradesData();
         }
 
-        public override void Dispose() => 
+        public override void Dispose()
+        {
+            GlobalEvents.Instance.LevelChanged -= Save;
+            GlobalEvents.Instance.ApplicationPaused -= Save;
+
             Save();
+        }
 
         private void Save()
         {

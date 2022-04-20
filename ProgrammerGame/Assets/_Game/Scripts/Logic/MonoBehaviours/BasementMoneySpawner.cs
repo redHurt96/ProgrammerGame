@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Game.Logic.MonoBehaviours
 {

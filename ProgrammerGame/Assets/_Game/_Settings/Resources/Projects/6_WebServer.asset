@@ -23,7 +23,7 @@ MonoBehaviour:
     _additional: 4
   _incomeSettings:
     _offset: 622080
-    _linear: 0.5
+    _linear: 1
     _exponential: 3.25
     _additional: 4
   _timeSettings:

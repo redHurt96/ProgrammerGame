@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Linus Windows
   Icon: {fileID: 21300000, guid: c0299d5ed0bb728469171ee20545d531, type: 3}
   AutomatedProject: {fileID: 11400000, guid: abe71b92e509ea142a94ab664c49a695, type: 2}
-  Price: 100000
+  Price: 100000000

@@ -8,7 +8,6 @@ namespace _Game.Data
     {
         //saved
         public SavableData SavableData = new SavableData();
-        public TutorialData TutorialData = new TutorialData();
         public DailyBonusData DailyBonusData = new DailyBonusData();
         public readonly PersistentData PersistentData = new PersistentData();
 

@@ -38,6 +38,7 @@ namespace _Game.Common
 
                 //game logic
                 .Add(new SaveLoadSystem())
+                .Add(new PersistentDataSaveLoadSystem())
                 .Add(new ResetForBoostSystem())
                 .Add(new UpdateProjectAvailabilitySystem())
                 .Add(new RunProjectSystem())
@@ -54,8 +55,6 @@ namespace _Game.Common
                 .Add(new CreateProgrammerSystem())
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
-
-                .Add(new PersistentDataSaveLoadSystem())
                 .Add(new ShowLevelWindowSystem())
 
                 .Add(new DailyBonusSaveLoadSystem())
@@ -63,7 +62,6 @@ namespace _Game.Common
                 .Add(new DailyBonusShowWindowSystem())
 
                 //tutorial
-                .Add(new TutorialsSaveSystem())
                 .Add(new TutorialCreateSystem())
 
                 .Add(new TutorialBuyFirstProjectStep())

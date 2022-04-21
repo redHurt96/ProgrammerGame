@@ -11,6 +11,7 @@ namespace _Game.Logic.Systems
         {
             GameData.Instance.PersistentData.LoadIfSaveExist();
 
+            GlobalEvents.Instance.TutorialStepReceived += Save;
             GlobalEvents.Instance.LevelChanged += Save;
             GlobalEvents.Instance.ApplicationPaused += Save;
         }
@@ -19,11 +20,15 @@ namespace _Game.Logic.Systems
         {
             GameData.Instance.PersistentData.Save();
 
+            GlobalEvents.Instance.TutorialStepReceived -= Save;
             GlobalEvents.Instance.LevelChanged -= Save;
             GlobalEvents.Instance.ApplicationPaused -= Save;
         }
 
-        private void Save() => 
+        private void Save()
+        {
+            UnityEngine.Debug.LogWarning("Save persistent data");
             GameData.Instance.PersistentData.Save();
+        }
     }
 }

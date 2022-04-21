@@ -8,7 +8,7 @@ namespace _Game.Logic.Systems
         protected override TutorialStep Step => TutorialStep.UpgradePcOrFurniture_7;
 
         protected override bool _waitCondition =>
-            GameData.Instance.TutorialData.Steps.Contains(TutorialStep.BuyAnotherProject_6)
+            GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyAnotherProject_6)
             && GameData.Instance.SavableData.Projects[1].State == ProjectState.Active
             && GameData.Instance.SavableData.MoneyCount > Settings.Instance.PcUpgradeSettings.GetPrice(1);
 

@@ -22,7 +22,9 @@ namespace _Game.Tutorial
             {
                 _actions[name]();
 
-                GameData.Instance.TutorialData.Steps.Add(name);
+                GameData.Instance.PersistentData.TutorialData.Steps.Add(name);
+
+                GlobalEvents.Instance.InvokeOnTutorialStepReceiveEvent();
             }
         }
     }

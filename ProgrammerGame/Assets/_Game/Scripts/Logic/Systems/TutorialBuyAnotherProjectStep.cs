@@ -12,7 +12,7 @@ namespace _Game.Logic.Systems
 
         protected override bool _waitCondition =>
             GameData.Instance.SavableData.MoneyCount >= GameData.Instance.SavableData.Projects[1].GetPrice(1)
-            && GameData.Instance.TutorialData.Steps.Contains(TutorialStep.TapForMoney_3)
+            && GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.TapForMoney_3)
             && GameData.Instance.SavableData.Projects[1].State == ProjectState.NotPurchased;
 
         protected override float _delay => .5f;

@@ -18,7 +18,7 @@ namespace _Game.Logic.Systems
 
         public sealed override void Init()
         {
-            if (!GameData.Instance.TutorialData.Steps.Contains(Step))
+            if (!GameData.Instance.PersistentData.TutorialData.Steps.Contains(Step))
                 _coroutine = CoroutineLauncher.Start(WaitForPerform());
         }
 

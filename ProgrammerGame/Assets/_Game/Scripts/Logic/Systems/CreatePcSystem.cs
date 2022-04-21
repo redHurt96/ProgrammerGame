@@ -28,6 +28,9 @@ namespace _Game.Logic.Systems
 
             foreach (FurnitureSlot slot in pcSettings.DefaultFurniture) 
                 Apartment.Instance.AddFurniture(slot);
+
+            for (int i = 0; i < _pcUpgradeData.Level; i++)
+                Apartment.Instance.AddFurniture(pcSettings.FurnitureForPurchase[i]);
         }
 
         private void UpgradePc() => 

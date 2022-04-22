@@ -87,13 +87,10 @@ namespace _Game.Logic.Systems
 
         private void CreateUpgradesData()
         {
-            var interior = new UpgradeData { Type = UpgradeType.Interior };
-            var pc = new UpgradeData { Type = UpgradeType.PC };
-            var house = new UpgradeData { Type = UpgradeType.House };
-
-            GameData.Instance.SavableData.Upgrades.Add(interior);
-            GameData.Instance.SavableData.Upgrades.Add(pc);
-            GameData.Instance.SavableData.Upgrades.Add(house);
+            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
+            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.PC });
+            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.House });
+            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
         }
     }
 }

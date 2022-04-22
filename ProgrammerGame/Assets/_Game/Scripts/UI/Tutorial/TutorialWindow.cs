@@ -24,10 +24,6 @@ namespace _Game.UI.Tutorial
             yield return new WaitForSeconds(_windowNonInteractableTime);
 
             _canClose = true;
-
-            yield return new WaitForSeconds(_windowLifeTime);
-
-            Close();
         }
 
         private void Update()

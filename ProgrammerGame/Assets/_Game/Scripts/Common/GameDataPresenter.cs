@@ -20,6 +20,25 @@ namespace _Game.Common
         public float IncreaseMoneyTotalEffect =>
             _gameData.SavableData.Upgrades.First(x => x.Type == UpgradeType.PC).Level *
             Settings.Instance.IncreaseMoneyEffectStrength;
+        
+        public float MoneyForTap
+        {
+            get
+            {
+                int level = _gameData.SavableData.Upgrades.First(x => x.Type == UpgradeType.Soft).Level;
+                return Mathf.Max(1, Settings.Instance.MoneyForTap.GetPrice(level) * GameData.Instance.PersistentData.MainBoost);
+            }
+        }
+
+        public float MoneyForTapForNewLevel
+        {
+            get
+            {
+                int level = _gameData.SavableData.Upgrades.First(x => x.Type == UpgradeType.Soft).Level;
+                return (Settings.Instance.MoneyForTap.GetPrice(level + 1) - Settings.Instance.MoneyForTap.GetPrice(level)) * GameData.Instance.PersistentData.MainBoost;
+            }
+        }
+        
 
         public long IncomePerSec =>
             (long) GameData.Instance.SavableData.Projects

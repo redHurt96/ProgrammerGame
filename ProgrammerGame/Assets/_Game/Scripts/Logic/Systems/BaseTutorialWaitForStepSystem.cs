@@ -30,12 +30,8 @@ namespace _Game.Logic.Systems
 
         private IEnumerator WaitForPerform()
         {
-            UnityEngine.Debug.LogWarning($"Wait {Step} tutorial step");
-            
             yield return new WaitUntil(() => _waitCondition);
             yield return new WaitForSeconds(_delay);
-
-            UnityEngine.Debug.LogWarning($"Perform {Step} tutorial step");
 
             TutorialEvents.Instance.InvokeEvent(Step);
         }

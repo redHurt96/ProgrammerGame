@@ -1,5 +1,6 @@
 ﻿using _Game.Common;
 using _Game.Configs;
+using _Game.Data;
 using _Game.Scripts.Exception;
 using RH.Utilities.ComponentSystem;
 using RH.Utilities.Extensions;
@@ -18,8 +19,7 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            double value = Mathf.Max(1,
-                GameDataPresenter.Instance.IncomePerSec * Settings.Instance.MoneyForTapPercent);
+            double value = GameDataPresenter.Instance.MoneyForTap; 
 
             GlobalEvents.Instance.AccelerateCoding(value.ToPriceString());
             GlobalEvents.Instance.IntentToChangeMoney(value);

@@ -36,12 +36,11 @@ namespace _Game.Configs
         [Header("Start options")] 
         public long StartMoney;
 
-        [Header("Code writing process")]
-        public float MoneyForTapPercent;
-
         [Header("Upgrades")]
         public float IncreaseSpeedEffectStrength;
         public float IncreaseMoneyEffectStrength;
+        [Space] 
+        public PriceSettings MoneyForTap;
 
         [Header("House")]
         public RoomSettings[] Rooms;
@@ -62,7 +61,5 @@ namespace _Game.Configs
 
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
-
-        
     }
 }

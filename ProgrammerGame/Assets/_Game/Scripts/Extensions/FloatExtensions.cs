@@ -42,5 +42,8 @@ namespace _Game.Scripts.Exception
 
             return $"{shortValue}{targetPair.Value}";
         }
+
+        public static string ToPriceString(this float value) => 
+            ToPriceString((double)value);
     }
 }

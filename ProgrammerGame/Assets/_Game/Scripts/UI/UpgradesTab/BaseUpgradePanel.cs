@@ -12,7 +12,7 @@ namespace _Game.UI.UpgradesTab
 {
     public abstract class BaseUpgradePanel : MonoBehaviour
     {
-        [SerializeField] private PriceSettingsScriptable priceSettingsScriptable;
+        [SerializeField] private BaseScriptablePriceSettings priceSettingsScriptable;
         [SerializeField] private UpgradeType _upgradeType;
 
         [Space]

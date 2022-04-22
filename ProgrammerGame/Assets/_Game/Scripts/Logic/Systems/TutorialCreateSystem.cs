@@ -11,17 +11,10 @@ namespace _Game.Logic.Systems
     {
         public void Init()
         {
-            foreach (TutorialStep step in GameData.Instance.PersistentData.TutorialData.Steps)
-                UnityEngine.Debug.LogWarning($"Already received step {step.ToString()}");
-
             foreach (TutorialWindow window in TutorialSettings.Instance.Windows)
             {
                 if (!GameData.Instance.PersistentData.TutorialData.Steps.Contains(window.Step))
-                {
-                    UnityEngine.Debug.LogWarning($"Create open action for {window.Step}");
-
                     TutorialEvents.Instance.CreateActionFrom(window);
-                }
             }
         }
     }

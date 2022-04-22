@@ -4,6 +4,7 @@
     {
         Interior,
         PC,
-        House
+        House,
+        Soft
     }
 }

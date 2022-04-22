@@ -11,5 +11,6 @@ namespace _Game.Data
         public List<string> AutoRunnedProjects = new List<string>();
         public List<UpgradeData> Upgrades = new List<UpgradeData>();
         public long SaveDateTime;
+        public float TapPower = 1;
     }
 }

@@ -48,9 +48,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ba25e0a7670e1944b825811caa6ccbc, type: 2}
   IdleIncomeSeconds: 14400
   StartMoney: 5
-  MoneyForTapPercent: 0.1
   IncreaseSpeedEffectStrength: 0.05
   IncreaseMoneyEffectStrength: 0.05
+  MoneyForTap:
+    _offset: 2
+    _linear: 1
+    _exponential: 1.02
+    _additional: 1
   Rooms:
   - {fileID: 11400000, guid: 482737b4754bcf149b4a573a43b9a335, type: 2}
   - {fileID: 11400000, guid: ade27cfe49a8a844ebf8e3796c6bff29, type: 2}

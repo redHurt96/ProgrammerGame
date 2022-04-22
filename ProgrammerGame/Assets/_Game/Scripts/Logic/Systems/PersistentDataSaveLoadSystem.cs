@@ -25,10 +25,6 @@ namespace _Game.Logic.Systems
             GlobalEvents.Instance.ApplicationPaused -= Save;
         }
 
-        private void Save()
-        {
-            UnityEngine.Debug.LogWarning("Save persistent data");
-            GameData.Instance.PersistentData.Save();
-        }
+        private void Save() => GameData.Instance.PersistentData.Save();
     }
 }

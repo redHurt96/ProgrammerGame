@@ -9,7 +9,7 @@ namespace _Game.UI.Windows
         [SerializeField] private Text _day;
         [SerializeField] private Text _boost;
 
-        private DailyBonusData _dailyBonusData => GameData.Instance.DailyBonusData;
+        private DailyBonusData _dailyBonusData => _gameData.DailyBonusData;
 
         protected override void PerformBeforeOpen()
         {

@@ -6,10 +6,14 @@ namespace _Game.Logic.Systems
 {
     public class DailyBonusSaveLoadSystem : BaseInitSystem
     {
+        public DailyBonusSaveLoadSystem()
+        {
+        }
+
         public override void Init() => 
-            GameData.Instance.DailyBonusData.LoadIfSaveExist();
+            _gameData.DailyBonusData.LoadIfSaveExist();
 
         public override void Dispose() => 
-            GameData.Instance.DailyBonusData.Save();
+            _gameData.DailyBonusData.Save();
     }
 }

@@ -11,11 +11,15 @@ namespace _Game.Logic.Systems
 {
     public class ResetForBoostSystem : BaseInitSystem
     {
+        public ResetForBoostSystem()
+        {
+        }
+
         public override void Init() => 
-            GlobalEvents.Instance.ResetForBoostIntent += ResetProgressForBoost;
+            _globalEvents.ResetForBoostIntent += ResetProgressForBoost;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.ResetForBoostIntent -= ResetProgressForBoost;
+            _globalEvents.ResetForBoostIntent -= ResetProgressForBoost;
 
         private void ResetProgressForBoost() => 
             CoroutineLauncher.Start(ResetAfterDelay());
@@ -28,8 +32,8 @@ namespace _Game.Logic.Systems
 
             yield return null;
 
-            GameData.Instance.PersistentData.MainBoost = GameDataPresenter.Instance.BoostForProgress *
-                                                         GameData.Instance.PersistentData.MainBoost;
+            _gameData.PersistentData.MainBoost = _gameDataPresenter.BoostForProgress *
+                                                         _gameData.PersistentData.MainBoost;
 
             SceneManager.LoadScene(0);
         }

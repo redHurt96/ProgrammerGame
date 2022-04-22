@@ -7,9 +7,13 @@ namespace _Game.Logic.Systems
 {
     public class DailyBonusUpdateSystem : IInitSystem
     {
+        public DailyBonusUpdateSystem()
+        {
+        }
+
         public void Init()
         {
-            var lastSaveData = GameData.Instance.SavableData.SaveDateTime;
+            var lastSaveData = _gameData.SavableData.SaveDateTime;
 
             if (lastSaveData == 0)
                 ClearDailyBoost();
@@ -24,8 +28,8 @@ namespace _Game.Logic.Systems
 
             if (difference == 1)
             {
-                GameData.Instance.DailyBonusData.Day++;
-                GlobalEvents.Instance.InvokeOnDailyBonusUpdate();
+                _gameData.DailyBonusData.Day++;
+                _globalEvents.InvokeOnDailyBonusUpdate();
             }
             else if (difference > 1)
             {
@@ -34,6 +38,6 @@ namespace _Game.Logic.Systems
         }
 
         private void ClearDailyBoost() => 
-            GameData.Instance.DailyBonusData.Day = 0;
+            _gameData.DailyBonusData.Day = 0;
     }
 }

@@ -6,11 +6,15 @@ namespace _Game.Logic.Systems
 {
     public class DailyBonusShowWindowSystem : BaseInitSystem
     {
+        public DailyBonusShowWindowSystem()
+        {
+        }
+
         public override void Init() => 
-            GlobalEvents.Instance.DailyBonusUpdated += ShowWindow;
+            _globalEvents.DailyBonusUpdated += ShowWindow;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.DailyBonusUpdated -= ShowWindow;
+            _globalEvents.DailyBonusUpdated -= ShowWindow;
 
         private void ShowWindow() => 
             WindowsManager.Show(SceneObjects.Instance.DailyBonusWindow);

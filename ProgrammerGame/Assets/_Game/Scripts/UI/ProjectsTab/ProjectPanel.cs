@@ -63,19 +63,19 @@ namespace _Game.UI.ProjectsTab
             BuyProjectMultipleTimes(1);
 
         private void BuyProject() => 
-            BuyProjectMultipleTimes(GameData.Instance.BuyCount);
+            BuyProjectMultipleTimes(_gameData.BuyCount);
 
         private void BuyProjectMultipleTimes(int buyCount)
         {
-            GlobalEvents.Instance.IntentToChangeMoney(-_projectData.GetPrice(buyCount));
+            _globalEvents.IntentToChangeMoney(-_projectData.GetPrice(buyCount));
             _projectData.Buy(buyCount);
         }
 
         private void RunProject() => 
-            GlobalEvents.Instance.IntentToRunProject(_projectData);
+            _globalEvents.IntentToRunProject(_projectData);
 
         private void SetupProjectData() => 
-            _projectData = GameData.Instance.SavableData.Projects.Find(x => x.Name == settings.Name);
+            _projectData = _gameData.SavableData.Projects.Find(x => x.Name == settings.Name);
 
         private void SetupNotAvailableContent() => 
             _notAvailableContent.Setup(settings);
@@ -91,7 +91,7 @@ namespace _Game.UI.ProjectsTab
             _projectData.Buy(25);
 
         public void Test_ForceComplete() =>
-            GameData.Instance.RunnedProjects
+            _gameData.RunnedProjects
                 .First(x => x.ProjectData.Name == settings.Name)
                 .Test_ForceComplete();
 #endif

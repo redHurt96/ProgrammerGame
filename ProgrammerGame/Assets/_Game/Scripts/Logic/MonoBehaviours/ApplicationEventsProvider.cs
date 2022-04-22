@@ -1,17 +1,23 @@
 ﻿using _Game.Common;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.MonoBehaviours
 {
     public class ApplicationEventsProvider : MonoBehaviour
     {
+        private GlobalEventsService _globalEvents;
+
+        private void Start() => 
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+
         private void OnApplicationPause(bool pauseStatus)
         {
             if (pauseStatus)
-                GlobalEvents.Instance.InvokeOnApplicationPause();
+                _globalEvents.InvokeOnApplicationPause();
         }
 
         private void OnApplicationQuit() => 
-            GlobalEvents.Instance.InvokeOnApplicationPause();
+            _globalEvents.InvokeOnApplicationPause();
     }
 }

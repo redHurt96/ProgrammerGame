@@ -1,18 +1,29 @@
 ﻿using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Services;
+using _Game.Logic.GameServices;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class CreateRoomsSystem : BaseInitSystem
     {
         private UpgradeData _roomsUpgradeData;
+        private readonly GameDataPresenter _gameDataPresenter;
+        private readonly Apartment _apartment;
+        private readonly Settings _settings;
+
+        public CreateRoomsSystem()
+        {
+            _gameDataPresenter = Services.Instance.Single<GameDataPresenter>();
+            _apartment = Services.Instance.Single<Apartment>();
+            _settings = Services.Instance.Single<Settings>();
+        }
 
         public override void Init()
         {
-            _roomsUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.House);
+            _roomsUpgradeData = _gameDataPresenter.GetUpgradeData(UpgradeType.House);
 
             CreateRooms();
 
@@ -35,9 +46,9 @@ namespace _Game.Logic.Systems
 
         private void CreateRoom(int number)
         {
-            RoomSettings room = Settings.Instance.Rooms[number];
+            RoomSettings room = _settings.Rooms[number];
 
-            Apartment.Instance.AddRoom(room);
+            _apartment.AddRoom(room);
         }
     }
 }

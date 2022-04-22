@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using _Game.UI.Windows;
-using RH.Utilities.SingletonAccess;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Data
 {
-    public class GameData : Singleton<GameData>
+    public class GameData : IService
     {
         //saved
         public SavableData SavableData = new SavableData();

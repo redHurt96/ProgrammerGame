@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Game.Logic.MonoBehaviours;
-using RH.Utilities.SingletonAccess;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Configs
 {
-    public class SettingsPresenter : Singleton<SettingsPresenter>
+    public class SettingsPresenter : IService
     {
+        private readonly Settings _settings;
+
+        public SettingsPresenter()
+        {
+            _settings = Services.Instance.Single<Settings>();
+        }
+
         public List<Money> GetMoneysPrefabsList(double amount)
         {
             List<Money> moneysPrefabs = new List<Money>();
@@ -15,7 +22,7 @@ namespace _Game.Configs
             {
                 Money prefab = GetMoneyResourceByValue(amount);
 
-                if (prefab == null || moneysPrefabs.Count >= Settings.Instance.MaxMoneySpawnCount)
+                if (prefab == null || moneysPrefabs.Count >= _settings.MaxMoneySpawnCount)
                     break;
 
                 moneysPrefabs.Add(prefab);
@@ -27,6 +34,6 @@ namespace _Game.Configs
         }
 
         private Money GetMoneyResourceByValue(double amount) =>
-            Settings.Instance.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
+            _settings.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

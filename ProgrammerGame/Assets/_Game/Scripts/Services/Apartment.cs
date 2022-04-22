@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using RH.Utilities.SingletonAccess;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace _Game.Services
+namespace _Game.Logic.GameServices
 {
-    public class Apartment : Singleton<Apartment>
+    public class Apartment : IService
     {
+        public Apartment()
+        {
+            _gameData = Services.Instance.Single<GameData>();
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+        }
+
         public int ProgrammersSpotCount => _programmerSpots.Count;
         
         private readonly Dictionary<string, GameObject> _programmerSpots = new Dictionary<string, GameObject>();
         private readonly Dictionary<string, GameObject> _furniture = new Dictionary<string, GameObject>();
+        private readonly GameData _gameData;
+        private readonly GlobalEventsService _globalEvents;
 
         private Transform _apartmentParent => SceneObjects.Instance.HouseParent;
 
@@ -32,8 +40,8 @@ namespace _Game.Services
             GameObject furniture = Object.Instantiate(slot.Furniture, _apartmentParent);
             _furniture.Add(slot.Type, furniture);
 
-            if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
+            if (_gameData.GameState == GameState.Play)
+                _globalEvents.PerformOnFurnitureSpawned(furniture.transform.position);
         }
 
         public void AddProgrammer(FurnitureSlot slot)
@@ -55,8 +63,8 @@ namespace _Game.Services
 
             Object.Destroy(replacingObject);
 
-            if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.Instance.PerformOnFurnitureSpawned(programmer.transform.position);
+            if (_gameData.GameState == GameState.Play)
+                _globalEvents.PerformOnFurnitureSpawned(programmer.transform.position);
         }
 
         public void AddMainCharacter(FurnitureSlot slot)

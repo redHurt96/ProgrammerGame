@@ -10,6 +10,6 @@ namespace _Game.UI.Windows
         [SerializeField] private Text _reward;
         
         protected override void PerformBeforeOpen() => 
-            _reward.text = GameDataPresenter.Instance.GetRewardForLevel().ToPriceString();
+            _reward.text = _gameDataPresenter.GetRewardForLevel().ToPriceString();
     }
 }

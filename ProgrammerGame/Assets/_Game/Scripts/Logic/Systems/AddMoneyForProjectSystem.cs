@@ -3,26 +3,35 @@ using _Game.Common;
 using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class AddMoneyForProjectSystem : BaseInitSystem
     {
-        public override void Init() => 
-            GlobalEvents.Instance.ProjectStarted += AddMoneyWhenProjectComplete;
+        private GlobalEventsService _globalEvents;
+        private GameData _gameData;
+
+        public override void Init()
+        {
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+            _gameData = Services.Instance.Single<GameData>();
+            
+            _globalEvents.ProjectStarted += AddMoneyWhenProjectComplete;
+        }
 
         public override void Dispose() => 
-            GlobalEvents.Instance.ProjectStarted -= AddMoneyWhenProjectComplete;
+            _globalEvents.ProjectStarted -= AddMoneyWhenProjectComplete;
 
         private void AddMoneyWhenProjectComplete(ProjectData projectData)
         {
-            RunProjectProcess process = GameData.Instance.RunnedProjects
+            RunProjectProcess process = _gameData.RunnedProjects
                 .First(x => x.ProjectData == projectData);
 
             process.Finished += AddMoney;
         }
 
         private void AddMoney(RunProjectProcess process) => 
-            GlobalEvents.Instance.IntentToChangeMoney((int)process.ProjectData.Income);
+            _globalEvents.IntentToChangeMoney((int)process.ProjectData.Income);
     }
 }

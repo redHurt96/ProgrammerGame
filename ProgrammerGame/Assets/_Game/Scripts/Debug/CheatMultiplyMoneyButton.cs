@@ -1,6 +1,8 @@
-﻿using _Game.Common;
+﻿using System.Threading;
+using _Game.Common;
 using _Game.Data;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +16,9 @@ namespace _Game.Debug
         private void Awake() => 
             GetComponentInChildren<Text>().text = $"x{Value}";
 
-
         [ContextMenu("Click")]
         protected override void PerformOnClick() => 
-            GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.SavableData.MoneyCount * Value);
+            Services.Instance.Single<GlobalEventsService>()
+                .IntentToChangeMoney(Services.Instance.Single<GameData>().SavableData.MoneyCount * Value);
     }
 }

@@ -5,12 +5,20 @@ using _Game.Data;
 using _Game.Extensions;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
     public class SaveLoadSystem : BaseInitSystem
     {
+        private readonly GlobalEventsService _globalEvents;
+
+        public SaveLoadSystem()
+        {
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+        }
+
         public override void Init()
         {
             if (PlayerPrefs.HasKey("Need reset") || !PlayerPrefs.HasKey("Save"))
@@ -26,8 +34,8 @@ namespace _Game.Logic.Systems
                 LoadData();
             }
 
-            GlobalEvents.Instance.LevelChanged += Save;
-            GlobalEvents.Instance.ApplicationPaused += Save;
+            _globalEvents.LevelChanged += Save;
+            _globalEvents.ApplicationPaused += Save;
         }
 
         private void CreateNewData()
@@ -38,17 +46,17 @@ namespace _Game.Logic.Systems
 
         public override void Dispose()
         {
-            GlobalEvents.Instance.LevelChanged -= Save;
-            GlobalEvents.Instance.ApplicationPaused -= Save;
+            _globalEvents.LevelChanged -= Save;
+            _globalEvents.ApplicationPaused -= Save;
 
             Save();
         }
 
         private void Save()
         {
-            GameData.Instance.SavableData.SaveDateTime = DateTime.Now.ToBinary();
+            _gameData.SavableData.SaveDateTime = DateTime.Now.ToBinary();
 
-            string data = JsonUtility.ToJson(GameData.Instance.SavableData);
+            string data = JsonUtility.ToJson(_gameData.SavableData);
             UnityEngine.Debug.Log(data);
 
             PlayerPrefs.SetString("Save", data);
@@ -62,12 +70,12 @@ namespace _Game.Logic.Systems
 
             data.Init();
 
-            GameData.Instance.SavableData = data;
+            _gameData.SavableData = data;
         }
 
         private void CreateProjectsData()
         {
-            foreach (ProjectSettings settings in Settings.Instance.ProjectsSettings)
+            foreach (ProjectSettings settings in _settings.ProjectsSettings)
             {
                 ProjectData data = new ProjectData();
 
@@ -81,16 +89,16 @@ namespace _Game.Logic.Systems
                 else
                     data.State = ProjectState.NotPurchased;
 
-                GameData.Instance.SavableData.Projects.Add(data);
+                _gameData.SavableData.Projects.Add(data);
             }
         }
 
         private void CreateUpgradesData()
         {
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.PC });
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.House });
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
+            _gameData.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
+            _gameData.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.PC });
+            _gameData.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.House });
+            _gameData.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
         }
     }
 }

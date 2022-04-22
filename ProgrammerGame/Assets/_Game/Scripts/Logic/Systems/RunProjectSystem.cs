@@ -9,13 +9,17 @@ namespace _Game.Logic.Systems
 {
     public class RunProjectSystem : BaseInitSystem
     {
-        private List<RunProjectProcess> _processes => GameData.Instance.RunnedProjects;
+        public RunProjectSystem()
+        {
+        }
+
+        private List<RunProjectProcess> _processes => _gameData.RunnedProjects;
 
         public override void Init() => 
-            GlobalEvents.Instance.RunProjectIntent += RunProject;
+            _globalEvents.RunProjectIntent += RunProject;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.RunProjectIntent -= RunProject;
+            _globalEvents.RunProjectIntent -= RunProject;
 
         private void RunProject(ProjectData projectData)
         {
@@ -26,13 +30,13 @@ namespace _Game.Logic.Systems
 
             _processes.Add(projectProcess);
 
-            GlobalEvents.Instance.RunProject(projectData);
+            _globalEvents.RunProject(projectData);
 
             projectProcess.Run();
             projectProcess.Finished += ClearRunnedProjectFromData;
         }
 
         private void ClearRunnedProjectFromData(RunProjectProcess runProjectProcess) => 
-            GameData.Instance.RunnedProjects.Remove(runProjectProcess);
+            _gameData.RunnedProjects.Remove(runProjectProcess);
     }
 }

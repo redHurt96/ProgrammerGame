@@ -7,9 +7,13 @@ namespace _Game.Logic.Systems
 {
     public class TutorialBuyFirstProjectStep : IInitSystem
     {
+        public TutorialBuyFirstProjectStep()
+        {
+        }
+
         public void Init()
         {
-            if (!GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyFirstProject_1))
+            if (!_gameData.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyFirstProject_1))
                 TutorialEvents.Instance.InvokeEvent(TutorialStep.BuyFirstProject_1);
         }
     }

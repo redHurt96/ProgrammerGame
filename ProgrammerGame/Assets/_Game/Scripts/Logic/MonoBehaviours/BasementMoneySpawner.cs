@@ -5,6 +5,7 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,27 +15,34 @@ namespace _Game.Logic.MonoBehaviours
     {
         private Transform _transform;
         private List<Money> _existed = new List<Money>();
+        private GlobalEventsService _globalEvents;
+        private Settings _settings;
+        private SettingsPresenter _settingsPresenter;
 
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
         private void Start()
         {
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+            _settings = Services.Instance.Single<Settings>();
+            _settingsPresenter = Services.Instance.Single<SettingsPresenter>();
+
             _transform = transform;
 
-            GlobalEvents.Instance.MoneyCountChanged += SpawnOrRemoveMoney;
+            _globalEvents.MoneyCountChanged += SpawnOrRemoveMoney;
         }
 
         private void OnDestroy()
         {
             StopAllCoroutines();
-            GlobalEvents.Instance.MoneyCountChanged -= SpawnOrRemoveMoney;
+            _globalEvents.MoneyCountChanged -= SpawnOrRemoveMoney;
         }
 
         private void SpawnOrRemoveMoney(double amount)
         {
             if (amount > 0)
             {
-                if (_existed.Count < Settings.Instance.MaxBasementMoneysCount)
+                if (_existed.Count < _settings.MaxBasementMoneysCount)
                     Spawn(amount);
             }
             else
@@ -43,7 +51,7 @@ namespace _Game.Logic.MonoBehaviours
 
         private void Spawn(double amount)
         {
-            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysPrefabsList(amount);
+            List<Money> moneysPrefabs = _settingsPresenter.GetMoneysPrefabsList(amount);
             StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 
@@ -68,10 +76,10 @@ namespace _Game.Logic.MonoBehaviours
 
         private IEnumerator SpawnMoneyDelayed(List<Money> prefabs)
         {
-            float spawnDelay = Settings.Instance.MoneySpawnTime / prefabs.Count;
+            float spawnDelay = _settings.MoneySpawnTime / prefabs.Count;
             WaitForSeconds wait = new WaitForSeconds(spawnDelay);
 
-            yield return new WaitForSeconds(Settings.Instance.MoneyBasementSpawnDelay);
+            yield return new WaitForSeconds(_settings.MoneyBasementSpawnDelay);
 
             foreach (Money prefab in prefabs)
             {
@@ -86,8 +94,8 @@ namespace _Game.Logic.MonoBehaviours
             Money money = Instantiate(prefab, _transform.position + Random.insideUnitSphere / 4f, Random.rotation, _parent);
 
             Vector3 direction = 
-                _transform.right * Settings.Instance.MoneyBasementForce 
-                + Random.insideUnitSphere * Settings.Instance.MoneyBasementRandomizeForce;
+                _transform.right * _settings.MoneyBasementForce 
+                + Random.insideUnitSphere * _settings.MoneyBasementRandomizeForce;
 
             money
                 .GetComponent<Rigidbody>()

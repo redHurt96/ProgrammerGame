@@ -2,9 +2,10 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.Logic.GameServices;
 using _Game.Scripts.Exception;
-using _Game.Services;
 using _Game.UI.ProjectsTab;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,10 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
         [SerializeField] private Text _needUpgradeTip;
 
+        private GameData _gameData;
+        private GlobalEventsService _globalEvents;
+        private Apartment _apartmentService;
+
         private void OnEnable()
         {
             UpdateTip();
@@ -31,20 +36,24 @@ namespace _Game.UI.ProgrammersTab
 
         private void Start()
         {
+            _gameData = Services.Instance.Single<GameData>();
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+            _apartmentService = Services.Instance.Single<Apartment>();
+
             SetupCommonData();
 
-            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
+            if (_gameData.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();
 
-            GlobalEvents.Instance.OnUpgraded += UpdateTip;
+            _globalEvents.OnUpgraded += UpdateTip;
 
             _priceButtonVisibilityComponent.UpdateVisibility();
         }
 
         private void OnDestroy() => 
-            GlobalEvents.Instance.OnUpgraded -= UpdateTip;
+            _globalEvents.OnUpgraded -= UpdateTip;
 
         private void SetupCommonData()
         {
@@ -66,18 +75,18 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private bool CheckProgrammerAvailability() =>
-            Apartment.Instance.ContainSpotFor(_programmer.name)
-            && GameData.Instance.SavableData.Projects
+            _apartmentService.ContainSpotFor(_programmer.name)
+            && _gameData.SavableData.Projects
                 .First(x => x.projectSettings == _programmer.AutomatedProject)
                 .State == ProjectState.Active;
 
         private void BuyProgrammer()
         {
-            GlobalEvents.Instance.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
+            _globalEvents.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
 
             SetupForPurchasedProgrammer();
 
-            GlobalEvents.Instance.IntentToChangeMoney(-_programmer.Price);
+            _globalEvents.IntentToChangeMoney(-_programmer.Price);
         }
 
         private void UpdateTip(UpgradeType type)
@@ -87,6 +96,6 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private void UpdateTip() => 
-            _needUpgradeTip.gameObject.SetActive(!Apartment.Instance.ContainSpotFor(_programmer.name));
+            _needUpgradeTip.gameObject.SetActive(!_apartmentService.ContainSpotFor(_programmer.name));
     }
 }

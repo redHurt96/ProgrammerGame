@@ -1,5 +1,6 @@
 ﻿using _Game.Common;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,6 @@ namespace _Game.Debug
         
         [ContextMenu("Click")]
         protected override void PerformOnClick() => 
-            GlobalEvents.Instance.IntentToChangeMoney( Value);
+            Services.Instance.Single<GlobalEventsService>().IntentToChangeMoney( Value);
     }
 }

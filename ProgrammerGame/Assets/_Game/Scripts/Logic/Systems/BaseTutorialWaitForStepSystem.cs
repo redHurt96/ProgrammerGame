@@ -1,9 +1,12 @@
 ﻿using System.Collections;
+using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.Logic.GameServices;
 using _Game.Tutorial;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
@@ -16,9 +19,29 @@ namespace _Game.Logic.Systems
 
         private Coroutine _coroutine;
 
+        protected readonly GameData _gameData;
+        protected readonly Settings _settings;
+
+        private readonly TutorialEvents _tutorialEvents;
+        private readonly GameDataPresenter _gameDataPresenter;
+        private readonly SettingsPresenter _settingsPresenter;
+        private readonly Apartment _apartment;
+        private readonly GlobalEventsService _globalEvents;
+
+        protected BaseTutorialWaitForStepSystem()
+        {
+            _gameData = Services.Instance.Single<GameData>();
+            _gameDataPresenter = Services.Instance.Single<GameDataPresenter>();
+            _settings = Services.Instance.Single<Settings>();
+            _settingsPresenter = Services.Instance.Single<SettingsPresenter>();
+            _tutorialEvents = Services.Instance.Single<TutorialEvents>();
+            _apartment = Services.Instance.Single<Apartment>();
+            _globalEvents = Services.Instance.Single<GlobalEventsService>();
+        }
+
         public sealed override void Init()
         {
-            if (!GameData.Instance.PersistentData.TutorialData.Steps.Contains(Step))
+            if (!_gameData.PersistentData.TutorialData.Steps.Contains(Step))
                 _coroutine = CoroutineLauncher.Start(WaitForPerform());
         }
 
@@ -33,7 +56,7 @@ namespace _Game.Logic.Systems
             yield return new WaitUntil(() => _waitCondition);
             yield return new WaitForSeconds(_delay);
 
-            TutorialEvents.Instance.InvokeEvent(Step);
+            _tutorialEvents.InvokeEvent(Step);
         }
     }
 }

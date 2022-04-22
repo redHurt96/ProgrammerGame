@@ -7,24 +7,28 @@ namespace _Game.Logic.Systems
 {
     public class PersistentDataSaveLoadSystem : BaseInitSystem
     {
+        public PersistentDataSaveLoadSystem()
+        {
+        }
+
         public override void Init()
         {
-            GameData.Instance.PersistentData.LoadIfSaveExist();
+            _gameData.PersistentData.LoadIfSaveExist();
 
-            GlobalEvents.Instance.TutorialStepReceived += Save;
-            GlobalEvents.Instance.LevelChanged += Save;
-            GlobalEvents.Instance.ApplicationPaused += Save;
+            _globalEvents.TutorialStepReceived += Save;
+            _globalEvents.LevelChanged += Save;
+            _globalEvents.ApplicationPaused += Save;
         }
 
         public override void Dispose()
         {
-            GameData.Instance.PersistentData.Save();
+            _gameData.PersistentData.Save();
 
-            GlobalEvents.Instance.TutorialStepReceived -= Save;
-            GlobalEvents.Instance.LevelChanged -= Save;
-            GlobalEvents.Instance.ApplicationPaused -= Save;
+            _globalEvents.TutorialStepReceived -= Save;
+            _globalEvents.LevelChanged -= Save;
+            _globalEvents.ApplicationPaused -= Save;
         }
 
-        private void Save() => GameData.Instance.PersistentData.Save();
+        private void Save() => _gameData.PersistentData.Save();
     }
 }

@@ -31,7 +31,7 @@ namespace _Game.UI.ProjectsTab
 
             _icon.sprite = settings.Icon;
 
-            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.GetPrice(GameData.Instance.BuyCount));
+            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.GetPrice(_gameData.BuyCount));
 
             AddButtonsListeners(buyAction, runAction);
             UpdateContent();
@@ -49,7 +49,7 @@ namespace _Game.UI.ProjectsTab
 
         private void Subscribe()
         {
-            GlobalEvents.Instance.BuyCountChanged += UpdatePrice;
+            _globalEvents.BuyCountChanged += UpdatePrice;
 
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
             _projectData.TimeUpdated += UpdateTimerAndProgressBar;
@@ -57,7 +57,7 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            GlobalEvents.Instance.BuyCountChanged -= UpdatePrice;
+            _globalEvents.BuyCountChanged -= UpdatePrice;
 
             if (_projectData != null)
             {
@@ -91,7 +91,7 @@ namespace _Game.UI.ProjectsTab
         private void UpdatePrice()
         {
             priceButtonVisibilityComponent.UpdateVisibility();
-            _price.text = _projectData.GetPrice(GameData.Instance.BuyCount).ToPriceString();
+            _price.text = _projectData.GetPrice(_gameData.BuyCount).ToPriceString();
         }
 
         private void UpdateProgressBar() => 
@@ -112,13 +112,13 @@ namespace _Game.UI.ProjectsTab
         }
 
         private string GetCloseLevelTarget(int level) =>
-            Settings.Instance.TargetLevels
+            _settings.TargetLevels
                 .First(x => x > level)
                 .ToString();
 
         private void DisableRunButtonIfProjectAutorunned()
         {
-            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
+            if (_gameData.SavableData.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
                 _runButton.interactable = false;
         }
     }

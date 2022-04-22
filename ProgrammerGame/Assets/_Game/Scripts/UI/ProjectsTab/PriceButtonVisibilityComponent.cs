@@ -19,8 +19,8 @@ namespace _Game.UI.ProjectsTab
         {
             _calculatePrice = calculatePrice;
 
-            GlobalEvents.Instance.MoneyCountChanged += UpdateVisibility;
-            GlobalEvents.Instance.OnUpgraded += UpdateVisibility;
+            _globalEvents.MoneyCountChanged += UpdateVisibility;
+            _globalEvents.OnUpgraded += UpdateVisibility;
 
             UpdateVisibility();
         }
@@ -33,8 +33,8 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            GlobalEvents.Instance.OnUpgraded -= UpdateVisibility;
-            GlobalEvents.Instance.MoneyCountChanged -= UpdateVisibility;
+            _globalEvents.OnUpgraded -= UpdateVisibility;
+            _globalEvents.MoneyCountChanged -= UpdateVisibility;
         }
 
         public void UpdateVisibility() => 
@@ -45,13 +45,13 @@ namespace _Game.UI.ProjectsTab
 
         private void UpdateVisibility(double obj)
         {
-            if (GameData.Instance == null)
+            if (_gameData == null)
             {
                 _button.interactable = false;
                 return;
             }
 
-            _button.interactable = GameData.Instance.SavableData.MoneyCount >= _calculatePrice?.Invoke()
+            _button.interactable = _gameData.SavableData.MoneyCount >= _calculatePrice?.Invoke()
                                    && (_additionalCondition?.Invoke() ?? true);
         }
     }

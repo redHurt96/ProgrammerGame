@@ -13,9 +13,9 @@ namespace _Game.UI.ResetTab
 
         private void Update() =>
             _button.interactable = 
-                GameDataPresenter.Instance.BoostForProgress 
-                * GameData.Instance.PersistentData.MainBoost 
-                - GameData.Instance.PersistentData.MainBoost 
-                > Settings.Instance.OpenResetThreshold;
+                _gameDataPresenter.BoostForProgress 
+                * _gameData.PersistentData.MainBoost 
+                - _gameData.PersistentData.MainBoost 
+                > _settings.OpenResetThreshold;
     }
 }

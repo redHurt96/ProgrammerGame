@@ -34,7 +34,7 @@ namespace _Game.UI.UpgradesTab
 
         private void Start()
         {
-            _upgradeData = GameData.Instance.SavableData.Upgrades.First(x => x.Type == _upgradeType);
+            _upgradeData = _gameData.SavableData.Upgrades.First(x => x.Type == _upgradeType);
 
             Subscribe();
             UpdateContent();
@@ -69,6 +69,6 @@ namespace _Game.UI.UpgradesTab
 
 
         private void BuyUpgrade() => 
-            GlobalEvents.Instance.IntentToBuyUpgrade(_upgradeType, _price);
+            _globalEvents.IntentToBuyUpgrade(_upgradeType, _price);
     }
 }

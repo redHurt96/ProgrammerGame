@@ -14,13 +14,13 @@ namespace _Game.UI
         {
             UpdateTitle();
 
-            GlobalEvents.Instance.LevelChanged += UpdateTitle;
+            _globalEvents.LevelChanged += UpdateTitle;
         }
 
         private void OnDestroy() => 
-            GlobalEvents.Instance.LevelChanged -= UpdateTitle;
+            _globalEvents.LevelChanged -= UpdateTitle;
 
         private void UpdateTitle() => 
-            _title.text = GameData.Instance.PersistentData.Level.ToString();
+            _title.text = _gameData.PersistentData.Level.ToString();
     }
 }

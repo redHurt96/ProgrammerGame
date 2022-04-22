@@ -1,41 +1,31 @@
-using System;
-using System.Collections;
 using _Game.Configs;
 using _Game.Data;
+using _Game.Logic.GameServices;
 using _Game.Logic.Systems;
-using _Game.Services;
 using _Game.Tutorial;
 using RH.Utilities.PseudoEcs;
 using UnityEngine;
 
 namespace _Game.Common
 {
-    public class EntryPoint : MonoBehaviour
+    public class EntryPoint : AbstractEntryPoint
     {
         [SerializeField] private Settings _settings;
 
-        private SystemsArray _systems;
+        private void Update() => 
+            _systems.Update();
 
-        private void Awake()
-        {
-            Application.targetFrameRate = 60;
+        protected override void RegisterServices() =>
+            _services.RegisterSingle(_settings)
+                .RegisterSingle(new GameData())
+                .RegisterSingle(new GlobalEventsService())
+                .RegisterSingle(new SettingsPresenter())
+                .RegisterSingle(new GameDataPresenter())
+                .RegisterSingle(new Apartment())
+                .RegisterSingle(new TutorialEvents());
 
-            _settings.CreateInstance();
-
-            if (GlobalEvents.Instance != null)
-                GlobalEvents.DestroyInstance();
-
-            new GlobalEvents();
-
-            new SettingsPresenter();
-
-            new GameData();
-            new GameDataPresenter();
-            new Apartment();
-            new TutorialEvents();
-
-            _systems = new SystemsArray()
-
+        protected override void RegisterSystems() =>
+            _systems
                 //game logic
                 .Add(new SaveLoadSystem())
                 .Add(new PersistentDataSaveLoadSystem())
@@ -56,14 +46,11 @@ namespace _Game.Common
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
                 .Add(new ShowLevelWindowSystem())
-
                 .Add(new DailyBonusSaveLoadSystem())
                 .Add(new DailyBonusUpdateSystem())
                 .Add(new DailyBonusShowWindowSystem())
-
                 //tutorial
                 .Add(new TutorialCreateSystem())
-
                 .Add(new TutorialBuyFirstProjectStep())
                 .Add(new TutorialRunFirstProjectStep())
                 .Add(new TutorialTapMoneyStepHandleSystem())
@@ -73,33 +60,11 @@ namespace _Game.Common
                 .Add(new TutorialUpgradePcStep())
                 .Add(new TutorialBuyEnoughFurnitureStep())
                 .Add(new TutorialUpgradeHouseStep())
-
                 //fx
                 .Add(new TapFxCreateSystem())
                 .Add(new FurnitureSpawnFxCreateSystem())
-
                 .Add(new UpdatePlayerLevelSystem())
-
                 //must be the last
-                .Add(new ChangeGameStateToPlaySystem())
-
-                .Init();
-        }
-
-        private void Update() => 
-            _systems.Update();
-
-        private void OnDestroy()
-        {
-            _systems.Dispose();
-
-            _settings.DestroyInstance();
-
-            SettingsPresenter.DestroyInstance();
-            GameDataPresenter.DestroyInstance();
-            Apartment.DestroyInstance();
-            TutorialEvents.DestroyInstance();
-            GameData.DestroyInstance();
-        }
+                .Add(new ChangeGameStateToPlaySystem());
     }
 }

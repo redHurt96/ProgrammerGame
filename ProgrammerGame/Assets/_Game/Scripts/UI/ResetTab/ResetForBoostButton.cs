@@ -7,7 +7,7 @@ namespace _Game.UI.ResetTab
     {
         protected override void PerformOnClick()
         {
-            GlobalEvents.Instance.ResetForBoost();
+            _globalEvents.ResetForBoost();
         }
     }
 }

@@ -5,7 +5,7 @@ using _Game.Data;
 using _Game.Logic.Systems;
 using _Game.Services;
 using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using UnityEngine;
 
 namespace _Game.Common

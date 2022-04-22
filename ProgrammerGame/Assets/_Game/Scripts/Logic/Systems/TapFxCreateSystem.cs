@@ -2,7 +2,7 @@
 using _Game.Configs;
 using _Game.Fx;
 using AP.ProgrammerGame;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using UnityEngine;
 
 namespace _Game.Logic.Systems

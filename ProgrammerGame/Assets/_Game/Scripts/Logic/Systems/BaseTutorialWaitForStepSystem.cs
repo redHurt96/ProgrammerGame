@@ -2,7 +2,7 @@
 using _Game.Configs;
 using _Game.Data;
 using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 using UnityEngine;
 

@@ -13,16 +13,9 @@ namespace _Game.Extensions
             {
                 ["Main boost"] = gameData.PersistentData.MainBoost,
                 ["Money count"] = gameData.SavableData.MoneyCount,
-                ["Auto run projects"] = gameData.SavableData.AutoRunnedProjects,
                 ["Level"] = gameData.PersistentData.Level,
                 ["Total earned money"] = gameData.PersistentData.TotalEarnedMoney,
             };
-
-            foreach (ProjectData project in gameData.SavableData.Projects)
-                dictionary.Add(project.Name, project.Level);
-
-            foreach (UpgradeData upgradeData in gameData.SavableData.Upgrades)
-                dictionary.Add(upgradeData.Type.ToString(), upgradeData.Level);
 
             return dictionary;
         }

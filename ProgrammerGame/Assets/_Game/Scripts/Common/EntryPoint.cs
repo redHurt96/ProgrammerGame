@@ -18,11 +18,6 @@ namespace _Game.Common
         protected override void RegisterServices() =>
             _services.RegisterSingle(_settings)
                 .RegisterSingle(new GameData())
-                .RegisterSingle(new GlobalEventsService())
-                .RegisterSingle(new SettingsPresenter())
-                .RegisterSingle(new GameDataPresenter())
-                .RegisterSingle(new Apartment())
-                .RegisterSingle(new TutorialEvents());
 
         protected override void RegisterSystems() =>
             _systems

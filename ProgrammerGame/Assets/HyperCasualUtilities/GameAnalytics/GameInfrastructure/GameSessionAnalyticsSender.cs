@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using GameAnalyticsSDK;
 using _Game.Common;
 using _Game.Data;
 using _Game.Extensions;
-using AP.ProgrammerGame;
 
 namespace AP.Utilities.Analytics
 {
@@ -15,7 +13,7 @@ namespace AP.Utilities.Analytics
 
         private void Start()
         {
-            SendStats("Start session");
+            SendStats(GAProgressionStatus.Start, "Start session");
 
             GlobalEvents.Instance.LevelChanged += SendOnNewLevel;
             GlobalEvents.Instance.OnUpgraded += SendOnBuyUpgrade;
@@ -26,7 +24,12 @@ namespace AP.Utilities.Analytics
         private void OnApplicationPause(bool pause)
         {
             if (pause)
-                SendStats("App pause");
+                SendStats(GAProgressionStatus.Complete,"App pause");
+        }
+
+        private void OnApplicationQuit()
+        {
+            SendStats(GAProgressionStatus.Complete,"App close");
         }
 
         private void OnDestroy()
@@ -42,9 +45,16 @@ namespace AP.Utilities.Analytics
         private void SendOnBuyUpgrade(UpgradeType arg1) => SendStats("Buy upgrade");
         private void SendOnNewLevel() => SendStats("New level");
 
+        private void SendStats(GAProgressionStatus status, string eventName)
+        {
+            GameAnalytics.NewProgressionEvent(status, eventName, GameData.Instance.ToDictionary());
+            Debug.Log($"Send progression event {status} - {eventName}");
+        }
+
         private void SendStats(string eventName)
         {
             GameAnalytics.NewDesignEvent(eventName, GameData.Instance.ToDictionary());
+            Debug.Log($"Send design event {eventName}");
         }
     }
 }

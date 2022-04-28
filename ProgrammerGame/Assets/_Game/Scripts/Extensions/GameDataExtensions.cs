@@ -11,11 +11,17 @@ namespace _Game.Extensions
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                ["Main boost"] = gameData.PersistentData.MainBoost,
-                ["Money count"] = gameData.SavableData.MoneyCount,
-                ["Level"] = gameData.PersistentData.Level,
-                ["Total earned money"] = gameData.PersistentData.TotalEarnedMoney,
+                ["main_boost"] = gameData.PersistentData.MainBoost,
+                ["moneys_count"] = gameData.SavableData.MoneyCount,
+                ["level"] = gameData.PersistentData.Level,
+                ["total_earned_money"] = gameData.PersistentData.TotalEarnedMoney,
             };
+
+            foreach (ProjectData project in gameData.SavableData.Projects)
+                dictionary.Add(project.Name.Replace(' ', '_'), project.Level);
+
+            foreach (UpgradeData upgrade in gameData.SavableData.Upgrades)
+                dictionary.Add(upgrade.Type.ToString().Replace(' ', '_'), upgrade.Level);
 
             return dictionary;
         }

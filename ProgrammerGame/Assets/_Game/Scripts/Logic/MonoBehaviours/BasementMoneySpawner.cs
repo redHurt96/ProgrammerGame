@@ -5,6 +5,7 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,12 +15,14 @@ namespace _Game.Logic.MonoBehaviours
     {
         private Transform _transform;
         private List<Money> _existed = new List<Money>();
+        private SettingsPresenter _settingsPresenter;
 
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
         private void Start()
         {
             _transform = transform;
+            _settingsPresenter = Services.Get<SettingsPresenter>();
 
             GlobalEvents.Instance.MoneyCountChanged += SpawnOrRemoveMoney;
         }
@@ -43,7 +46,7 @@ namespace _Game.Logic.MonoBehaviours
 
         private void Spawn(double amount)
         {
-            List<Money> moneysPrefabs = SettingsPresenter.Instance.GetMoneysPrefabsList(amount);
+            List<Money> moneysPrefabs = _settingsPresenter.GetMoneysPrefabsList(amount);
             StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 

@@ -2,6 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Data
@@ -20,15 +21,22 @@ namespace _Game.Data
         public TimeSpan CurrentTimeToFinish;
         public ProjectSettings projectSettings;
 
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public ProjectData()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
+
         public double BaseIncome => projectSettings.GetIncome(Level);
         public long BaseTime => projectSettings.GetTime(Level);
         public double GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public long Time => (long) Mathf.Max(1,BaseTime / (1 + GameDataPresenter.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.PersistentData.MainBoost);
+        public long Time => (long) Mathf.Max(1,BaseTime / (1 + _gameDataPresenter.IncreaseSpeedTotalEffect) / GameData.Instance.PersistentData.MainBoost);
         public double Income => (long) 
             (BaseIncome 
-             * (1 + GameDataPresenter.Instance.IncreaseMoneyTotalEffect) 
+             * (1 + _gameDataPresenter.IncreaseMoneyTotalEffect) 
              * GameData.Instance.PersistentData.MainBoost 
              * GameData.Instance.DailyBonusData.Bonus);
 

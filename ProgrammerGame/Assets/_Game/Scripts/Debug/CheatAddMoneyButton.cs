@@ -1,5 +1,4 @@
 ﻿using _Game.Common;
-using AP.ProgrammerGame;
 using RH.Utilities.UI;
 using UnityEngine;
 using UnityEngine.UI;

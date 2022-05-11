@@ -25,7 +25,7 @@ namespace _Game.Logic.Systems
         public sealed override void Dispose()
         {
             if (_coroutine != null)
-                CoroutineLauncher.StopIfExist(_coroutine);
+                CoroutineLauncher.Stop(_coroutine);
         }
 
         private IEnumerator WaitForPerform()

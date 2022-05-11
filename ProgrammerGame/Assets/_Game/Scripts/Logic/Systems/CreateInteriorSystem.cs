@@ -10,6 +10,8 @@ namespace _Game.Logic.Systems
     {
         private UpgradeData _interiorUpgradeData;
 
+        
+        
         public override void Init()
         {
             _interiorUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior);

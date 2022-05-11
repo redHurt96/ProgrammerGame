@@ -2,11 +2,19 @@
 using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class BuyUpgradeSystem : BaseInitSystem
     {
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public BuyUpgradeSystem()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
+        
         public override void Init() => 
             GlobalEvents.Instance.BuyUpgradeIntent += BuyUpgrade;
 
@@ -16,7 +24,7 @@ namespace _Game.Logic.Systems
         private void BuyUpgrade(UpgradeType type, double price)
         {
             GlobalEvents.Instance.IntentToChangeMoney(-price);
-            GameDataPresenter.Instance.GetUpgradeData(type).Upgrade();
+            _gameDataPresenter.GetUpgradeData(type).Upgrade();
             GlobalEvents.Instance.InvokeAfterUpgradeEvent(type);
         }
     }

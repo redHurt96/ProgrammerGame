@@ -3,11 +3,19 @@ using _Game.Common;
 using _Game.Data;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class UpdatePlayerLevelSystem : BaseInitSystem
     {
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public UpdatePlayerLevelSystem()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
+
         public override void Init() =>
             CoroutineLauncher.Start(DelayedSubscribe());
 
@@ -27,7 +35,7 @@ namespace _Game.Logic.Systems
                 return;
 
             GameData.Instance.PersistentData.TotalEarnedMoney += money;
-            int level = GameDataPresenter.Instance.CalculateLevel();
+            int level = _gameDataPresenter.CalculateLevel();
 
             if (level > GameData.Instance.PersistentData.Level)
             {

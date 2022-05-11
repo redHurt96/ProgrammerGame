@@ -4,6 +4,7 @@ using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,13 @@ namespace _Game.Logic.Systems
 {
     public class ResetForBoostSystem : BaseInitSystem
     {
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public ResetForBoostSystem()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
+
         public override void Init() => 
             GlobalEvents.Instance.ResetForBoostIntent += ResetProgressForBoost;
 
@@ -28,8 +36,8 @@ namespace _Game.Logic.Systems
 
             yield return null;
 
-            GameData.Instance.PersistentData.MainBoost = GameDataPresenter.Instance.BoostForProgress *
-                                                         GameData.Instance.PersistentData.MainBoost;
+            GameData.Instance.PersistentData.MainBoost = 
+                _gameDataPresenter.BoostForProgress * GameData.Instance.PersistentData.MainBoost;
 
             SceneManager.LoadScene(0);
         }

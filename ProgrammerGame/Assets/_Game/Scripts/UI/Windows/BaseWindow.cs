@@ -1,4 +1,7 @@
-﻿using _Game.GameServices;
+﻿using System;
+using _Game.Common;
+using _Game.GameServices;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +12,8 @@ namespace _Game.UI.Windows
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _backgroundCloseButton;
 
+        protected GameDataPresenter _gameDataPresenter;
+
         private void Awake()
         {
             if (_closeButton != null)
@@ -17,6 +22,9 @@ namespace _Game.UI.Windows
             if (_backgroundCloseButton != null)
                 _backgroundCloseButton.onClick.AddListener(Close);
         }
+
+        private void Start() => 
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
 
         protected void Close()
         {

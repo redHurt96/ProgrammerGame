@@ -1,5 +1,8 @@
-﻿using _Game.Common;
+﻿using System;
+using _Game.Common;
 using _Game.Data;
+using GameAnalyticsSDK.Setup;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +12,17 @@ namespace _Game.UI.ResetTab
     public class CurrentBoostValueTitle : MonoBehaviour
     {
         [SerializeField] private Text _text;
+        private GameDataPresenter _gameDataPresenter;
+
+        private void Start() => 
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
 
         private void OnEnable() => 
             UpdateTitle();
 
         private void UpdateTitle()
         {
-            if (GameDataPresenter.Instance == null)
+            if (_gameDataPresenter == null)
                 return;
 
             _text.text = "x " + GameData.Instance.PersistentData.MainBoost.ToString("F2");

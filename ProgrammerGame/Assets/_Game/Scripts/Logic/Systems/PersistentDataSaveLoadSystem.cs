@@ -9,7 +9,7 @@ namespace _Game.Logic.Systems
     {
         public override void Init()
         {
-            GameData.Instance.PersistentData.LoadIfSaveExist();
+            GameData.Instance.PersistentData.LoadIfExist();
 
             GlobalEvents.Instance.TutorialStepReceived += Save;
             GlobalEvents.Instance.LevelChanged += Save;

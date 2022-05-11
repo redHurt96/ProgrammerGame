@@ -21,12 +21,7 @@ namespace _Game.Data
         public TimeSpan CurrentTimeToFinish;
         public ProjectSettings projectSettings;
 
-        private readonly GameDataPresenter _gameDataPresenter;
-
-        public ProjectData()
-        {
-            _gameDataPresenter = Services.Get<GameDataPresenter>();
-        }
+        private GameDataPresenter _gameDataPresenter => Services.Get<GameDataPresenter>();
 
         public double BaseIncome => projectSettings.GetIncome(Level);
         public long BaseTime => projectSettings.GetTime(Level);

@@ -3,16 +3,23 @@ using _Game.Configs;
 using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class CreatePcSystem : BaseInitSystem
     {
         private UpgradeData _pcUpgradeData;
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public CreatePcSystem()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
 
         public override void Init()
         {
-            _pcUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.PC);
+            _pcUpgradeData = _gameDataPresenter.GetUpgradeData(UpgradeType.PC);
 
             CreatePcs();
 

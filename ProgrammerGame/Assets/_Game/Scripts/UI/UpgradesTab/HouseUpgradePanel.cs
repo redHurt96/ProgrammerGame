@@ -14,14 +14,14 @@ namespace _Game.UI.UpgradesTab
         protected override string TotalEffectTitle => $"{Apartment.Instance.ProgrammersSpotCount} programmers";
 
         private void Update() => 
-            _tip.enabled = !GameDataPresenter.Instance.CanBuyNewRoom();
+            _tip.enabled = !_gameDataPresenter.CanBuyNewRoom();
 
         protected override bool CheckAdditionalBuyAvailability() => 
-            GameDataPresenter.Instance.CanBuyNewRoom();
+            _gameDataPresenter.CanBuyNewRoom();
 
         private int GetNewProgrammersCount()
         {
-            int roomLevel = GameDataPresenter.Instance.RoomLevel;
+            int roomLevel = _gameDataPresenter.RoomLevel;
 
             if (roomLevel + 1 == Settings.Instance.Rooms.Length)
                 return 0;

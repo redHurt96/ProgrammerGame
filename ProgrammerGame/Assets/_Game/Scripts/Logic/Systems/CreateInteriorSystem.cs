@@ -3,6 +3,7 @@ using _Game.Configs;
 using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
@@ -10,11 +11,16 @@ namespace _Game.Logic.Systems
     {
         private UpgradeData _interiorUpgradeData;
 
-        
-        
+        private readonly GameDataPresenter _gameDataPresenter;
+
+        public CreateInteriorSystem()
+        {
+            _gameDataPresenter = Services.Get<GameDataPresenter>();
+        }
+
         public override void Init()
         {
-            _interiorUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior);
+            _interiorUpgradeData = _gameDataPresenter.GetUpgradeData(UpgradeType.Interior);
 
             CreateInteriors();
 

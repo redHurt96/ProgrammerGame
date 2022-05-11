@@ -2,7 +2,7 @@
 using _Game.Data;
 using _Game.UI.Windows;
 
-namespace _Game.Services
+namespace _Game.GameServices
 {
     public static class WindowsManager
     {

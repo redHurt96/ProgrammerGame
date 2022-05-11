@@ -1,41 +1,47 @@
-using System;
-using System.Collections;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Logic.Systems;
-using _Game.Services;
+using _Game.GameServices;
 using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Common
 {
-    public class EntryPoint : MonoBehaviour
+    public class EntryPoint : AbstractEntryPoint
     {
         [SerializeField] private Settings _settings;
+        
+        private void Update() => 
+            _systems.Update();
 
-        private SystemsArray _systems;
-
-        private void Awake()
+        private void OnDestroy()
         {
-            Application.targetFrameRate = 60;
+            _systems.Dispose();
 
-            _settings.CreateInstance();
+            _settings.DestroyInstance();
 
-            if (GlobalEvents.Instance != null)
-                GlobalEvents.DestroyInstance();
+            Apartment.DestroyInstance();
+            TutorialEvents.DestroyInstance();
+            GameData.DestroyInstance();
+            Services.DestroyInstance();
+        }
 
-            new GlobalEvents();
-
-            new SettingsPresenter();
-
+        protected override void RegisterServices()
+        {
             new GameData();
-            new GameDataPresenter();
             new Apartment();
             new TutorialEvents();
 
-            _systems = new SystemsArray()
+            Services.Instance
+                .RegisterSingle(new GameDataPresenter())
+                .RegisterSingle(new SettingsPresenter());
+        }
 
+        protected override void RegisterSystems()
+        {
+            _systems
                 //game logic
                 .Add(new SaveLoadSystem())
                 .Add(new PersistentDataSaveLoadSystem())
@@ -84,22 +90,6 @@ namespace _Game.Common
                 .Add(new ChangeGameStateToPlaySystem())
 
                 .Init();
-        }
-
-        private void Update() => 
-            _systems.Update();
-
-        private void OnDestroy()
-        {
-            _systems.Dispose();
-
-            _settings.DestroyInstance();
-
-            SettingsPresenter.DestroyInstance();
-            GameDataPresenter.DestroyInstance();
-            Apartment.DestroyInstance();
-            TutorialEvents.DestroyInstance();
-            GameData.DestroyInstance();
         }
     }
 }

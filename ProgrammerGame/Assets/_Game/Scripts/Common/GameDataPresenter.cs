@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using _Game.Data;
-using AP.ProgrammerGame;
-using GameAnalyticsSDK.Setup;
-using RH.Utilities.SingletonAccess;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Settings = _Game.Configs.Settings;
 
 namespace _Game.Common
 {
-    public class GameDataPresenter : Singleton<GameDataPresenter>
+    public class GameDataPresenter : IService
     {
         private GameData _gameData => GameData.Instance;
 

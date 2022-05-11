@@ -2,7 +2,7 @@
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;

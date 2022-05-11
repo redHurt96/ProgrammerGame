@@ -2,7 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Services;
+using _Game.GameServices;
 using _Game.UI.Tutorial;
 using RH.Utilities.SingletonAccess;
 using UnityEngine.Events;

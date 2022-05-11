@@ -1,6 +1,6 @@
 ﻿using _Game.Common;
 using _Game.Data;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Saving;
 
 namespace _Game.Logic.Systems

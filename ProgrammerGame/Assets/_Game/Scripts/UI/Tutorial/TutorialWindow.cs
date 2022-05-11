@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using _Game.Configs;
-using _Game.Services;
+using _Game.GameServices;
 using _Game.UI.Windows;
 using UnityEngine;
 

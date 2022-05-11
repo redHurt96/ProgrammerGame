@@ -1,4 +1,4 @@
-﻿using _Game.Services;
+﻿using _Game.GameServices;
 using UnityEngine;
 using UnityEngine.UI;
 

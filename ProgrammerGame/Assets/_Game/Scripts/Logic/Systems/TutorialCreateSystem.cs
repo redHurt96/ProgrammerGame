@@ -3,7 +3,7 @@ using _Game.Configs;
 using _Game.Data;
 using _Game.Tutorial;
 using _Game.UI.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 
 namespace _Game.Logic.Systems
 {

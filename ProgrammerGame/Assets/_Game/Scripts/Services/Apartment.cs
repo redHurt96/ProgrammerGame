@@ -7,7 +7,7 @@ using RH.Utilities.SingletonAccess;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace _Game.Services
+namespace _Game.GameServices
 {
     public class Apartment : Singleton<Apartment>
     {

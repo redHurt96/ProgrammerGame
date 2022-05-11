@@ -3,9 +3,9 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Services;
+using _Game.GameServices;
 using AP.ProgrammerGame;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using UnityEngine;
 
 namespace _Game.Logic.Systems

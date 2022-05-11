@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Game.Logic.MonoBehaviours;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 
 namespace _Game.Configs
 {
-    public class SettingsPresenter : Singleton<SettingsPresenter>
+    public class SettingsPresenter : IService
     {
         public List<Money> GetMoneysPrefabsList(double amount)
         {

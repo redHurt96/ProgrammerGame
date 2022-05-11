@@ -2,7 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 
 namespace _Game.Logic.Systems
 {

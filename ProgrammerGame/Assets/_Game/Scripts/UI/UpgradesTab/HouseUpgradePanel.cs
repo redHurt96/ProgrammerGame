@@ -1,6 +1,6 @@
 ﻿using _Game.Common;
 using _Game.Configs;
-using _Game.Services;
+using _Game.GameServices;
 using UnityEngine;
 using UnityEngine.UI;
 

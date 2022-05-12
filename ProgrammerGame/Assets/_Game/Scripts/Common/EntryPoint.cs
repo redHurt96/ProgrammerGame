@@ -1,26 +1,22 @@
-using System;
-using System.Collections;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Logic.Systems;
-using _Game.Services;
+using _Game.GameServices;
 using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Common
 {
-    public class EntryPoint : MonoBehaviour
+    public class EntryPoint : AbstractEntryPoint
     {
         [SerializeField] private Settings _settings;
 
-        private SystemsArray _systems;
-
-        private void Awake()
+        protected override void RegisterServices()
         {
-            Application.targetFrameRate = 60;
-
             _settings.CreateInstance();
+            _services.RegisterSingle(new WindowsManager());
 
             if (GlobalEvents.Instance != null)
                 GlobalEvents.DestroyInstance();
@@ -33,8 +29,11 @@ namespace _Game.Common
             new GameDataPresenter();
             new Apartment();
             new TutorialEvents();
+        }
 
-            _systems = new SystemsArray()
+        protected override void RegisterSystems()
+        {
+            _systems
 
                 //game logic
                 .Add(new SaveLoadSystem())
@@ -56,6 +55,7 @@ namespace _Game.Common
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
                 .Add(new ShowLevelWindowSystem())
+                .Add(new UpdatePlayerLevelSystem())
 
                 .Add(new DailyBonusSaveLoadSystem())
                 .Add(new DailyBonusUpdateSystem())
@@ -63,7 +63,6 @@ namespace _Game.Common
 
                 //tutorial
                 .Add(new TutorialCreateSystem())
-
                 .Add(new TutorialBuyFirstProjectStep())
                 .Add(new TutorialRunFirstProjectStep())
                 .Add(new TutorialTapMoneyStepHandleSystem())
@@ -78,12 +77,8 @@ namespace _Game.Common
                 .Add(new TapFxCreateSystem())
                 .Add(new FurnitureSpawnFxCreateSystem())
 
-                .Add(new UpdatePlayerLevelSystem())
-
                 //must be the last
-                .Add(new ChangeGameStateToPlaySystem())
-
-                .Init();
+                .Add(new ChangeGameStateToPlaySystem());
         }
 
         private void Update() => 
@@ -92,6 +87,7 @@ namespace _Game.Common
         private void OnDestroy()
         {
             _systems.Dispose();
+            Services.DestroyInstance();
 
             _settings.DestroyInstance();
 

@@ -3,15 +3,21 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Services;
+using _Game.GameServices;
 using AP.ProgrammerGame;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
     public class IdleIncomeSystem : IInitSystem
     {
+        private readonly WindowsManager _windowsManager;
+
+        public IdleIncomeSystem() => 
+            _windowsManager = Services.Get<WindowsManager>();
+        
         public void Init()
         {
             DateTime currentDateTime = DateTime.Now;
@@ -23,7 +29,7 @@ namespace _Game.Logic.Systems
             long income = (long) (idleTime * autorunnedProjectsIncomePerSecond);
 
             if (income > 0)
-                WindowsManager
+                _windowsManager
                     .Show(SceneObjects.Instance._earnedWhileAwayWindow)
                     .SetCount(income);
         }

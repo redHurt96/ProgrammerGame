@@ -1,4 +1,5 @@
-﻿using _Game.Services;
+﻿using _Game.GameServices;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +10,12 @@ namespace _Game.UI.Windows
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _backgroundCloseButton;
 
+        private WindowsManager _windowsManager;
+
         private void Awake()
         {
+            _windowsManager = Services.Get<WindowsManager>();
+
             if (_closeButton != null)
                 _closeButton.onClick.AddListener(Close);
             
@@ -21,7 +26,7 @@ namespace _Game.UI.Windows
         protected void Close()
         {
             PerformBeforeClose();
-            WindowsManager.Hide(this);
+            _windowsManager.Hide(this);
         }
 
         protected virtual void PerformBeforeOpen() {}

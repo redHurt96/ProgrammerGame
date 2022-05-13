@@ -14,7 +14,7 @@ namespace _Game.GameServices
             _windowsStack.Push(window);
 
             if (_windowsStack.Count == 1)
-                window.Show();
+                window.Show(this);
 
             return window;
         }
@@ -25,7 +25,7 @@ namespace _Game.GameServices
             window.Hide();
 
             if (_windowsStack.Count > 0)
-                _windowsStack.Peek().Show();
+                _windowsStack.Peek().Show(this);
         }
     }
 }

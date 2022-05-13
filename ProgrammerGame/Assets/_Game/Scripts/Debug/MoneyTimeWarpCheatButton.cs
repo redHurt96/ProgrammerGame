@@ -1,4 +1,5 @@
 ﻿using _Game.Common;
+using _Game.Data;
 using AP.ProgrammerGame;
 using RH.Utilities.UI;
 using UnityEngine;
@@ -6,15 +7,15 @@ using UnityEngine.UI;
 
 namespace _Game.Debug
 {
-    public class CheatAddMoneyButton : BaseActionButton
+    public class MoneyTimeWarpCheatButton : BaseActionButton
     {
-        public long Value = 100;
+        public long TimeSec = 100;
 
         private void Awake() => 
-            GetComponentInChildren<Text>().text = $"+{Value}";
+            GetComponentInChildren<Text>().text = $"{TimeSec} s";
         
         [ContextMenu("Click")]
         protected override void PerformOnClick() => 
-            GlobalEvents.Instance.IntentToChangeMoney( Value);
+            GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.IncomePerSec * TimeSec);
     }
 }

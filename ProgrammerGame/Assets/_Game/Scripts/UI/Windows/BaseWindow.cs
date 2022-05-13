@@ -32,7 +32,7 @@ namespace _Game.UI.Windows
         protected virtual void PerformBeforeOpen() {}
         protected virtual void PerformBeforeClose() {}
 
-        public void Show()
+        public void Show(WindowsManager windowsManager)
         {
             PerformBeforeOpen();
             gameObject.SetActive(true);

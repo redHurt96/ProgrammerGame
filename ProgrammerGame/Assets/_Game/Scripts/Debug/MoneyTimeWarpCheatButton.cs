@@ -1,6 +1,5 @@
 ﻿using _Game.Common;
 using _Game.Data;
-using AP.ProgrammerGame;
 using RH.Utilities.UI;
 using UnityEngine;
 using UnityEngine.UI;

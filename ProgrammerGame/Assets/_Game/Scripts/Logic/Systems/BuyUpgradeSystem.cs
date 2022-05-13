@@ -16,7 +16,7 @@ namespace _Game.Logic.Systems
         private void BuyUpgrade(UpgradeType type, double price)
         {
             GlobalEvents.Instance.IntentToChangeMoney(-price);
-            GameDataPresenter.Instance.GetUpgradeData(type).Upgrade();
+            GameData.Instance.GetUpgradeData(type).Upgrade();
             GlobalEvents.Instance.InvokeAfterUpgradeEvent(type);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using _Game.Common;
+using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
@@ -21,7 +22,7 @@ namespace _Game.Logic.Systems
         private void ShowRewardWindow()
         {
             _windowsManager.Show(SceneObjects.Instance.LevelWindow);
-            GlobalEvents.Instance.IntentToChangeMoney(GameDataPresenter.Instance.GetRewardForLevel());
+            GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.GetRewardForLevel());
         }
     }
 }

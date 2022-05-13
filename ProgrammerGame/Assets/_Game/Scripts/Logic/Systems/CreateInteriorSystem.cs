@@ -20,7 +20,7 @@ namespace _Game.Logic.Systems
         
         public override void Init()
         {
-            _interiorUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior);
+            _interiorUpgradeData = GameData.Instance.GetUpgradeData(UpgradeType.Interior);
 
             CreateInteriors();
 

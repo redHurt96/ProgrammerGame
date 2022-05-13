@@ -27,7 +27,7 @@ namespace _Game.Logic.Systems
                 return;
 
             GameData.Instance.PersistentData.TotalEarnedMoney += money;
-            int level = GameDataPresenter.Instance.CalculateLevel();
+            int level = GameData.Instance.CalculateLevel();
 
             if (level > GameData.Instance.PersistentData.Level)
             {

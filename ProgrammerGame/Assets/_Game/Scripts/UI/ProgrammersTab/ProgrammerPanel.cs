@@ -28,14 +28,14 @@ namespace _Game.UI.ProgrammersTab
 
         private void OnEnable()
         {
+            _apartment ??= Services.Get<Apartment>();
+
             UpdateTip();
             _priceButtonVisibilityComponent.UpdateVisibility();
         }
 
         private void Start()
         {
-            _apartment = Services.Get<Apartment>();
-
             SetupCommonData();
 
             if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))

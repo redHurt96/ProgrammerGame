@@ -20,7 +20,7 @@ namespace _Game.Logic.Systems
         
         public override void Init()
         {
-            _pcUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.PC);
+            _pcUpgradeData = GameData.Instance.GetUpgradeData(UpgradeType.PC);
 
             CreatePcs();
 

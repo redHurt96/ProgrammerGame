@@ -18,7 +18,7 @@ namespace _Game.Logic.Systems
 
         public override void Init()
         {
-            _roomsUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.House);
+            _roomsUpgradeData = GameData.Instance.GetUpgradeData(UpgradeType.House);
 
             CreateRooms();
 

@@ -25,10 +25,8 @@ namespace _Game.Common
 
             new GlobalEvents();
 
-            new SettingsPresenter();
-
             new GameData();
-            new GameDataPresenter();
+            new GameData();
             new Apartment();
             new TutorialEvents();
         }
@@ -93,8 +91,7 @@ namespace _Game.Common
 
             _settings.DestroyInstance();
 
-            SettingsPresenter.DestroyInstance();
-            GameDataPresenter.DestroyInstance();
+            GameData.DestroyInstance();
             TutorialEvents.DestroyInstance();
             GameData.DestroyInstance();
         }

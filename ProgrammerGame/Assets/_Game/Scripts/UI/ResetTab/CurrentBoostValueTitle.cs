@@ -15,7 +15,7 @@ namespace _Game.UI.ResetTab
 
         private void UpdateTitle()
         {
-            if (GameDataPresenter.Instance == null)
+            if (GameData.Instance == null)
                 return;
 
             _text.text = "x " + GameData.Instance.PersistentData.MainBoost.ToString("F2");

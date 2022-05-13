@@ -11,7 +11,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Text _tip;
 
         protected override string EffectTitle => $"+{GetNewProgrammersCount()} programmers";
-        protected override string TotalEffectTitle => $"{Apartment.Instance.ProgrammersSpotCount} programmers";
+        protected override string TotalEffectTitle => $"{_apartment.ProgrammersSpotCount} programmers";
 
         private void Update() => 
             _tip.enabled = !GameDataPresenter.Instance.CanBuyNewRoom();

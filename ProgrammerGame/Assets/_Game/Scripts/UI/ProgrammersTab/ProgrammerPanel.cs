@@ -5,6 +5,7 @@ using _Game.Data;
 using _Game.Scripts.Exception;
 using _Game.GameServices;
 using _Game.UI.ProjectsTab;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
         [SerializeField] private Text _needUpgradeTip;
 
+        private Apartment _apartment;
+
         private void OnEnable()
         {
             UpdateTip();
@@ -31,6 +34,8 @@ namespace _Game.UI.ProgrammersTab
 
         private void Start()
         {
+            _apartment = Services.Get<Apartment>();
+
             SetupCommonData();
 
             if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
@@ -66,7 +71,7 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private bool CheckProgrammerAvailability() =>
-            Apartment.Instance.ContainSpotFor(_programmer.name)
+            _apartment.ContainSpotFor(_programmer.name)
             && GameData.Instance.SavableData.Projects
                 .First(x => x.projectSettings == _programmer.AutomatedProject)
                 .State == ProjectState.Active;
@@ -87,6 +92,6 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private void UpdateTip() => 
-            _needUpgradeTip.gameObject.SetActive(!Apartment.Instance.ContainSpotFor(_programmer.name));
+            _needUpgradeTip.gameObject.SetActive(!_apartment.ContainSpotFor(_programmer.name));
     }
 }

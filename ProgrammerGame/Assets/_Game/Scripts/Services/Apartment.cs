@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using RH.Utilities.SingletonAccess;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace _Game.GameServices
 {
-    public class Apartment : Singleton<Apartment>
+    public class Apartment : IService
     {
         public int ProgrammersSpotCount => _programmerSpots.Count;
         

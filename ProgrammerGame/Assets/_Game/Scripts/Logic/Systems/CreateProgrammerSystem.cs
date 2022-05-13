@@ -5,11 +5,19 @@ using _Game.Data;
 using _Game.GameServices;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class CreateProgrammerSystem : BaseInitSystem
     {
+        private readonly Apartment _apartment;
+
+        public CreateProgrammerSystem()
+        {
+            _apartment = Services.Get<Apartment>();
+        }
+        
         public override void Init()
         {
             CreateMainCharacter();
@@ -22,7 +30,7 @@ namespace _Game.Logic.Systems
             GlobalEvents.Instance.BuyProgrammerIntent -= CreateProgrammer;
 
         private void CreateMainCharacter() => 
-            Apartment.Instance.AddMainCharacter(Settings.Instance.MainCharacter);
+            _apartment.AddMainCharacter(Settings.Instance.MainCharacter);
 
         private void CreateExistedProgrammers()
         {
@@ -36,7 +44,7 @@ namespace _Game.Logic.Systems
                 Settings.Instance.AllProgrammersSettings.Workplaces
                     .First(x => x.ProgrammerSettings.AutomatedProject.Name == name);
 
-            Apartment.Instance.AddProgrammer(workplace.FurnitureSlot);
+            _apartment.AddProgrammer(workplace.FurnitureSlot);
         }
     }
 }

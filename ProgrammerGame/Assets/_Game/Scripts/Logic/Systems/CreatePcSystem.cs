@@ -3,6 +3,7 @@ using _Game.Configs;
 using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
@@ -10,6 +11,13 @@ namespace _Game.Logic.Systems
     {
         private UpgradeData _pcUpgradeData;
 
+        private readonly Apartment _apartment;
+
+        public CreatePcSystem()
+        {
+            _apartment = Services.Get<Apartment>();
+        }
+        
         public override void Init()
         {
             _pcUpgradeData = GameDataPresenter.Instance.GetUpgradeData(UpgradeType.PC);
@@ -27,16 +35,16 @@ namespace _Game.Logic.Systems
             PcSettings pcSettings = Settings.Instance.PcSettings;
 
             foreach (FurnitureSlot slot in pcSettings.DefaultFurniture) 
-                Apartment.Instance.AddFurniture(slot);
+                _apartment.AddFurniture(slot);
 
             for (int i = 0; i < _pcUpgradeData.Level; i++)
-                Apartment.Instance.AddFurniture(pcSettings.FurnitureForPurchase[i]);
+                _apartment.AddFurniture(pcSettings.FurnitureForPurchase[i]);
         }
 
         private void UpgradePc() => 
             CreatePc(_pcUpgradeData.Level);
 
         private void CreatePc(int number) => 
-            Apartment.Instance.AddFurniture(Settings.Instance.PcSettings.FurnitureForPurchase[number - 1]);
+            _apartment.AddFurniture(Settings.Instance.PcSettings.FurnitureForPurchase[number - 1]);
     }
 }

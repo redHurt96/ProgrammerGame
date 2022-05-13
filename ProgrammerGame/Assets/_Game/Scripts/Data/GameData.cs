@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace _Game.Data
 {
-    public class GameData : Singleton<GameData>
+    public partial class GameData : Singleton<GameData>
     {
         //saved
         public SavableData SavableData = new SavableData();
@@ -19,7 +19,10 @@ namespace _Game.Data
         public int BuyCount = 1;
         public GameState GameState;
         public Stack<BaseWindow> WindowsStack = new Stack<BaseWindow>();
-        
+    }
+
+    public partial class GameData
+    {
         public float IncreaseSpeedTotalEffect => 
             GetUpgradeData(UpgradeType.Interior).Level * Settings.Instance.IncreaseSpeedEffectStrength;
 

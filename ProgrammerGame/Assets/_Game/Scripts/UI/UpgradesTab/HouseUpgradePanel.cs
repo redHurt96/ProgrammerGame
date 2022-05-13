@@ -1,6 +1,5 @@
-﻿using _Game.Common;
-using _Game.Configs;
-using _Game.Services;
+﻿using _Game.Configs;
+using _Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,17 +10,17 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Text _tip;
 
         protected override string EffectTitle => $"+{GetNewProgrammersCount()} programmers";
-        protected override string TotalEffectTitle => $"{Apartment.Instance.ProgrammersSpotCount} programmers";
+        protected override string TotalEffectTitle => $"{_apartment.ProgrammersSpotCount} programmers";
 
         private void Update() => 
-            _tip.enabled = !GameDataPresenter.Instance.CanBuyNewRoom();
+            _tip.enabled = !GameData.Instance.CanBuyNewRoom();
 
         protected override bool CheckAdditionalBuyAvailability() => 
-            GameDataPresenter.Instance.CanBuyNewRoom();
+            GameData.Instance.CanBuyNewRoom();
 
         private int GetNewProgrammersCount()
         {
-            int roomLevel = GameDataPresenter.Instance.RoomLevel;
+            int roomLevel = GameData.Instance.RoomLevel;
 
             if (roomLevel + 1 == Settings.Instance.Rooms.Length)
                 return 0;

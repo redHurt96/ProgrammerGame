@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using _Game.Common;
 using _Game.Data;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 
 namespace _Game.Logic.Systems
@@ -27,7 +27,7 @@ namespace _Game.Logic.Systems
                 return;
 
             GameData.Instance.PersistentData.TotalEarnedMoney += money;
-            int level = GameDataPresenter.Instance.CalculateLevel();
+            int level = GameData.Instance.CalculateLevel();
 
             if (level > GameData.Instance.PersistentData.Level)
             {

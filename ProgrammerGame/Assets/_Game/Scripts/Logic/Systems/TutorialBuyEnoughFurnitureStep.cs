@@ -10,8 +10,8 @@ namespace _Game.Logic.Systems
 
         protected override bool _waitCondition =>
             GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.UpgradePcOrFurniture_7)
-            && (GameDataPresenter.Instance.GetUpgradeData(UpgradeType.PC).Level > 0 ||
-                GameDataPresenter.Instance.GetUpgradeData(UpgradeType.Interior).Level > 0);
+            && (GameData.Instance.GetUpgradeData(UpgradeType.PC).Level > 0 ||
+                GameData.Instance.GetUpgradeData(UpgradeType.Interior).Level > 0);
 
         protected override float _delay => 1f;
     }

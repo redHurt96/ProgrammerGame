@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using _Game.Fx;
 using _Game.Logic.MonoBehaviours;
 using RH.Utilities.SingletonAccess;
@@ -6,7 +8,7 @@ using UnityEngine;
 namespace _Game.Configs
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
-    public class Settings : SingletonScriptableObject<Settings>
+    public partial class Settings : SingletonScriptableObject<Settings>
     {
         public Money[] MoneyPrefabs;
         public PriceFx TapFxPrefab;
@@ -61,5 +63,30 @@ namespace _Game.Configs
 
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
+    }
+
+    public partial class Settings
+    {
+        public List<Money> GetMoneysPrefabsList(double amount)
+        {
+            List<Money> moneysPrefabs = new List<Money>();
+
+            while (amount > 0)
+            {
+                Money prefab = GetMoneyResourceByValue(amount);
+
+                if (prefab == null || moneysPrefabs.Count >= Settings.Instance.MaxMoneySpawnCount)
+                    break;
+
+                moneysPrefabs.Add(prefab);
+
+                amount -= prefab.Value;
+            }
+
+            return moneysPrefabs;
+        }
+
+        private Money GetMoneyResourceByValue(double amount) =>
+            Settings.Instance.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

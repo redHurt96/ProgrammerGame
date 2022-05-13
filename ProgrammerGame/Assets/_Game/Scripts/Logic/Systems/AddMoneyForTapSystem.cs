@@ -2,7 +2,7 @@
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,7 +19,7 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            double value = GameDataPresenter.Instance.MoneyForTap; 
+            double value = GameData.Instance.MoneyForTap; 
 
             GlobalEvents.Instance.AccelerateCoding(value.ToPriceString());
             GlobalEvents.Instance.IntentToChangeMoney(value);

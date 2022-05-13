@@ -1,7 +1,7 @@
 ﻿using _Game.Configs;
 using _Game.Data;
 using _Game.Tutorial;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 
 namespace _Game.Logic.Systems
 {

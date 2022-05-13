@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using _Game.Configs;
-using _Game.Services;
+using _Game.GameServices;
 using _Game.UI.Windows;
 using UnityEngine;
 
@@ -14,7 +14,6 @@ namespace _Game.UI.Tutorial
 
         [Space]
         [SerializeField] private float _windowNonInteractableTime = 1f;
-        [SerializeField] private float _windowLifeTime = 5f;
 
         private bool _isDestroyed;
         private bool _canClose;

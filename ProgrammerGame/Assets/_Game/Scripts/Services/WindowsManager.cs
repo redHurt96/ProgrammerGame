@@ -1,30 +1,31 @@
 ﻿using System.Collections.Generic;
 using _Game.Data;
 using _Game.UI.Windows;
+using RH.Utilities.ServiceLocator;
 
-namespace _Game.Services
+namespace _Game.GameServices
 {
-    public static class WindowsManager
+    public class WindowsManager : IService
     {
-        private static Stack<BaseWindow> _windowsStack => GameData.Instance.WindowsStack;
+        private Stack<BaseWindow> _windowsStack => GameData.Instance.WindowsStack;
         
-        public static T Show<T>(T window) where T : BaseWindow
+        public T Show<T>(T window) where T : BaseWindow
         {
             _windowsStack.Push(window);
 
             if (_windowsStack.Count == 1)
-                window.Show();
+                window.Show(this);
 
             return window;
         }
 
-        public static void Hide(BaseWindow window)
+        public void Hide(BaseWindow window)
         {
             _windowsStack.Pop();
             window.Hide();
 
             if (_windowsStack.Count > 0)
-                _windowsStack.Peek().Show();
+                _windowsStack.Peek().Show(this);
         }
     }
 }

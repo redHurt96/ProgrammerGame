@@ -1,5 +1,4 @@
-﻿using _Game.Common;
-using _Game.Configs;
+﻿using _Game.Configs;
 using _Game.Data;
 
 namespace _Game.Logic.Systems
@@ -9,7 +8,7 @@ namespace _Game.Logic.Systems
         protected override TutorialStep Step => TutorialStep.UpgradeHouse_9;
 
         protected override bool _waitCondition =>
-            GameDataPresenter.Instance.CanBuyNewRoom();
+            GameData.Instance.CanBuyNewRoom();
 
         protected override float _delay => 2f;
     }

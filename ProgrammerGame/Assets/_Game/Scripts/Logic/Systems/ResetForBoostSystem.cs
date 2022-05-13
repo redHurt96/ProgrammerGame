@@ -2,7 +2,7 @@
 using _Game.Common;
 using _Game.Data;
 using AP.ProgrammerGame;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,7 +28,7 @@ namespace _Game.Logic.Systems
 
             yield return null;
 
-            GameData.Instance.PersistentData.MainBoost = GameDataPresenter.Instance.BoostForProgress *
+            GameData.Instance.PersistentData.MainBoost = GameData.Instance.BoostForProgress *
                                                          GameData.Instance.PersistentData.MainBoost;
 
             SceneManager.LoadScene(0);

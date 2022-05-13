@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
+using _Game.Configs;
 using _Game.UI.Windows;
 using RH.Utilities.SingletonAccess;
+using UnityEngine;
 
 namespace _Game.Data
 {
-    public class GameData : Singleton<GameData>
+    public partial class GameData : Singleton<GameData>
     {
         //saved
         public SavableData SavableData = new SavableData();
@@ -18,9 +21,57 @@ namespace _Game.Data
         public Stack<BaseWindow> WindowsStack = new Stack<BaseWindow>();
     }
 
-    public enum GameState
+    public partial class GameData
     {
-        Init,
-        Play
+        public float IncreaseSpeedTotalEffect => 
+            GetUpgradeData(UpgradeType.Interior).Level * Settings.Instance.IncreaseSpeedEffectStrength;
+
+        public float IncreaseMoneyTotalEffect =>
+            GetUpgradeData(UpgradeType.PC).Level * Settings.Instance.IncreaseMoneyEffectStrength;
+
+        public float MoneyForTap => 
+            Mathf.Max(1, Settings.Instance.MoneyForTap.GetPrice(GetUpgradeData(UpgradeType.Soft).Level) * PersistentData.MainBoost);
+
+        public float MoneyForTapForNewLevel
+        {
+            get
+            {
+                int level = GetUpgradeData(UpgradeType.Soft).Level;
+                return (Settings.Instance.MoneyForTap.GetPrice(level + 1) - Settings.Instance.MoneyForTap.GetPrice(level)) * PersistentData.MainBoost;
+            }
+        }
+
+        public long IncomePerSec =>
+            (long) SavableData.Projects
+                .Where(x => x.State == ProjectState.Active)
+                .Sum(x => Mathf.Max((float) x.Income / x.Time, 1f));
+
+        public UpgradeData GetUpgradeData(UpgradeType type) => 
+            SavableData.Upgrades.First(x => x.Type == type);
+
+        public int RoomLevel => 
+            GetUpgradeData(UpgradeType.House).Level;
+
+        public float BoostForProgress =>
+            1 +
+            SavableData.Projects
+                .Where(x => x.State == ProjectState.Active)
+                .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;
+
+        public double GetRewardForLevel() => 
+            IncomePerSec * Settings.Instance.TimeForLevelReward;
+
+        public int CalculateLevel() => 
+            (int) Mathf.Log10((float) PersistentData.TotalEarnedMoney);
+
+        public bool CanBuyNewRoom()
+        {
+            int interiorLevel = GetUpgradeData(UpgradeType.Interior).Level;
+            int roomLevel = GetUpgradeData(UpgradeType.House).Level;
+            int furnitureToPurchase = Settings.Instance.Rooms.Take(roomLevel + 1).Sum(x => x.FurnitureForPurchase.Length);
+
+            return interiorLevel == furnitureToPurchase 
+                   && roomLevel < Settings.Instance.Rooms.Length - 1;
+        }
     }
 }

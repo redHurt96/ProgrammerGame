@@ -1,11 +1,17 @@
 ﻿using _Game.Common;
-using _Game.Services;
-using RH.Utilities.ComponentSystem;
+using _Game.GameServices;
+using RH.Utilities.PseudoEcs;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class DailyBonusShowWindowSystem : BaseInitSystem
     {
+        private readonly WindowsManager _windowsManager;
+
+        public DailyBonusShowWindowSystem() => 
+            _windowsManager = Services.Get<WindowsManager>();
+
         public override void Init() => 
             GlobalEvents.Instance.DailyBonusUpdated += ShowWindow;
 
@@ -13,6 +19,6 @@ namespace _Game.Logic.Systems
             GlobalEvents.Instance.DailyBonusUpdated -= ShowWindow;
 
         private void ShowWindow() => 
-            WindowsManager.Show(SceneObjects.Instance.DailyBonusWindow);
+            _windowsManager.Show(SceneObjects.Instance.DailyBonusWindow);
     }
 }

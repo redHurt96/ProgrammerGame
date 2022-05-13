@@ -1,6 +1,6 @@
 ﻿using _Game.Common;
 using _Game.Configs;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using UnityEngine;
 
 namespace _Game.Logic.Systems

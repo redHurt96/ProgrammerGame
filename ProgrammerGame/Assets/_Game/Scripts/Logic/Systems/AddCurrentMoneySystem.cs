@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using _Game.Common;
 using _Game.Data;
-using RH.Utilities.ComponentSystem;
+using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 
 namespace _Game.Logic.Systems

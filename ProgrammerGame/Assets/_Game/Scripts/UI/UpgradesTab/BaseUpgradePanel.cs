@@ -2,9 +2,11 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.GameServices;
 using _Game.Scripts.Exception;
 using _Game.UI.ProjectsTab;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +25,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Button _buyButton;
         [SerializeField] private PriceButtonVisibilityComponent _buttonVisibilityComponent;
 
+        protected Apartment _apartment;
         private UpgradeData _upgradeData;
 
         private double _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
@@ -35,6 +38,7 @@ namespace _Game.UI.UpgradesTab
         private void Start()
         {
             _upgradeData = GameData.Instance.SavableData.Upgrades.First(x => x.Type == _upgradeType);
+            _apartment = Services.Get<Apartment>();
 
             Subscribe();
             UpdateContent();

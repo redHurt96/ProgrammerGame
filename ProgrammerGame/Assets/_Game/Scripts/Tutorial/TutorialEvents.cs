@@ -44,17 +44,27 @@ namespace _Game.Tutorial
             Canvas canvasComponent = window.Target.AddComponent<Canvas>();
             canvasComponent.overrideSorting = true;
             canvasComponent.sortingOrder = 5;
+            window.Target.AddComponent<GraphicRaycaster>();
 
-            window.Target
-                .GetComponent<Button>()
+            Button button = window.Target.GetComponent<Button>();
+
+            button
                 .onClick
                 .AddListener(() => ClearTutorialStep(window.Target));
         }
 
         private void ClearTutorialStep(GameObject windowTarget)
         {
+            if (windowTarget.TryGetComponent(out GraphicRaycaster raycaster))
+                Object.Destroy(raycaster);
+ 
             if (windowTarget.TryGetComponent(out Canvas canvas))
                 Object.Destroy(canvas);
+
+            windowTarget
+                .GetComponent<Button>()
+                .onClick
+                .RemoveListener(() => ClearTutorialStep(windowTarget));
 
             TutorialSettings.Instance.Background.SetActive(false);
         }

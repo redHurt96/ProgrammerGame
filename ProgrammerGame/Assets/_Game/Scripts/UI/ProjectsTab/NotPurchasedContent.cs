@@ -24,7 +24,7 @@ namespace _Game.UI.ProjectsTab
             _price.text = projectData.GetPrice(1).ToPriceString();
             priceButtonVisibilityComponent.SetPriceFunc(() => projectData.GetPrice(1));
 
-            _button.onClick.RemoveAllListeners();
+            _button.onClick.RemoveListener(onBuyClick.Invoke);
             _button.onClick.AddListener(onBuyClick.Invoke);
         }
     }

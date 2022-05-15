@@ -1,11 +1,13 @@
 ﻿using _Game.UI.Tutorial;
 using RH.Utilities.SingletonAccess;
+using UnityEngine;
 
 namespace _Game.Configs
 {
     public class TutorialSettings : MonoBehaviourSingleton<TutorialSettings>
     {
         public TutorialWindow[] Windows;
+        public GameObject Background;
     }
 
     public enum TutorialStep

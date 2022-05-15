@@ -6,7 +6,9 @@ using _Game.GameServices;
 using _Game.UI.Tutorial;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace _Game.Tutorial
 {
@@ -16,11 +18,11 @@ namespace _Game.Tutorial
 
         public TutorialEvents() => 
             _windowsManager = Services.Get<WindowsManager>();
-        
+
         private readonly Dictionary<TutorialStep, UnityAction> _actions = new Dictionary<TutorialStep, UnityAction>();
 
         public void CreateActionFrom(TutorialWindow window) => 
-            _actions.Add(window.Step, () => _windowsManager.Show(window));
+            _actions.Add(window.Step, () => ShowTutorial(window));
 
         public void InvokeEvent(TutorialStep name)
         {
@@ -32,6 +34,29 @@ namespace _Game.Tutorial
 
                 GlobalEvents.Instance.InvokeOnTutorialStepReceiveEvent();
             }
+        }
+
+        private void ShowTutorial(TutorialWindow window)
+        {
+            _windowsManager.Show(window);
+            TutorialSettings.Instance.Background.SetActive(true);
+
+            Canvas canvasComponent = window.Target.AddComponent<Canvas>();
+            canvasComponent.overrideSorting = true;
+            canvasComponent.sortingOrder = 5;
+
+            window.Target
+                .GetComponent<Button>()
+                .onClick
+                .AddListener(() => ClearTutorialStep(window.Target));
+        }
+
+        private void ClearTutorialStep(GameObject windowTarget)
+        {
+            if (windowTarget.TryGetComponent(out Canvas canvas))
+                Object.Destroy(canvas);
+
+            TutorialSettings.Instance.Background.SetActive(false);
         }
     }
 }

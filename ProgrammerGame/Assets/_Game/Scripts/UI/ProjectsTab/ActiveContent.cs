@@ -4,8 +4,6 @@ using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
-using AP.ProgrammerGame;
-using RH.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +16,6 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Text _income;
         [SerializeField] private Text _price;
         [SerializeField] private Image _progressBarFill;
-        [SerializeField] private Text _timer;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _runButton;
         [SerializeField] private PriceButtonVisibilityComponent priceButtonVisibilityComponent;
@@ -52,7 +49,7 @@ namespace _Game.UI.ProjectsTab
             GlobalEvents.Instance.BuyCountChanged += UpdatePrice;
 
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
-            _projectData.TimeUpdated += UpdateTimerAndProgressBar;
+            _projectData.TimeUpdated += UpdateProgressBar;
         }
 
         private void OnDestroy()
@@ -62,20 +59,13 @@ namespace _Game.UI.ProjectsTab
             if (_projectData != null)
             {
                 _projectData.DynamicDataUpdated -= UpdateDynamicContent;
-                _projectData.TimeUpdated -= UpdateTimerAndProgressBar;
+                _projectData.TimeUpdated -= UpdateProgressBar;
             }
-        }
-
-        private void UpdateTimerAndProgressBar()
-        {
-            UpdateTimer();
-            UpdateProgressBar();
         }
 
         private void UpdateDynamicContent()
         {
             UpdatePrice();
-            UpdateTimer();
             UpdateProgressBar();
         }
 
@@ -83,7 +73,6 @@ namespace _Game.UI.ProjectsTab
         {
             UpdateTitles();
             UpdateProgressBar();
-            UpdateTimer();
             DisableRunButtonIfProjectAutorunned();
             UpdatePrice();
         }
@@ -96,14 +85,6 @@ namespace _Game.UI.ProjectsTab
 
         private void UpdateProgressBar() => 
             _progressBarFill.fillAmount = _projectData.Progress;
-
-        private void UpdateTimer()
-        {
-            if (!_projectData.Progress.Approximately(0f) && !_projectData.Progress.Approximately(1f))
-                _timer.text = _projectData.CurrentTimeToFinish.ToString(@"h\:mm\:ss");
-            else
-                _timer.text = TimeSpan.FromSeconds(_projectData.Time).ToString(@"h\:mm\:ss");
-        }
 
         private void UpdateTitles()
         {

@@ -63,6 +63,7 @@ namespace _Game.Configs
 
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
+        public float MinLevelReward;
     }
 
     public partial class Settings
@@ -88,5 +89,6 @@ namespace _Game.Configs
 
         private Money GetMoneyResourceByValue(double amount) =>
             Settings.Instance.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
+
     }
 }

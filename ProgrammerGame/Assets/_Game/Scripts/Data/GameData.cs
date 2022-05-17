@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using _Game.Configs;
 using _Game.UI.Windows;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Data
 {
-    public partial class GameData : Singleton<GameData>
+    public partial class GameData : Singleton<GameData>, IService
     {
         //saved
         public SavableData SavableData = new SavableData();
@@ -58,11 +59,16 @@ namespace _Game.Data
                 .Where(x => x.State == ProjectState.Active)
                 .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;
 
-        public double GetRewardForLevel() => 
-            IncomePerSec * Settings.Instance.TimeForLevelReward;
+        public double GetRewardForLevel() => Mathf.Max(Settings.Instance.MinLevelReward,
+            IncomePerSec * Settings.Instance.TimeForLevelReward);
 
         public int CalculateLevel() => 
             (int) Mathf.Log10((float) PersistentData.TotalEarnedMoney);
+
+        public double MoneyNeededForLevel(int level) => Mathf.Pow(10, level);
+
+        public float ReachNewLevelProgress =>
+            (float) (PersistentData.TotalEarnedMoney / MoneyNeededForLevel(PersistentData.Level + 1));
 
         public bool CanBuyNewRoom()
         {

@@ -1,10 +1,9 @@
-﻿using System;
-using _Game.Common;
+﻿using _Game.Common;
 using _Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI
+namespace _Game.UI.LevelPanel
 {
     public class LevelTitle : MonoBehaviour
     {

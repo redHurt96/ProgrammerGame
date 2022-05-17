@@ -1,18 +1,17 @@
-﻿using _Game.Common;
-using _Game.Configs;
+﻿using _Game.Configs;
 using _Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Game.UI.ResetTab
 {
-    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(Image))]
     public class ResetButtonVisibilityComponent : MonoBehaviour
     {
-        [SerializeField] private Button _button;
+        [SerializeField] private Image _image;
 
         private void Update() =>
-            _button.interactable = 
+            _image.enabled = 
                 GameData.Instance.BoostForProgress 
                 * GameData.Instance.PersistentData.MainBoost 
                 - GameData.Instance.PersistentData.MainBoost 

@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using _Game.Fx;
 using _Game.Logic.MonoBehaviours;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Configs
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
-    public partial class Settings : SingletonScriptableObject<Settings>
+    public partial class Settings : SingletonScriptableObject<Settings>, IService
     {
         public Money[] MoneyPrefabs;
         public PriceFx TapFxPrefab;

@@ -21,6 +21,7 @@ namespace _Game.Common
                 GlobalEvents.DestroyInstance();
 
             _services
+                .RegisterSingle(_settings)
                 .RegisterSingle(new WindowsManager())
                 .RegisterSingle(new Apartment())
                 .RegisterSingle(new GlobalEvents())
@@ -53,7 +54,6 @@ namespace _Game.Common
                 .Add(new AddCurrentMoneySystem())
                 .Add(new ShowLevelWindowSystem())
                 .Add(new UpdatePlayerLevelSystem())
-
                 .Add(new DailyBonusSaveLoadSystem())
                 .Add(new DailyBonusUpdateSystem())
                 .Add(new DailyBonusShowWindowSystem())

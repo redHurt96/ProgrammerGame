@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 namespace _Game.Tutorial
 {
-    public class TutorialEvents : Singleton<TutorialEvents>
+    public class TutorialEvents : Singleton<TutorialEvents>, IService
     {
         private readonly WindowsManager _windowsManager;
 

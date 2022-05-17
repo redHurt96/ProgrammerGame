@@ -16,19 +16,16 @@ namespace _Game.Common
         protected override void RegisterServices()
         {
             _settings.CreateInstance();
-            _services
-                .RegisterSingle(new WindowsManager())
-                .RegisterSingle(new Apartment());
 
             if (GlobalEvents.Instance != null)
                 GlobalEvents.DestroyInstance();
 
-            new GlobalEvents();
-
-            new GameData();
-            new GameData();
-            new Apartment();
-            new TutorialEvents();
+            _services
+                .RegisterSingle(new WindowsManager())
+                .RegisterSingle(new Apartment())
+                .RegisterSingle(new GlobalEvents())
+                .RegisterSingle(new GameData())
+                .RegisterSingle(new TutorialEvents());
         }
 
         protected override void RegisterSystems()

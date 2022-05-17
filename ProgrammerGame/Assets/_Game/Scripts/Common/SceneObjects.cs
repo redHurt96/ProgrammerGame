@@ -21,6 +21,6 @@ namespace _Game.Common
         public EarnedWhileAwayWindow _earnedWhileAwayWindow;
         public DailyBonusWindow DailyBonusWindow;
         public LevelRewardWindow LevelWindow;
-        public BaseWindow ResetWindow;
+        public ResetWindow ResetWindow;
     }
 }

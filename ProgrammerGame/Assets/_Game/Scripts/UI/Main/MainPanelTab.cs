@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _Game.Scripts.UI.Main
+namespace _Game.UI.Main
 {
     [Serializable]
     public class MainPanelTab : MonoBehaviour
@@ -19,7 +19,5 @@ namespace _Game.Scripts.UI.Main
         Python,
         CSharp,
         CPlusPlus,
-
-        ClearForBoost
     }
 }

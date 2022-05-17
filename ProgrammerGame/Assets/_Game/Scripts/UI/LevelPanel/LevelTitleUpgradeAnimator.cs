@@ -1,7 +1,7 @@
 ﻿using _Game.Common;
 using UnityEngine;
 
-namespace _Game.UI
+namespace _Game.UI.LevelPanel
 {
     [RequireComponent(typeof(Animator))]
     public class LevelTitleUpgradeAnimator : MonoBehaviour

@@ -1,12 +1,13 @@
 using System;
 using _Game.Data;
 using _Game.Logic.Systems;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Common
 {
-    public class GlobalEvents : Singleton<GlobalEvents>
+    public class GlobalEvents : Singleton<GlobalEvents>, IService
     {
         public event Action<double> ChangeMoneyIntent;
         public event Action<double> MoneyCountChanged;

@@ -36,7 +36,7 @@ namespace _Game.GameServices
                 GlobalEvents.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
         }
 
-        public void AddProgrammer(FurnitureSlot slot)
+        public void AddProgrammer(string projectName, FurnitureSlot slot)
         {
             string replacingType = slot.ReplacingTypes[0];
 
@@ -50,7 +50,10 @@ namespace _Game.GameServices
                 replacingObject.transform.position, 
                 replacingObject.transform.rotation, 
                 _apartmentParent);
-            _furniture.Add(slot.Type, 
+
+            programmer.name = $"{projectName}_{slot.Type}";
+
+            _furniture.Add(programmer.name, 
                 programmer);
 
             Object.Destroy(replacingObject);

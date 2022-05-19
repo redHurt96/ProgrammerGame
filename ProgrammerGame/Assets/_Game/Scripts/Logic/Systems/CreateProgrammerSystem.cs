@@ -38,13 +38,13 @@ namespace _Game.Logic.Systems
                 CreateProgrammer(runnedProject.ProjectData.Name);
         }
 
-        private void CreateProgrammer(string name)
+        private void CreateProgrammer(string projectName)
         {
             AllProgrammersSettings.ProgrammerWorkplace workplace =
                 Settings.Instance.AllProgrammersSettings.Workplaces
-                    .First(x => x.ProgrammerSettings.AutomatedProject.Name == name);
+                    .First(x => x.ProgrammerSettings.AutomatedProject.Name == projectName);
 
-            _apartment.AddProgrammer(workplace.FurnitureSlot);
+            _apartment.AddProgrammer(projectName, workplace.FurnitureSlot);
         }
     }
 }

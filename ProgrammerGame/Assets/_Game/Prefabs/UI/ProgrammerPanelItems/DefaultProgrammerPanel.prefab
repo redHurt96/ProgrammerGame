@@ -578,6 +578,7 @@ MonoBehaviour:
   _price: {fileID: 8404692907616111841}
   _priceButtonVisibilityComponent: {fileID: 2116300846385300358}
   _needUpgradeTip: {fileID: 6646293210481844576}
+  _buttonTitle: {fileID: 8404692906380578769}
 --- !u!1 &8404692907598195879
 GameObject:
   m_ObjectHideFlags: 0

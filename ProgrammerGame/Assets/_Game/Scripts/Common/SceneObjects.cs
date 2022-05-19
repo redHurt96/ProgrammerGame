@@ -1,11 +1,11 @@
 ﻿using _Game.UI.Windows;
-using Cinemachine;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Common
 {
-    public class SceneObjects : MonoBehaviourSingleton<SceneObjects>
+    public class SceneObjects : MonoBehaviourSingleton<SceneObjects>, IService
     {
         public Transform MoneyParentObject;
         public Transform HouseParent;
@@ -15,10 +15,9 @@ namespace _Game.Common
 
         [Space] 
         public Camera Camera;
-        public CinemachineVirtualCamera VirtualCamera;
 
         [Space] 
-        public EarnedWhileAwayWindow _earnedWhileAwayWindow;
+        public EarnedWhileAwayWindow EarnedWhileAwayWindow;
         public DailyBonusWindow DailyBonusWindow;
         public LevelRewardWindow LevelWindow;
         public ResetWindow ResetWindow;

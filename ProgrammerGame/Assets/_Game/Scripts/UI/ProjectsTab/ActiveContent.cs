@@ -4,6 +4,7 @@ using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Scripts.Exception;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,13 +23,24 @@ namespace _Game.UI.ProjectsTab
 
         private ProjectData _projectData;
 
+        private GameData _data;
+        private GlobalEvents _events;
+        private Settings _settings;
+
+        private void Awake()
+        {
+            _data = Services.Get<GameData>();
+            _events = Services.Get<GlobalEvents>();
+            _settings = Services.Get<Settings>();
+        }
+
         public void Setup(ProjectData projectData, ProjectSettings settings, Action buyAction, Action runAction)
         {
             _projectData = projectData;
 
             _icon.sprite = settings.Icon;
 
-            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.GetPrice(GameData.Instance.BuyCount));
+            priceButtonVisibilityComponent.SetPriceFunc(() => _projectData.GetPrice(_data.BuyCount));
 
             AddButtonsListeners(buyAction, runAction);
             UpdateContent();
@@ -46,7 +58,7 @@ namespace _Game.UI.ProjectsTab
 
         private void Subscribe()
         {
-            GlobalEvents.Instance.BuyCountChanged += UpdatePrice;
+            _events.BuyCountChanged += UpdatePrice;
 
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
             _projectData.TimeUpdated += UpdateProgressBar;
@@ -54,7 +66,7 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            GlobalEvents.Instance.BuyCountChanged -= UpdatePrice;
+            _events.BuyCountChanged -= UpdatePrice;
 
             if (_projectData != null)
             {
@@ -80,7 +92,7 @@ namespace _Game.UI.ProjectsTab
         private void UpdatePrice()
         {
             priceButtonVisibilityComponent.UpdateVisibility();
-            _price.text = _projectData.GetPrice(GameData.Instance.BuyCount).ToPriceString();
+            _price.text = _projectData.GetPrice(_data.BuyCount).ToPriceString();
         }
 
         private void UpdateProgressBar() => 
@@ -93,13 +105,13 @@ namespace _Game.UI.ProjectsTab
         }
 
         private string GetCloseLevelTarget(int level) =>
-            Settings.Instance.TargetLevels
+            _settings.TargetLevels
                 .First(x => x > level)
                 .ToString();
 
         private void DisableRunButtonIfProjectAutorunned()
         {
-            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_projectData.Name) && _runButton.interactable)
+            if (_data.IsProjectAutoRunned(_projectData.Name) && _runButton.interactable)
                 _runButton.interactable = false;
         }
     }

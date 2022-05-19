@@ -24,6 +24,12 @@ namespace _Game.Data
 
     public partial class GameData
     {
+        public bool IsProjectAutoRunned(string projectName) =>
+            SavableData.AutoRunnedProjects.Any(x => x.ProjectName == projectName);
+
+        public ProgrammerUpgradeData GetProgrammerData(string projectName) =>
+            SavableData.AutoRunnedProjects.First(x => x.ProjectName == projectName);
+
         public float IncreaseSpeedTotalEffect => 
             GetUpgradeData(UpgradeType.Interior).Level * Settings.Instance.IncreaseSpeedEffectStrength;
 

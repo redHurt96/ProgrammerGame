@@ -2,8 +2,8 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Scripts.Exception;
 using _Game.GameServices;
+using _Game.Scripts.Exception;
 using _Game.UI.ProjectsTab;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
@@ -64,22 +64,27 @@ namespace _Game.UI.ProgrammersTab
 
         private void SetupForPurchasedProgrammer()
         {
-            _description.text = $"Level {_data.GetProgrammerData(_programmer.AutomatedProject.Name).Level} auto run";
+            ProgrammerUpgradeData upgradeData = _data.GetProgrammerData(_programmer.AutomatedProject.Name);
 
-            _button.onClick.RemoveListener(BuyProgrammer);
+            _description.text = $"Level {upgradeData.Level}";
+
+            _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(UpgradeProgrammer);
 
-            _button.gameObject.SetActive(false);
             _buttonTitle.text = "Upgrade";
+
+            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
+            _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
+            _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
         }
 
         private void SetupForAvailableProgrammer()
         {
             _description.text = $"{_programmer.AutomatedProject.Name} auto run";
 
-            _price.text = _programmer.Price.ToPriceString();
+            _price.text = _programmer.GetPrice(0).ToPriceString();
             _button.onClick.AddListener(BuyProgrammer);
-            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.Price);
+            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(0));
             _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
             _buttonTitle.text = "Hire";
 
@@ -98,12 +103,16 @@ namespace _Game.UI.ProgrammersTab
 
             SetupForPurchasedProgrammer();
 
-            _events.IntentToChangeMoney(-_programmer.Price);
+            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
         }
 
         private void UpgradeProgrammer()
         {
-            
+            _events.IntentToUpgradeProgrammer(_programmer.AutomatedProject.Name);
+
+            SetupForPurchasedProgrammer();
+
+            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
         }
 
         private void UpdateTip(UpgradeType type)

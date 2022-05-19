@@ -8,6 +8,10 @@ namespace _Game.Configs
         public string Name;
         public Sprite Icon;
         public ProjectSettings AutomatedProject;
-        public double Price;
+
+        [SerializeField] private PriceSettings _priceSettings;
+
+        public double GetPrice(int level) => 
+            _priceSettings.GetPrice(level);
     }
 }

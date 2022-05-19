@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace _Game.Data
 {
@@ -10,7 +11,7 @@ namespace _Game.Data
         public string ProjectName;
         public int Level => _upgradeData.Level;
 
-        private UpgradeData _upgradeData;
+        [SerializeField] private UpgradeData _upgradeData;
 
         public ProgrammerUpgradeData(string projectName)
         {
@@ -19,6 +20,8 @@ namespace _Game.Data
             _upgradeData = new UpgradeData();
             _upgradeData.Upgraded += TriggerSelfEvent;
         }
+
+        public void Upgrade() => _upgradeData.Upgrade();
 
         public void Dispose() => 
             _upgradeData.Upgraded -= TriggerSelfEvent;

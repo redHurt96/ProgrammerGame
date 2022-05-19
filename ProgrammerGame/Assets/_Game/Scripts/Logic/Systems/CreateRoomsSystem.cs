@@ -12,13 +12,19 @@ namespace _Game.Logic.Systems
         private UpgradeData _roomsUpgradeData;
 
         private readonly Apartment _apartment;
+        private readonly GameData _data;
+        private readonly Settings _settings;
 
-        public CreateRoomsSystem() => 
+        public CreateRoomsSystem()
+        {
             _apartment = Services.Get<Apartment>();
+            _data = Services.Get<GameData>();
+            _settings = Services.Get<Settings>();
+        }
 
         public override void Init()
         {
-            _roomsUpgradeData = GameData.Instance.GetUpgradeData(UpgradeType.House);
+            _roomsUpgradeData = _data.GetUpgradeData(UpgradeType.House);
 
             CreateRooms();
 
@@ -39,7 +45,7 @@ namespace _Game.Logic.Systems
 
         private void CreateRoom(int number)
         {
-            RoomSettings room = Settings.Instance.Rooms[number];
+            RoomSettings room = _settings.Rooms[number];
 
             _apartment.AddRoom(room);
         }

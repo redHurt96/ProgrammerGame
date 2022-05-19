@@ -25,8 +25,10 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Button _buyButton;
         [SerializeField] private PriceButtonVisibilityComponent _buttonVisibilityComponent;
 
-        protected Apartment _apartment;
         private UpgradeData _upgradeData;
+
+        protected Apartment _apartment;
+        private GameData _data;
 
         private double _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
 
@@ -37,8 +39,9 @@ namespace _Game.UI.UpgradesTab
 
         private void Start()
         {
-            _upgradeData = GameData.Instance.SavableData.Upgrades.First(x => x.Type == _upgradeType);
+            _data = Services.Get<GameData>();
             _apartment = Services.Get<Apartment>();
+            _upgradeData = _data.GetUpgradeData(_upgradeType);
 
             Subscribe();
             UpdateContent();

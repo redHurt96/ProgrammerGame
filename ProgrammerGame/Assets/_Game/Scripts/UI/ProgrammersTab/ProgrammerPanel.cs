@@ -28,11 +28,13 @@ namespace _Game.UI.ProgrammersTab
         private Apartment _apartment;
         private GameData _data;
         private GlobalEvents _events;
+        private Settings _settings;
 
         private void OnEnable()
         {
             _apartment ??= Services.Get<Apartment>();
             _data ??= Services.Get<GameData>();
+            _settings ??= Services.Get<Settings>();
             _events ??= Services.Get<GlobalEvents>();
 
             UpdateTip();
@@ -43,7 +45,7 @@ namespace _Game.UI.ProgrammersTab
         {
             SetupCommonData();
 
-            if (GameData.Instance.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == _programmer.AutomatedProject.Name))
+            if (_data.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == _programmer.AutomatedProject.Name))
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();
@@ -74,8 +76,16 @@ namespace _Game.UI.ProgrammersTab
             _buttonTitle.text = "Upgrade";
 
             _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
-            _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
+            _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerHasUpgrade);
             _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
+        }
+
+        private bool CheckProgrammerHasUpgrade()
+        {
+            int level = _data.GetProgrammerData(_programmer.AutomatedProject.Name).Level;
+            int upgradesCount = _settings.AllProgrammersSettings.Upgrades.Length;
+
+            return level < upgradesCount;
         }
 
         private void SetupForAvailableProgrammer()
@@ -93,7 +103,7 @@ namespace _Game.UI.ProgrammersTab
 
         private bool CheckProgrammerAvailability() =>
             _apartment.ContainSpotFor(_programmer.name)
-            && GameData.Instance.SavableData.Projects
+            && _data.SavableData.Projects
                 .First(x => x.projectSettings == _programmer.AutomatedProject)
                 .State == ProjectState.Active;
 

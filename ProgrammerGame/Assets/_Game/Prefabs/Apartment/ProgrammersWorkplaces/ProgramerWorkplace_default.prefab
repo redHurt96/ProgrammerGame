@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200388027355627561}
   m_Layer: 0
-  m_Name: taburetka
+  m_Name: 0_Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7668954338086451592}
   m_Layer: 0
-  m_Name: Table_default
+  m_Name: 0_Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

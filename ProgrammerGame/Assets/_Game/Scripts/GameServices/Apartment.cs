@@ -63,7 +63,7 @@ namespace _Game.GameServices
                         _apartmentParent)
                     .gameObject;
 
-                spotObject.name = $"{projectName}_{spotObject.name}";
+                spotObject.name = $"{projectName}_{child.name}";
 
                 _furniture.Add(spotObject.name,
                     spotObject);
@@ -74,16 +74,28 @@ namespace _Game.GameServices
         {
             foreach (string replacingType in slot.ReplacingTypes)
             {
-                var fullName = $"{projectName}_{slot.ReplacingTypes}";
-                
+                var fullName = $"{projectName}_{replacingType}";
+
                 if (!_furniture.ContainsKey(fullName))
                     throw new Exception($"There is no furniture with type {fullName} to replace. Check your rooms settings");
 
                 Object.Destroy(_furniture[fullName]);
                 _furniture.Remove(fullName);
             }
-            
-            
+
+            Transform origin = _furniture.First(x => x.Key.Contains(projectName)).Value.transform;
+
+            var spotObject = Object.Instantiate(
+                    slot.Furniture,
+                    origin.position,
+                    origin.rotation,
+                    _apartmentParent)
+                .gameObject;
+
+            spotObject.name = $"{projectName}_{slot.Furniture.name}";
+
+            _furniture.Add(spotObject.name,
+                spotObject);
         }
 
         public void AddMainCharacter(FurnitureSlot slot)

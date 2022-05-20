@@ -8,6 +8,7 @@ namespace _Game.Configs
     {
         public ProgrammerWorkplace[] Workplaces;
         public ProgrammerSettings[] Programmers;
+        public FurnitureSlot[] Upgrades;
 
         [Serializable]
         public class ProgrammerWorkplace

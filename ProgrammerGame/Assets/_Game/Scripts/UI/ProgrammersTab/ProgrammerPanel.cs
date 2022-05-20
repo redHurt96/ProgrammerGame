@@ -70,14 +70,22 @@ namespace _Game.UI.ProgrammersTab
 
             _description.text = $"Level {upgradeData.Level}";
 
-            _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(UpgradeProgrammer);
+            bool canUpgrade = CheckProgrammerHasUpgrade();
 
-            _buttonTitle.text = "Upgrade";
+            _button.gameObject.SetActive(canUpgrade);
 
-            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
-            _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerHasUpgrade);
-            _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
+            if (canUpgrade)
+            {
+                _button.onClick.RemoveAllListeners();
+                _button.onClick.AddListener(UpgradeProgrammer);
+
+                _buttonTitle.text = "Upgrade";
+
+                _button.gameObject.SetActive(CheckProgrammerHasUpgrade());
+                _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
+                _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerHasUpgrade);
+                _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
+            }
         }
 
         private bool CheckProgrammerHasUpgrade()

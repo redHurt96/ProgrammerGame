@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294e9d6f74f94d50be770c170c281329, type: 3}
   m_Name: All Programmers
   m_EditorClassIdentifier: 
+  BoostPerProgrammerLevel: 0.2
   Workplaces:
   - ProgrammerSettings: {fileID: 11400000, guid: acb9bf33df7fc7f41a9a5388a37d1ea0, type: 2}
     FurnitureSlot:

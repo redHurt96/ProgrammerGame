@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using _Game.Data;
+﻿using RH.Utilities.ServiceLocator;
+using System.Collections.Generic;
 using _Game.UI.Windows;
-using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
 {
     public class WindowsManager : IService
     {
-        private Stack<BaseWindow> _windowsStack => GameData.Instance.WindowsStack;
-        
+        private Queue<BaseWindow> _windowsStack = new Queue<BaseWindow>();
+
+        public bool IsAnyWindowShown => _windowsStack.Count > 0;
+
         public T Show<T>(T window) where T : BaseWindow
         {
-            _windowsStack.Push(window);
+            _windowsStack.Enqueue(window);
 
             if (_windowsStack.Count == 1)
                 window.Show(this);
@@ -21,7 +22,7 @@ namespace _Game.GameServices
 
         public void Hide(BaseWindow window)
         {
-            _windowsStack.Pop();
+            _windowsStack.Dequeue();
             window.Hide();
 
             if (_windowsStack.Count > 0)

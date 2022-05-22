@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Game.Configs;
+using _Game.Tutorial;
 
 namespace _Game.Data
 {

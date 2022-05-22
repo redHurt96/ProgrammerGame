@@ -10,6 +10,8 @@ namespace _Game.Data
         public double TotalEarnedMoney;
         public float MainBoost = 1f;
         public TutorialData TutorialData = new TutorialData();
+        public bool IsProgrammersTabUnlocked;
+        public bool IsUpgradesTabUnlocked;
 
         public string Key => "Persistent";
     }

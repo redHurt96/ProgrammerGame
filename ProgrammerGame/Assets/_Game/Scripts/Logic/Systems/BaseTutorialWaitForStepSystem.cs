@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using _Game.Configs;
 using _Game.Data;
+using _Game.GameServices;
 using _Game.Tutorial;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
@@ -15,6 +17,12 @@ namespace _Game.Logic.Systems
         protected abstract float _delay { get; }
 
         private Coroutine _coroutine;
+        private readonly WindowsManager _windowsManager;
+
+        private WaitForSeconds _updateConditionRandomTime => new WaitForSeconds(Random.Range(.01f, .2f));
+
+        protected BaseTutorialWaitForStepSystem() => 
+            _windowsManager = Services.Get<WindowsManager>();
 
         public sealed override void Init()
         {
@@ -30,7 +38,9 @@ namespace _Game.Logic.Systems
 
         private IEnumerator WaitForPerform()
         {
-            yield return new WaitUntil(() => _waitCondition);
+            while (!_waitCondition || _windowsManager.IsAnyWindowShown)
+                yield return _updateConditionRandomTime;
+
             yield return new WaitForSeconds(_delay);
 
             TutorialEvents.Instance.InvokeEvent(Step);

@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using _Game.Configs;
-using _Game.GameServices;
+﻿using _Game.Tutorial;
 using _Game.UI.Windows;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.UI.Tutorial
@@ -9,26 +8,34 @@ namespace _Game.UI.Tutorial
     public class TutorialWindow : BaseWindow
     {
         public TutorialStep Step => _step;
+        public GameObject Target => _target;
 
+        [Header("Tutorial window")]
         [SerializeField] private TutorialStep _step;
+        [SerializeField] private GameObject _target;
+        [SerializeField] private RectTransform _hand;
 
-        [Space]
-        [SerializeField] private float _windowNonInteractableTime = 1f;
+        private TutorialSettings _tutorialSettings;
 
-        private bool _isDestroyed;
-        private bool _canClose;
+        public bool HasShown { get; private set; }
 
-        private IEnumerator Start()
+        protected override void PerformBeforeOpen()
         {
-            yield return new WaitForSeconds(_windowNonInteractableTime);
+            _tutorialSettings = Services.Get<TutorialSettings>();
 
-            _canClose = true;
+            _tutorialSettings.Background.SetActive(true);
+
+            _hand.parent = Target.transform;
+            _hand.anchoredPosition = Vector3.zero;
         }
 
-        private void Update()
+        protected override void PerformBeforeClose()
         {
-            if (Input.GetMouseButtonDown(0) && _canClose)
-                Close();
+            HasShown = true;
+
+            _tutorialSettings.Background.SetActive(false);
+
+            Destroy(_hand.gameObject);
         }
     }
 }

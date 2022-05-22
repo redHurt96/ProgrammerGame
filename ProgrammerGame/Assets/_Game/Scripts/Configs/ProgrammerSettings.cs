@@ -13,5 +13,10 @@ namespace _Game.Configs
 
         public double GetPrice(int level) => 
             _priceSettings.GetPrice(level);
+        
+#if UNITY_EDITOR
+        public void SetPrice(PriceSettings priceSettings) => 
+            _priceSettings = priceSettings;
+#endif
     }
 }

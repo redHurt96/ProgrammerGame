@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Game.Configs;
-using _Game.UI.Windows;
+using _Game.Tutorial;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
@@ -13,19 +13,19 @@ namespace _Game.Data
         //saved
         public SavableData SavableData = new SavableData();
         public DailyBonusData DailyBonusData = new DailyBonusData();
-        public readonly PersistentData PersistentData = new PersistentData();
+        public PersistentData PersistentData = new PersistentData();
 
         //not saved
         public readonly List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();
         public int BuyCount = 1;
         public GameState GameState;
-        public Stack<BaseWindow> WindowsStack = new Stack<BaseWindow>();
-
-        
     }
 
     public partial class GameData
     {
+        public bool ContainsTutorialStep(TutorialStep step) =>
+            PersistentData.TutorialData.Steps.Contains(step);
+        
         public ProjectData GetProject(string projectName) => 
             SavableData.Projects.Find(x => x.Name == projectName);
 

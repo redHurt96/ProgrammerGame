@@ -50,10 +50,8 @@ namespace _Game.Configs
         public PcSettings PcSettings;
         public AllProgrammersSettings AllProgrammersSettings;
         public FurnitureSlot MainCharacter;
-        public PriceSettings PcUpgradeSettings;
-
-        [Header("Camera")]
-        public CameraSizesPerHouseLevel[] CameraSizesPerHouseLevel;
+        public PriceSettingsScriptable PcPrices;
+        public PriceSettingsScriptable HousePrices;
 
         [Header("Boost for progress reset")]
         public float BoostForResetBaseValue;

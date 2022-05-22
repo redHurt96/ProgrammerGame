@@ -5,7 +5,7 @@ using RH.Utilities.PseudoEcs;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialBuyFirstProjectStep : IInitSystem
+    public class TutorialBuyFirstProjectStep_1 : IInitSystem
     {
         public void Init()
         {

@@ -9,8 +9,11 @@ namespace _Game.UI.Tutorial
     public class TutorialWindow : BaseWindow
     {
         public TutorialStep Step => _step;
+        public GameObject Target => _target;
 
+        [Header("Tutorial window")]
         [SerializeField] private TutorialStep _step;
+        [SerializeField] private GameObject _target;
 
         [Space]
         [SerializeField] private float _windowNonInteractableTime = 1f;

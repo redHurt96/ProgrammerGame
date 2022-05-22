@@ -63,13 +63,15 @@ namespace _Game.Common
 
                 //tutorial
                 .Add(new TutorialCreateSystem())
-                .Add(new TutorialBuyFirstProjectStep())
-                .Add(new TutorialRunFirstProjectStep())
-                .Add(new TutorialTapMoneyStepHandleSystem())
-                .Add(new TutorialBuyFirstProgrammerStep())
-                .Add(new TutorialUpgradeProjectStep())
-                .Add(new TutorialBuyAnotherProjectStep())
-                .Add(new TutorialUpgradePcStep())
+                .Add(new TutorialBuyFirstProjectStep_1())
+                .Add(new TutorialRunFirstProjectStep_2())
+                .Add(new TutorialTapMoneyStep_3())
+                .Add(new TutorialGoToProgrammersTabStep_4_0())
+                .Add(new TutorialBuyFirstProgrammerStep_4())
+                .Add(new TutorialUpgradeProjectStep_5())
+                .Add(new TutorialBuyAnotherProjectStep_6())
+                .Add(new TutorialGoToUpgradesTabStep_7_0())
+                .Add(new TutorialUpgradePcStep_7())
                 .Add(new TutorialBuyEnoughFurnitureStep())
                 .Add(new TutorialUpgradeHouseStep())
 

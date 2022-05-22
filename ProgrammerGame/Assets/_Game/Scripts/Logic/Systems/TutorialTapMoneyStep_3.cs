@@ -1,9 +1,10 @@
 ﻿using _Game.Configs;
 using _Game.Data;
+using _Game.Tutorial;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialTapMoneyStepHandleSystem : BaseTutorialWaitForStepSystem
+    public class TutorialTapMoneyStep_3 : BaseTutorialWaitForStepSystem
     {
         protected override TutorialStep Step => TutorialStep.TapForMoney_3;
 

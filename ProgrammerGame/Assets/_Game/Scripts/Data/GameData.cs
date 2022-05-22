@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Game.Configs;
+using _Game.Tutorial;
 using _Game.UI.Windows;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
@@ -13,15 +14,12 @@ namespace _Game.Data
         //saved
         public SavableData SavableData = new SavableData();
         public DailyBonusData DailyBonusData = new DailyBonusData();
-        public readonly PersistentData PersistentData = new PersistentData();
+        public PersistentData PersistentData = new PersistentData();
 
         //not saved
         public readonly List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();
         public int BuyCount = 1;
         public GameState GameState;
-        public Stack<BaseWindow> WindowsStack = new Stack<BaseWindow>();
-
-        
     }
 
     public partial class GameData

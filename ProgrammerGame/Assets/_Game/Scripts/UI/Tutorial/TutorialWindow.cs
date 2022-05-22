@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using _Game.Configs;
-using _Game.GameServices;
+﻿using _Game.Tutorial;
 using _Game.UI.Windows;
 using UnityEngine;
 
@@ -15,23 +13,9 @@ namespace _Game.UI.Tutorial
         [SerializeField] private TutorialStep _step;
         [SerializeField] private GameObject _target;
 
-        [Space]
-        [SerializeField] private float _windowNonInteractableTime = 1f;
+        public bool HasShown { get; private set; }
 
-        private bool _isDestroyed;
-        private bool _canClose;
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(_windowNonInteractableTime);
-
-            _canClose = true;
-        }
-
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0) && _canClose)
-                Close();
-        }
+        protected override void PerformBeforeClose() => 
+            HasShown = true;
     }
 }

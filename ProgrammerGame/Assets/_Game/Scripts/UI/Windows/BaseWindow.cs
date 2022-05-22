@@ -25,7 +25,6 @@ namespace _Game.UI.Windows
 
         protected void Close()
         {
-            PerformBeforeClose();
             _windowsManager.Hide(this);
         }
 
@@ -38,6 +37,10 @@ namespace _Game.UI.Windows
             gameObject.SetActive(true);
         }
 
-        public void Hide() => gameObject.SetActive(false);
+        public void Hide()
+        {
+            PerformBeforeClose();
+            gameObject.SetActive(false);
+        }
     }
 }

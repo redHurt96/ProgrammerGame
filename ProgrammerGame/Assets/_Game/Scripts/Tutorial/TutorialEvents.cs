@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using _Game.Common;
-using _Game.Configs;
 using _Game.Data;
 using _Game.GameServices;
 using _Game.UI.Tutorial;
@@ -14,12 +13,16 @@ namespace _Game.Tutorial
 {
     public class TutorialEvents : Singleton<TutorialEvents>, IService
     {
-        private readonly WindowsManager _windowsManager;
-
-        public TutorialEvents() => 
-            _windowsManager = Services.Get<WindowsManager>();
-
         private readonly Dictionary<TutorialStep, UnityAction> _actions = new Dictionary<TutorialStep, UnityAction>();
+
+        private readonly WindowsManager _windowsManager;
+        private readonly GameData _data;
+
+        public TutorialEvents()
+        {
+            _windowsManager = Services.Get<WindowsManager>();
+            _data = Services.Get<GameData>();
+        }
 
         public void CreateActionFrom(TutorialWindow window) => 
             _actions.Add(window.Step, () => ShowTutorial(window));
@@ -30,7 +33,7 @@ namespace _Game.Tutorial
             {
                 _actions[name]();
 
-                GameData.Instance.PersistentData.TutorialData.Steps.Add(name);
+                _data.PersistentData.TutorialData.Steps.Add(name);
 
                 GlobalEvents.Instance.InvokeOnTutorialStepReceiveEvent();
             }
@@ -38,9 +41,18 @@ namespace _Game.Tutorial
 
         private void ShowTutorial(TutorialWindow window)
         {
+            ShowTutorialWindow(window);
+            SetupTarget(window);
+        }
+
+        private void ShowTutorialWindow(TutorialWindow window)
+        {
             _windowsManager.Show(window);
             TutorialSettings.Instance.Background.SetActive(true);
+        }
 
+        private void SetupTarget(TutorialWindow window)
+        {
             Canvas canvasComponent = window.Target.AddComponent<Canvas>();
             canvasComponent.overrideSorting = true;
             canvasComponent.sortingOrder = 5;
@@ -50,21 +62,27 @@ namespace _Game.Tutorial
 
             button
                 .onClick
-                .AddListener(() => ClearTutorialStep(window.Target));
+                .AddListener(() => ClearTutorialStep(window));
         }
 
-        private void ClearTutorialStep(GameObject windowTarget)
+        private void ClearTutorialStep(TutorialWindow window)
         {
-            if (windowTarget.TryGetComponent(out GraphicRaycaster raycaster))
+            if (window.HasShown)
+                return;
+
+            if (window.Target.TryGetComponent(out GraphicRaycaster raycaster))
                 Object.Destroy(raycaster);
  
-            if (windowTarget.TryGetComponent(out Canvas canvas))
+            if (window.Target.TryGetComponent(out Canvas canvas))
                 Object.Destroy(canvas);
 
-            windowTarget
+            window
+                .Target
                 .GetComponent<Button>()
                 .onClick
-                .RemoveListener(() => ClearTutorialStep(windowTarget));
+                .RemoveListener(() => ClearTutorialStep(window));
+
+            _windowsManager.Hide(window);
 
             TutorialSettings.Instance.Background.SetActive(false);
         }

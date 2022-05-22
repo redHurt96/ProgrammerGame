@@ -13,10 +13,5 @@ namespace _Game.Scripts.UI.Main
             _buttons
                 .First(x => x.Name == _firstSelectedTab)
                 .SelectTab();
-
-        public void DeselectAll()
-        {
-            
-        }
     }
 }

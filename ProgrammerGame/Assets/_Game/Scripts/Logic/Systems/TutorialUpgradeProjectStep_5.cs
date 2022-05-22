@@ -1,9 +1,10 @@
 ﻿using _Game.Configs;
 using _Game.Data;
+using _Game.Tutorial;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialUpgradeProjectStep : BaseTutorialWaitForStepSystem
+    public class TutorialUpgradeProjectStep_5 : BaseTutorialWaitForStepSystem
     {
         protected override TutorialStep Step => TutorialStep.UpgradeProject_5;
 

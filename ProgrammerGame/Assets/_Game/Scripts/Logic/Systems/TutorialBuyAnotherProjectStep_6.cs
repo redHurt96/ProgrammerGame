@@ -1,10 +1,11 @@
 ﻿using _Game.Configs;
 using _Game.Data;
+using _Game.Tutorial;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialBuyAnotherProjectStep : BaseTutorialWaitForStepSystem
+    public class TutorialBuyAnotherProjectStep_6 : BaseTutorialWaitForStepSystem
     {
         private Coroutine _coroutine;
 

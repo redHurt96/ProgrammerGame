@@ -1,10 +1,10 @@
-﻿using _Game.Configs;
-using _Game.Data;
+﻿using _Game.Data;
+using _Game.Tutorial;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
-    public class TutorialRunFirstProjectStep : BaseTutorialWaitForStepSystem
+    public class TutorialRunFirstProjectStep_2 : BaseTutorialWaitForStepSystem
     {
         private Coroutine _coroutine;
 

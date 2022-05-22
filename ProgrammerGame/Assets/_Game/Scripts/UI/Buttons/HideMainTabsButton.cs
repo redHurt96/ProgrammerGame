@@ -8,7 +8,6 @@ namespace _Game.UI.Buttons
     public class HideMainTabsButton : BaseActionButton
     {
         [SerializeField] private PanelWithTabs _panel;
-        [SerializeField] private TapMenu _tapMenu;
 
         protected override void PerformOnStart() => 
             _panel.TabSelected += Enable;
@@ -19,7 +18,6 @@ namespace _Game.UI.Buttons
         protected override void PerformOnClick()
         {
             _panel.HideAll();
-            _tapMenu.DeselectAll();
 
             gameObject.SetActive(false);
         }

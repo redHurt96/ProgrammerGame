@@ -8,6 +8,7 @@ namespace _Game.GameServices
     {
         private Queue<BaseWindow> _windowsStack = new Queue<BaseWindow>();
 
+        public BaseWindow TopWindow => _windowsStack.Peek();
         public bool IsAnyWindowShown => _windowsStack.Count > 0;
 
         public T Show<T>(T window) where T : BaseWindow

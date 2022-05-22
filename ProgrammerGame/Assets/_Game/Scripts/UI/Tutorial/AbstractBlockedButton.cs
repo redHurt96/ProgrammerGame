@@ -16,7 +16,13 @@ namespace _Game.UI.Tutorial
         private void Start() => 
             _data = Services.Get<GameData>();
 
-        private void Update() => 
-            _button.interactable = Condition;
+        private void Update()
+        {
+            var condition = Condition;
+            _button.interactable = condition;
+
+            if (condition)
+                Destroy(this);
+        }
     }
 }

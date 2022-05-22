@@ -39,5 +39,11 @@ namespace _Game.Tutorial
 
         private void ShowTutorial(TutorialWindow window) => 
             _windowsManager.Show(window);
+        
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+
+        public void ClearTutorial() => 
+            _actions.Clear();
+#endif
     }
 }

@@ -12,7 +12,7 @@ namespace _Game.Debug
 
         private void Awake() => 
             GetComponentInChildren<Text>().text = $"{TimeSec} s";
-        
+
         [ContextMenu("Click")]
         protected override void PerformOnClick() => 
             GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.IncomePerSec * TimeSec);

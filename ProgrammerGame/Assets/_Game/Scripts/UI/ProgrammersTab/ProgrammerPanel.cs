@@ -2,8 +2,8 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using _Game.Scripts.Exception;
 using _Game.GameServices;
+using _Game.Scripts.Exception;
 using _Game.UI.ProjectsTab;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
@@ -23,12 +23,19 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private Text _price;
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
         [SerializeField] private Text _needUpgradeTip;
+        [SerializeField] private Text _buttonTitle;
 
         private Apartment _apartment;
+        private GameData _data;
+        private GlobalEvents _events;
+        private Settings _settings;
 
         private void OnEnable()
         {
             _apartment ??= Services.Get<Apartment>();
+            _data ??= Services.Get<GameData>();
+            _settings ??= Services.Get<Settings>();
+            _events ??= Services.Get<GlobalEvents>();
 
             UpdateTip();
             _priceButtonVisibilityComponent.UpdateVisibility();
@@ -38,51 +45,90 @@ namespace _Game.UI.ProgrammersTab
         {
             SetupCommonData();
 
-            if (GameData.Instance.SavableData.AutoRunnedProjects.Contains(_programmer.AutomatedProject.Name))
+            if (_data.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == _programmer.AutomatedProject.Name))
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();
 
-            GlobalEvents.Instance.OnUpgraded += UpdateTip;
+            _events.OnUpgraded += UpdateTip;
 
             _priceButtonVisibilityComponent.UpdateVisibility();
         }
 
         private void OnDestroy() => 
-            GlobalEvents.Instance.OnUpgraded -= UpdateTip;
+            _events.OnUpgraded -= UpdateTip;
 
         private void SetupCommonData()
         {
             _name.text = _programmer.Name;
-            _description.text = $"{_programmer.AutomatedProject.Name} auto run";
             _icon.sprite = _programmer.Icon;
         }
 
-        private void SetupForPurchasedProgrammer() => 
-            _button.gameObject.SetActive(false);
+        private void SetupForPurchasedProgrammer()
+        {
+            ProgrammerUpgradeData upgradeData = _data.GetProgrammerData(_programmer.AutomatedProject.Name);
+            bool canUpgrade = CheckProgrammerHasUpgrade();
+
+            _description.text = $"+ {upgradeData.Level * _settings.AllProgrammersSettings.BoostPerProgrammerLevel * 100}% money";
+            _button.gameObject.SetActive(canUpgrade);
+
+            if (canUpgrade)
+            {
+                _button.onClick.RemoveAllListeners();
+                _button.onClick.AddListener(UpgradeProgrammer);
+
+                _buttonTitle.text = "Upgrade";
+
+                _button.gameObject.SetActive(CheckProgrammerHasUpgrade());
+                _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
+                _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerHasUpgrade);
+                _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
+            }
+        }
+
+        private bool CheckProgrammerHasUpgrade()
+        {
+            int level = _data.GetProgrammerData(_programmer.AutomatedProject.Name).Level;
+            int upgradesCount = _settings.AllProgrammersSettings.Upgrades.Length;
+
+            return level < upgradesCount;
+        }
 
         private void SetupForAvailableProgrammer()
         {
-            _price.text = _programmer.Price.ToPriceString();
+            _description.text = $"{_programmer.AutomatedProject.Name} auto run";
+
+            _price.text = _programmer.GetPrice(0).ToPriceString();
             _button.onClick.AddListener(BuyProgrammer);
-            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.Price);
+            _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(0));
             _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
+            _buttonTitle.text = "Hire";
+
             UpdateTip();
         }
 
         private bool CheckProgrammerAvailability() =>
             _apartment.ContainSpotFor(_programmer.name)
-            && GameData.Instance.SavableData.Projects
+            && _data.SavableData.Projects
                 .First(x => x.projectSettings == _programmer.AutomatedProject)
                 .State == ProjectState.Active;
 
         private void BuyProgrammer()
         {
-            GlobalEvents.Instance.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
+            _events.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
 
             SetupForPurchasedProgrammer();
 
-            GlobalEvents.Instance.IntentToChangeMoney(-_programmer.Price);
+            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
+        }
+
+        private void UpgradeProgrammer()
+        {
+            _events.IntentToUpgradeProgrammer(_programmer.AutomatedProject.Name);
+
+            SetupForPurchasedProgrammer();
+
+            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
         }
 
         private void UpdateTip(UpgradeType type)

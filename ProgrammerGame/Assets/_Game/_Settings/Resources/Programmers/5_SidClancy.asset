@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
-  m_Name: 9_NatoshiSakamoto
+  m_Name: 5_SidClancy
   m_EditorClassIdentifier: 
-  Name: Natoshi Sakamoto
+  Name: Sid Clancy
   Icon: {fileID: 21300000, guid: c0299d5ed0bb728469171ee20545d531, type: 3}
-  AutomatedProject: {fileID: 11400000, guid: 2ba25e0a7670e1944b825811caa6ccbc, type: 2}
-  Price: 5000000000
+  AutomatedProject: {fileID: 11400000, guid: 206e2ddda66d71b438dc4b552707852c, type: 2}
+  _priceSettings:
+    _offset: 100
+    _linear: 1
+    _exponential: 1
+    _additional: 1

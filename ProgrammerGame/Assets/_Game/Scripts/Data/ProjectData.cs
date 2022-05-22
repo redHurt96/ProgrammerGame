@@ -2,6 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Data
@@ -20,17 +21,32 @@ namespace _Game.Data
         public TimeSpan CurrentTimeToFinish;
         public ProjectSettings projectSettings;
 
+        private GameData _data => Services.Get<GameData>();
+        private Settings _settings => Services.Get<Settings>();
+
         public double BaseIncome => projectSettings.GetIncome(Level);
         public long BaseTime => projectSettings.GetTime(Level);
         public double GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public long Time => (long) Mathf.Max(1,BaseTime / (1 + GameData.Instance.IncreaseSpeedTotalEffect) / GameData.Instance.PersistentData.MainBoost);
-        public double Income => (long) 
-            (BaseIncome 
-             * (1 + GameData.Instance.IncreaseMoneyTotalEffect) 
-             * GameData.Instance.PersistentData.MainBoost 
-             * GameData.Instance.DailyBonusData.Bonus);
+        public long Time => (long) Mathf.Max(1,BaseTime / (1 + _data.IncreaseSpeedTotalEffect) / _data.PersistentData.MainBoost);
+        public double Income
+        {
+            get
+            {
+                var baseIncome = (long)
+                    (BaseIncome
+                     * (1 + _data.IncreaseMoneyTotalEffect)
+                     * _data.PersistentData.MainBoost
+                     * _data.DailyBonusData.Bonus);
+
+                if (_data.IsProjectAutoRunned(Name))
+                    baseIncome = (long)(baseIncome * (1 + _data.GetProgrammerData(Name).Level *
+                        _settings.AllProgrammersSettings.BoostPerProgrammerLevel));
+
+                return baseIncome;
+            }
+        }
 
         public event Action MainDataUpdated;
         public event Action TimeUpdated;
@@ -43,14 +59,14 @@ namespace _Game.Data
 
             Level += count;
 
-            InvokeUpdateEvent();
+            ForceUpdate();
         }
 
         public void SetAvailable()
         {
             State = ProjectState.NotPurchased;
 
-            InvokeUpdateEvent();
+            ForceUpdate();
         }
 
         public void SetTime(float time)
@@ -67,7 +83,7 @@ namespace _Game.Data
             DynamicDataUpdated?.Invoke();
         }
 
-        public void InvokeUpdateEvent() => 
+        public void ForceUpdate() => 
             MainDataUpdated?.Invoke();
     }
 }

@@ -2,7 +2,6 @@
 using System.Linq;
 using _Game.Common;
 using _Game.Data;
-using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 using UnityEngine;
@@ -13,8 +12,8 @@ namespace _Game.Logic.Systems
     {
         public override void Init()
         {
-            foreach (string project in GameData.Instance.SavableData.AutoRunnedProjects)
-                AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == project));
+            foreach (ProgrammerUpgradeData upgradeData in GameData.Instance.SavableData.AutoRunnedProjects)
+                AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == upgradeData.ProjectName));
 
             GlobalEvents.Instance.BuyProgrammerIntent += BuyProgrammer;
         }
@@ -24,7 +23,7 @@ namespace _Game.Logic.Systems
 
         private void BuyProgrammer(string forProject)
         {
-            GameData.Instance.SavableData.AutoRunnedProjects.Add(forProject);
+            GameData.Instance.SavableData.AutoRunnedProjects.Add(new ProgrammerUpgradeData(forProject));
             AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == forProject));
             GlobalEvents.Instance.InvokeOnBuyProgrammerEvent();
         }

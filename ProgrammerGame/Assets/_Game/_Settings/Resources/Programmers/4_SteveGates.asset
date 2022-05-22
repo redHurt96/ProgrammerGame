@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 4ed1ea4fd5cced84d9b161a79a9515d6, type: 3}
   AutomatedProject: {fileID: 11400000, guid: f7d520c071511274d860aa4ecc36be4f, type: 2}
   _priceSettings:
-    _offset: 100
-    _linear: 1
-    _exponential: 1
-    _additional: 1
+    _offset: 250000
+    _linear: 500
+    _exponential: 3.6
+    _additional: 4

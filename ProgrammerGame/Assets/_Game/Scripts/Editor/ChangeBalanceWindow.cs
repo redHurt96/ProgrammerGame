@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Runtime.ExceptionServices;
 using _Game.Configs;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +11,7 @@ namespace _Game.Scripts.Editor
         private string _newPrices;
         private string _newIncomes;
         private string _newTimers;
+        private string _newProgrammersPrices;
 
         private int _projectsCount => Resources.Load<Settings>("Settings").ProjectsSettings.Length;
 
@@ -38,6 +38,23 @@ namespace _Game.Scripts.Editor
 
             if (GUILayout.Button("Set new timers")) 
                 SetNewTimers();
+            
+            _newProgrammersPrices = EditorGUILayout.TextField("Programmers prices", _newProgrammersPrices);
+
+            if (GUILayout.Button("Set new programmers prices")) 
+                SetNewProgrammersPrices();
+        }
+
+        private void SetNewProgrammersPrices()
+        {
+            float[] coeffs = ParseFromSheet(_newProgrammersPrices);
+            ProgrammerSettings[] programmers = Resources.LoadAll<ProgrammerSettings>("Programmers");
+            PriceSettings[] prices = ParseToPricesSettings(coeffs);
+
+            for (int i = 0; i < programmers.Length; i++) 
+                programmers[i].SetPrice(prices[i]);
+
+            SetProgrammersDirty(programmers);
         }
 
         private void SetNewTimers()
@@ -121,6 +138,15 @@ namespace _Game.Scripts.Editor
             return timers;
         }
 
+        private void SetProgrammersDirty(ProgrammerSettings[] programmers)
+        {
+            foreach (ProgrammerSettings programmer in programmers) 
+                EditorUtility.SetDirty(programmer);
+
+            AssetDatabase.Refresh();
+            AssetDatabase.SaveAssets();
+        }
+        
         private void SetProjectsDirty(ProjectSettings[] projects)
         {
             foreach (ProjectSettings project in projects) 

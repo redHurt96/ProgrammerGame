@@ -59,14 +59,14 @@ namespace _Game.Data
 
             Level += count;
 
-            InvokeUpdateEvent();
+            ForceUpdate();
         }
 
         public void SetAvailable()
         {
             State = ProjectState.NotPurchased;
 
-            InvokeUpdateEvent();
+            ForceUpdate();
         }
 
         public void SetTime(float time)
@@ -83,7 +83,7 @@ namespace _Game.Data
             DynamicDataUpdated?.Invoke();
         }
 
-        public void InvokeUpdateEvent() => 
+        public void ForceUpdate() => 
             MainDataUpdated?.Invoke();
     }
 }

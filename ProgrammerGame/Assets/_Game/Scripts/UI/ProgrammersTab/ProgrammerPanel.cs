@@ -67,11 +67,9 @@ namespace _Game.UI.ProgrammersTab
         private void SetupForPurchasedProgrammer()
         {
             ProgrammerUpgradeData upgradeData = _data.GetProgrammerData(_programmer.AutomatedProject.Name);
-
-            _description.text = $"Level {upgradeData.Level}";
-
             bool canUpgrade = CheckProgrammerHasUpgrade();
 
+            _description.text = $"+ {upgradeData.Level * _settings.AllProgrammersSettings.BoostPerProgrammerLevel * 100}% money";
             _button.gameObject.SetActive(canUpgrade);
 
             if (canUpgrade)

@@ -20,10 +20,15 @@ namespace _Game.Data
         public int BuyCount = 1;
         public GameState GameState;
         public Stack<BaseWindow> WindowsStack = new Stack<BaseWindow>();
+
+        
     }
 
     public partial class GameData
     {
+        public ProjectData GetProject(string projectName) => 
+            SavableData.Projects.Find(x => x.Name == projectName);
+
         public bool IsProjectAutoRunned(string projectName) =>
             SavableData.AutoRunnedProjects.Any(x => x.ProjectName == projectName);
 

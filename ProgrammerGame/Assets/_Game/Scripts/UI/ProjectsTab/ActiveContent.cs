@@ -21,6 +21,8 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Button _runButton;
         [SerializeField] private PriceButtonVisibilityComponent priceButtonVisibilityComponent;
 
+        [SerializeField] private Sprite _autorunnedProjectButtonSprite;
+
         private ProjectData _projectData;
 
         private GameData _data;
@@ -112,7 +114,10 @@ namespace _Game.UI.ProjectsTab
         private void DisableRunButtonIfProjectAutorunned()
         {
             if (_data.IsProjectAutoRunned(_projectData.Name) && _runButton.interactable)
+            {
                 _runButton.interactable = false;
+                _runButton.image.sprite = _autorunnedProjectButtonSprite;
+            }
         }
     }
 }

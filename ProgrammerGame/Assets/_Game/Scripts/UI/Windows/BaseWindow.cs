@@ -10,7 +10,7 @@ namespace _Game.UI.Windows
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _backgroundCloseButton;
 
-        private WindowsManager _windowsManager;
+        protected WindowsManager _windowsManager;
 
         private void Awake()
         {
@@ -23,10 +23,8 @@ namespace _Game.UI.Windows
                 _backgroundCloseButton.onClick.AddListener(Close);
         }
 
-        protected void Close()
-        {
+        protected void Close() => 
             _windowsManager.Hide(this);
-        }
 
         protected virtual void PerformBeforeOpen() {}
         protected virtual void PerformBeforeClose() {}

@@ -5,9 +5,7 @@ using _Game.GameServices;
 using _Game.UI.Tutorial;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
-using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace _Game.Tutorial
 {
@@ -39,45 +37,7 @@ namespace _Game.Tutorial
             }
         }
 
-        private void ShowTutorial(TutorialWindow window)
-        {
+        private void ShowTutorial(TutorialWindow window) => 
             _windowsManager.Show(window);
-
-            SetupTarget(window);
-        }
-
-        private void SetupTarget(TutorialWindow window)
-        {
-            Canvas canvasComponent = window.Target.AddComponent<Canvas>();
-            canvasComponent.overrideSorting = true;
-            canvasComponent.sortingOrder = 7;
-            window.Target.AddComponent<GraphicRaycaster>();
-
-            Button button = window.Target.GetComponent<Button>();
-
-            button
-                .onClick
-                .AddListener(() => ClearTutorialStep(window));
-        }
-
-        private void ClearTutorialStep(TutorialWindow window)
-        {
-            if (window.HasShown)
-                return;
-
-            if (window.Target.TryGetComponent(out GraphicRaycaster raycaster))
-                Object.Destroy(raycaster);
- 
-            if (window.Target.TryGetComponent(out Canvas canvas))
-                Object.Destroy(canvas);
-
-            window
-                .Target
-                .GetComponent<Button>()
-                .onClick
-                .RemoveListener(() => ClearTutorialStep(window));
-
-            _windowsManager.Hide(window);
-        }
     }
 }

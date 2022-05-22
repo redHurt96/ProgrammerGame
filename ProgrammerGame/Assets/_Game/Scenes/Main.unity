@@ -3034,7 +3034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536431722}
   m_LocalRotation: {x: 0.18376257, y: -0, z: -0, w: 0.9829707}
-  m_LocalPosition: {x: 7.94, y: 3.47, z: -6.76}
+  m_LocalPosition: {x: 2.630376, y: -0.32931185, z: -7.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1362666374}
@@ -11308,7 +11308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831563283}
   m_LocalRotation: {x: 0.18376255, y: 0, z: 0, w: 0.98297065}
-  m_LocalPosition: {x: 7.94, y: 3.47, z: -6.76}
+  m_LocalPosition: {x: 2.630376, y: -0.32931185, z: -7.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1990072019}
@@ -12974,7 +12974,7 @@ GameObject:
   - component: {fileID: 2026181217}
   - component: {fileID: 2026181218}
   m_Layer: 0
-  m_Name: PanAndZoomSystem
+  m_Name: PanSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13006,20 +13006,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba9b83d8fa73e74695e28425d320199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceForTap: 40
-  maxDurationForTap: 0.4
   useMouse: 1
-  mouseScrollSpeed: 2
   controlCamera: 1
   cam: {fileID: 536431724}
   isCinemachineUse: 1
   cinemachine: {fileID: 1831563285}
   ignoreUI: 0
   useBounds: 1
-  boundMinX: -3
-  boundMaxX: 7
-  boundMinY: -5
-  boundMaxY: 5
+  boundMinX: -5
+  boundMaxX: 9
+  boundMinY: -10
+  boundMaxY: 10
 --- !u!1 &2028150423
 GameObject:
   m_ObjectHideFlags: 0

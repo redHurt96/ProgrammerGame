@@ -11,7 +11,7 @@ namespace _Game.Logic.Systems
         protected override TutorialStep Step => TutorialStep.BuyFirstProgrammer_4;
 
         protected override bool _waitCondition =>
-            GameData.Instance.SavableData.MoneyCount >= Settings.Instance.AllProgrammersSettings.Programmers[0].Price
+            GameData.Instance.SavableData.MoneyCount >= Settings.Instance.AllProgrammersSettings.Programmers[0].GetPrice(0)
             && GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.TapForMoney_3);
 
         protected override float _delay => 5f;

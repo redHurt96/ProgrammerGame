@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0fa972b4694447b907329def6ee2e3c, type: 3}
-  m_Name: 4_SteveGates
+  m_Name: 8_TomMeier
   m_EditorClassIdentifier: 
-  Name: Steve Gates
+  Name: Tom Meier
   Icon: {fileID: 21300000, guid: 4ed1ea4fd5cced84d9b161a79a9515d6, type: 3}
-  AutomatedProject: {fileID: 11400000, guid: f7d520c071511274d860aa4ecc36be4f, type: 2}
-  Price: 250000
+  AutomatedProject: {fileID: 11400000, guid: fa36b65d647a6a7478139ec60c19ef38, type: 2}
+  _priceSettings:
+    _offset: 100
+    _linear: 1
+    _exponential: 1
+    _additional: 1

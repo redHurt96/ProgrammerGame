@@ -12,6 +12,7 @@ namespace _Game.Common
     public class EntryPoint : AbstractEntryPoint
     {
         [SerializeField] private Settings _settings;
+        [SerializeField] private SceneObjects _sceneObjects;
 
         protected override void RegisterServices()
         {
@@ -22,6 +23,7 @@ namespace _Game.Common
 
             _services
                 .RegisterSingle(_settings)
+                .RegisterSingle(_sceneObjects)
                 .RegisterSingle(new WindowsManager())
                 .RegisterSingle(new Apartment())
                 .RegisterSingle(new GlobalEvents())
@@ -46,10 +48,11 @@ namespace _Game.Common
                 .Add(new CreateRoomsSystem())
                 .Add(new CreateInteriorSystem())
                 .Add(new CreatePcSystem())
+                .Add(new CreateProgrammerSystem())
+                .Add(new UpgradeProgrammersSystem())
                 .Add(new UpdateProjectsAfterUpgradeSystem())
                 .Add(new IdleIncomeSystem())
                 .Add(new AddMoneyForTapSystem())
-                .Add(new CreateProgrammerSystem())
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
                 .Add(new ShowLevelWindowSystem())

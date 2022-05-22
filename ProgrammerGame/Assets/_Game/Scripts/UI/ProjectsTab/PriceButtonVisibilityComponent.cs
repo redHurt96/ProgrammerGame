@@ -25,6 +25,9 @@ namespace _Game.UI.ProjectsTab
             UpdateVisibility();
         }
 
+        public void ClearAdditionalCondition() => 
+            _additionalCondition = null;
+
         public void SetAdditionalCondition(Func<bool> additionalCondition) => 
             _additionalCondition = additionalCondition;
 

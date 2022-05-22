@@ -16,7 +16,7 @@ namespace _Game.Logic.Systems
         private void UpdateProjects(UpgradeType upgradeType)
         {
             foreach (ProjectData project in GameData.Instance.SavableData.Projects) 
-                project.InvokeUpdateEvent();
+                project.ForceUpdate();
         }
     }
 }

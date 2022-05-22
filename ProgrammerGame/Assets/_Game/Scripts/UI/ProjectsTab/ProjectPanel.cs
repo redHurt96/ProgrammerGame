@@ -87,13 +87,12 @@ namespace _Game.UI.ProjectsTab
             _activeContent.Setup(_projectData, settings, BuyProject, RunProject);
 
 #if UNITY_EDITOR
-        public void Test_Buy25Projects() => 
-            _projectData.Buy(25);
 
         public void Test_ForceComplete() =>
             GameData.Instance.RunnedProjects
                 .First(x => x.ProjectData.Name == settings.Name)
                 .Test_ForceComplete();
+
 #endif
     }
 }

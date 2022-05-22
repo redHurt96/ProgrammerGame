@@ -13,6 +13,7 @@ namespace _Game.Common
     {
         [SerializeField] private Settings _settings;
         [SerializeField] private SceneObjects _sceneObjects;
+        [SerializeField] private TutorialSettings _tutorialSettings;
 
         protected override void RegisterServices()
         {
@@ -24,6 +25,7 @@ namespace _Game.Common
             _services
                 .RegisterSingle(_settings)
                 .RegisterSingle(_sceneObjects)
+                .RegisterSingle(_tutorialSettings)
                 .RegisterSingle(new WindowsManager())
                 .RegisterSingle(new Apartment())
                 .RegisterSingle(new GlobalEvents())
@@ -66,10 +68,10 @@ namespace _Game.Common
                 .Add(new TutorialBuyFirstProjectStep_1())
                 .Add(new TutorialRunFirstProjectStep_2())
                 .Add(new TutorialTapMoneyStep_3())
-                .Add(new TutorialGoToProgrammersTabStep_4_0())
-                .Add(new TutorialBuyFirstProgrammerStep_4())
                 .Add(new TutorialUpgradeProjectStep_5())
                 .Add(new TutorialBuyAnotherProjectStep_6())
+                .Add(new TutorialGoToProgrammersTabStep_4_0())
+                .Add(new TutorialBuyFirstProgrammerStep_4())
                 .Add(new TutorialGoToUpgradesTabStep_7_0())
                 .Add(new TutorialUpgradePcStep_7())
                 .Add(new TutorialBuyEnoughFurnitureStep())

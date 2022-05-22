@@ -41,14 +41,9 @@ namespace _Game.Tutorial
 
         private void ShowTutorial(TutorialWindow window)
         {
-            ShowTutorialWindow(window);
-            SetupTarget(window);
-        }
-
-        private void ShowTutorialWindow(TutorialWindow window)
-        {
             _windowsManager.Show(window);
-            TutorialSettings.Instance.Background.SetActive(true);
+
+            SetupTarget(window);
         }
 
         private void SetupTarget(TutorialWindow window)
@@ -84,7 +79,6 @@ namespace _Game.Tutorial
 
             _windowsManager.Hide(window);
 
-            TutorialSettings.Instance.Background.SetActive(false);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace _Game.Logic.Systems
         protected override TutorialStep Step => TutorialStep.GoToUpgradesTab_7_0;
 
         protected override bool _waitCondition =>
-            GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyAnotherProject_6)
+            GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyFirstProgrammer_4)
             && GameData.Instance.SavableData.Projects[1].State == ProjectState.Active
-            && GameData.Instance.SavableData.MoneyCount > Settings.Instance.PcUpgradeSettings.GetPrice(1);
+            && GameData.Instance.SavableData.MoneyCount > Settings.Instance.PcPrices.GetPrice(1);
 
         protected override float _delay => 1f;
     }

@@ -1,10 +1,11 @@
 ﻿using _Game.UI.Tutorial;
+using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Tutorial
 {
-    public class TutorialSettings : MonoBehaviourSingleton<TutorialSettings>
+    public class TutorialSettings : MonoBehaviourSingleton<TutorialSettings>, IService
     {
         public TutorialWindow[] Windows;
         public GameObject Background;

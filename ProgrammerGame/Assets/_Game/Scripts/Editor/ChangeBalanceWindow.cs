@@ -151,6 +151,9 @@ namespace _Game.Scripts.Editor
         {
             foreach (ProjectSettings project in projects) 
                 EditorUtility.SetDirty(project);
+
+            AssetDatabase.Refresh();
+            AssetDatabase.SaveAssets();
         }
     }
 }

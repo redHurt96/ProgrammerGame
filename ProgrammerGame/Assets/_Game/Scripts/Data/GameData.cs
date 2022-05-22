@@ -24,6 +24,9 @@ namespace _Game.Data
 
     public partial class GameData
     {
+        public bool ContainsTutorialStep(TutorialStep step) =>
+            PersistentData.TutorialData.Steps.Contains(step);
+        
         public ProjectData GetProject(string projectName) => 
             SavableData.Projects.Find(x => x.Name == projectName);
 

@@ -50,7 +50,7 @@ namespace _Game.Tutorial
         {
             Canvas canvasComponent = window.Target.AddComponent<Canvas>();
             canvasComponent.overrideSorting = true;
-            canvasComponent.sortingOrder = 5;
+            canvasComponent.sortingOrder = 7;
             window.Target.AddComponent<GraphicRaycaster>();
 
             Button button = window.Target.GetComponent<Button>();
@@ -78,7 +78,6 @@ namespace _Game.Tutorial
                 .RemoveListener(() => ClearTutorialStep(window));
 
             _windowsManager.Hide(window);
-
         }
     }
 }

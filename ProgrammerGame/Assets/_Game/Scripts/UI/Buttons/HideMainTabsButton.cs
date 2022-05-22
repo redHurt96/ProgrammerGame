@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.UI.Main;
-using _Game.UI.Main;
+﻿using _Game.UI.Main;
 using RH.Utilities.UI;
 using UnityEngine;
 

@@ -26,6 +26,6 @@ namespace _Game.Logic.Systems
             && _data.SavableData.MoneyCount >= _settings.AllProgrammersSettings.Programmers[0].GetPrice(0);
 
 
-        protected override float _delay => 2f;
+        protected override float _delay => 0f;
     }
 }

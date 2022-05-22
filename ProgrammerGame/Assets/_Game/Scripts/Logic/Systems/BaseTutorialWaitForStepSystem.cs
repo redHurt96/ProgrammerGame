@@ -19,6 +19,8 @@ namespace _Game.Logic.Systems
         private Coroutine _coroutine;
         private readonly WindowsManager _windowsManager;
 
+        private WaitForSeconds _updateConditionRandomTime => new WaitForSeconds(Random.Range(.01f, .2f));
+
         protected BaseTutorialWaitForStepSystem() => 
             _windowsManager = Services.Get<WindowsManager>();
 
@@ -36,7 +38,9 @@ namespace _Game.Logic.Systems
 
         private IEnumerator WaitForPerform()
         {
-            yield return new WaitUntil(() => _waitCondition && !_windowsManager.IsAnyWindowShown);
+            while (!_waitCondition || _windowsManager.IsAnyWindowShown)
+                yield return _updateConditionRandomTime;
+
             yield return new WaitForSeconds(_delay);
 
             TutorialEvents.Instance.InvokeEvent(Step);

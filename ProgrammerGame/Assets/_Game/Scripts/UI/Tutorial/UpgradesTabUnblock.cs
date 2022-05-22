@@ -7,6 +7,6 @@ namespace _Game.UI.Tutorial
     public class UpgradesTabUnblock : MonoBehaviour
     {
         private void Start() => 
-            Services.Get<GameData>().SavableData.IsUpgradesTabUnlocked = true;
+            Services.Get<GameData>().PersistentData.IsUpgradesTabUnlocked = true;
     }
 }

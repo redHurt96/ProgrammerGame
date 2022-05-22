@@ -18,6 +18,6 @@ namespace _Game.Logic.Systems
             _data.PersistentData.TutorialData.Steps.Contains(TutorialStep.GoToUpgradesTab_7_0)
             && GameData.Instance.SavableData.MoneyCount > Settings.Instance.PcPrices.GetPrice(1);
 
-        protected override float _delay => 1f;
+        protected override float _delay => 0f;
     }
 }

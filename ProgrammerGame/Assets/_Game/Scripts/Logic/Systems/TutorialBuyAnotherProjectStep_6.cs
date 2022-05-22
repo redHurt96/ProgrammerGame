@@ -20,6 +20,6 @@ namespace _Game.Logic.Systems
             && _data.ContainsTutorialStep(TutorialStep.UpgradeProject_5)
             && _data.SavableData.Projects[1].State == ProjectState.NotPurchased;
 
-        protected override float _delay => .5f;
+        protected override float _delay => 0f;
     }
 }

@@ -2,6 +2,6 @@
 {
     public class UpgradesTabBlockedButton : AbstractBlockedButton
     {
-        protected override bool Condition => _data.SavableData.IsUpgradesTabUnlocked;
+        protected override bool Condition => _data.PersistentData.IsUpgradesTabUnlocked;
     }
 }

@@ -2,6 +2,6 @@
 {
     public class ProgrammersTabBlockedButton : AbstractBlockedButton
     {
-        protected override bool Condition => _data.SavableData.IsProgrammersTabUnlocked;
+        protected override bool Condition => _data.PersistentData.IsProgrammersTabUnlocked;
     }
 }

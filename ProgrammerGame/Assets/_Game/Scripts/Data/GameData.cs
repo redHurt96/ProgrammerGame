@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using _Game.Configs;
 using _Game.Tutorial;
-using _Game.UI.Windows;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;

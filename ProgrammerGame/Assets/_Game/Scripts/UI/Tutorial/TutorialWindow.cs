@@ -13,7 +13,8 @@ namespace _Game.UI.Tutorial
         [Header("Tutorial window")]
         [SerializeField] private TutorialStep _step;
         [SerializeField] private GameObject _target;
-        
+        [SerializeField] private RectTransform _hand;
+
         private TutorialSettings _tutorialSettings;
 
         public bool HasShown { get; private set; }
@@ -23,6 +24,9 @@ namespace _Game.UI.Tutorial
             _tutorialSettings = Services.Get<TutorialSettings>();
 
             _tutorialSettings.Background.SetActive(true);
+
+            _hand.parent = Target.transform;
+            _hand.anchoredPosition = Vector3.zero;
         }
 
         protected override void PerformBeforeClose()
@@ -30,6 +34,8 @@ namespace _Game.UI.Tutorial
             HasShown = true;
 
             _tutorialSettings.Background.SetActive(false);
+
+            Destroy(_hand.gameObject);
         }
     }
 }

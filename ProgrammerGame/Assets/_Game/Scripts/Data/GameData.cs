@@ -23,6 +23,9 @@ namespace _Game.Data
 
     public partial class GameData
     {
+        public bool CanReset() =>
+            BoostForProgress * PersistentData.MainBoost - PersistentData.MainBoost > Settings.Instance.OpenResetThreshold;
+
         public bool ContainsTutorialStep(TutorialStep step) =>
             PersistentData.TutorialData.Steps.Contains(step);
         

@@ -13,6 +13,8 @@ namespace _Game.Logic.MonoBehaviours
 
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
+        private Coroutine _currentCoroutine;
+
         private void Start()
         {
             _transform = transform;
@@ -29,12 +31,12 @@ namespace _Game.Logic.MonoBehaviours
 
         private void SpawnMoney(double amount)
         {
-            if (amount <= 0)
+            if (amount <= 0 && _currentCoroutine != null)
                 return;
 
             List<Money> moneysPrefabs = Settings.Instance.GetMoneysPrefabsList(amount);
 
-            StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
+            _currentCoroutine = StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 
         private IEnumerator SpawnMoneyDelayed(List<Money> prefabs)

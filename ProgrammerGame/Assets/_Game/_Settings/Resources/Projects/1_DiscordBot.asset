@@ -18,9 +18,9 @@ MonoBehaviour:
   BlockProject: {fileID: 0}
   _priceSettings:
     _offset: 4
-    _linear: 0.045
-    _exponential: 3
-    _additional: 1.5
+    _linear: 0.04
+    _exponential: 2.2
+    _additional: 1.6
   _incomeSettings:
     _offset: 1
     _linear: 1

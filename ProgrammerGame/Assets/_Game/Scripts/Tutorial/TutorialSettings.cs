@@ -25,5 +25,7 @@ namespace _Game.Tutorial
 
         GoToProgrammersTab_4_0,
         GoToUpgradesTab_7_0,
+        
+        ResetForBoost_10
     }
 }

@@ -76,6 +76,7 @@ namespace _Game.Common
                 .Add(new TutorialUpgradePcStep_7())
                 .Add(new TutorialBuyEnoughFurnitureStep())
                 .Add(new TutorialUpgradeHouseStep())
+                .Add(new TutorialResetForBoostStep())
 
                 //fx
                 .Add(new TapFxCreateSystem())

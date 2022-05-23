@@ -16,7 +16,7 @@ namespace _Game.Configs
         [SerializeField] private TimeSettings _timeSettings;
 
         public double GetIncome(int forLevel) => _incomeSettings.GetPrice(forLevel);
-        public long GetTime(int forLevel) => _timeSettings.GetTime(forLevel);
+        public float GetTime(int forLevel) => _timeSettings.GetTime(forLevel);
 
         public double GetPrice(int level, int count)
         {

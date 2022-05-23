@@ -25,11 +25,11 @@ namespace _Game.Data
         private Settings _settings => Services.Get<Settings>();
 
         public double BaseIncome => projectSettings.GetIncome(Level);
-        public long BaseTime => projectSettings.GetTime(Level);
+        public float BaseTime => projectSettings.GetTime(Level);
         public double GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public long Time => (long) Mathf.Max(1,BaseTime / (1 + _data.IncreaseSpeedTotalEffect) / _data.PersistentData.MainBoost);
+        public float Time => BaseTime / (1 + _data.IncreaseSpeedTotalEffect) / _data.PersistentData.MainBoost;
         public double Income
         {
             get

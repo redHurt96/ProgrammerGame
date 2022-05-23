@@ -13,34 +13,26 @@ MonoBehaviour:
   m_Name: 4_Walls_2_Coders
   m_EditorClassIdentifier: 
   DefaultFurniture:
-  - Type: LightBlueWalls
-    Furniture: {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
+  - Furniture: {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
     ReplacingTypes:
     - Blue-walls
-  - Type: DarkBlueFloor
-    Furniture: {fileID: 3861153131268980018, guid: d672cd83cfd886b4786c2a91e7e5ea27, type: 3}
+  - Furniture: {fileID: 3861153131268980018, guid: d672cd83cfd886b4786c2a91e7e5ea27, type: 3}
     ReplacingTypes: []
-  - Type: basement-full(Clone) (1)
-    Furniture: {fileID: 4924543426084612504, guid: c84ccea20df65f7488eb1dcc18f950ce, type: 3}
+  - Furniture: {fileID: 4924543426084612504, guid: c84ccea20df65f7488eb1dcc18f950ce, type: 3}
     ReplacingTypes: []
   FurnitureForPurchase:
-  - Type: chair2.001 (1)
-    Furniture: {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
+  - Furniture: {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
     ReplacingTypes:
     - sofa-old
     - tv-1lvl
     - dendy
-  - Type: chair2.002 (1)
-    Furniture: {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
+  - Furniture: {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
     ReplacingTypes: []
-  - Type: plant (1)
-    Furniture: {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
+  - Furniture: {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
     ReplacingTypes: []
-  - Type: ps2.001 (1)
-    Furniture: {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
+  - Furniture: {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
     ReplacingTypes: []
-  - Type: tv-2lvl (1)
-    Furniture: {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
+  - Furniture: {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
     ReplacingTypes: []
   ProgrammerSpots:
   - Spot: {fileID: 4718465844570708937, guid: 26fd60ba7d394714eb8d28fe662019d4, type: 3}

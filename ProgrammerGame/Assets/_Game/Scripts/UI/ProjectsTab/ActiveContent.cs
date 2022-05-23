@@ -16,7 +16,7 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Text _level;
         [SerializeField] private Text _income;
         [SerializeField] private Text _price;
-        [SerializeField] private Image _progressBarFill;
+        [SerializeField] private ProjectProgressBar _progressBar;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _runButton;
         [SerializeField] private PriceButtonVisibilityComponent priceButtonVisibilityComponent;
@@ -98,7 +98,7 @@ namespace _Game.UI.ProjectsTab
         }
 
         private void UpdateProgressBar() => 
-            _progressBarFill.fillAmount = _projectData.Progress;
+            _progressBar.UpdateContent(_projectData);
 
         private void UpdateTitles()
         {

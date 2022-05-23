@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 61447697821237462, guid: eb408be0fe660774a8eb678364406f3a, type: 3}
   - {fileID: 2186123660477493312, guid: d7aa02088d7b4224c8c8f57a5456af47, type: 3}
   TapFxPrefab: {fileID: 3897329392985473680, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
+  TapFxPrefab2: {fileID: 395031058680739610, guid: 95186da3d9e1a9649a14e4ea6d5980b9, type: 3}
   FurnitureSpawnFxPrefab: {fileID: 395031058680739610, guid: b2f0b8902a31c8a46a1c4bb24ed9ea36, type: 3}
   MoneyFallForce: 2
   MoneySpawnTime: 1.5
@@ -75,3 +76,4 @@ MonoBehaviour:
   DailyBonusPerDay: 0.5
   TimeForLevelReward: 10
   MinLevelReward: 20
+  ChangeProgressBarAnchorTime: 0.1

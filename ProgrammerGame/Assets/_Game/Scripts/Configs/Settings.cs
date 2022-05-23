@@ -13,6 +13,7 @@ namespace _Game.Configs
     {
         public Money[] MoneyPrefabs;
         public PriceFx TapFxPrefab;
+        public GameObject TapFxPrefab2;
         public GameObject FurnitureSpawnFxPrefab;
 
         [Header("Money spawning")]
@@ -63,6 +64,9 @@ namespace _Game.Configs
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
         public float MinLevelReward;
+
+        [Header("Project panel")]
+        public double ChangeProgressBarAnchorTime = .1f;
     }
 
     public partial class Settings
@@ -87,7 +91,6 @@ namespace _Game.Configs
         }
 
         private Money GetMoneyResourceByValue(double amount) =>
-            Settings.Instance.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
-
+            MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

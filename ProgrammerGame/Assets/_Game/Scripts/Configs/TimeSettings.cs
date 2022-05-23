@@ -6,13 +6,9 @@ namespace _Game.Configs
     [Serializable]
     public class TimeSettings
     {
-        public long _startTime;
-        public long _endDecreasingLevel;
-        public long _endTime;
+        public float _startTime;
+        [SerializeField] private int _timerDecreaseLevelCount = 25;
 
-        private float _linear => -(_startTime - _endTime) / (float)_endDecreasingLevel;
-
-        public long GetTime(int level) => 
-            level < _endDecreasingLevel ? (long) (_startTime + _linear * level) : _endTime;
+        public float GetTime(int level) => _startTime / Mathf.Pow(2f, level / _timerDecreaseLevelCount);
     }
 }

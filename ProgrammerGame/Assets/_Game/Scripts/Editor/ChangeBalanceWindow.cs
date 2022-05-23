@@ -10,19 +10,18 @@ namespace _Game.Scripts.Editor
     {
         private string _newPrices;
         private string _newIncomes;
-        private string _newTimers;
         private string _newProgrammersPrices;
 
         private int _projectsCount => Resources.Load<Settings>("Settings").ProjectsSettings.Length;
 
         [MenuItem("🎮 Game/💹 Change balance window")]
-        static void Init()
+        private static void Init()
         {
             ChangeBalanceWindow window = GetWindow<ChangeBalanceWindow>();
             window.Show();
         }
 
-        void OnGUI()
+        private void OnGUI()
         {
             _newPrices = EditorGUILayout.TextField("Prices", _newPrices);
 
@@ -34,11 +33,6 @@ namespace _Game.Scripts.Editor
             if (GUILayout.Button("Set new incomes")) 
                 SetNewIncomes();
 
-            _newTimers = EditorGUILayout.TextField("Timers", _newTimers);
-
-            if (GUILayout.Button("Set new timers")) 
-                SetNewTimers();
-            
             _newProgrammersPrices = EditorGUILayout.TextField("Programmers prices", _newProgrammersPrices);
 
             if (GUILayout.Button("Set new programmers prices")) 
@@ -55,18 +49,6 @@ namespace _Game.Scripts.Editor
                 programmers[i].SetPrice(prices[i]);
 
             SetProgrammersDirty(programmers);
-        }
-
-        private void SetNewTimers()
-        {
-            float[] coeffs = ParseFromSheet(_newTimers);
-            ProjectSettings[] projects = Resources.LoadAll<ProjectSettings>("Projects");
-            TimeSettings[] timers = ParseToTimersSettings(coeffs);
-
-            for (int i = 0; i < projects.Length; i++)
-                projects[i].SetTime(timers[i]);
-
-            SetProjectsDirty(projects);
         }
 
         private void SetNewPrices()
@@ -117,25 +99,6 @@ namespace _Game.Scripts.Editor
             }
 
             return prices;
-        }
-
-        private TimeSettings[] ParseToTimersSettings(float[] coeffs)
-        {
-            TimeSettings[] timers = new TimeSettings[_projectsCount];
-
-            for (int i = 0; i < _projectsCount; i++)
-            {
-                int startPosition = i * 3;
-
-                timers[i] = new TimeSettings
-                {
-                    _startTime = (long) coeffs[startPosition],
-                    _endTime = (long) coeffs[startPosition + 1],
-                    _endDecreasingLevel = (long) coeffs[startPosition + 2],
-                };
-            }
-
-            return timers;
         }
 
         private void SetProgrammersDirty(ProgrammerSettings[] programmers)

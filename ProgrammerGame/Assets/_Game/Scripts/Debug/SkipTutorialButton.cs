@@ -28,7 +28,7 @@ namespace _Game.Debug
         {
             _tutorialEvents.ClearTutorial();
 
-            if (_windowsManager.TopWindow is TutorialWindow tutorialWindow) 
+            if (_windowsManager.IsAnyWindowShown && _windowsManager.TopWindow is TutorialWindow tutorialWindow) 
                 _windowsManager.Hide(tutorialWindow);
 
             FindObjectsOfType<Canvas>(true)

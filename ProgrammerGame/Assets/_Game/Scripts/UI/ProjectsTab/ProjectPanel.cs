@@ -2,7 +2,6 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using AP.ProgrammerGame;
 using UnityEngine;
 
 namespace _Game.UI.ProjectsTab

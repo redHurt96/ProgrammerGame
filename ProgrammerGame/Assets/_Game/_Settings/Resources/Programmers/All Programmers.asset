@@ -87,3 +87,21 @@ MonoBehaviour:
   - Furniture: {fileID: 2668759814534313111, guid: bc58e61ffd4e4f3488fdccfb57c4ceb0, type: 3}
     ReplacingTypes:
     - 0_Table
+  - Furniture: {fileID: 8029144192696363766, guid: b89dc5f6ea2d5684aa601cea27574fcf, type: 3}
+    ReplacingTypes:
+    - 1_Chair
+  - Furniture: {fileID: 4959886112580155281, guid: f64f3421dbd58f54390e413bf8e08d0c, type: 3}
+    ReplacingTypes:
+    - 1_Computer
+  - Furniture: {fileID: 1073961909528732192, guid: 8b35a9dda3ef91b4797e3698ea701642, type: 3}
+    ReplacingTypes:
+    - 1_Keyboard
+  - Furniture: {fileID: 4498385407463728142, guid: a1fe7c946175db94f9e3f6543c341b3a, type: 3}
+    ReplacingTypes:
+    - 1_Mouse
+  - Furniture: {fileID: 8334488976005800374, guid: 68f541dc4ed5bd44988633cd6cca8a2c, type: 3}
+    ReplacingTypes:
+    - 1_Screen
+  - Furniture: {fileID: 1157618316221074718, guid: aff9010f70f8ca24695d1d2ad23922ad, type: 3}
+    ReplacingTypes:
+    - 1_Table

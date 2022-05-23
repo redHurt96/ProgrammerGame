@@ -28,5 +28,4 @@ MonoBehaviour:
     _additional: 4
   _timeSettings:
     _startTime: 96
-    _endDecreasingLevel: 500
-    _endTime: 30
+    _timerDecreaseLevelCount: 25

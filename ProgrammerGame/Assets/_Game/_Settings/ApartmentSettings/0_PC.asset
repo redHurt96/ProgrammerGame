@@ -29,31 +29,58 @@ MonoBehaviour:
   - Furniture: {fileID: 590308408793782982, guid: 449c916675551f740bdf788f621000c4, type: 3}
     ReplacingTypes:
     - 0_Computer
-  - Furniture: {fileID: 7179582448742993132, guid: 0824181753e2ee54bb1652a8015d92fb, type: 3}
-    ReplacingTypes:
-    - 1_Mouse
-  - Furniture: {fileID: 2665133357104983994, guid: ae407b4535825704596cd09b6804c568, type: 3}
+  - Furniture: {fileID: 4958642135828286803, guid: 12c3301abe812354a9c5639f7383b8d8, type: 3}
     ReplacingTypes:
     - 1_Keyboard
-  - Furniture: {fileID: 4205753268478335314, guid: 5c605536e14ae8c4586111b45e7181aa, type: 3}
-    ReplacingTypes: []
-  - Furniture: {fileID: 5216554803772393809, guid: 8d6b11cc8e240e0459d94d63c9106a84, type: 3}
+  - Furniture: {fileID: 847069713233947195, guid: 4ea631ffe779ef64cb404608aaaf41d9, type: 3}
+    ReplacingTypes:
+    - 1_Mouse
+  - Furniture: {fileID: 7338428423434752083, guid: 6552127d3eba29e4e8016d0a5d99ce85, type: 3}
     ReplacingTypes:
     - 1_Computer
-  - Furniture: {fileID: 2325679058214809564, guid: 25bf01d6ed7691c4a9580f436ebee1e8, type: 3}
+  - Furniture: {fileID: 8824351684556947345, guid: 5e021dd253f2a6642b3e524117cce57a, type: 3}
+    ReplacingTypes: []
+  - Furniture: {fileID: 7179582448742993132, guid: 0824181753e2ee54bb1652a8015d92fb, type: 3}
     ReplacingTypes:
-    - 3_Mouse
-  - Furniture: {fileID: 8528431001181547370, guid: 050e9dca4db1ff048b7a322918168878, type: 3}
+    - 2_Mouse
+  - Furniture: {fileID: 2665133357104983994, guid: ae407b4535825704596cd09b6804c568, type: 3}
+    ReplacingTypes:
+    - 2_Keyboard
+  - Furniture: {fileID: 4205753268478335314, guid: 5c605536e14ae8c4586111b45e7181aa, type: 3}
+    ReplacingTypes:
+    - 2_Computer
+  - Furniture: {fileID: 5216554803772393809, guid: 8d6b11cc8e240e0459d94d63c9106a84, type: 3}
+    ReplacingTypes:
+    - 2_Screen
+  - Furniture: {fileID: 6828409342718130663, guid: 53d636b503c42d2489defc73ec5f1ebb, type: 3}
     ReplacingTypes:
     - 3_Keyboard
-  - Furniture: {fileID: 5909044687985300371, guid: 431e1cae5bbaf1d4f8727c1953460b4c, type: 3}
+  - Furniture: {fileID: 6802754726600860151, guid: 91c6b995f133ea740a0dd791707fddac, type: 3}
     ReplacingTypes:
-    - 3_Computer
-  - Furniture: {fileID: 2359771084091278443, guid: 32a88820df07d7b4896cbe3b70b58f58, type: 3}
+    - 3_Mouse
+  - Furniture: {fileID: 3230696157850204673, guid: 651cd73de196d9742bd102c34cb04b78, type: 3}
     ReplacingTypes:
     - 3_Screen
-  - Furniture: {fileID: 3377236833038866530, guid: 16fc0490083fdae43910833efb33f15c, type: 3}
+  - Furniture: {fileID: 6167756202986661888, guid: d8a19203e36b4164cbbd37521add6d5c, type: 3}
     ReplacingTypes: []
+  - Furniture: {fileID: 2977525974824486187, guid: f19f2e51723ce254fbdab7799cd389bb, type: 3}
+    ReplacingTypes:
+    - 3_Computer
+  - Furniture: {fileID: 2325679058214809564, guid: 25bf01d6ed7691c4a9580f436ebee1e8, type: 3}
+    ReplacingTypes:
+    - 4_Mouse
+  - Furniture: {fileID: 8528431001181547370, guid: 050e9dca4db1ff048b7a322918168878, type: 3}
+    ReplacingTypes:
+    - 4_Keyboard
+  - Furniture: {fileID: 5909044687985300371, guid: 431e1cae5bbaf1d4f8727c1953460b4c, type: 3}
+    ReplacingTypes:
+    - 4_Computer
+  - Furniture: {fileID: 2359771084091278443, guid: 32a88820df07d7b4896cbe3b70b58f58, type: 3}
+    ReplacingTypes:
+    - 4_Screen
+  - Furniture: {fileID: 3377236833038866530, guid: 16fc0490083fdae43910833efb33f15c, type: 3}
+    ReplacingTypes:
+    - 4_Screen_1
   - Furniture: {fileID: 8572213602995019494, guid: add78b8a3dae7c24892769635bf2ac3a, type: 3}
     ReplacingTypes:
     - 5_Mouse

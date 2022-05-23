@@ -18,9 +18,9 @@ MonoBehaviour:
   BlockProject: {fileID: 11400000, guid: 87af0061307989745bc02510e6c6158d, type: 2}
   _priceSettings:
     _offset: 60
-    _linear: 60
-    _exponential: 1.02
-    _additional: 2
+    _linear: 0.08
+    _exponential: 3
+    _additional: 2.5
   _incomeSettings:
     _offset: 60
     _linear: 0.1

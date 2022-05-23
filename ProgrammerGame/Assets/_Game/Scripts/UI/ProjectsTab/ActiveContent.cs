@@ -103,7 +103,11 @@ namespace _Game.UI.ProjectsTab
         private void UpdateTitles()
         {
             _level.text = $"{_projectData.Level}/{GetCloseLevelTarget(_projectData.Level)}";
-            _income.text = _projectData.Income.ToPriceString();
+
+            if (_data.IsProjectAutoRunned(_projectData.Name))
+                _income.text = (_projectData.Income / _projectData.Time).ToPriceString() + "/sec";
+            else
+                _income.text = _projectData.Income.ToPriceString();
         }
 
         private string GetCloseLevelTarget(int level) =>

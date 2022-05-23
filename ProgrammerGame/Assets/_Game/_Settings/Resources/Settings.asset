@@ -76,4 +76,4 @@ MonoBehaviour:
   DailyBonusPerDay: 0.5
   TimeForLevelReward: 10
   MinLevelReward: 20
-  ChangeProgressBarAnchorTime: 0.1
+  ChangeProgressBarAnchorTime: 0.25

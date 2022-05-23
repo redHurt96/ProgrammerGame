@@ -12,16 +12,21 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private GameObject _arrow;
 
         private Settings _settings;
+        private GameData _data;
+
         private bool _isIdleProgressBarSetup = false;
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
             _settings ??= Services.Get<Settings>();
+            _data ??= Services.Get<GameData>();
+        }
 
         public void UpdateContent(ProjectData projectData)
         {
             if (projectData.Time > _settings.ChangeProgressBarAnchorTime)
                 FillProgressBar(projectData.Progress);
-            else if (!_isIdleProgressBarSetup)
+            else if (!_isIdleProgressBarSetup && _data.IsProjectAutoRunned(projectData.Name))
                 SetupIdleProgressBar();
         }
 

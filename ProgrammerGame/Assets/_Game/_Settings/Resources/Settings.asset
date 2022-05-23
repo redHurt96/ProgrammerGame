@@ -30,7 +30,7 @@ MonoBehaviour:
   FurnitureSpawnFxPrefab: {fileID: 395031058680739610, guid: b2f0b8902a31c8a46a1c4bb24ed9ea36, type: 3}
   MoneyFallForce: 2
   MoneySpawnTime: 1.5
-  MaxMoneySpawnCount: 50
+  MaxMoneySpawnCount: 25
   MoneyBasementForce: 300
   MoneyBasementRandomizeForce: 100
   MoneyBasementSpawnDelay: 0.8

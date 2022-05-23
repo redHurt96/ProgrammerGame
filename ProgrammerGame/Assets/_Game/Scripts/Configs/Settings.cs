@@ -79,7 +79,7 @@ namespace _Game.Configs
             {
                 Money prefab = GetMoneyResourceByValue(amount);
 
-                if (prefab == null || moneysPrefabs.Count >= Settings.Instance.MaxMoneySpawnCount)
+                if (prefab == null || moneysPrefabs.Count >= Instance.MaxMoneySpawnCount)
                     break;
 
                 moneysPrefabs.Add(prefab);

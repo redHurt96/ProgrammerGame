@@ -27,6 +27,11 @@ namespace _Game.Scripts.Exception
             [45] = "al",
             [48] = "am",
             [51] = "an",
+            [54] = "ao",
+            [57] = "ap",
+            [60] = "ar",
+            [63] = "as",
+            [66] = "at",
         };
 
         public static string ToPriceString(this double value)

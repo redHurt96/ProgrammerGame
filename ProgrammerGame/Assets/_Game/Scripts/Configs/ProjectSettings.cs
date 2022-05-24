@@ -11,7 +11,7 @@ namespace _Game.Configs
         public int OpenLevel = 0;
         public ProjectSettings BlockProject;
 
-        [SerializeField] private PriceSettings _priceSettings;
+        public PriceSettings _priceSettings;
         [SerializeField] private PriceSettings _incomeSettings;
         [SerializeField] private TimeSettings _timeSettings;
 
@@ -29,6 +29,7 @@ namespace _Game.Configs
         }
 
         private long GetPrice(int forLevel) => _priceSettings.GetPrice(forLevel);
+        
 
 #if UNITY_EDITOR
         public void SetPrice(PriceSettings priceSettings) => 

@@ -26,6 +26,7 @@ namespace _Game.Common
                 .RegisterSingle(_settings)
                 .RegisterSingle(_sceneObjects)
                 .RegisterSingle(_tutorialSettings)
+                .RegisterSingle(new SaveLoadPricesService())
                 .RegisterSingle(new WindowsManager())
                 .RegisterSingle(new Apartment())
                 .RegisterSingle(new GlobalEvents())
@@ -37,6 +38,7 @@ namespace _Game.Common
         {
             _systems
 
+                .Add(new LoadPricesSystem())                    
                 //game logic
                 .Add(new SaveLoadSystem())
                 .Add(new PersistentDataSaveLoadSystem())

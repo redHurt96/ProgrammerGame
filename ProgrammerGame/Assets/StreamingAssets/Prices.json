@@ -1,0 +1,58 @@
+{
+    "Prices": [
+        {
+            "_offset": 4.0,
+            "_linear": 0.03999999910593033,
+            "_exponential": 2.200000047683716,
+            "_additional": 1.600000023841858
+        },
+        {
+            "_offset": 60.0,
+            "_linear": 0.07000000029802323,
+            "_exponential": 2.5999999046325685,
+            "_additional": 2.5
+        },
+        {
+            "_offset": 720.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 3.299999952316284,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 8640.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 3.5999999046325685,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 103680.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 3.9000000953674318,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 1244160.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 4.199999809265137,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 14929920.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 4.5,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 179159040.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 4.800000190734863,
+            "_additional": 4.0
+        },
+        {
+            "_offset": 1568462336.0,
+            "_linear": 0.10000000149011612,
+            "_exponential": 5.400000095367432,
+            "_additional": 4.0
+        }
+    ]
+}

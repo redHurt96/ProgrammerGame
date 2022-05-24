@@ -26,7 +26,9 @@ namespace _Game.Debug
 
         protected override void PerformOnClick()
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
             _tutorialEvents.ClearTutorial();
+#endif
 
             if (_windowsManager.IsAnyWindowShown && _windowsManager.TopWindow is TutorialWindow tutorialWindow) 
                 _windowsManager.Hide(tutorialWindow);

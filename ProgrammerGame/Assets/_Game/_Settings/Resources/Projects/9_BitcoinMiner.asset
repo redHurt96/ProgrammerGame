@@ -19,13 +19,14 @@ MonoBehaviour:
   _priceSettings:
     _offset: 1.5684623e+9
     _linear: 0.1
-    _exponential: 5.4
-    _additional: 4
+    _exponential: 6.2
+    _additional: 5
   _incomeSettings:
     _offset: 620500000
-    _linear: 100000
+    _linear: 10000
     _exponential: 1.75
     _additional: 4
   _timeSettings:
     _startTime: 3600
     _timerDecreaseLevelCount: 25
+    _minProjectTime: 0.25

@@ -18,14 +18,15 @@ MonoBehaviour:
   BlockProject: {fileID: 0}
   _priceSettings:
     _offset: 4
-    _linear: 0.04
-    _exponential: 2.2
-    _additional: 1.6
+    _linear: 0.009
+    _exponential: 3.2
+    _additional: 4
   _incomeSettings:
     _offset: 1
-    _linear: 1
-    _exponential: 1.1
-    _additional: 1.2
+    _linear: 0.4
+    _exponential: 1.2
+    _additional: 0
   _timeSettings:
     _startTime: 2
     _timerDecreaseLevelCount: 25
+    _minProjectTime: 0.25

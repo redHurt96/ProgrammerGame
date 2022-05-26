@@ -11,7 +11,12 @@ namespace _Game.Configs
         public float _exponential = 1;
         public float _additional = 1;
 
-        public long GetPrice(int level) =>
-            (long) (_offset + _linear * Mathf.Pow(level, _exponential) * Mathf.Max(1f, level / 25 * _additional));
+        public long GetPrice(int level)
+        {
+            long price = (long) (_offset +
+                                 _linear * Mathf.Pow(level, _exponential) * Mathf.Max(1f, level / 25 * _additional));
+
+            return price < long.MaxValue ? price : long.MaxValue;
+        }
     }
 }

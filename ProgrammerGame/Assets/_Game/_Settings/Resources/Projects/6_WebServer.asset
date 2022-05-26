@@ -20,12 +20,13 @@ MonoBehaviour:
     _offset: 1244160
     _linear: 0.1
     _exponential: 4.2
-    _additional: 4
+    _additional: 5
   _incomeSettings:
     _offset: 622080
     _linear: 1
     _exponential: 3.25
-    _additional: 4
+    _additional: 3
   _timeSettings:
     _startTime: 384
     _timerDecreaseLevelCount: 25
+    _minProjectTime: 0.25

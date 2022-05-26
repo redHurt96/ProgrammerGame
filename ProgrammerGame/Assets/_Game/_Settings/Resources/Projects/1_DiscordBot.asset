@@ -19,7 +19,7 @@ MonoBehaviour:
   _priceSettings:
     _offset: 4
     _linear: 0.009
-    _exponential: 3.2
+    _exponential: 2.8
     _additional: 4
   _incomeSettings:
     _offset: 1

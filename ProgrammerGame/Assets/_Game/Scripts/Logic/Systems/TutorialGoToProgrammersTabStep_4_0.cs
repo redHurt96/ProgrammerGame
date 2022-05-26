@@ -20,7 +20,7 @@ namespace _Game.Logic.Systems
 
         protected override bool _waitCondition =>
             _data.SavableData.MoneyCount >= _settings.AllProgrammersSettings.Programmers[0].GetPrice(0)
-            && _data.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyAnotherProject_6);
+            && _data.ContainsTutorialStep(TutorialStep.BuyAnotherProject_6);
 
         protected override float _delay => 1f;
     }

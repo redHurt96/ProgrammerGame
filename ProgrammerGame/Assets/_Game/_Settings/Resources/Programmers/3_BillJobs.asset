@@ -18,5 +18,5 @@ MonoBehaviour:
   _priceSettings:
     _offset: 50000
     _linear: 500
-    _exponential: 3.3
+    _exponential: 7
     _additional: 4

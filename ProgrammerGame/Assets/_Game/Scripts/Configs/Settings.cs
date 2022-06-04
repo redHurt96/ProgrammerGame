@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using _Game.Fx;
 using _Game.Logic.MonoBehaviours;
 using RH.Utilities.ServiceLocator;
@@ -67,30 +65,5 @@ namespace _Game.Configs
 
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;
-    }
-
-    public partial class Settings
-    {
-        public List<Money> GetMoneysPrefabsList(double amount)
-        {
-            List<Money> moneysPrefabs = new List<Money>();
-
-            while (amount > 0)
-            {
-                Money prefab = GetMoneyResourceByValue(amount);
-
-                if (prefab == null || moneysPrefabs.Count >= Instance.MaxMoneySpawnCount)
-                    break;
-
-                moneysPrefabs.Add(prefab);
-
-                amount -= prefab.Value;
-            }
-
-            return moneysPrefabs;
-        }
-
-        private Money GetMoneyResourceByValue(double amount) =>
-            MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

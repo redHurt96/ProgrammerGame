@@ -25,6 +25,10 @@ namespace _Game.GameServices
 
         public bool IsRewardedReady => _rewardedProvider.IsReady;
         public void LoadRewarded() => _rewardedProvider.Load();
-        public void ShowRewarded(string placement, Action onSuccess) => _rewardedProvider.Show(onSuccess);
+        public void ShowRewarded(string placement, Action onSuccess)
+        {
+            UnityEngine.Debug.Log("AdsService - show rewarded ad from " + placement);
+            _rewardedProvider.Show(onSuccess);
+        }
     }
 }

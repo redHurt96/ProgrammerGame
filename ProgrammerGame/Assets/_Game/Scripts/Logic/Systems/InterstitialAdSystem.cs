@@ -13,7 +13,7 @@ namespace _Game.Logic.Systems
     {
         private readonly Settings _settings;
         private readonly AdsService _ads;
-        private readonly GlobalEvents _events;
+        private readonly AdsEventsService _events;
 
         private Coroutine _currentCoroutine;
 
@@ -21,7 +21,7 @@ namespace _Game.Logic.Systems
         {
             _settings = Services.Get<Settings>();
             _ads = Services.Get<AdsService>();
-            _events = Services.Get<GlobalEvents>();
+            _events = Services.Get<AdsEventsService>();
         }
 
         public override void Init()

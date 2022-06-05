@@ -27,8 +27,7 @@ namespace _Game.Common
         public event Action ApplicationPaused;
         public event Action<bool> ApplicationPausedWIthStatus;
         public event Action TutorialStepReceived;
-        public event Action RewardedAdsShown;
-        public event Action OnCoffeeBreakIntent;
+
 
         public void ChangeMoneyCount(double amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public void AccelerateCoding(string value) => OnTapForMoney?.Invoke(value);
@@ -50,8 +49,5 @@ namespace _Game.Common
         public void InvokeOnApplicationPause() => ApplicationPaused?.Invoke();
         public void InvokeOnApplicationPause(bool pause) => ApplicationPausedWIthStatus?.Invoke(pause);
         public void InvokeOnTutorialStepReceiveEvent() => TutorialStepReceived?.Invoke();
-
-        public void InvokeOnRewardedAdsShown() => RewardedAdsShown?.Invoke();
-        public void CoffeeBreakIntent() => OnCoffeeBreakIntent?.Invoke();
     }
 }

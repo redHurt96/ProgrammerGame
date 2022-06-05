@@ -31,6 +31,7 @@ namespace _Game.Common
                 .RegisterSingle(new GlobalEvents())
                 .RegisterSingle(new GameData())
                 .RegisterSingle(new TutorialEvents())
+                .RegisterSingle(new AdsEventsService())
                 .RegisterSingle(new AdsService());
         }
 
@@ -84,6 +85,7 @@ namespace _Game.Common
                 .Add(new InterstitialAdSystem())
                 .Add(new LoadRewardedAdSystem())
                 .Add(new CoffeeBreakAdSystem())
+                .Add(new RewardForLevelAdSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

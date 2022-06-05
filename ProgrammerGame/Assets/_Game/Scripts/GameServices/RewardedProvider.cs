@@ -77,10 +77,16 @@ namespace _Game.GameServices
 
             foreach (Action callback in _onShownCallbacks) 
                 callback.Invoke();
+
+            _onShownCallbacks.Clear();
         }
 
-        private void RewardedVideoAdShowFailedEvent(IronSourceError error) =>
+        private void RewardedVideoAdShowFailedEvent(IronSourceError error)
+        {
             UnityEngine.Debug.Log(
                 $"[ADS] {nameof(RewardedVideoAdRewardedEvent)} with placement {error.getCode()} - {error.getDescription()}");
+
+            _onShownCallbacks.Clear();
+        }
     }
 }

@@ -2,11 +2,14 @@
 using _Game.GameServices;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Game.UI.Ads
 {
     public class CoffeeBreakButtonVisibilityComponent : MonoBehaviour
     {
+        [SerializeField] private Image _image;
+
         private GameData _data;
         private AdsService _ads;
 
@@ -17,6 +20,6 @@ namespace _Game.UI.Ads
         }
 
         private void Update() => 
-            gameObject.SetActive(_data.Ads.CanShowCoffeeBreak && _ads.IsRewardedReady);
+            _image.enabled = _data.Ads.CanShowCoffeeBreak && _ads.IsRewardedReady;
     }
 }

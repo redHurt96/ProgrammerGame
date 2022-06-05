@@ -6,10 +6,10 @@ namespace _Game.UI.Ads
 {
     public class CoffeeBreakButton : BaseActionButton
     {
-        private GlobalEvents _events;
+        private AdsEventsService _events;
 
         protected override void PerformOnStart() => 
-            _events = Services.Get<GlobalEvents>();
+            _events = Services.Get<AdsEventsService>();
 
         protected override void PerformOnClick() => 
             _events.CoffeeBreakIntent();

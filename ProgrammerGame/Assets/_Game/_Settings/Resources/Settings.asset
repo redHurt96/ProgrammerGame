@@ -77,7 +77,9 @@ MonoBehaviour:
   TimeForLevelReward: 10
   MinLevelReward: 20
   ChangeProgressBarAnchorTime: 0.25
-  AdsSettings:
+  Ads:
     AppId: 15056d1c9
-    FirstInterstitialDelay: 15
-    InterstitialCooldown: 10
+    FirstInterstitialDelay: 180
+    InterstitialCooldown: 100
+    CoffeeBreakDelay: 30
+    CoffeeBreakLenght: 60

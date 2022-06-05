@@ -29,14 +29,14 @@ namespace _Game.Data
         public double GetPrice(int count) => projectSettings.GetPrice(Level, count);
 
         public float Progress => Mathf.Clamp01(1 - (float) (CurrentTimeToFinish.TotalSeconds / Time));
-        public float Time => BaseTime / (1 + _data.IncreaseSpeedTotalEffect) / _data.PersistentData.MainBoost;
+        public float Time => BaseTime / (1 + _data.IncreaseSpeedTotalEffect()) / _data.PersistentData.MainBoost;
         public double Income
         {
             get
             {
                 var baseIncome = (long)
                     (BaseIncome
-                     * (1 + _data.IncreaseMoneyTotalEffect)
+                     * (1 + _data.IncreaseMoneyTotalEffect())
                      * _data.PersistentData.MainBoost
                      * _data.DailyBonusData.Bonus);
 

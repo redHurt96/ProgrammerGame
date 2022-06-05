@@ -12,7 +12,7 @@ namespace _Game.UI.ResetTab
 
         private void Update() =>
             _image.enabled = 
-                GameData.Instance.BoostForProgress 
+                GameData.Instance.BoostForProgress() 
                 * GameData.Instance.PersistentData.MainBoost 
                 - GameData.Instance.PersistentData.MainBoost 
                 > Settings.Instance.OpenResetThreshold;

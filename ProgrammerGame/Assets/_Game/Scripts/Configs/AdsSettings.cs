@@ -11,5 +11,9 @@ namespace _Game.Configs
         [Space]
         public float FirstInterstitialDelay;
         public float InterstitialCooldown;
+
+        [Space]
+        public float CoffeeBreakDelay;
+        public float CoffeeBreakLenght;
     }
 }

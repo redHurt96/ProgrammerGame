@@ -66,6 +66,6 @@ namespace _Game.Configs
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;
 
-        public AdsSettings AdsSettings;
+        public AdsSettings Ads;
     }
 }

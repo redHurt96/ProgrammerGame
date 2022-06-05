@@ -82,6 +82,8 @@ namespace _Game.Common
                 //ads
                 .Add(new AdsOnPauseEventProvider())
                 .Add(new InterstitialAdSystem())
+                .Add(new LoadRewardedAdSystem())
+                .Add(new CoffeeBreakAdSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

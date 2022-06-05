@@ -26,6 +26,7 @@ namespace _Game.Logic.Systems
 
         public override void Init()
         {
+            UnityEngine.Debug.LogError("Run " + nameof(InterstitialAdSystem));
             RunFirstInterstitialAfterDelay();
             _events.RewardedAdsShown += ClearRunnedCooldown;
         }
@@ -38,20 +39,35 @@ namespace _Game.Logic.Systems
 
         private void RunFirstInterstitialAfterDelay()
         {
-            float firstTime = _settings.AdsSettings.FirstInterstitialDelay;
-            _currentCoroutine = CoroutineLauncher.Start(ShowAdAfterDelay(firstTime));
+            UnityEngine.Debug.Log(nameof(RunFirstInterstitialAfterDelay));
+            float firstTime = _settings.Ads.FirstInterstitialDelay;
+            RunShowAdCoroutine(firstTime);
         }
 
         private void RunNextInterstitialAfterCooldown()
         {
-            float cooldown = _settings.AdsSettings.InterstitialCooldown;
-            _currentCoroutine = CoroutineLauncher.Start(ShowAdAfterDelay(cooldown));
+            UnityEngine.Debug.Log(nameof(RunNextInterstitialAfterCooldown));
+            float cooldown = _settings.Ads.InterstitialCooldown;
+            RunShowAdCoroutine(cooldown);
+        }
+
+        private void RunShowAdCoroutine(float firstTime)
+        {
+            if (_currentCoroutine != null)
+                CoroutineLauncher.Stop(_currentCoroutine);
+
+            _currentCoroutine = CoroutineLauncher.Start(ShowAdAfterDelay(firstTime));
         }
 
         private IEnumerator ShowAdAfterDelay(float time)
         {
             _ads.LoadInterstitial();
+
             yield return new WaitForSeconds(time);
+
+            while (!_ads.IsInterstitialReady)
+                yield return new WaitForSeconds(1.5f);
+
             _ads.ShowInterstitial();
 
             RunNextInterstitialAfterCooldown();

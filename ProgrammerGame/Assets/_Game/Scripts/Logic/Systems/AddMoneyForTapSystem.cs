@@ -19,7 +19,7 @@ namespace _Game.Logic.Systems
 
         private void AddMoney()
         {
-            double value = GameData.Instance.MoneyForTap; 
+            double value = GameData.Instance.MoneyForTap(); 
 
             GlobalEvents.Instance.AccelerateCoding(value.ToPriceString());
             GlobalEvents.Instance.IntentToChangeMoney(value);

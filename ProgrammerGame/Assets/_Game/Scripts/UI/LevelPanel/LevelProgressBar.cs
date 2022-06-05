@@ -25,6 +25,6 @@ namespace _Game.UI.LevelPanel
             _events.MoneyCountChanged -= UpdateProgressBar;
 
         private void UpdateProgressBar(double obj) => 
-            _fill.fillAmount = _data.ReachNewLevelProgress;
+            _fill.fillAmount = _data.ReachNewLevelProgress();
     }
 }

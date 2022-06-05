@@ -30,7 +30,8 @@ namespace _Game.Common
                 .RegisterSingle(new Apartment())
                 .RegisterSingle(new GlobalEvents())
                 .RegisterSingle(new GameData())
-                .RegisterSingle(new TutorialEvents());
+                .RegisterSingle(new TutorialEvents())
+                .RegisterSingle(new AdsService());
         }
 
         protected override void RegisterSystems()
@@ -77,6 +78,10 @@ namespace _Game.Common
                 .Add(new TutorialBuyEnoughFurnitureStep())
                 .Add(new TutorialUpgradeHouseStep())
                 .Add(new TutorialResetForBoostStep())
+
+                //ads
+                .Add(new AdsOnPauseEventProvider())
+                .Add(new InterstitialAdSystem())
 
                 //fx
                 .Add(new TapFxCreateSystem())

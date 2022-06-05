@@ -7,7 +7,7 @@ using UnityEngine;
 namespace _Game.Configs
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
-    public partial class Settings : SingletonScriptableObject<Settings>, IService
+    public class Settings : SingletonScriptableObject<Settings>, IService
     {
         public Money[] MoneyPrefabs;
         public PriceFx TapFxPrefab;
@@ -65,5 +65,7 @@ namespace _Game.Configs
 
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;
+
+        public AdsSettings AdsSettings;
     }
 }

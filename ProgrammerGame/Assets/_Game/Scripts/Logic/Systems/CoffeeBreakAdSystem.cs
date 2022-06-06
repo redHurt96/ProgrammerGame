@@ -50,8 +50,29 @@ namespace _Game.Logic.Systems
         private IEnumerator DelayUntilNewCoffeeBreak()
         {
             _data.Ads.CanShowCoffeeBreak = false;
-            yield return new WaitForSeconds(_settings.Ads.CoffeeBreakLenght + _settings.Ads.CoffeeBreakDelay);
+            float boost = _settings.Ads.CoffeeBreakBoost;
+            ChangeProjectsSpeed(boost);
+            _events.StartCoffeeBreak();
+
+            float time = _settings.Ads.CoffeeBreakLenght + _settings.Ads.CoffeeBreakDelay;
+            float leftTime = time;
+
+            while (leftTime > 0f)
+            {
+                _events.CoffeeBreakTimeUpdate(leftTime);
+                yield return new WaitForSeconds(1f);
+                leftTime -= 1f;
+            }
+
+            _events.CompleteCoffeeBreak();
+            ChangeProjectsSpeed(1f);
             _data.Ads.CanShowCoffeeBreak = true;
+        }
+
+        private void ChangeProjectsSpeed(float boost)
+        {
+            foreach (ProjectData project in _data.GetActiveProjects())
+                project.ChangeSpeedBoost(boost);
         }
     }
 }

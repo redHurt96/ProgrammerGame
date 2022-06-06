@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using _Game.Configs;
 using _Game.Tutorial;
 using UnityEngine;
@@ -76,5 +77,9 @@ namespace _Game.Data
             return interiorLevel == furnitureToPurchase 
                    && roomLevel < Settings.Instance.Rooms.Length - 1;
         }
+
+        public static IEnumerable<ProjectData> GetActiveProjects(this GameData gameData) => 
+            gameData.SavableData.Projects
+                .Where(x => x.State == ProjectState.Active);
     }
 }

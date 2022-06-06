@@ -8,7 +8,7 @@ namespace _Game.UI.Ads
 {
     public class CoffeeBreakButtonVisibilityComponent : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Button _button;
 
         private GameData _data;
         private AdsService _ads;
@@ -20,6 +20,6 @@ namespace _Game.UI.Ads
         }
 
         private void Update() => 
-            _image.enabled = _data.Ads.CanShowCoffeeBreak && _ads.IsRewardedReady;
+            _button.interactable = _data.Ads.CanShowCoffeeBreak && _ads.IsRewardedReady;
     }
 }

@@ -13,7 +13,6 @@ namespace _Game.Configs
         public float InterstitialCooldown;
 
         [Space]
-        public float CoffeeBreakDelay;
         public float CoffeeBreakLenght;
         public float CoffeeBreakBoost = 1.3f;
 

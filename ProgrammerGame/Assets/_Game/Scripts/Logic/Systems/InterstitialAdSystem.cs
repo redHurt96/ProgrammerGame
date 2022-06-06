@@ -26,7 +26,7 @@ namespace _Game.Logic.Systems
 
         public override void Init()
         {
-            UnityEngine.Debug.LogError("Run " + nameof(InterstitialAdSystem));
+            UnityEngine.Debug.Log("Run " + nameof(InterstitialAdSystem));
             RunFirstInterstitialAfterDelay();
             _events.RewardedAdsShown += ClearRunnedCooldown;
         }

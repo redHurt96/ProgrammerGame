@@ -54,7 +54,7 @@ namespace _Game.Logic.Systems
             ChangeProjectsSpeed(boost);
             _events.StartCoffeeBreak();
 
-            float time = _settings.Ads.CoffeeBreakLenght + _settings.Ads.CoffeeBreakDelay;
+            float time = _settings.Ads.CoffeeBreakLenght;
             float leftTime = time;
 
             while (leftTime > 0f)

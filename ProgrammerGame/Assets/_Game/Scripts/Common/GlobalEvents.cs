@@ -18,7 +18,7 @@ namespace _Game.Common
         public event Action<string> UpgradeProgrammerIntent;
         public event Action<UpgradeType, double> BuyUpgradeIntent;
         public event Action<UpgradeType> OnUpgraded;
-        public event Action ResetForBoostIntent;
+        public event Action<float> ResetForBoostIntent;
         public event Action BuyCountChanged;
         public event Action LevelChanged;
         public event Action ProgrammedPurchased;
@@ -39,7 +39,7 @@ namespace _Game.Common
 
         public void IntentToBuyUpgrade(UpgradeType upgradeType, double price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
         public void InvokeAfterUpgradeEvent(UpgradeType type) => OnUpgraded?.Invoke(type);
-        public void ResetForBoost() => ResetForBoostIntent?.Invoke();
+        public void ResetForBoost(float boost) => ResetForBoostIntent?.Invoke(boost);
         public void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();
         public void InvokeChangeLevelEvent() => LevelChanged?.Invoke();
         public void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();

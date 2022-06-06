@@ -27,10 +27,8 @@ namespace AP.Utilities.Analytics
                 SendStats(GAProgressionStatus.Complete,"App pause");
         }
 
-        private void OnApplicationQuit()
-        {
+        private void OnApplicationQuit() => 
             SendStats(GAProgressionStatus.Complete,"App close");
-        }
 
         private void OnDestroy()
         {
@@ -40,7 +38,7 @@ namespace AP.Utilities.Analytics
             GlobalEvents.Instance.ResetForBoostIntent -= SendOnReset;
         }
 
-        private void SendOnReset() => SendStats("Reset for boost");
+        private void SendOnReset(float f) => SendStats("Reset for boost");
         private void SendOnProgrammedPurchased() => SendStats("Programmer purchased");
         private void SendOnBuyUpgrade(UpgradeType arg1) => SendStats("Buy upgrade");
         private void SendOnNewLevel() => SendStats("New level");

@@ -1,4 +1,5 @@
 ﻿using _Game.Common;
+using _Game.Configs;
 using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.PseudoEcs;
@@ -12,6 +13,7 @@ namespace _Game.Logic.Systems
         private readonly AdsService _ads;
         private readonly AdsEventsService _adsEvents;
         private readonly GameData _data;
+        private readonly Settings _settings;
 
         public RewardForLevelAdSystem()
         {
@@ -19,6 +21,7 @@ namespace _Game.Logic.Systems
             _data = Services.Get<GameData>();
             _events = Services.Get<GlobalEvents>();
             _adsEvents = Services.Get<AdsEventsService>();
+            _settings = Services.Get<Settings>();
         }
 
         public override void Init() => 
@@ -32,7 +35,7 @@ namespace _Game.Logic.Systems
 
         private void PerformOnSuccess()
         {
-            double money = _data.GetRewardForLevel();
+            double money = _data.GetRewardForLevel() * (_settings.Ads.ResetBoost - 1);
             _events.IntentToChangeMoney(money);
 
             _adsEvents.InvokeOnRewardedAdsShown();

@@ -87,6 +87,14 @@ namespace _Game.Common
                 .Add(new CoffeeBreakAdSystem())
                 .Add(new RewardForLevelAdSystem())
 
+                //notifications
+                .Add(new NotificationsSaveSystem())
+                .Add(new NotificationsSystem())
+
+#if DEVELOPMENT_BUILD
+                .Add(new TestNotificationSystem())
+#endif
+
                 //fx
                 .Add(new TapFxCreateSystem())
                 .Add(new FurnitureSpawnFxCreateSystem())

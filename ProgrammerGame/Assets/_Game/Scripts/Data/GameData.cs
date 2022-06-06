@@ -14,6 +14,7 @@ namespace _Game.Data
         public SavableData SavableData = new SavableData();
         public DailyBonusData DailyBonusData = new DailyBonusData();
         public PersistentData PersistentData = new PersistentData();
+        public NotificationData Notifications = new NotificationData();
 
         //not saved
         public readonly List<RunProjectProcess> RunnedProjects = new List<RunProjectProcess>();

@@ -67,5 +67,6 @@ namespace _Game.Configs
         public double ChangeProgressBarAnchorTime = .1f;
 
         public AdsSettings Ads;
+        public NotificationsSettings Notifications;
     }
 }

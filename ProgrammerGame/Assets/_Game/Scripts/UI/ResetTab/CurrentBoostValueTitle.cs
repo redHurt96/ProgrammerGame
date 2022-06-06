@@ -1,5 +1,4 @@
-﻿using _Game.Common;
-using _Game.Data;
+﻿using _Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +17,7 @@ namespace _Game.UI.ResetTab
             if (GameData.Instance == null)
                 return;
 
-            _text.text = "x " + GameData.Instance.PersistentData.MainBoost.ToString("F2");
+            _text.text = "x " + GameData.Instance.PersistentData.MainBoost.ToString("F1");
         }
     }
 }

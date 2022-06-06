@@ -17,10 +17,10 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             GlobalEvents.Instance.ResetForBoostIntent -= ResetProgressForBoost;
 
-        private void ResetProgressForBoost() => 
-            CoroutineLauncher.Start(ResetAfterDelay());
+        private void ResetProgressForBoost(float boost) => 
+            CoroutineLauncher.Start(ResetAfterDelay(boost));
 
-        private IEnumerator ResetAfterDelay()
+        private IEnumerator ResetAfterDelay(float boost)
         {
             PlayerPrefs.DeleteKey("Save");
             PlayerPrefs.SetInt("Need reset", 1);
@@ -28,8 +28,7 @@ namespace _Game.Logic.Systems
 
             yield return null;
 
-            GameData.Instance.PersistentData.MainBoost = GameData.Instance.BoostForProgress *
-                                                         GameData.Instance.PersistentData.MainBoost;
+            GameData.Instance.PersistentData.MainBoost = boost * GameData.Instance.PersistentData.MainBoost;
 
             SceneManager.LoadScene(0);
         }

@@ -7,7 +7,7 @@ namespace _Game.UI.UpgradesTab
     public class PcUpgradePanel : BaseUpgradePanel
     {
         protected override string EffectTitle => $"+{(int)(Settings.Instance.IncreaseMoneyEffectStrength * 100)}% money";
-        protected override string TotalEffectTitle => $"+{GameData.Instance.IncreaseMoneyTotalEffect * 100}% money";
+        protected override string TotalEffectTitle => $"+{GameData.Instance.IncreaseMoneyTotalEffect() * 100}% money";
 
         protected override bool CheckAdditionalBuyAvailability()
         {

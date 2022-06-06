@@ -18,14 +18,16 @@ namespace _Game.Common
         public event Action<string> UpgradeProgrammerIntent;
         public event Action<UpgradeType, double> BuyUpgradeIntent;
         public event Action<UpgradeType> OnUpgraded;
-        public event Action ResetForBoostIntent;
+        public event Action<float> ResetForBoostIntent;
         public event Action BuyCountChanged;
         public event Action LevelChanged;
         public event Action ProgrammedPurchased;
         public event Action<Vector3> ApartmentObjectSpawned;
         public event Action DailyBonusUpdated;
         public event Action ApplicationPaused;
+        public event Action<bool> ApplicationPausedWIthStatus;
         public event Action TutorialStepReceived;
+
 
         public void ChangeMoneyCount(double amount, IChangeMoneySystem changeMoneyCountSystem) => MoneyCountChanged?.Invoke(amount);
         public void AccelerateCoding(string value) => OnTapForMoney?.Invoke(value);
@@ -37,7 +39,7 @@ namespace _Game.Common
 
         public void IntentToBuyUpgrade(UpgradeType upgradeType, double price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
         public void InvokeAfterUpgradeEvent(UpgradeType type) => OnUpgraded?.Invoke(type);
-        public void ResetForBoost() => ResetForBoostIntent?.Invoke();
+        public void ResetForBoost(float boost) => ResetForBoostIntent?.Invoke(boost);
         public void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();
         public void InvokeChangeLevelEvent() => LevelChanged?.Invoke();
         public void InvokeOnBuyProgrammerEvent() => ProgrammedPurchased?.Invoke();
@@ -45,6 +47,7 @@ namespace _Game.Common
         public void InvokeOnDailyBonusUpdate() => DailyBonusUpdated?.Invoke();
 
         public void InvokeOnApplicationPause() => ApplicationPaused?.Invoke();
+        public void InvokeOnApplicationPause(bool pause) => ApplicationPausedWIthStatus?.Invoke(pause);
         public void InvokeOnTutorialStepReceiveEvent() => TutorialStepReceived?.Invoke();
     }
 }

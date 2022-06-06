@@ -20,8 +20,10 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _runButton;
         [SerializeField] private PriceButtonVisibilityComponent priceButtonVisibilityComponent;
-
         [SerializeField] private Sprite _autorunnedProjectButtonSprite;
+
+        [Space] 
+        [SerializeField] private ProjectAdsButton _adsButton;
 
         private ProjectData _projectData;
 
@@ -47,6 +49,8 @@ namespace _Game.UI.ProjectsTab
             AddButtonsListeners(buyAction, runAction);
             UpdateContent();
             Subscribe();
+
+            _adsButton.Setup(projectData);
         }
 
         private void AddButtonsListeners(Action buyAction, Action runAction)

@@ -13,7 +13,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Text _tip;
         
         protected override string EffectTitle => $"+{(int)(Settings.Instance.IncreaseSpeedEffectStrength * 100)}% speed";
-        protected override string TotalEffectTitle => $"+{GameData.Instance.IncreaseSpeedTotalEffect * 100}% speed";
+        protected override string TotalEffectTitle => $"+{GameData.Instance.IncreaseSpeedTotalEffect() * 100}% speed";
 
         private void Update() => 
             _tip.enabled = !CheckAdditionalBuyAvailability();

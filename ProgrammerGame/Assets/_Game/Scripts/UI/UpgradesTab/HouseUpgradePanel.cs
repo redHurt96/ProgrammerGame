@@ -20,7 +20,7 @@ namespace _Game.UI.UpgradesTab
 
         private int GetNewProgrammersCount()
         {
-            int roomLevel = GameData.Instance.RoomLevel;
+            int roomLevel = GameData.Instance.RoomLevel();
 
             if (roomLevel + 1 == Settings.Instance.Rooms.Length)
                 return 0;

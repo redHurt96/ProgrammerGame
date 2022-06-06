@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using _Game.Fx;
 using _Game.Logic.MonoBehaviours;
 using RH.Utilities.ServiceLocator;
@@ -9,7 +7,7 @@ using UnityEngine;
 namespace _Game.Configs
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
-    public partial class Settings : SingletonScriptableObject<Settings>, IService
+    public class Settings : SingletonScriptableObject<Settings>, IService
     {
         public Money[] MoneyPrefabs;
         public PriceFx TapFxPrefab;
@@ -67,30 +65,7 @@ namespace _Game.Configs
 
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;
-    }
 
-    public partial class Settings
-    {
-        public List<Money> GetMoneysPrefabsList(double amount)
-        {
-            List<Money> moneysPrefabs = new List<Money>();
-
-            while (amount > 0)
-            {
-                Money prefab = GetMoneyResourceByValue(amount);
-
-                if (prefab == null || moneysPrefabs.Count >= Instance.MaxMoneySpawnCount)
-                    break;
-
-                moneysPrefabs.Add(prefab);
-
-                amount -= prefab.Value;
-            }
-
-            return moneysPrefabs;
-        }
-
-        private Money GetMoneyResourceByValue(double amount) =>
-            MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
+        public AdsSettings Ads;
     }
 }

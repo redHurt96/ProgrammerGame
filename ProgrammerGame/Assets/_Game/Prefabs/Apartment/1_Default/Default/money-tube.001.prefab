@@ -43,49 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ec4bdeaa9ac3d40aed7b1d28078a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6905815609115651291
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1054535894902252319}
-  - component: {fileID: 5089963893542783562}
-  m_Layer: 0
-  m_Name: BasementMoneySpawner (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1054535894902252319
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905815609115651291}
-  m_LocalRotation: {x: 0.0051207417, y: 0.0027622834, z: 0.38266164, w: 0.92387027}
-  m_LocalPosition: {x: 1.4600005, y: 1.0399815, z: -0.5599908}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1201791497830261813}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.421, y: 0.517, z: 45}
---- !u!114 &5089963893542783562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905815609115651291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf3792fda5d4341b653291e3f989390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7679371719250991573
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +73,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8095757995869055566}
-  - {fileID: 1054535894902252319}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

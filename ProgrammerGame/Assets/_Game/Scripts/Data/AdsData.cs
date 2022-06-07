@@ -2,6 +2,6 @@
 {
     public class AdsData
     {
-        public bool CanShowCoffeeBreak;
+        public bool CanShowCoffeeBreak = true;
     }
 }

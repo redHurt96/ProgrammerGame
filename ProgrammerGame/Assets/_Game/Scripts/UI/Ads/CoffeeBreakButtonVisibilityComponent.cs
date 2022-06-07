@@ -1,4 +1,5 @@
-﻿using _Game.Data;
+﻿using _Game.Common;
+using _Game.Data;
 using _Game.GameServices;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
@@ -10,16 +11,30 @@ namespace _Game.UI.Ads
     {
         [SerializeField] private Button _button;
 
-        private GameData _data;
         private AdsService _ads;
+        private AdsEventsService _events;
+        private AdsData _data;
 
         private void Start()
         {
-            _data = Services.Get<GameData>();
+            _data = Services.Get<GameData>().Ads;
             _ads = Services.Get<AdsService>();
+            _events = Services.Get<AdsEventsService>();
+
+            _events.RewardedReady += EnableButtonIfCoffeeBreakReady;
+            _events.OnCoffeeBreakActive += ShowIfHasAds;
+            _events.OnCoffeeBreakStart += DisableButton;
+
+            ShowIfHasAds();
         }
 
-        private void Update() => 
-            _button.interactable = _data.Ads.CanShowCoffeeBreak && _ads.IsRewardedReady;
+        private void ShowIfHasAds() => 
+            _button.interactable = _ads.IsRewardedReady;
+
+        private void DisableButton() => 
+            _button.interactable = false;
+
+        private void EnableButtonIfCoffeeBreakReady(bool adsAvailability) => 
+            _button.interactable = adsAvailability && _data.CanShowCoffeeBreak;
     }
 }

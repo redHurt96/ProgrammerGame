@@ -13560,8 +13560,10 @@ GameObject:
   - component: {fileID: 1914270128}
   - component: {fileID: 1914270127}
   - component: {fileID: 1914270126}
+  - component: {fileID: 1914270130}
   - component: {fileID: 1914270125}
   - component: {fileID: 1914270124}
+  - component: {fileID: 1914270129}
   m_Layer: 5
   m_Name: Coffee Break Ad Button
   m_TagString: Untagged
@@ -13587,7 +13589,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -150, y: -300}
-  m_SizeDelta: {x: 146.88, y: 167.51}
+  m_SizeDelta: {x: 209.28, y: 238.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914270124
 MonoBehaviour:
@@ -13696,6 +13698,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914270122}
   m_CullTransparentMesh: 1
+--- !u!95 &1914270129
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914270122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bb2b15bef10722479b41a59d65902c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1914270130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914270122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f02e753bcbf4f7db76e3ec10ed1049e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 1914270127}
 --- !u!1001 &1937836558
 PrefabInstance:
   m_ObjectHideFlags: 0

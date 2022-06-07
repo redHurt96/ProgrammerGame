@@ -67,8 +67,7 @@ namespace _Game.GameServices
         {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAvailabilityChangedEvent)} - {availability}");
             
-            if (availability)
-                Services.Get<AdsEventsService>().InvokeOnRewardedAdsShown();
+            Services.Get<AdsEventsService>().InvokeRewardedReadyEvent(availability);
         }
 
         private void RewardedVideoAdStartedEvent() =>

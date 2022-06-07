@@ -65,7 +65,7 @@ namespace _Game.UI.ProjectsTab
 
         private void CheckAdsAvailability()
         {
-            if (!_ads.IsRewardedReady)
+            if (!_ads.IsRewardedReady || _data.SavableData.MoneyCount >= _project.GetPrice(1))
                 _button.gameObject.SetActive(false);
         }
     }

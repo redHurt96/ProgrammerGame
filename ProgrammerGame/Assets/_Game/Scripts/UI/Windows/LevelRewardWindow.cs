@@ -36,15 +36,16 @@ namespace _Game.UI.Windows
             if (isRewardedReady)
                 _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);
             else
-            {
                 _adsEventsService.RewardedReady += EnableButton;
-            }
         }
 
-        private void EnableButton()
+        private void EnableButton(bool adsAvailability)
         {
-            _adsEventsService.RewardedReady -= EnableButton;
-            _adsIncreaseRewardButton.interactable = _ads.IsRewardedReady;
+            if (adsAvailability)
+            {
+                _adsEventsService.RewardedReady -= EnableButton;
+                _adsIncreaseRewardButton.interactable = _ads.IsRewardedReady;
+            }
         }
 
         private void DoubleReward()

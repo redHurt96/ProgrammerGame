@@ -15,21 +15,18 @@ namespace _Game.Logic.Systems
         private readonly GameData _data;
         private readonly AdsEventsService _events;
         private readonly AdsService _ads;
-        private readonly Settings _settings;
+        private readonly AdsSettings _settings;
 
         public CoffeeBreakAdSystem()
         {
             _ads = Services.Get<AdsService>();
             _data = Services.Get<GameData>();
             _events = Services.Get<AdsEventsService>();
-            _settings = Services.Get<Settings>();
+            _settings = Services.Get<Settings>().Ads;
         }
 
-        public override void Init()
-        {
-            _data.Ads.CanShowCoffeeBreak = true;
+        public override void Init() => 
             _events.OnCoffeeBreakIntent += ShowAd;
-        }
 
         public override void Dispose() => 
             _events.OnCoffeeBreakIntent -= ShowAd;
@@ -43,11 +40,11 @@ namespace _Game.Logic.Systems
         private IEnumerator DelayUntilNewCoffeeBreak()
         {
             _data.Ads.CanShowCoffeeBreak = false;
-            float boost = _settings.Ads.CoffeeBreakBoost;
+            float boost = _settings.CoffeeBreakBoost;
             ChangeProjectsSpeed(boost);
             _events.StartCoffeeBreak();
 
-            float time = _settings.Ads.CoffeeBreakLenght;
+            float time = _settings.CoffeeBreakLenght;
             float leftTime = time;
 
             while (leftTime > 0f)
@@ -59,7 +56,11 @@ namespace _Game.Logic.Systems
 
             _events.CompleteCoffeeBreak();
             ChangeProjectsSpeed(1f);
+
+            yield return new WaitForSeconds(_settings.CoffeeBreakDelay);
+
             _data.Ads.CanShowCoffeeBreak = true;
+            _events.ReloadCoffeeBreak();
         }
 
         private void ChangeProjectsSpeed(float boost)

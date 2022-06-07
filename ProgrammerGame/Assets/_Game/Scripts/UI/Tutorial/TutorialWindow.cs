@@ -22,7 +22,7 @@ namespace _Game.UI.Tutorial
 
         private TutorialSettings _tutorialSettings;
 
-        private static WaitForSeconds _canManualCloseDelay = new WaitForSeconds(5f);
+        private static WaitForSeconds _canManualCloseDelay = new WaitForSeconds(1.5f);
         private bool _canManualClose;
 
         protected override void PerformBeforeOpen()

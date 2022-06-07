@@ -37,15 +37,8 @@ namespace _Game.Logic.Systems
         private void ShowAd() => 
             _ads.ShowRewarded("CoffeeBreak", PerformOnAdComplete);
 
-        private void PerformOnAdComplete()
-        {
-            //GiveReward
-            UnityEngine.Debug.Log("Coffee break complete");
-
+        private void PerformOnAdComplete() => 
             CoroutineLauncher.Start(DelayUntilNewCoffeeBreak());
-
-            _events.InvokeOnRewardedAdsShown();
-        }
 
         private IEnumerator DelayUntilNewCoffeeBreak()
         {

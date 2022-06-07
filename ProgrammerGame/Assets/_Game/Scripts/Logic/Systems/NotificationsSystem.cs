@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.Saving;
 using RH.Utilities.ServiceLocator;
 using Unity.Notifications.Android;
 
@@ -31,6 +34,8 @@ namespace _Game.Logic.Systems
             ClearScheduledNotifications();
             ScheduleRetentionNotifications();
 
+            PrintIds();
+
             _events.ApplicationPaused += ScheduleIncomeNotification;
         }
 
@@ -52,8 +57,21 @@ namespace _Game.Logic.Systems
 
         private void ClearScheduledNotifications()
         {
+            PrintIds();
+
             foreach (int id in _data.Ids) 
                 AndroidNotificationCenter.CancelNotification(id);
+        }
+
+        private void PrintIds()
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine("NOTES IDS");
+
+            foreach (int id in _data.Ids)
+                builder.AppendLine(id.ToString());
+
+            UnityEngine.Debug.Log(builder.ToString());
         }
 
         private void ScheduleRetentionNotifications()
@@ -76,6 +94,8 @@ namespace _Game.Logic.Systems
             AndroidNotification notification = CreateNotification(text, fireTime);
 
             SendNotification(notification);
+
+            _data.Save();
         }
 
         private AndroidNotification GetRetentionNotification(int i, int j)

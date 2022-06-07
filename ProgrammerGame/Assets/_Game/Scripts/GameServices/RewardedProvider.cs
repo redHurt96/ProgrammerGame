@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Game.Common;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
 {
@@ -61,8 +63,13 @@ namespace _Game.GameServices
         private void RewardedVideoAdClosedEvent() =>
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAdClosedEvent)}");
 
-        private void RewardedVideoAvailabilityChangedEvent(bool availability) =>
+        private void RewardedVideoAvailabilityChangedEvent(bool availability)
+        {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAvailabilityChangedEvent)} - {availability}");
+            
+            if (availability)
+                Services.Get<AdsEventsService>().InvokeOnRewardedAdsShown();
+        }
 
         private void RewardedVideoAdStartedEvent() =>
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAdStartedEvent)}");
@@ -79,6 +86,8 @@ namespace _Game.GameServices
                 callback.Invoke();
 
             _onShownCallbacks.Clear();
+
+            Services.Get<AdsEventsService>().InvokeOnRewardedAdsShown();
         }
 
         private void RewardedVideoAdShowFailedEvent(IronSourceError error)

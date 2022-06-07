@@ -31,10 +31,20 @@ namespace _Game.UI.Windows
         {
             bool isRewardedReady = _ads.IsRewardedReady;
 
-            _adsIncreaseRewardButton.gameObject.SetActive(isRewardedReady);
+            _adsIncreaseRewardButton.interactable = isRewardedReady;
 
             if (isRewardedReady)
                 _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);
+            else
+            {
+                _adsEventsService.RewardedReady += EnableButton;
+            }
+        }
+
+        private void EnableButton()
+        {
+            _adsEventsService.RewardedReady -= EnableButton;
+            _adsIncreaseRewardButton.interactable = _ads.IsRewardedReady;
         }
 
         private void DoubleReward()

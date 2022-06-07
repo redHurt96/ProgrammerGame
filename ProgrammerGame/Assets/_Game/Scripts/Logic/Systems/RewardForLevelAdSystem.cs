@@ -37,8 +37,6 @@ namespace _Game.Logic.Systems
         {
             double money = _data.GetRewardForLevel() * (_settings.Ads.ResetBoost - 1);
             _events.IntentToChangeMoney(money);
-
-            _adsEvents.InvokeOnRewardedAdsShown();
         }
     }
 }

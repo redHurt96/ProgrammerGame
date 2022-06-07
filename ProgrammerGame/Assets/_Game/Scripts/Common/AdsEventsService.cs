@@ -6,6 +6,7 @@ namespace _Game.Common
     public class AdsEventsService : IService
     {
         public event Action RewardedAdsShown;
+        public event Action RewardedReady;
         public event Action OnCoffeeBreakIntent;
         public event Action OnRewardForLevelIntent;
         public event Action<float> OnCoffeeBreakTimerUpdated;
@@ -18,5 +19,6 @@ namespace _Game.Common
         public void CoffeeBreakTimeUpdate(float left) => OnCoffeeBreakTimerUpdated?.Invoke(left);
         public void CompleteCoffeeBreak() => OnCoffeeBreakComplete?.Invoke();
         public void StartCoffeeBreak() => OnCoffeeBreakStart?.Invoke();
+        public void InvokeRewardedReadyEvent() => RewardedReady?.Invoke();
     }
 }

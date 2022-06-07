@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using _Game.Common;
 using _Game.Data;
 using _Game.GameServices;
@@ -23,7 +23,10 @@ namespace _Game.UI.ProjectsTab
             _events.MoneyCountChanged += UpdateButtonVisibility;
         }
 
+        private void Update() => CheckAdsAvailability();
+
         private void UpdateButtonVisibility() => UpdateButtonVisibility(0);
+
         private void UpdateButtonVisibility(double amount)
         {
             if (_project == null)
@@ -35,7 +38,14 @@ namespace _Game.UI.ProjectsTab
             _data ??= Services.Get<GameData>();
             _ads ??= Services.Get<AdsService>();
 
-            _button.gameObject.SetActive(_data.SavableData.MoneyCount < _project.GetPrice(1) && _ads.IsRewardedReady);
+            if (_data.SavableData.MoneyCount < _project.GetPrice(1) && _ads.IsRewardedReady)
+                Invoke(nameof(EnableButton), 1f);
+        }
+
+        private void EnableButton()
+        {
+            if (_data.SavableData.MoneyCount < _project.GetPrice(1) && _ads.IsRewardedReady)
+                _button.gameObject.SetActive(true);
         }
 
         public void Setup(ProjectData project)
@@ -52,5 +62,11 @@ namespace _Game.UI.ProjectsTab
             _ads.ShowRewarded("Project", AddLevel);
 
         private void AddLevel() => _project.Buy(1);
+
+        private void CheckAdsAvailability()
+        {
+            if (!_ads.IsRewardedReady)
+                _button.gameObject.SetActive(false);
+        }
     }
 }

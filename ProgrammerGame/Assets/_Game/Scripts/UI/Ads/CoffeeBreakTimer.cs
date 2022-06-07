@@ -29,7 +29,7 @@ namespace _Game.UI.Ads
         }
 
         private void UpdateLabel(float time) => 
-            _label.text = $"0{(int) time / 60}:{(int) time % 60}";
+            _label.text = $"{(int) time / 60:D2}:{(int) time % 60:D2}";
 
         private void HideLabel() => _label.enabled = false;
         private void ShowLabel() => _label.enabled = true;

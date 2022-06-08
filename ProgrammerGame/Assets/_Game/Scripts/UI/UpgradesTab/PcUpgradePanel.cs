@@ -1,5 +1,4 @@
-﻿using _Game.Common;
-using _Game.Configs;
+﻿using _Game.Configs;
 using _Game.Data;
 
 namespace _Game.UI.UpgradesTab

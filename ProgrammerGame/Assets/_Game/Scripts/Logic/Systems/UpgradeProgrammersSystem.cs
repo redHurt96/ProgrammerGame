@@ -34,7 +34,7 @@ namespace _Game.Logic.Systems
 
         private void UpgradeProgrammer(string projectName)
         {
-            ProgrammerUpgradeData programmer = _data.GetProgrammerData(projectName);
+            ProgrammerUpgradeData programmer = _data.GetProgrammerUpgradeData(projectName);
             ProjectData project = _data.GetProject(projectName);
 
             UpgradeProgrammerSetup(projectName, programmer.Level);

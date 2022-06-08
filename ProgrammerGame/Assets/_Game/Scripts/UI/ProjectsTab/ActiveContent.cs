@@ -3,6 +3,7 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.GameServices;
 using _Game.Scripts.Exception;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Sprite _autorunnedProjectButtonSprite;
 
         [Space] 
-        [SerializeField] private ProjectAdsButton _adsButton;
+        [SerializeField] private AdsButton _adsButton;
 
         private ProjectData _projectData;
 
@@ -50,8 +51,14 @@ namespace _Game.UI.ProjectsTab
             UpdateContent();
             Subscribe();
 
-            _adsButton.Setup(projectData);
+            _adsButton.Setup(CanShowAdsButton, AddLevelToProject);
         }
+
+        private bool CanShowAdsButton() => 
+            _projectData.GetPrice(1) > _data.SavableData.MoneyCount;
+
+        private void AddLevelToProject() =>
+            _projectData.Buy(1);
 
         private void AddButtonsListeners(Action buyAction, Action runAction)
         {

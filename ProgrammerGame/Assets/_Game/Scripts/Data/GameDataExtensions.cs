@@ -20,7 +20,7 @@ namespace _Game.Data
         public static bool IsProjectAutoRunned(this GameData data, string projectName) =>
             data.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == projectName);
 
-        public static ProgrammerUpgradeData GetProgrammerData(this GameData data, string projectName) =>
+        public static ProgrammerUpgradeData GetProgrammerUpgradeData(this GameData data, string projectName) =>
             data.SavableData.AutoRunnedProjects.First(x => x.ProjectName == projectName);
 
         public static float IncreaseSpeedTotalEffect(this GameData data) => 

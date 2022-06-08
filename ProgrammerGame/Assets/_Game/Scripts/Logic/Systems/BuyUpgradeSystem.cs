@@ -13,9 +13,8 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             GlobalEvents.Instance.BuyUpgradeIntent -= BuyUpgrade;
 
-        private void BuyUpgrade(UpgradeType type, double price)
+        private void BuyUpgrade(UpgradeType type)
         {
-            GlobalEvents.Instance.IntentToChangeMoney(-price);
             GameData.Instance.GetUpgradeData(type).Upgrade();
             GlobalEvents.Instance.InvokeAfterUpgradeEvent(type);
         }

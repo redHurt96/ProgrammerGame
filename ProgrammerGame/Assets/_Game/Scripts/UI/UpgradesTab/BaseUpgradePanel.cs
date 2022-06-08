@@ -24,6 +24,7 @@ namespace _Game.UI.UpgradesTab
         [SerializeField] private Text _totalEffect;
         [SerializeField] private Button _buyButton;
         [SerializeField] private PriceButtonVisibilityComponent _buttonVisibilityComponent;
+        [SerializeField] private AdsButton _adsButton;
 
         private UpgradeData _upgradeData;
 
@@ -58,7 +59,7 @@ namespace _Game.UI.UpgradesTab
         private void OnDestroy()
         {
             if (_upgradeData != null)
-                _upgradeData.Upgraded += UpdateContent;
+                _upgradeData.Upgraded -= UpdateContent;
 
             _buyButton.onClick.RemoveListener(BuyUpgrade);
         }
@@ -72,10 +73,20 @@ namespace _Game.UI.UpgradesTab
             _totalEffect.text = TotalEffectTitle;
             
             _buttonVisibilityComponent.UpdateVisibility();
+
+            _adsButton.Setup(CanUpgrade, PerformUpgrade);
         }
 
+        private bool CanUpgrade() => 
+            _price > _data.SavableData.MoneyCount && CheckAdditionalBuyAvailability();
 
-        private void BuyUpgrade() => 
-            GlobalEvents.Instance.IntentToBuyUpgrade(_upgradeType, _price);
+        private void BuyUpgrade()
+        {
+            PerformUpgrade();
+            GlobalEvents.Instance.IntentToChangeMoney(-_price);
+        }
+
+        private void PerformUpgrade() => 
+            GlobalEvents.Instance.IntentToBuyUpgrade(_upgradeType);
     }
 }

@@ -16,7 +16,7 @@ namespace _Game.Common
         public event Action<ProjectData> ProjectStarted;
         public event Action<string> BuyProgrammerIntent;
         public event Action<string> UpgradeProgrammerIntent;
-        public event Action<UpgradeType, double> BuyUpgradeIntent;
+        public event Action<UpgradeType> BuyUpgradeIntent;
         public event Action<UpgradeType> OnUpgraded;
         public event Action<float> ResetForBoostIntent;
         public event Action BuyCountChanged;
@@ -37,7 +37,7 @@ namespace _Game.Common
         public void IntentToBuyProgrammer(string automatedProjectName) =>  BuyProgrammerIntent?.Invoke(automatedProjectName);
         public void IntentToUpgradeProgrammer(string automatedProjectName) => UpgradeProgrammerIntent?.Invoke(automatedProjectName);
 
-        public void IntentToBuyUpgrade(UpgradeType upgradeType, double price) => BuyUpgradeIntent?.Invoke(upgradeType, price);
+        public void IntentToBuyUpgrade(UpgradeType upgradeType) => BuyUpgradeIntent?.Invoke(upgradeType);
         public void InvokeAfterUpgradeEvent(UpgradeType type) => OnUpgraded?.Invoke(type);
         public void ResetForBoost(float boost) => ResetForBoostIntent?.Invoke(boost);
         public void InvokeChangeBuyCountsEvent() => BuyCountChanged?.Invoke();

@@ -42,7 +42,7 @@ namespace _Game.Data
                      * _data.DailyBonusData.Bonus);
 
                 if (_data.IsProjectAutoRunned(Name))
-                    baseIncome = (long)(baseIncome * (1 + _data.GetProgrammerData(Name).Level *
+                    baseIncome = (long)(baseIncome * (1 + _data.GetProgrammerUpgradeData(Name).Level *
                         _settings.AllProgrammersSettings.BoostPerProgrammerLevel));
 
                 return baseIncome;

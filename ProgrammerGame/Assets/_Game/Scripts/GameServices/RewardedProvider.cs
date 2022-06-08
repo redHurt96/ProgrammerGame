@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Game.Common;
+using RH.Utilities;
 using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
@@ -8,6 +9,8 @@ namespace _Game.GameServices
     public class RewardedProvider : IDisposable
     {
         private List<Action> _onShownCallbacks = new List<Action>();
+
+        private CachedValue<bool> _isReady;
 
         public RewardedProvider()
         {
@@ -19,6 +22,8 @@ namespace _Game.GameServices
             IronSourceEvents.onRewardedVideoAdEndedEvent += RewardedVideoAdEndedEvent;
             IronSourceEvents.onRewardedVideoAdRewardedEvent += RewardedVideoAdRewardedEvent;
             IronSourceEvents.onRewardedVideoAdShowFailedEvent += RewardedVideoAdShowFailedEvent;
+
+            _isReady = CachedValue<bool>.Create(() => IronSource.Agent.isRewardedVideoAvailable());
         }
 
         public void Dispose()
@@ -36,7 +41,7 @@ namespace _Game.GameServices
         public void Load() => 
             IronSource.Agent.loadRewardedVideo();
 
-        public bool IsReady => IronSource.Agent.isRewardedVideoAvailable();
+        public bool IsReady => _isReady.Value;
 
         public void Show(Action onDone)
         {

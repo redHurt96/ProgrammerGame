@@ -24,6 +24,7 @@ namespace _Game.UI.ProgrammersTab
         [SerializeField] private PriceButtonVisibilityComponent _priceButtonVisibilityComponent;
         [SerializeField] private Text _needUpgradeTip;
         [SerializeField] private Text _buttonTitle;
+        [SerializeField] private AdsButton _adsButton;
 
         private Apartment _apartment;
         private GameData _data;
@@ -66,7 +67,7 @@ namespace _Game.UI.ProgrammersTab
 
         private void SetupForPurchasedProgrammer()
         {
-            ProgrammerUpgradeData upgradeData = _data.GetProgrammerData(_programmer.AutomatedProject.Name);
+            ProgrammerUpgradeData upgradeData = _data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name);
             bool canUpgrade = CheckProgrammerHasUpgrade();
 
             _description.text = $"+ {upgradeData.Level * _settings.AllProgrammersSettings.BoostPerProgrammerLevel * 100}% money";
@@ -83,15 +84,11 @@ namespace _Game.UI.ProgrammersTab
                 _priceButtonVisibilityComponent.SetPriceFunc(() => _programmer.GetPrice(upgradeData.Level));
                 _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerHasUpgrade);
                 _price.text = _programmer.GetPrice(upgradeData.Level).ToPriceString();
+
+                _adsButton.Setup(
+                    () => CheckProgrammerHasUpgrade() && _data.SavableData.MoneyCount < _programmer.GetPrice(upgradeData.Level), 
+                    PerformUpgrade);
             }
-        }
-
-        private bool CheckProgrammerHasUpgrade()
-        {
-            int level = _data.GetProgrammerData(_programmer.AutomatedProject.Name).Level;
-            int upgradesCount = _settings.AllProgrammersSettings.Upgrades.Length;
-
-            return level < upgradesCount;
         }
 
         private void SetupForAvailableProgrammer()
@@ -104,6 +101,10 @@ namespace _Game.UI.ProgrammersTab
             _priceButtonVisibilityComponent.SetAdditionalCondition(CheckProgrammerAvailability);
             _buttonTitle.text = "Hire";
 
+            _adsButton.Setup(
+                () => CheckProgrammerAvailability() && _data.SavableData.MoneyCount < _programmer.GetPrice(0), 
+                PerformBuy);
+
             UpdateTip();
         }
 
@@ -115,20 +116,26 @@ namespace _Game.UI.ProgrammersTab
 
         private void BuyProgrammer()
         {
-            _events.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
-
-            SetupForPurchasedProgrammer();
-
+            PerformBuy();
             _events.IntentToChangeMoney(-_programmer.GetPrice(0));
+        }
+
+        private void PerformBuy()
+        {
+            _events.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
+            SetupForPurchasedProgrammer();
         }
 
         private void UpgradeProgrammer()
         {
+            PerformUpgrade();
+            _events.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level - 1));
+        }
+
+        private void PerformUpgrade()
+        {
             _events.IntentToUpgradeProgrammer(_programmer.AutomatedProject.Name);
-
             SetupForPurchasedProgrammer();
-
-            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
         }
 
         private void UpdateTip(UpgradeType type)
@@ -139,5 +146,13 @@ namespace _Game.UI.ProgrammersTab
 
         private void UpdateTip() => 
             _needUpgradeTip.gameObject.SetActive(!_apartment.ContainSpotFor(_programmer.name));
+
+        private bool CheckProgrammerHasUpgrade()
+        {
+            int level = _data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level;
+            int upgradesCount = _settings.AllProgrammersSettings.Upgrades.Length;
+
+            return level < upgradesCount;
+        }
     }
 }

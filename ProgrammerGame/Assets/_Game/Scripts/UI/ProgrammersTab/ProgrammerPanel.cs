@@ -128,8 +128,8 @@ namespace _Game.UI.ProgrammersTab
 
         private void UpgradeProgrammer()
         {
+            _events.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level));
             PerformUpgrade();
-            _events.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level - 1));
         }
 
         private void PerformUpgrade()

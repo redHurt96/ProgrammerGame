@@ -82,8 +82,8 @@ namespace _Game.UI.UpgradesTab
 
         private void BuyUpgrade()
         {
-            PerformUpgrade();
             GlobalEvents.Instance.IntentToChangeMoney(-_price);
+            PerformUpgrade();
         }
 
         private void PerformUpgrade() => 

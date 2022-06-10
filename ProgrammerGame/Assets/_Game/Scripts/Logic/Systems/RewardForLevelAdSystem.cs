@@ -10,14 +10,14 @@ namespace _Game.Logic.Systems
     public class RewardForLevelAdSystem : BaseInitSystem
     {
         private readonly GlobalEvents _events;
-        private readonly AdsService _ads;
+        private readonly IAdsService _ads;
         private readonly AdsEventsService _adsEvents;
         private readonly GameData _data;
         private readonly Settings _settings;
 
         public RewardForLevelAdSystem()
         {
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
             _events = Services.Get<GlobalEvents>();
             _adsEvents = Services.Get<AdsEventsService>();

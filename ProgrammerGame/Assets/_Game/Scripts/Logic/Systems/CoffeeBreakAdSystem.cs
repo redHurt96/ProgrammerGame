@@ -14,12 +14,12 @@ namespace _Game.Logic.Systems
     {
         private readonly GameData _data;
         private readonly AdsEventsService _events;
-        private readonly AdsService _ads;
+        private readonly IAdsService _ads;
         private readonly AdsSettings _settings;
 
         public CoffeeBreakAdSystem()
         {
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
             _events = Services.Get<AdsEventsService>();
             _settings = Services.Get<Settings>().Ads;

@@ -425,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 133.1, y: -174.1}
+  m_AnchoredPosition: {x: 123.9, y: -174.1}
   m_SizeDelta: {x: 80.38, y: 66.26}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &3497655961428067208
@@ -848,8 +848,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -47.80005, y: -46.600006}
-  m_SizeDelta: {x: -131.6, y: -129.2}
+  m_AnchoredPosition: {x: -62.74, y: -46.600006}
+  m_SizeDelta: {x: -161.48, y: -129.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3497655962127924197
 CanvasRenderer:
@@ -886,7 +886,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 60
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1141,3 +1141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 8977832046072081585}
+  _check: 0

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace _Game.GameServices
 {
-    public class InterstitialProvider : IAdTypeProvider
+    public class InterstitialProvider
     {
-        private List<Action> _onAdLoadedCallbacks = new List<Action>();
-
         public InterstitialProvider()
         {
             IronSourceEvents.onInterstitialAdReadyEvent += InterstitialAdReadyEvent;
@@ -32,13 +30,10 @@ namespace _Game.GameServices
         public bool IsReady => 
             IronSource.Agent.isInterstitialReady();
 
-        public void Load(Action onLoaded = null)
+        public void Load()
         {
             UnityEngine.Debug.Log("[ADS] Load interstitial");
             IronSource.Agent.loadInterstitial();
-
-            if (onLoaded != null)
-                _onAdLoadedCallbacks.Add(onLoaded);
         }
 
         public void Show()
@@ -67,14 +62,7 @@ namespace _Game.GameServices
         private void InterstitialAdLoadFailedEvent(IronSourceError error) => 
             UnityEngine.Debug.Log($"[ADS] {nameof(InterstitialAdLoadFailedEvent)} with code {error.getCode()}");
 
-        private void InterstitialAdReadyEvent()
-        {
+        private void InterstitialAdReadyEvent() => 
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdReadyEvent));
-
-            foreach (Action callback in _onAdLoadedCallbacks) 
-                callback?.Invoke();
-
-            _onAdLoadedCallbacks.Clear();
-        }
     }
 }

@@ -10,7 +10,7 @@ using Unity.Notifications.Android;
 
 namespace _Game.Logic.Systems
 {
-    public class NotificationsSystem : BaseInitSystem
+    public class NotificationsSystem : IInitSystem
     {
         private readonly GlobalEvents _events;
         private readonly NotificationData _data;
@@ -27,19 +27,14 @@ namespace _Game.Logic.Systems
             _idleIncomeSeconds = Services.Get<Settings>().IdleIncomeSeconds;
         }
 
-        public override void Init()
+        public void Init()
         {
             RegisterChannel();
             ClearScheduledNotifications();
             ScheduleRetentionNotifications();
 
             PrintIds();
-
-            _events.ApplicationPaused += ScheduleIncomeNotification;
         }
-
-        public override void Dispose() => 
-            _events.ApplicationPaused -= ScheduleIncomeNotification;
 
         private void RegisterChannel()
         {
@@ -80,20 +75,11 @@ namespace _Game.Logic.Systems
                 {
                     AndroidNotification notification = GetRetentionNotification(i, j);
 
-                    SendNotification(notification);
+                    int id = AndroidNotificationCenter.SendNotification(notification, _channel.Id);
+
+                    _data.Ids.Add(id);
                 }
             }
-        }
-
-        private void ScheduleIncomeNotification()
-        {
-            var text = $"Your programmers can no longer work. Come back and take their money";
-            DateTime fireTime = DateTime.Today.AddSeconds(_idleIncomeSeconds);
-            AndroidNotification notification = CreateNotification(text, fireTime);
-
-            SendNotification(notification);
-
-            _data.Save();
         }
 
         private AndroidNotification GetRetentionNotification(int i, int j)
@@ -103,7 +89,7 @@ namespace _Game.Logic.Systems
             int hours = _settings.AllowableTimeStart +
                         _settings.AllowableTimeInterval * (j + 1) / _settings.NotesPerSingleDay;
             DateTime fireTime = DateTime.Today.AddDays(i + 1).AddHours(hours);
-
+            
             var notification = CreateNotification(text, fireTime);
             return notification;
         }
@@ -119,13 +105,6 @@ namespace _Game.Logic.Systems
                 LargeIcon = NotificationsSettings.LARGE_ICON_NAME,
             };
             return notification;
-        }
-
-        private void SendNotification(AndroidNotification notification)
-        {
-            int id = AndroidNotificationCenter.SendNotification(notification, _channel.Id);
-
-            _data.Ids.Add(id);
         }
     }
 }

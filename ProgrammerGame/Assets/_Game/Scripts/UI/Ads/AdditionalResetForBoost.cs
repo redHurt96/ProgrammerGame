@@ -9,14 +9,14 @@ namespace _Game.UI.Ads
 {
     public class AdditionalResetForBoost : BaseActionButton
     {
-        private AdsService _ads;
+        private IAdsService _ads;
         private GameData _data;
         private Settings _settings;
         private GlobalEvents _events;
 
         protected override void PerformOnStart()
         {
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
             _settings = Services.Get<Settings>();
             _events = Services.Get<GlobalEvents>();

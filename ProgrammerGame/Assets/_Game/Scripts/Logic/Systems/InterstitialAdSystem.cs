@@ -12,7 +12,7 @@ namespace _Game.Logic.Systems
     public class InterstitialAdSystem : BaseInitSystem
     {
         private readonly Settings _settings;
-        private readonly AdsService _ads;
+        private readonly IAdsService _ads;
         private readonly AdsEventsService _events;
 
         private Coroutine _currentCoroutine;
@@ -20,7 +20,7 @@ namespace _Game.Logic.Systems
         public InterstitialAdSystem()
         {
             _settings = Services.Get<Settings>();
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _events = Services.Get<AdsEventsService>();
         }
 

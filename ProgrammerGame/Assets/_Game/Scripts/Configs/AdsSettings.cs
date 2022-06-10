@@ -16,6 +16,8 @@ namespace _Game.Configs
         public float CoffeeBreakLenght;
         public float CoffeeBreakDelay = 60;
         public float CoffeeBreakBoost = 1.3f;
+        public float CoffeeBreakIconShowTime = 7f;
+        public float CoffeeBreakIconHideTime = 60f;
 
         [Space]
         public float ResetBoost = 2f;

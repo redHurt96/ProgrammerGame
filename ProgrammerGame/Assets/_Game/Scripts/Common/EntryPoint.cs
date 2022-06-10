@@ -7,6 +7,10 @@ using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
+#if UNITY_EDITOR
+    using _Game.Debug.GameServices;
+#endif
+
 namespace _Game.Common
 {
     public class EntryPoint : AbstractEntryPoint
@@ -32,7 +36,11 @@ namespace _Game.Common
                 .RegisterSingle(new GameData())
                 .RegisterSingle(new TutorialEvents())
                 .RegisterSingle(new AdsEventsService())
-                .RegisterSingle(new AdsService());
+#if UNITY_EDITOR
+                .RegisterSingle<IAdsService>(new AdsMocService());
+#else
+                .RegisterSingle<IAdsService>(new AdsService());
+#endif
         }
 
         protected override void RegisterSystems()
@@ -86,6 +94,7 @@ namespace _Game.Common
                 .Add(new LoadRewardedAdSystem())
                 .Add(new CoffeeBreakAdSystem())
                 .Add(new RewardForLevelAdSystem())
+                .Add(new LoadAdvBannerSystem())
 
                 //notifications
                 .Add(new NotificationsSaveSystem())

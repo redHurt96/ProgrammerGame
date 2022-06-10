@@ -8,11 +8,11 @@ namespace _Game.UI.Ads
     {
         [SerializeField] private GameObject _button;
 
-        private AdsService _ads;
+        private IAdsService _ads;
 
         private void OnEnable()
         {
-            _ads ??= Services.Get<AdsService>();
+            _ads ??= Services.Get<IAdsService>();
 
             _button.SetActive(_ads.IsRewardedReady);
         }

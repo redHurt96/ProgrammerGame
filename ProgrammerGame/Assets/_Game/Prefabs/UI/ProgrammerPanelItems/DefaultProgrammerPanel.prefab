@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1250440478948851033}
+  _check: 0
 --- !u!1 &5505139624016886726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,8 +1109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -41.9, y: 21.7}
-  m_SizeDelta: {x: -131.6, y: -89.5468}
+  m_AnchoredPosition: {x: -52.967987, y: 21.7}
+  m_SizeDelta: {x: -129.936, y: -89.5468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8404692907616111846
 CanvasRenderer:
@@ -1146,7 +1147,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 60
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

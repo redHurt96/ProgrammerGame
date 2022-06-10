@@ -4,11 +4,12 @@ using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
 {
-    public class AdsService : IService
+    public class AdsService : IAdsService
     {
         private readonly Settings _settings;
         private readonly InterstitialProvider _interstitialProvider;
         private readonly RewardedProvider _rewardedProvider;
+        private readonly BannerProvider _bannerProvider;
 
         public AdsService()
         {
@@ -17,10 +18,11 @@ namespace _Game.GameServices
 
             _interstitialProvider = new InterstitialProvider();
             _rewardedProvider = new RewardedProvider();
+            _bannerProvider = new BannerProvider();
         }
 
         public bool IsInterstitialReady => _interstitialProvider.IsReady;
-        public void LoadInterstitial(Action onLoaded = null) => _interstitialProvider.Load(onLoaded);
+        public void LoadInterstitial() => _interstitialProvider.Load();
         public void ShowInterstitial() => _interstitialProvider.Show();
 
         public bool IsRewardedReady => _rewardedProvider.IsReady;
@@ -30,5 +32,8 @@ namespace _Game.GameServices
             UnityEngine.Debug.Log("AdsService - show rewarded ad from " + placement);
             _rewardedProvider.Show(onSuccess);
         }
+
+        public void LoadBanner() => 
+            _bannerProvider.Load();
     }
 }

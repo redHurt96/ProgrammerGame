@@ -27,6 +27,6 @@ MonoBehaviour:
     _exponential: 2.5
     _additional: 1.5
   _timeSettings:
-    _startTime: 12
+    _startTime: 16
+    _minProjectTime: 5
     _timerDecreaseLevelCount: 25
-    _minProjectTime: 0.25

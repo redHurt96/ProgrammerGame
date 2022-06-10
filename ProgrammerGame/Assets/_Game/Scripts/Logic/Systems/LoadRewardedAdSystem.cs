@@ -7,12 +7,12 @@ namespace _Game.Logic.Systems
 {
     public class LoadRewardedAdSystem : BaseInitSystem
     {
-        private readonly AdsService _ads;
+        private readonly IAdsService _ads;
         private readonly AdsEventsService _events;
 
         public LoadRewardedAdSystem()
         {
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _events = Services.Get<AdsEventsService>();
         }
 

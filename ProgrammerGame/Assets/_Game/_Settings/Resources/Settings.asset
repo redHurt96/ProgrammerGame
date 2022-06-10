@@ -81,5 +81,15 @@ MonoBehaviour:
     AppId: 15056d1c9
     FirstInterstitialDelay: 180
     InterstitialCooldown: 100
-    CoffeeBreakDelay: 30
     CoffeeBreakLenght: 60
+    CoffeeBreakDelay: 30
+    CoffeeBreakBoost: 2
+    CoffeeBreakIconShowTime: 7
+    CoffeeBreakIconHideTime: 60
+    ResetBoost: 2
+    LevelRewardBoost: 2
+  Notifications:
+    RetentionDaysToSend: 14
+    NotesPerSingleDay: 1
+    AllowableTimeStart: 10
+    AllowableTimeEnd: 22

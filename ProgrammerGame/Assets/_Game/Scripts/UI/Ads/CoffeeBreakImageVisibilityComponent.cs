@@ -11,13 +11,13 @@ namespace _Game.UI.Ads
     {
         [SerializeField] private Image _image;
 
-        private AdsService _ads;
+        private IAdsService _ads;
         private AdsEventsService _events;
         private AdsData _data;
 
         private void Start()
         {
-            _ads = Services.Get<AdsService>();
+            _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>().Ads;
             _events = Services.Get<AdsEventsService>();
 

@@ -28,5 +28,5 @@ MonoBehaviour:
     _additional: 4
   _timeSettings:
     _startTime: 3600
+    _minProjectTime: 300
     _timerDecreaseLevelCount: 25
-    _minProjectTime: 0.25

@@ -13,6 +13,7 @@ namespace _Game.Common
         public event Action OnCoffeeBreakComplete;
         public event Action OnCoffeeBreakStart;
         public event Action OnCoffeeBreakActive;
+        public event Action BannerLoaded;
 
         public void InvokeOnRewardedAdsShown() => RewardedAdsShown?.Invoke();
         public void CoffeeBreakIntent() => OnCoffeeBreakIntent?.Invoke();
@@ -22,5 +23,7 @@ namespace _Game.Common
         public void StartCoffeeBreak() => OnCoffeeBreakStart?.Invoke();
         public void InvokeRewardedReadyEvent(bool availability) => RewardedReady?.Invoke(availability);
         public void ReloadCoffeeBreak() => OnCoffeeBreakActive?.Invoke();
+
+        public void InvokeBannerLoadedEvent() => BannerLoaded?.Invoke();
     }
 }

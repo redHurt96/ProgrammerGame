@@ -11,6 +11,7 @@ namespace _Game.Scripts.Editor
         private string _newPrices;
         private string _newIncomes;
         private string _newProgrammersPrices;
+        private string _newTimers;
 
         private int _projectsCount => Resources.Load<Settings>("Settings").ProjectsSettings.Length;
 
@@ -37,6 +38,23 @@ namespace _Game.Scripts.Editor
 
             if (GUILayout.Button("Set new programmers prices")) 
                 SetNewProgrammersPrices();
+            
+            _newTimers = EditorGUILayout.TextField("Timers", _newTimers);
+
+            if (GUILayout.Button("Set new timers")) 
+                SetNewTimers();
+        }
+
+        private void SetNewTimers()
+        { 
+            float[] coeffs = ParseFromSheet(_newTimers);
+            ProjectSettings[] projects = Resources.LoadAll<ProjectSettings>("Projects");
+            TimeSettings[] timers = ParseToTimers(coeffs);
+            
+            for (int i = 0; i < projects.Length; i++)
+                projects[i].SetTime(timers[i]);
+
+            SetProjectsDirty(projects);
         }
 
         private void SetNewProgrammersPrices()
@@ -99,6 +117,25 @@ namespace _Game.Scripts.Editor
             }
 
             return prices;
+        }
+
+        private TimeSettings[] ParseToTimers(float[] coeffs)
+        {
+            TimeSettings[] timers = new TimeSettings[_projectsCount];
+
+            for (int i = 0; i < _projectsCount; i++)
+            {
+                int startPosition = i * 3;
+
+                timers[i] = new TimeSettings
+                {
+                    _startTime = coeffs[startPosition],
+                    _minProjectTime = coeffs[startPosition + 1],
+                    _timerDecreaseLevelCount = (int)coeffs[startPosition + 2],
+                };
+            }
+
+            return timers;
         }
 
         private void SetProgrammersDirty(ProgrammerSettings[] programmers)

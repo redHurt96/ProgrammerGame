@@ -12,7 +12,7 @@ namespace _Game.UI.ProjectsTab
         [SerializeField] private Button _button;
         [SerializeField] private bool _check;
 
-        private AdsService _ads;
+        private IAdsService _ads;
         private GlobalEvents _events;
         private AdsEventsService _adsEvents;
 
@@ -28,7 +28,7 @@ namespace _Game.UI.ProjectsTab
 
         public void Setup(Func<bool> visibilityCondition, Action onAdvComplete)
         {
-            _ads ??= Services.Get<AdsService>();
+            _ads ??= Services.Get<IAdsService>();
             _events ??= Services.Get<GlobalEvents>();
             _adsEvents ??= Services.Get<AdsEventsService>();
 

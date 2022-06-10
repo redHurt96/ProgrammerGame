@@ -13,12 +13,12 @@ namespace _Game.UI.Windows
         [SerializeField] private Text _reward;
         [SerializeField] private Button _adsIncreaseRewardButton;
 
-        private AdsService _ads;
+        private IAdsService _ads;
         private AdsEventsService _adsEventsService;
 
         protected override void PerformBeforeOpen()
         {
-            _ads ??= Services.Get<AdsService>();
+            _ads ??= Services.Get<IAdsService>();
             _adsEventsService ??= Services.Get<AdsEventsService>();
             _windowsManager ??= Services.Get<WindowsManager>();
 

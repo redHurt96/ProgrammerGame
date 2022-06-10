@@ -1,4 +1,5 @@
-﻿using _Game.Common;
+﻿using System;
+using _Game.Common;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,7 @@ namespace _Game.UI.Ads
         private void UpdateLabel(float time) => 
             _label.text = $"{(int) time / 60:D2}:{(int) time % 60:D2}";
 
-        private void HideLabel() => _label.enabled = false;
-        private void ShowLabel() => _label.enabled = true;
+        private void HideLabel() => gameObject.SetActive(false);
+        private void ShowLabel() => gameObject.SetActive(true);
     }
 }

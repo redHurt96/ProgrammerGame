@@ -9,11 +9,14 @@ namespace _Game.GameServices
     public class RewardedProvider : IDisposable
     {
         private List<Action> _onShownCallbacks = new List<Action>();
-
         private CachedValue<bool> _isReady;
+
+        private readonly AdsEvents _events;
 
         public RewardedProvider()
         {
+            _events = Services.Get<EventsMediator>().Ads;
+            
             IronSourceEvents.onRewardedVideoAdOpenedEvent += RewardedVideoAdOpenedEvent;
             IronSourceEvents.onRewardedVideoAdClickedEvent += RewardedVideoAdClickedEvent;
             IronSourceEvents.onRewardedVideoAdClosedEvent += RewardedVideoAdClosedEvent;
@@ -72,7 +75,7 @@ namespace _Game.GameServices
         {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAvailabilityChangedEvent)} - {availability}");
             
-            Services.Get<AdsEventsService>().InvokeRewardedReadyEvent(availability);
+            _events.InvokeRewardedReadyEvent(availability);
         }
 
         private void RewardedVideoAdStartedEvent() =>
@@ -91,7 +94,7 @@ namespace _Game.GameServices
 
             _onShownCallbacks.Clear();
 
-            Services.Get<AdsEventsService>().InvokeOnRewardedAdsShown();
+            _events.InvokeOnRewardedAdsShown();
         }
 
         private void RewardedVideoAdShowFailedEvent(IronSourceError error)

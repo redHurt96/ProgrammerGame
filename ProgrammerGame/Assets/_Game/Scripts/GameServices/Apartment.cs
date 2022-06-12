@@ -18,7 +18,7 @@ namespace _Game.GameServices
         private readonly Dictionary<string, GameObject> _programmerSpots = new Dictionary<string, GameObject>();
         private readonly Dictionary<string, GameObject> _furniture = new Dictionary<string, GameObject>();
 
-        private Transform _apartmentParent => SceneObjects.Instance.HouseParent;
+        private Transform ApartmentRoot => SceneObjects.Instance.HouseRoot;
 
         public void AddFurniture(FurnitureSlot slot)
         {
@@ -31,11 +31,11 @@ namespace _Game.GameServices
                 _furniture.Remove(replacingType);
             }
 
-            GameObject furniture = Object.Instantiate(slot.Furniture, _apartmentParent);
+            GameObject furniture = Object.Instantiate(slot.Furniture, ApartmentRoot);
             _furniture.Add(slot.Type, furniture);
 
             if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
+                EventsMediator.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
         }
 
         public void AddProgrammer(string projectName, FurnitureSlot slot)
@@ -53,7 +53,7 @@ namespace _Game.GameServices
             Object.Destroy(replacingObject);
 
             if (GameData.Instance.GameState == GameState.Play)
-                GlobalEvents.Instance.PerformOnFurnitureSpawned(_furniture.Last().Value.transform.position);
+                EventsMediator.Instance.PerformOnFurnitureSpawned(_furniture.Last().Value.transform.position);
 
             void CreateSubObject(Transform child)
             {
@@ -61,7 +61,7 @@ namespace _Game.GameServices
                         child,
                         replacingObject.transform.position,
                         replacingObject.transform.rotation,
-                        _apartmentParent)
+                        ApartmentRoot)
                     .gameObject;
 
                 spotObject.name = $"{projectName}_{child.name}";
@@ -90,7 +90,7 @@ namespace _Game.GameServices
                     slot.Furniture,
                     origin.position,
                     origin.rotation,
-                    _apartmentParent)
+                    ApartmentRoot)
                 .gameObject;
 
             spotObject.name = $"{projectName}_{slot.Furniture.name}";
@@ -112,7 +112,7 @@ namespace _Game.GameServices
 
             Object.Destroy(replacingObject);
 
-            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, rotation, _apartmentParent));
+            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, rotation, ApartmentRoot));
         }
 
         public void AddRoom(RoomSettings room)
@@ -123,7 +123,7 @@ namespace _Game.GameServices
             foreach (ProgrammerSpot programmerSpot in room.ProgrammerSpots)
                 _programmerSpots.Add(
                     programmerSpot.ProgrammerSettings.name, 
-                    Object.Instantiate(programmerSpot.Spot, _apartmentParent));
+                    Object.Instantiate(programmerSpot.Spot, ApartmentRoot));
         }
 
         public bool ContainSpotFor(string programmerName) => 

@@ -26,6 +26,6 @@ namespace _Game.Configs
         }
 
         private static Money GetMoneyResourceByValue(this Settings settings, double amount) =>
-            settings.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
+            settings.FX.MoneyPrefabs.LastOrDefault(x => x.Value <= amount);
     }
 }

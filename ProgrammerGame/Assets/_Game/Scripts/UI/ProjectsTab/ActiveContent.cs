@@ -29,13 +29,13 @@ namespace _Game.UI.ProjectsTab
         private ProjectData _projectData;
 
         private GameData _data;
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
         private Settings _settings;
 
         private void Awake()
         {
             _data = Services.Get<GameData>();
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _settings = Services.Get<Settings>();
         }
 
@@ -71,7 +71,7 @@ namespace _Game.UI.ProjectsTab
 
         private void Subscribe()
         {
-            _events.BuyCountChanged += UpdatePrice;
+            _eventsMediator.BuyCountChanged += UpdatePrice;
 
             _projectData.DynamicDataUpdated += UpdateDynamicContent;
             _projectData.TimeUpdated += UpdateProgressBar;
@@ -79,7 +79,7 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            _events.BuyCountChanged -= UpdatePrice;
+            _eventsMediator.BuyCountChanged -= UpdatePrice;
 
             if (_projectData != null)
             {

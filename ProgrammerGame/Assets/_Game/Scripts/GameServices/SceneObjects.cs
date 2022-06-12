@@ -8,10 +8,11 @@ namespace _Game.Common
     public class SceneObjects : MonoBehaviourSingleton<SceneObjects>, IService
     {
         public Transform MoneyParentObject;
-        public Transform HouseParent;
+        public Transform HouseRoot;
 
         [Space] 
         public Transform FxCanvas;
+        public SpawnZone PizzaSpawnZone;
 
         [Space] 
         public Camera Camera;

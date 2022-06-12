@@ -15,17 +15,17 @@ namespace _Game.Logic.Systems
             foreach (ProgrammerUpgradeData upgradeData in GameData.Instance.SavableData.AutoRunnedProjects)
                 AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == upgradeData.ProjectName));
 
-            GlobalEvents.Instance.BuyProgrammerIntent += BuyProgrammer;
+            EventsMediator.Instance.BuyProgrammerIntent += BuyProgrammer;
         }
 
         public override void Dispose() => 
-            GlobalEvents.Instance.BuyProgrammerIntent -= BuyProgrammer;
+            EventsMediator.Instance.BuyProgrammerIntent -= BuyProgrammer;
 
         private void BuyProgrammer(string forProject)
         {
             GameData.Instance.SavableData.AutoRunnedProjects.Add(new ProgrammerUpgradeData(forProject));
             AutoRunProject(GameData.Instance.SavableData.Projects.Find(x => x.Name == forProject));
-            GlobalEvents.Instance.InvokeOnBuyProgrammerEvent();
+            EventsMediator.Instance.InvokeOnBuyProgrammerEvent();
         }
 
         private void AutoRunProject(ProjectData projectData)
@@ -51,7 +51,7 @@ namespace _Game.Logic.Systems
         {
             while (Application.isPlaying)
             {
-                GlobalEvents.Instance.IntentToRunProject(projectData);
+                EventsMediator.Instance.IntentToRunProject(projectData);
 
                 yield return new WaitUntil(
                     () => GameData.Instance.RunnedProjects.All(x => x.ProjectData != projectData));

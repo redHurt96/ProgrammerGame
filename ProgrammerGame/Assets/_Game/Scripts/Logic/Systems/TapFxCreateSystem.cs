@@ -9,22 +9,26 @@ namespace _Game.Logic.Systems
 {
     public class TapFxCreateSystem : BaseInitSystem
     {
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
         private readonly SceneObjects _sceneObjects;
-        private readonly Settings _settings;
+        private readonly PriceFx _fx;
+        private readonly GameObject _fx2;
 
         public TapFxCreateSystem()
         {
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _sceneObjects = Services.Get<SceneObjects>();
-            _settings = Services.Get<Settings>();
+
+            Settings settings = Services.Get<Settings>();
+            _fx = settings.FX.TapFxPrefab;
+            _fx2 = settings.FX.TapFxPrefab2;
         }
 
         public override void Init() => 
-            _events.OnTapForMoney += CreateFx;
+            _eventsMediator.OnTapForMoney += CreateFx;
 
         public override void Dispose() => 
-            _events.OnTapForMoney -= CreateFx;
+            _eventsMediator.OnTapForMoney -= CreateFx;
 
         private void CreateFx(string value)
         {
@@ -35,7 +39,7 @@ namespace _Game.Logic.Systems
         private void CreatePriceFx(string value)
         {
             Vector3 position = Input.mousePosition - new Vector3(Screen.width / 2f, Screen.height / 2f, 0f); 
-            PriceFx fx = Object.Instantiate(_settings.TapFxPrefab, _sceneObjects.FxCanvas);
+            PriceFx fx = Object.Instantiate(_fx, _sceneObjects.FxCanvas);
             fx.SetPrice(value);
             fx.transform.localPosition = position;
             Object.Destroy(fx.gameObject, 1f);
@@ -44,7 +48,7 @@ namespace _Game.Logic.Systems
         private void CreateSecondFx()
         {
             Vector3 position = _sceneObjects.Camera.ScreenToWorldPoint(Input.mousePosition);
-            GameObject fx = Object.Instantiate(_settings.TapFxPrefab2);
+            GameObject fx = Object.Instantiate(_fx2);
             fx.transform.localPosition = position;
             Object.Destroy(fx.gameObject, 1f);
         }

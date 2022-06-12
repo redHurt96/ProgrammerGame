@@ -28,7 +28,7 @@ namespace _Game.UI.ProgrammersTab
 
         private Apartment _apartment;
         private GameData _data;
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
         private Settings _settings;
 
         private void OnEnable()
@@ -36,7 +36,7 @@ namespace _Game.UI.ProgrammersTab
             _apartment ??= Services.Get<Apartment>();
             _data ??= Services.Get<GameData>();
             _settings ??= Services.Get<Settings>();
-            _events ??= Services.Get<GlobalEvents>();
+            _eventsMediator ??= Services.Get<EventsMediator>();
 
             UpdateTip();
             _priceButtonVisibilityComponent.UpdateVisibility();
@@ -51,13 +51,13 @@ namespace _Game.UI.ProgrammersTab
             else
                 SetupForAvailableProgrammer();
 
-            _events.OnUpgraded += UpdateTip;
+            _eventsMediator.OnUpgraded += UpdateTip;
 
             _priceButtonVisibilityComponent.UpdateVisibility();
         }
 
         private void OnDestroy() => 
-            _events.OnUpgraded -= UpdateTip;
+            _eventsMediator.OnUpgraded -= UpdateTip;
 
         private void SetupCommonData()
         {
@@ -117,24 +117,24 @@ namespace _Game.UI.ProgrammersTab
         private void BuyProgrammer()
         {
             PerformBuy();
-            _events.IntentToChangeMoney(-_programmer.GetPrice(0));
+            _eventsMediator.IntentToChangeMoney(-_programmer.GetPrice(0));
         }
 
         private void PerformBuy()
         {
-            _events.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
+            _eventsMediator.IntentToBuyProgrammer(_programmer.AutomatedProject.Name);
             SetupForPurchasedProgrammer();
         }
 
         private void UpgradeProgrammer()
         {
-            _events.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level));
+            _eventsMediator.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level));
             PerformUpgrade();
         }
 
         private void PerformUpgrade()
         {
-            _events.IntentToUpgradeProgrammer(_programmer.AutomatedProject.Name);
+            _eventsMediator.IntentToUpgradeProgrammer(_programmer.AutomatedProject.Name);
             SetupForPurchasedProgrammer();
         }
 

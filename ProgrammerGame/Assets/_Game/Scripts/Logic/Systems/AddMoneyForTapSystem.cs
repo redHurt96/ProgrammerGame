@@ -21,8 +21,8 @@ namespace _Game.Logic.Systems
         {
             double value = GameData.Instance.MoneyForTap(); 
 
-            GlobalEvents.Instance.AccelerateCoding(value.ToPriceString());
-            GlobalEvents.Instance.IntentToChangeMoney(value);
+            EventsMediator.Instance.AccelerateCoding(value.ToPriceString());
+            EventsMediator.Instance.IntentToChangeMoney(value);
         }
     }
 }

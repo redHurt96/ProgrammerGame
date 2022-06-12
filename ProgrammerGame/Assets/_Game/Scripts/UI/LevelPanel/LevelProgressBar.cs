@@ -10,19 +10,19 @@ namespace _Game.UI.LevelPanel
     {
         [SerializeField] private Image _fill;
 
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
         private GameData _data;
 
         private void Start()
         {
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _data = Services.Get<GameData>();
 
-            _events.MoneyCountChanged += UpdateProgressBar;
+            _eventsMediator.MoneyCountChanged += UpdateProgressBar;
         }
 
         private void OnDestroy() => 
-            _events.MoneyCountChanged -= UpdateProgressBar;
+            _eventsMediator.MoneyCountChanged -= UpdateProgressBar;
 
         private void UpdateProgressBar(double obj) => 
             _fill.fillAmount = _data.ReachNewLevelProgress();

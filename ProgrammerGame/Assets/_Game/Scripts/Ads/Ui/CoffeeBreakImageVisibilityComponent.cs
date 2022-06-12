@@ -5,21 +5,21 @@ using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class CoffeeBreakImageVisibilityComponent : MonoBehaviour
     {
         [SerializeField] private Image _image;
 
         private IAdsService _ads;
-        private AdsEventsService _events;
+        private AdsEvents _events;
         private AdsData _data;
 
         private void Start()
         {
             _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>().Ads;
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
 
             _events.OnCoffeeBreakActive += ActivateIfHasAds;
             _events.OnCoffeeBreakComplete += Hide;

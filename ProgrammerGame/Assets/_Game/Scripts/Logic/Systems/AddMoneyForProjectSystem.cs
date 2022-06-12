@@ -9,10 +9,10 @@ namespace _Game.Logic.Systems
     public class AddMoneyForProjectSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.Instance.ProjectStarted += AddMoneyWhenProjectComplete;
+            EventsMediator.Instance.ProjectStarted += AddMoneyWhenProjectComplete;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.ProjectStarted -= AddMoneyWhenProjectComplete;
+            EventsMediator.Instance.ProjectStarted -= AddMoneyWhenProjectComplete;
 
         private void AddMoneyWhenProjectComplete(ProjectData projectData)
         {
@@ -23,6 +23,6 @@ namespace _Game.Logic.Systems
         }
 
         private void AddMoney(RunProjectProcess process) => 
-            GlobalEvents.Instance.IntentToChangeMoney((int)process.ProjectData.Income);
+            EventsMediator.Instance.IntentToChangeMoney((int)process.ProjectData.Income);
     }
 }

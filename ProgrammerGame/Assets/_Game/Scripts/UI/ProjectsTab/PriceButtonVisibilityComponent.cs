@@ -19,8 +19,8 @@ namespace _Game.UI.ProjectsTab
         {
             _calculatePrice = calculatePrice;
 
-            GlobalEvents.Instance.MoneyCountChanged += UpdateVisibility;
-            GlobalEvents.Instance.OnUpgraded += UpdateVisibility;
+            EventsMediator.Instance.MoneyCountChanged += UpdateVisibility;
+            EventsMediator.Instance.OnUpgraded += UpdateVisibility;
 
             UpdateVisibility();
         }
@@ -33,8 +33,8 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
-            GlobalEvents.Instance.OnUpgraded -= UpdateVisibility;
-            GlobalEvents.Instance.MoneyCountChanged -= UpdateVisibility;
+            EventsMediator.Instance.OnUpgraded -= UpdateVisibility;
+            EventsMediator.Instance.MoneyCountChanged -= UpdateVisibility;
         }
 
         public void UpdateVisibility() => 

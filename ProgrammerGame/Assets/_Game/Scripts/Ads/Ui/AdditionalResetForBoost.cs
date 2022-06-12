@@ -5,21 +5,21 @@ using _Game.GameServices;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.UI;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class AdditionalResetForBoost : BaseActionButton
     {
         private IAdsService _ads;
         private GameData _data;
         private Settings _settings;
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
 
         protected override void PerformOnStart()
         {
             _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
             _settings = Services.Get<Settings>();
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
         }
 
         protected override void PerformOnClick() => 
@@ -28,7 +28,7 @@ namespace _Game.UI.Ads
         private void PerformOnSuccess()
         {
             float boost = _data.BoostForProgress() * _settings.Ads.ResetBoost;
-            _events.ResetForBoost(boost);
+            _eventsMediator.ResetForBoost(boost);
         }
     }
 }

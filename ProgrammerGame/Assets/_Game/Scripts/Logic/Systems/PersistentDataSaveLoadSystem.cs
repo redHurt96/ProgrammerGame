@@ -11,18 +11,18 @@ namespace _Game.Logic.Systems
         {
             GameData.Instance.PersistentData.LoadIfExist();
 
-            GlobalEvents.Instance.TutorialStepReceived += Save;
-            GlobalEvents.Instance.LevelChanged += Save;
-            GlobalEvents.Instance.ApplicationPaused += Save;
+            EventsMediator.Instance.TutorialStepReceived += Save;
+            EventsMediator.Instance.LevelChanged += Save;
+            EventsMediator.Instance.ApplicationPaused += Save;
         }
 
         public override void Dispose()
         {
             GameData.Instance.PersistentData.Save();
 
-            GlobalEvents.Instance.TutorialStepReceived -= Save;
-            GlobalEvents.Instance.LevelChanged -= Save;
-            GlobalEvents.Instance.ApplicationPaused -= Save;
+            EventsMediator.Instance.TutorialStepReceived -= Save;
+            EventsMediator.Instance.LevelChanged -= Save;
+            EventsMediator.Instance.ApplicationPaused -= Save;
         }
 
         private void Save() => GameData.Instance.PersistentData.Save();

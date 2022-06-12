@@ -9,9 +9,9 @@ namespace _Game.Logic.Systems
 {
     public class RewardForLevelAdSystem : BaseInitSystem
     {
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
         private readonly IAdsService _ads;
-        private readonly AdsEventsService _adsEvents;
+        private readonly AdsEvents _adsEvents;
         private readonly GameData _data;
         private readonly Settings _settings;
 
@@ -19,8 +19,8 @@ namespace _Game.Logic.Systems
         {
             _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
-            _events = Services.Get<GlobalEvents>();
-            _adsEvents = Services.Get<AdsEventsService>();
+            _eventsMediator = Services.Get<EventsMediator>();
+            _adsEvents = Services.Get<EventsMediator>().Ads;
             _settings = Services.Get<Settings>();
         }
 
@@ -36,7 +36,7 @@ namespace _Game.Logic.Systems
         private void PerformOnSuccess()
         {
             double money = _data.GetRewardForLevel() * (_settings.Ads.ResetBoost - 1);
-            _events.IntentToChangeMoney(money);
+            _eventsMediator.IntentToChangeMoney(money);
         }
     }
 }

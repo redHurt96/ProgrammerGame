@@ -8,12 +8,12 @@ namespace _Game.Logic.Systems
     public class LoadRewardedAdSystem : BaseInitSystem
     {
         private readonly IAdsService _ads;
-        private readonly AdsEventsService _events;
+        private readonly AdsEvents _events;
 
         public LoadRewardedAdSystem()
         {
             _ads = Services.Get<IAdsService>();
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
         }
 
         public override void Init()

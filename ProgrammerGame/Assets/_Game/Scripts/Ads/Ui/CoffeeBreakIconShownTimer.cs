@@ -4,7 +4,7 @@ using _Game.Configs;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class CoffeeBreakIconShownTimer : MonoBehaviour
     {
@@ -13,12 +13,12 @@ namespace _Game.UI.Ads
         private AdsSettings _settings;
         private WaitForSeconds _showTime;
         private WaitForSeconds _hideTime;
-        private AdsEventsService _events;
+        private AdsEvents _events;
 
         private void Start()
         {
             _settings = Services.Get<Settings>().Ads;
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
 
             _showTime = new WaitForSeconds(_settings.CoffeeBreakIconShowTime);
             _hideTime = new WaitForSeconds(_settings.CoffeeBreakIconHideTime);

@@ -2,7 +2,7 @@
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class AdditionalResetForBoostVisibilityComponent : MonoBehaviour
     {

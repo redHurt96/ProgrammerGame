@@ -1,5 +1,3 @@
-using _Game.Fx;
-using _Game.Logic.MonoBehaviours;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
@@ -9,10 +7,7 @@ namespace _Game.Configs
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
     public class Settings : SingletonScriptableObject<Settings>, IService
     {
-        public Money[] MoneyPrefabs;
-        public PriceFx TapFxPrefab;
-        public GameObject TapFxPrefab2;
-        public GameObject FurnitureSpawnFxPrefab;
+        public FxConfigs FX;
 
         [Header("Money spawning")]
         public float MoneyFallForce = 2f;

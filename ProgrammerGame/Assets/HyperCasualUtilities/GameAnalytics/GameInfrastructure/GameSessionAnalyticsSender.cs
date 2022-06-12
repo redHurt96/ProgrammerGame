@@ -15,10 +15,10 @@ namespace AP.Utilities.Analytics
         {
             SendStats(GAProgressionStatus.Start, "Start session");
 
-            GlobalEvents.Instance.LevelChanged += SendOnNewLevel;
-            GlobalEvents.Instance.OnUpgraded += SendOnBuyUpgrade;
-            GlobalEvents.Instance.ProgrammedPurchased += SendOnProgrammedPurchased;
-            GlobalEvents.Instance.ResetForBoostIntent += SendOnReset;
+            EventsMediator.Instance.LevelChanged += SendOnNewLevel;
+            EventsMediator.Instance.OnUpgraded += SendOnBuyUpgrade;
+            EventsMediator.Instance.ProgrammedPurchased += SendOnProgrammedPurchased;
+            EventsMediator.Instance.ResetForBoostIntent += SendOnReset;
         }
 
         private void OnApplicationPause(bool pause)
@@ -32,10 +32,10 @@ namespace AP.Utilities.Analytics
 
         private void OnDestroy()
         {
-            GlobalEvents.Instance.LevelChanged -= SendOnNewLevel;
-            GlobalEvents.Instance.OnUpgraded -= SendOnBuyUpgrade;
-            GlobalEvents.Instance.ProgrammedPurchased -= SendOnProgrammedPurchased;
-            GlobalEvents.Instance.ResetForBoostIntent -= SendOnReset;
+            EventsMediator.Instance.LevelChanged -= SendOnNewLevel;
+            EventsMediator.Instance.OnUpgraded -= SendOnBuyUpgrade;
+            EventsMediator.Instance.ProgrammedPurchased -= SendOnProgrammedPurchased;
+            EventsMediator.Instance.ResetForBoostIntent -= SendOnReset;
         }
 
         private void SendOnReset(float f) => SendStats("Reset for boost");

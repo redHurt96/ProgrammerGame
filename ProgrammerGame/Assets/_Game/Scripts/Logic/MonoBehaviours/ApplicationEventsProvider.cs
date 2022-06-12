@@ -6,19 +6,19 @@ namespace _Game.Logic.MonoBehaviours
 {
     public class ApplicationEventsProvider : MonoBehaviour
     {
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
 
         private void OnApplicationPause(bool pauseStatus)
         {
-            _events ??= Services.Get<GlobalEvents>();
+            _eventsMediator ??= Services.Get<EventsMediator>();
 
-            _events.InvokeOnApplicationPause(pauseStatus);
+            _eventsMediator.InvokeOnApplicationPause(pauseStatus);
 
             if (pauseStatus)
-                _events.InvokeOnApplicationPause();
+                _eventsMediator.InvokeOnApplicationPause();
         }
 
         private void OnApplicationQuit() => 
-            _events.InvokeOnApplicationPause(true);
+            _eventsMediator.InvokeOnApplicationPause(true);
     }
 }

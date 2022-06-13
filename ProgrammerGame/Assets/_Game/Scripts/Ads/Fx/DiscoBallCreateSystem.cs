@@ -10,14 +10,14 @@ namespace _Game.Ads.Fx
 {
     public class DiscoBallCreateSystem : BaseInitSystem
     {
-        private GameObject _resource;
+        private GameObject _discoBallResource;
         private Transform _houseRoot;
         private AdsEvents _adsEvents;
-        private GameObject _current;
+        private GameObject _currentDiscoBall;
 
         public override void Init()
         {
-            _resource = Services.Get<Settings>().FX.DiscoBall;
+            _discoBallResource = Services.Get<Settings>().FX.DiscoBall;
             _houseRoot = Services.Get<SceneObjects>().HouseRoot;
             _adsEvents = Services.Get<EventsMediator>().Ads;
 
@@ -32,9 +32,9 @@ namespace _Game.Ads.Fx
         }
 
         private void Create() => 
-            _current = Object.Instantiate(_resource, _houseRoot);
+            _currentDiscoBall = Object.Instantiate(_discoBallResource, _houseRoot);
 
         private void Destroy() => 
-            Object.Destroy(_current);
+            Object.Destroy(_currentDiscoBall);
     }
 }

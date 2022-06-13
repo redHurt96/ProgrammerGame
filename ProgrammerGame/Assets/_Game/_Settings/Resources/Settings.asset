@@ -29,7 +29,8 @@ MonoBehaviour:
     TapFxPrefab: {fileID: 3897329392985473680, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
     TapFxPrefab2: {fileID: 395031058680739610, guid: 95186da3d9e1a9649a14e4ea6d5980b9, type: 3}
     FurnitureSpawnFxPrefab: {fileID: 395031058680739610, guid: b2f0b8902a31c8a46a1c4bb24ed9ea36, type: 3}
-    Pizza: {fileID: 9063010656834566537, guid: 9e8c3a5d911037443bd3c0320e36768f, type: 3}
+    Pizza: {fileID: 6704774662884183030, guid: e35068cf6c20cf943a50d6ab63aaeea4, type: 3}
+    DiscoBall: {fileID: 4160000743111497946, guid: 8468ee99b1f92134b9c38fed6d34c8b1, type: 3}
   MoneyFallForce: 2
   MoneySpawnTime: 1.5
   MaxMoneySpawnCount: 3

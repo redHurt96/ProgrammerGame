@@ -26,8 +26,8 @@ namespace _Game.Logic.Systems
                 LoadData();
             }
 
-            GlobalEvents.Instance.LevelChanged += Save;
-            GlobalEvents.Instance.ApplicationPaused += Save;
+            EventsMediator.Instance.LevelChanged += Save;
+            EventsMediator.Instance.ApplicationPaused += Save;
         }
 
         private void CreateNewData()
@@ -38,8 +38,8 @@ namespace _Game.Logic.Systems
 
         public override void Dispose()
         {
-            GlobalEvents.Instance.LevelChanged -= Save;
-            GlobalEvents.Instance.ApplicationPaused -= Save;
+            EventsMediator.Instance.LevelChanged -= Save;
+            EventsMediator.Instance.ApplicationPaused -= Save;
 
             Save();
         }

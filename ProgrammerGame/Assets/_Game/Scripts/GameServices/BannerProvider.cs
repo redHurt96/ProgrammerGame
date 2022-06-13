@@ -6,11 +6,11 @@ namespace _Game.GameServices
 {
     internal class BannerProvider : IDisposable
     {
-        private readonly AdsEventsService _events;
+        private readonly EventsMediator _eventsMediator;
 
         public BannerProvider()
         {
-            _events = Services.Get<AdsEventsService>();
+            _eventsMediator = Services.Get<EventsMediator>();
             
             IronSourceEvents.onBannerAdLoadedEvent += BannerAdLoadedEvent;
             IronSourceEvents.onBannerAdLoadFailedEvent += BannerAdLoadFailedEvent;        
@@ -39,7 +39,7 @@ namespace _Game.GameServices
         private void BannerAdLoadedEvent()
         {
             UnityEngine.Debug.Log($"[ADS] {nameof(BannerAdLoadedEvent)}");
-            _events.InvokeBannerLoadedEvent();
+            _eventsMediator.Ads.InvokeBannerLoadedEvent();
         }
 
         private void BannerAdLoadFailedEvent(IronSourceError error) => 

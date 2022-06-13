@@ -6,16 +6,16 @@ namespace _Game.Logic.Systems
 {
     public class AdsOnPauseEventProvider : BaseInitSystem
     {
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
 
         public AdsOnPauseEventProvider() => 
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
 
         public override void Init() => 
-            _events.ApplicationPausedWIthStatus += SendToAds;
+            _eventsMediator.ApplicationPausedWIthStatus += SendToAds;
 
         public override void Dispose() => 
-            _events.ApplicationPausedWIthStatus -= SendToAds;
+            _eventsMediator.ApplicationPausedWIthStatus -= SendToAds;
 
         private void SendToAds(bool pauseStatus) => 
             IronSource.Agent.onApplicationPause(pauseStatus);

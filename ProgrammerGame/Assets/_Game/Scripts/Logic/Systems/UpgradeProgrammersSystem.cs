@@ -10,27 +10,27 @@ namespace _Game.Logic.Systems
     public class UpgradeProgrammersSystem : BaseInitSystem
     {
         private readonly GameData _data;
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
         private readonly Apartment _apartment;
         private readonly Settings _setting;
 
         public UpgradeProgrammersSystem()
         {
             _data = Services.Get<GameData>();
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _apartment = Services.Get<Apartment>();
             _setting = Services.Get<Settings>();
         }
         
         public override void Init()
         {
-            _events.UpgradeProgrammerIntent += UpgradeProgrammer;
+            _eventsMediator.UpgradeProgrammerIntent += UpgradeProgrammer;
 
             SetupExistedProgrammers();
         }
 
         public override void Dispose() => 
-            _events.UpgradeProgrammerIntent -= UpgradeProgrammer;
+            _eventsMediator.UpgradeProgrammerIntent -= UpgradeProgrammer;
 
         private void UpgradeProgrammer(string projectName)
         {

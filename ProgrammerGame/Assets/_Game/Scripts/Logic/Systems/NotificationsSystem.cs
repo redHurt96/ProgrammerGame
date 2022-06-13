@@ -12,7 +12,7 @@ namespace _Game.Logic.Systems
 {
     public class NotificationsSystem : IInitSystem
     {
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
         private readonly NotificationData _data;
         private readonly NotificationsSettings _settings;
         private readonly long _idleIncomeSeconds;
@@ -21,7 +21,7 @@ namespace _Game.Logic.Systems
 
         public NotificationsSystem()
         {
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _data = Services.Get<GameData>().Notifications;
             _settings = Services.Get<Settings>().Notifications;
             _idleIncomeSeconds = Services.Get<Settings>().IdleIncomeSeconds;

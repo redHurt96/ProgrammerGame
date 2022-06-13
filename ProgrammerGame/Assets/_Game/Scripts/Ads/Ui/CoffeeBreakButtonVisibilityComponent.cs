@@ -5,21 +5,21 @@ using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class CoffeeBreakButtonVisibilityComponent : MonoBehaviour
     {
         [SerializeField] private Button _button;
 
         private IAdsService _ads;
-        private AdsEventsService _events;
+        private AdsEvents _events;
         private AdsData _data;
 
         private void Start()
         {
             _data = Services.Get<GameData>().Ads;
             _ads = Services.Get<IAdsService>();
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
 
             _events.RewardedReady += EnableButtonIfCoffeeBreakReady;
             _events.OnCoffeeBreakActive += ShowIfHasAds;

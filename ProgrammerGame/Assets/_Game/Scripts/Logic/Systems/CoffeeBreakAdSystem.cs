@@ -13,7 +13,7 @@ namespace _Game.Logic.Systems
     public class CoffeeBreakAdSystem : BaseInitSystem
     {
         private readonly GameData _data;
-        private readonly AdsEventsService _events;
+        private readonly AdsEvents _events;
         private readonly IAdsService _ads;
         private readonly AdsSettings _settings;
 
@@ -21,7 +21,7 @@ namespace _Game.Logic.Systems
         {
             _ads = Services.Get<IAdsService>();
             _data = Services.Get<GameData>();
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
             _settings = Services.Get<Settings>().Ads;
         }
 

@@ -11,7 +11,7 @@ namespace _Game.Logic.Systems
         public void Init()
         {
             if (GameData.Instance.SavableData.Projects.All(x => x.State != ProjectState.Active))
-                GlobalEvents.Instance.IntentToChangeMoney(Settings.Instance.StartMoney);
+                EventsMediator.Instance.IntentToChangeMoney(Settings.Instance.StartMoney);
         }
     }
 }

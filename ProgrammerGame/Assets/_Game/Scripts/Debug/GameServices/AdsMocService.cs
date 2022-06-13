@@ -7,10 +7,10 @@ namespace _Game.Debug.GameServices
 {
     public class AdsMocService : IAdsService
     {
-        private readonly AdsEventsService _adsEvents;
+        private readonly AdsEvents _adsEvents;
 
         public AdsMocService() => 
-            _adsEvents = Services.Get<AdsEventsService>();
+            _adsEvents = Services.Get<EventsMediator>().Ads;
 
         public bool IsInterstitialReady => AdsMocSettings.IsInterstitialReady;
         public bool IsRewardedReady => AdsMocSettings.IsRewardedReady;

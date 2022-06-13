@@ -12,13 +12,13 @@ namespace _Game.Logic.Systems
             CoroutineLauncher.Start(DelayedSubscribe());
 
         public override void Dispose() => 
-            GlobalEvents.Instance.MoneyCountChanged -= UpdateLevel;
+            EventsMediator.Instance.MoneyCountChanged -= UpdateLevel;
 
         private IEnumerator DelayedSubscribe()
         {
             yield return null;
 
-            GlobalEvents.Instance.MoneyCountChanged += UpdateLevel;
+            EventsMediator.Instance.MoneyCountChanged += UpdateLevel;
         }
         
         private void UpdateLevel(double money)
@@ -32,7 +32,7 @@ namespace _Game.Logic.Systems
             if (level > GameData.Instance.PersistentData.Level)
             {
                 GameData.Instance.PersistentData.Level = level;
-                GlobalEvents.Instance.InvokeChangeLevelEvent();
+                EventsMediator.Instance.InvokeChangeLevelEvent();
             }
         }
     }

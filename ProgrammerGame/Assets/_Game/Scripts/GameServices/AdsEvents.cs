@@ -1,9 +1,8 @@
 ﻿using System;
-using RH.Utilities.ServiceLocator;
 
 namespace _Game.Common
 {
-    public class AdsEventsService : IService
+    public class AdsEvents
     {
         public event Action RewardedAdsShown;
         public event Action<bool> RewardedReady;

@@ -1,3 +1,4 @@
+using _Game.Ads.Fx;
 using _Game.Configs;
 using _Game.Data;
 using _Game.Logic.Systems;
@@ -23,8 +24,8 @@ namespace _Game.Common
         {
             _settings.CreateInstance();
 
-            if (GlobalEvents.Instance != null)
-                GlobalEvents.DestroyInstance();
+            if (EventsMediator.Instance != null)
+                EventsMediator.DestroyInstance();
 
             _services
                 .RegisterSingle(_settings)
@@ -32,10 +33,9 @@ namespace _Game.Common
                 .RegisterSingle(_tutorialSettings)
                 .RegisterSingle(new WindowsManager())
                 .RegisterSingle(new Apartment())
-                .RegisterSingle(new GlobalEvents())
+                .RegisterSingle(new EventsMediator())
                 .RegisterSingle(new GameData())
                 .RegisterSingle(new TutorialEvents())
-                .RegisterSingle(new AdsEventsService())
 #if UNITY_EDITOR
                 .RegisterSingle<IAdsService>(new AdsMocService());
 #else
@@ -107,6 +107,8 @@ namespace _Game.Common
                 //fx
                 .Add(new TapFxCreateSystem())
                 .Add(new FurnitureSpawnFxCreateSystem())
+                .Add(new PizzaCreateSystem())
+                .Add(new DiscoBallCreateSystem())
 
                 //must be the last
                 .Add(new ChangeGameStateToPlaySystem());

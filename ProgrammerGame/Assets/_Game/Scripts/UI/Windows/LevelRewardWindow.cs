@@ -14,12 +14,12 @@ namespace _Game.UI.Windows
         [SerializeField] private Button _adsIncreaseRewardButton;
 
         private IAdsService _ads;
-        private AdsEventsService _adsEventsService;
+        private AdsEvents _adsEvents;
 
         protected override void PerformBeforeOpen()
         {
             _ads ??= Services.Get<IAdsService>();
-            _adsEventsService ??= Services.Get<AdsEventsService>();
+            _adsEvents ??= Services.Get<EventsMediator>().Ads;
             _windowsManager ??= Services.Get<WindowsManager>();
 
             _reward.text = GameData.Instance.GetRewardForLevel().ToPriceString();
@@ -36,14 +36,14 @@ namespace _Game.UI.Windows
             if (isRewardedReady)
                 _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);
             else
-                _adsEventsService.RewardedReady += EnableButton;
+                _adsEvents.RewardedReady += EnableButton;
         }
 
         private void EnableButton(bool adsAvailability)
         {
             if (adsAvailability)
             {
-                _adsEventsService.RewardedReady -= EnableButton;
+                _adsEvents.RewardedReady -= EnableButton;
                 _adsIncreaseRewardButton.interactable = _ads.IsRewardedReady;
             }
         }
@@ -52,7 +52,7 @@ namespace _Game.UI.Windows
         {
             _adsIncreaseRewardButton.onClick.RemoveListener(DoubleReward);
             UnityEngine.Debug.Log("Show reward for level - LevelRewardWindow");
-            _adsEventsService.IntentRewardForLevel();
+            _adsEvents.IntentRewardForLevel();
 
             _windowsManager.Hide(this);
         }

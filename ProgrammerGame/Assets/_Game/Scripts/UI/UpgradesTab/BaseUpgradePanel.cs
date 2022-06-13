@@ -82,11 +82,11 @@ namespace _Game.UI.UpgradesTab
 
         private void BuyUpgrade()
         {
-            GlobalEvents.Instance.IntentToChangeMoney(-_price);
+            EventsMediator.Instance.IntentToChangeMoney(-_price);
             PerformUpgrade();
         }
 
         private void PerformUpgrade() => 
-            GlobalEvents.Instance.IntentToBuyUpgrade(_upgradeType);
+            EventsMediator.Instance.IntentToBuyUpgrade(_upgradeType);
     }
 }

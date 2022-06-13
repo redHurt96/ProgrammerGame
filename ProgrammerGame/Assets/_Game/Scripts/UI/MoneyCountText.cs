@@ -12,10 +12,10 @@ namespace _Game.UI
         [SerializeField] private Text _text;
 
         private void Start() => 
-            GlobalEvents.Instance.MoneyCountChanged += UpdateText;
+            EventsMediator.Instance.MoneyCountChanged += UpdateText;
 
         private void OnDestroy() => 
-            GlobalEvents.Instance.MoneyCountChanged -= UpdateText;
+            EventsMediator.Instance.MoneyCountChanged -= UpdateText;
 
         private void UpdateText(double l) =>
             _text.text = GameData.Instance.SavableData.MoneyCount.ToPriceString();

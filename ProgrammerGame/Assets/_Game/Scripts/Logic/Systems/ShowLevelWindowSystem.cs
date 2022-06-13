@@ -14,15 +14,15 @@ namespace _Game.Logic.Systems
             _windowsManager = Services.Get<WindowsManager>();
         
         public override void Init() => 
-            GlobalEvents.Instance.LevelChanged += ShowRewardWindow;
+            EventsMediator.Instance.LevelChanged += ShowRewardWindow;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.LevelChanged -= ShowRewardWindow;
+            EventsMediator.Instance.LevelChanged -= ShowRewardWindow;
 
         private void ShowRewardWindow()
         {
             _windowsManager.Show(SceneObjects.Instance.LevelWindow);
-            GlobalEvents.Instance.IntentToChangeMoney(GameData.Instance.GetRewardForLevel());
+            EventsMediator.Instance.IntentToChangeMoney(GameData.Instance.GetRewardForLevel());
         }
     }
 }

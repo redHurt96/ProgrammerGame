@@ -26,7 +26,7 @@ namespace _Game.UI.ProjectsTab
             _current %= _counts.Length;
 
             GameData.Instance.BuyCount = _currentCount;
-            GlobalEvents.Instance.InvokeChangeBuyCountsEvent();
+            EventsMediator.Instance.InvokeChangeBuyCountsEvent();
 
             SetTitle();
         }

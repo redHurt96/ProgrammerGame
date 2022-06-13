@@ -9,24 +9,24 @@ namespace _Game.Logic.Systems
     public class NotificationsSaveSystem : BaseInitSystem
     {
         private readonly NotificationData _data;
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
 
         public NotificationsSaveSystem()
         {
             _data = Services.Get<GameData>().Notifications;
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
         }
 
         public override void Init()
         {
             _data.LoadIfExist();
-            _events.ApplicationPaused += Save;
+            _eventsMediator.ApplicationPaused += Save;
         }
 
         private void Save() =>
             _data.Save();
 
         public override void Dispose() =>
-            _events.ApplicationPaused -= Save;
+            _eventsMediator.ApplicationPaused -= Save;
     }
 }

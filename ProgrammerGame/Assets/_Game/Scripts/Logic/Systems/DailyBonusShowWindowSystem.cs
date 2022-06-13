@@ -13,10 +13,10 @@ namespace _Game.Logic.Systems
             _windowsManager = Services.Get<WindowsManager>();
 
         public override void Init() => 
-            GlobalEvents.Instance.DailyBonusUpdated += ShowWindow;
+            EventsMediator.Instance.DailyBonusUpdated += ShowWindow;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.DailyBonusUpdated -= ShowWindow;
+            EventsMediator.Instance.DailyBonusUpdated -= ShowWindow;
 
         private void ShowWindow() => 
             _windowsManager.Show(SceneObjects.Instance.DailyBonusWindow);

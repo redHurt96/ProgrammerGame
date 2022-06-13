@@ -3,7 +3,7 @@ using _Game.GameServices;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.UI;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class OpenCoffeeBreakWindowButton : BaseActionButton
     {

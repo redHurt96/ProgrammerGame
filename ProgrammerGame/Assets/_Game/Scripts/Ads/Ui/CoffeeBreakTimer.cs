@@ -1,19 +1,18 @@
-﻿using System;
-using _Game.Common;
+﻿using _Game.Common;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class CoffeeBreakTimer : MonoBehaviour
     {
         [SerializeField] private Text _label;
-        private AdsEventsService _events;
+        private AdsEvents _events;
 
         private void Start()
         {
-            _events = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
 
             _events.OnCoffeeBreakStart += ShowLabel;
             _events.OnCoffeeBreakTimerUpdated += UpdateLabel;

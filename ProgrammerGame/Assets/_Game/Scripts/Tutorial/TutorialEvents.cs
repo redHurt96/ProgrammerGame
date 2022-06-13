@@ -33,7 +33,7 @@ namespace _Game.Tutorial
 
                 _data.PersistentData.TutorialData.Steps.Add(name);
 
-                GlobalEvents.Instance.InvokeOnTutorialStepReceiveEvent();
+                EventsMediator.Instance.InvokeOnTutorialStepReceiveEvent();
             }
         }
 

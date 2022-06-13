@@ -11,14 +11,14 @@ namespace _Game.Logic.Systems
     public class CreateProgrammerSystem : BaseInitSystem
     {
         private readonly Apartment _apartment;
-        private readonly GlobalEvents _events;
+        private readonly EventsMediator _eventsMediator;
         private readonly GameData _data;
         private readonly Settings _settings;
 
         public CreateProgrammerSystem()
         {
             _apartment = Services.Get<Apartment>();
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
             _data = Services.Get<GameData>();
             _settings = Services.Get<Settings>();
         }
@@ -28,11 +28,11 @@ namespace _Game.Logic.Systems
             CreateMainCharacter();
             CreateExistedProgrammers();
 
-            _events.BuyProgrammerIntent += CreateProgrammer;
+            _eventsMediator.BuyProgrammerIntent += CreateProgrammer;
         }
 
         public override void Dispose() => 
-            _events.BuyProgrammerIntent -= CreateProgrammer;
+            _eventsMediator.BuyProgrammerIntent -= CreateProgrammer;
 
         private void CreateMainCharacter() => 
             _apartment.AddMainCharacter(_settings.MainCharacter);

@@ -7,19 +7,19 @@ namespace _Game.UI.ResetTab
 {
     public class ResetForBoostButton : BaseActionButton
     {
-        private GlobalEvents _events;
+        private EventsMediator _eventsMediator;
         private GameData _data;
 
         protected override void PerformOnStart()
         {
             _data = Services.Get<GameData>();
-            _events = Services.Get<GlobalEvents>();
+            _eventsMediator = Services.Get<EventsMediator>();
         }
 
         protected override void PerformOnClick()
         {
             float boost = _data.BoostForProgress();
-            _events.ResetForBoost(boost);
+            _eventsMediator.ResetForBoost(boost);
         }
     }
 }

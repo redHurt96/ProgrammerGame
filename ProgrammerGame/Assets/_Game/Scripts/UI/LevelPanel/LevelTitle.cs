@@ -13,11 +13,11 @@ namespace _Game.UI.LevelPanel
         {
             UpdateTitle();
 
-            GlobalEvents.Instance.LevelChanged += UpdateTitle;
+            EventsMediator.Instance.LevelChanged += UpdateTitle;
         }
 
         private void OnDestroy() => 
-            GlobalEvents.Instance.LevelChanged -= UpdateTitle;
+            EventsMediator.Instance.LevelChanged -= UpdateTitle;
 
         private void UpdateTitle() => 
             _title.text = GameData.Instance.PersistentData.Level.ToString();

@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace _Game.Common
 {
-    public class GlobalEvents : Singleton<GlobalEvents>, IService
+    public class EventsMediator : Singleton<EventsMediator>, IService
     {
+        public AdsEvents Ads = new AdsEvents();
+        
         public event Action<double> ChangeMoneyIntent;
         public event Action<double> MoneyCountChanged;
         public event Action<string> OnTapForMoney;

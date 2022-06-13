@@ -2,25 +2,24 @@
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
-namespace _Game.UI.Ads
+namespace _Game.Ads.Ui
 {
     public class UpperPanelAdsInteractor : MonoBehaviour
     {
         private RectTransform _rectTransform;
-        private AdsEventsService _adsEvents;
+        private AdsEvents _events;
 
         private void Start()
         {
             _rectTransform = transform as RectTransform;
-            _adsEvents = Services.Get<AdsEventsService>();
+            _events = Services.Get<EventsMediator>().Ads;
 
-            _adsEvents.BannerLoaded += Shift;
+            _events.BannerLoaded += Shift;
         }
 
         private void OnDestroy() => 
-            _adsEvents.BannerLoaded -= Shift;
+            _events.BannerLoaded -= Shift;
 
-        [ContextMenu("Shift")]
         private void Shift() => 
             _rectTransform.anchoredPosition += Vector2.down * 100f;
     }

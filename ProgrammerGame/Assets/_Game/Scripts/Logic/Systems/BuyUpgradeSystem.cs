@@ -8,15 +8,15 @@ namespace _Game.Logic.Systems
     public class BuyUpgradeSystem : BaseInitSystem
     {
         public override void Init() => 
-            GlobalEvents.Instance.BuyUpgradeIntent += BuyUpgrade;
+            EventsMediator.Instance.BuyUpgradeIntent += BuyUpgrade;
 
         public override void Dispose() => 
-            GlobalEvents.Instance.BuyUpgradeIntent -= BuyUpgrade;
+            EventsMediator.Instance.BuyUpgradeIntent -= BuyUpgrade;
 
         private void BuyUpgrade(UpgradeType type)
         {
             GameData.Instance.GetUpgradeData(type).Upgrade();
-            GlobalEvents.Instance.InvokeAfterUpgradeEvent(type);
+            EventsMediator.Instance.InvokeAfterUpgradeEvent(type);
         }
     }
 }

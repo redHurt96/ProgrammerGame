@@ -22,7 +22,7 @@ namespace _Game.UI.Windows
 
         protected override void PerformBeforeClose()
         {
-            GlobalEvents.Instance.IntentToChangeMoney(_countValue);
+            EventsMediator.Instance.IntentToChangeMoney(_countValue);
 
             _countValue = 0;
         }

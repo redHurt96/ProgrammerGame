@@ -25,7 +25,7 @@ namespace _Game.Logic.Systems
             if (difference == 1)
             {
                 GameData.Instance.DailyBonusData.Day++;
-                GlobalEvents.Instance.InvokeOnDailyBonusUpdate();
+                EventsMediator.Instance.InvokeOnDailyBonusUpdate();
             }
             else if (difference > 1)
             {

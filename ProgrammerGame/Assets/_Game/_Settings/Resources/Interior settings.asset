@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0894026025304e7092b3fa7fab66fbc4, type: 3}
+  m_Name: Interior settings
+  m_EditorClassIdentifier: 
+  DefaultFurniture:
+  - {fileID: 1672696165012809418, guid: a4f5e8b2389c856439cca1c811f28a0d, type: 3}
+  - {fileID: 7828919618544742400, guid: bfbe6c9fd0d07974d8fb033934d0bbcb, type: 3}
+  - {fileID: 7679371719250991573, guid: 66a1946518a75f14ab58737b1e8f7a79, type: 3}
+  - {fileID: 5169632903217528197, guid: 06afb252011c24a40ab6a5dc877aaf8d, type: 3}
+  - {fileID: 6842388688530838963, guid: d8b47d1698a56ec429872521d03c90c7, type: 3}
+  - {fileID: 8139174961673838025, guid: 00866486b09be674e9af528434272be8, type: 3}
+  - {fileID: 2126015262619367783, guid: c0db92aa63e668f4baf1547957dc83e3, type: 3}
+  - {fileID: 3450275661655291567, guid: 5924947e4a854714eb48f35127628bec, type: 3}
+  - {fileID: 1888770206781951812, guid: c1e3adf1c185ea8459cb35c6ea727201, type: 3}
+  - {fileID: 3403485212040748053, guid: 7175b310dc11c4f499da77b49def864e, type: 3}
+  - {fileID: 6022945923224826731, guid: 785f3558cfe6e134b9fe7604a180fb43, type: 3}
+  - {fileID: 2101073312153300716, guid: 2d7a856680f5478419e0554bef78574d, type: 3}
+  - {fileID: 4390983465077866016, guid: 2cd19d8752e27f34cab94934b11e74d1, type: 3}
+  - {fileID: 6390064461403750431, guid: 1f80735740aafb648a5c6f7e0701a22e, type: 3}
+  - {fileID: 5657351146153829455, guid: a4108e8df4271f5489d4cc036b612a88, type: 3}
+  - {fileID: 6786465002926468592, guid: 608052fa84239c34989068324c63198a, type: 3}
+  - {fileID: 177125144747517279, guid: 8cf7f9601dc67ea4b8a9c7ae8d9311f4, type: 3}
+  FurnitureForPurchase:
+  - FurnitureToStand:
+    - {fileID: 2675973648318214003, guid: fc929b2dfd4efea4fbcc3b3746b0e703, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 4999140666541461476, guid: c23ac12433861d4449db81fa3935e3c6, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 2554533105003625572, guid: a2d1b909caffcda499f52ba819cab2b4, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 4910186206242186762, guid: b1f63fd70b15fb147b413a9fb71aa873, type: 3}
+    FurnitureToRemove:
+    - 0_Chair
+  - FurnitureToStand:
+    - {fileID: 1849395055079007605, guid: b3e9846ead05fb64cb5bff68b6be325e, type: 3}
+    FurnitureToRemove:
+    - 0_Table
+  - FurnitureToStand:
+    - {fileID: 1289765048890675653, guid: 322c41198605c1a47bae1929a697567f, type: 3}
+    - {fileID: 5398166274936699365, guid: 2fc3792b81f3eb147b4ca26ca1aca77c, type: 3}
+    - {fileID: 4685526276021212657, guid: bc39d588bd2a5e340870312724cebfe2, type: 3}
+    - {fileID: 7458924080652175756, guid: f3cafbf390618da46b82e7bf70364fde, type: 3}
+    - {fileID: 5810087823199274305, guid: 6849a619e02cb1c498ac779e038de74f, type: 3}
+    FurnitureToRemove:
+    - Pizza
+    - Trash
+    - basement-corner-border
+  - FurnitureToStand:
+    - {fileID: 6081968224422974020, guid: 713fef4af8e55674790ee71cccf5bef6, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 6432603558703927355, guid: ba7522d0b198e5143a8b49ce2ca27c97, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 5176126973960525446, guid: 8db6681b7268377448c14b54d365920c, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 826659807754098853, guid: 8e928541a9870924bb5e957492454057, type: 3}
+    FurnitureToRemove:
+    - 1_Chair
+  - FurnitureToStand:
+    - {fileID: 1039169040090214945, guid: b48f1e7840aaa2c4bad1be5632364590, type: 3}
+    FurnitureToRemove:
+    - 1_Table
+  - FurnitureToStand:
+    - {fileID: 6132342953738396534, guid: c8903280ede24e64f82956d89816d17c, type: 3}
+    FurnitureToRemove:
+    - 0_Mouse
+  - FurnitureToStand:
+    - {fileID: 2548172942962421346, guid: bb10b3af26fed5543a47fdd356c7f56b, type: 3}
+    FurnitureToRemove:
+    - 0_Keyboard
+  - FurnitureToStand:
+    - {fileID: 590308408793782982, guid: 449c916675551f740bdf788f621000c4, type: 3}
+    FurnitureToRemove:
+    - 0_Computer
+  - FurnitureToStand:
+    - {fileID: 1538663915779523916, guid: 49be07cd634c84948880d00ca889d395, type: 3}
+    - {fileID: 413651868757640987, guid: faab3d38d9d4a5b48be3e340fe92fcb4, type: 3}
+    - {fileID: 7929380129503683455, guid: ebb45a5e20bc6c649b96b44ae90aa723, type: 3}
+    - {fileID: 6696376402181922546, guid: 60969ccd8d1ab89478c799cb019b3714, type: 3}
+    FurnitureToRemove:
+    - floor1-full
+    - floor1-right-half
+    - wall1-right-half
+    - walls1-corner
+    - floor1-full.001
+    - wall1-full
+  - FurnitureToStand:
+    - {fileID: 3547644423007222822, guid: f3569988f9ba3df4081035f3c4b9027f, type: 3}
+    FurnitureToRemove:
+    - kettle
+  - FurnitureToStand:
+    - {fileID: 2267798943077037339, guid: ae501e06d10831f4fb5da8baa37d0e0b, type: 3}
+    FurnitureToRemove:
+    - kitchen table-old
+  - FurnitureToStand:
+    - {fileID: 8300492768842728890, guid: 5a4b608e578593d49bfe4fd6340e81a5, type: 3}
+    FurnitureToRemove:
+    - water cooler
+  - FurnitureToStand:
+    - {fileID: 8682255501285403996, guid: 88fc5712d30cf0c4e990654012b80f8b, type: 3}
+    FurnitureToRemove:
+    - 2_Chair
+  - FurnitureToStand:
+    - {fileID: 1877001270400858238, guid: cf22bc6d319e98346a28fc0bfd05371d, type: 3}
+    FurnitureToRemove:
+    - 2_Table
+  - FurnitureToStand:
+    - {fileID: 4958642135828286803, guid: 12c3301abe812354a9c5639f7383b8d8, type: 3}
+    FurnitureToRemove:
+    - 1_Keyboard
+  - FurnitureToStand:
+    - {fileID: 847069713233947195, guid: 4ea631ffe779ef64cb404608aaaf41d9, type: 3}
+    FurnitureToRemove:
+    - 1_Mouse
+  - FurnitureToStand:
+    - {fileID: 7338428423434752083, guid: 6552127d3eba29e4e8016d0a5d99ce85, type: 3}
+    FurnitureToRemove:
+    - 1_Computer
+  - FurnitureToStand:
+    - {fileID: 8824351684556947345, guid: 5e021dd253f2a6642b3e524117cce57a, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 4522006946321386600, guid: 9363b4d0e08084540833790dc32ebd1b, type: 3}
+    - {fileID: 3861153131268980018, guid: d672cd83cfd886b4786c2a91e7e5ea27, type: 3}
+    - {fileID: 4924543426084612504, guid: c84ccea20df65f7488eb1dcc18f950ce, type: 3}
+    - {fileID: 4718465844570708937, guid: 26fd60ba7d394714eb8d28fe662019d4, type: 3}
+    - {fileID: 1087477690748890207, guid: 70b553668f9e0474ea9e686a2e59d5a7, type: 3}
+    FurnitureToRemove:
+    - Blue-walls
+  - FurnitureToStand:
+    - {fileID: 3030289329717329696, guid: 798544e7aa2803449925d6a196b1c3a4, type: 3}
+    FurnitureToRemove:
+    - sofa-old
+    - tv-1lvl
+    - dendy
+  - FurnitureToStand:
+    - {fileID: 2283804473966067818, guid: b6bf6ac313935964091a64220ba5af78, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 7586845744012135877, guid: 256e9572a79b47c41b68e3e677d3ea82, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 3927243940101007187, guid: bec9aa7a065a26d4993a11d1df955424, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 8643881326302146986, guid: 69180ea53d81c014aac3064588293190, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 7179582448742993132, guid: 0824181753e2ee54bb1652a8015d92fb, type: 3}
+    FurnitureToRemove:
+    - 2_Mouse
+  - FurnitureToStand:
+    - {fileID: 2665133357104983994, guid: ae407b4535825704596cd09b6804c568, type: 3}
+    FurnitureToRemove:
+    - 2_Keyboard
+  - FurnitureToStand:
+    - {fileID: 4205753268478335314, guid: 5c605536e14ae8c4586111b45e7181aa, type: 3}
+    FurnitureToRemove:
+    - 2_Computer
+  - FurnitureToStand:
+    - {fileID: 5216554803772393809, guid: 8d6b11cc8e240e0459d94d63c9106a84, type: 3}
+    FurnitureToRemove:
+    - 2_Screen
+  - FurnitureToStand:
+    - {fileID: 9084999777103709748, guid: 8a982d2a429e8d94890ea30ff41e177d, type: 3}
+    - {fileID: 5709928035530952490, guid: 7a35d2b305d5f2944848405c87c013b6, type: 3}
+    FurnitureToRemove:
+    - LightBlueWalls
+  - FurnitureToStand:
+    - {fileID: 8082326028649024175, guid: 43851255067667d40bcd28828ebc6a29, type: 3}
+    FurnitureToRemove:
+    - coffee-machine (1)
+  - FurnitureToStand:
+    - {fileID: 288408476196121041, guid: 492282deb1ba8f846a62b0bdc15ad90f, type: 3}
+    FurnitureToRemove:
+    - water cooler2 (1)
+  - FurnitureToStand:
+    - {fileID: 7272436666387111006, guid: d78b197b8a81a894896868f55436e302, type: 3}
+    FurnitureToRemove:
+    - kitchen table2 (1)
+  - FurnitureToStand:
+    - {fileID: 3370792431220134397, guid: c1cfdfef26ed9bc428a952fb5ebd3a6c, type: 3}
+    FurnitureToRemove:
+    - 3_Table
+  - FurnitureToStand:
+    - {fileID: 8387816176324449789, guid: 47a32c2ab0ebc4d4fa785b11104c72dc, type: 3}
+    FurnitureToRemove:
+    - 3_Chair
+  - FurnitureToStand:
+    - {fileID: 6828409342718130663, guid: 53d636b503c42d2489defc73ec5f1ebb, type: 3}
+    FurnitureToRemove:
+    - 3_Keyboard
+  - FurnitureToStand:
+    - {fileID: 6802754726600860151, guid: 91c6b995f133ea740a0dd791707fddac, type: 3}
+    FurnitureToRemove:
+    - 3_Mouse
+  - FurnitureToStand:
+    - {fileID: 3230696157850204673, guid: 651cd73de196d9742bd102c34cb04b78, type: 3}
+    FurnitureToRemove:
+    - 3_Screen
+  - FurnitureToStand:
+    - {fileID: 6167756202986661888, guid: d8a19203e36b4164cbbd37521add6d5c, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 2977525974824486187, guid: f19f2e51723ce254fbdab7799cd389bb, type: 3}
+    FurnitureToRemove:
+    - 3_Computer
+  - FurnitureToStand:
+    - {fileID: 682499487721772524, guid: 368970d276ab50242a04487971d3c4e2, type: 3}
+    - {fileID: 1906324870990981001, guid: a491f822301c04d43912db279db9f4c9, type: 3}
+    FurnitureToRemove:
+    - DarkBlueFloor
+  - FurnitureToStand:
+    - {fileID: 4011065721084862494, guid: 7af2c709e93ce1249aa62e138ef379b6, type: 3}
+    FurnitureToRemove:
+    - plant (1)
+    - ps2.001 (1)
+    - tv-2lvl (1)
+    - chair2.002 (1)
+    - chair2.001 (1)
+  - FurnitureToStand:
+    - {fileID: 7893515063357137918, guid: f6768c35c5b79184093d216e2e3b2c1a, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 7914753439828196369, guid: 5c99b3c5d8576334a83788a6aaa83a31, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 6498703106017558989, guid: 01a11a33bd0d1ed4d8301ff048521fcd, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 1399711259232532602, guid: ef963e15d9ab67e4686732f6e497cca4, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 2078751813892382126, guid: e1ddf2447dc0d81459314eb106ab2c66, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 8712822927485232621, guid: 46a83b69d44e7694585cf5e2e5f470f4, type: 3}
+    FurnitureToRemove: []
+  - FurnitureToStand:
+    - {fileID: 4001786164679882721, guid: 451482d73f8a3bb418712f597e08613b, type: 3}
+    FurnitureToRemove:
+    - 4_Table
+  - FurnitureToStand:
+    - {fileID: 2507385558864352308, guid: bf542a493d443df42b0d72f1e2b0a708, type: 3}
+    FurnitureToRemove:
+    - 4_Chair
+  - FurnitureToStand:
+    - {fileID: 2325679058214809564, guid: 25bf01d6ed7691c4a9580f436ebee1e8, type: 3}
+    FurnitureToRemove:
+    - 4_Mouse
+  - FurnitureToStand:
+    - {fileID: 8528431001181547370, guid: 050e9dca4db1ff048b7a322918168878, type: 3}
+    FurnitureToRemove:
+    - 4_Keyboard
+  - FurnitureToStand:
+    - {fileID: 5909044687985300371, guid: 431e1cae5bbaf1d4f8727c1953460b4c, type: 3}
+    FurnitureToRemove:
+    - 4_Computer
+  - FurnitureToStand:
+    - {fileID: 2359771084091278443, guid: 32a88820df07d7b4896cbe3b70b58f58, type: 3}
+    FurnitureToRemove:
+    - 4_Screen
+  - FurnitureToStand:
+    - {fileID: 3377236833038866530, guid: 16fc0490083fdae43910833efb33f15c, type: 3}
+    FurnitureToRemove:
+    - 4_Screen_1
+  - FurnitureToStand:
+    - {fileID: 8572213602995019494, guid: add78b8a3dae7c24892769635bf2ac3a, type: 3}
+    FurnitureToRemove:
+    - 5_Mouse
+  - FurnitureToStand:
+    - {fileID: 9094879016195393918, guid: b0951188299e8c346a59a8a1a470089c, type: 3}
+    FurnitureToRemove:
+    - 5_Keyboard
+  - FurnitureToStand:
+    - {fileID: 3184275347388475814, guid: 8c09c1123cb99c240b1179bb60ce55c4, type: 3}
+    FurnitureToRemove:
+    - 5_Screen_1
+    - 5_Screen
+  - FurnitureToStand:
+    - {fileID: 5348465991662459172, guid: af463275257bdcd4fa58c33596e10273, type: 3}
+    FurnitureToRemove:
+    - 5_Computer
+  - FurnitureToStand:
+    - {fileID: 5439008610958476456, guid: 30abf78130afaec4a9ca9e914698b955, type: 3}
+    FurnitureToRemove: []

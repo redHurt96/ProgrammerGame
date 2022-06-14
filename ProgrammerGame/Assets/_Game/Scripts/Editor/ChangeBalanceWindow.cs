@@ -4,7 +4,7 @@ using _Game.Configs;
 using UnityEditor;
 using UnityEngine;
 
-namespace _Game.Scripts.Editor
+namespace _Game.Editor
 {
     public class ChangeBalanceWindow : EditorWindow
     {

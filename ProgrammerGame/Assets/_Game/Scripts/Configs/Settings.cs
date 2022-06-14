@@ -39,9 +39,8 @@ namespace _Game.Configs
         [Space] 
         public PriceSettings MoneyForTap;
 
-        [Header("House")]
-        public RoomSettings[] Rooms;
-        public PcSettings PcSettings;
+        [Header("House")] 
+        public InteriorSettings Interior;
         public AllProgrammersSettings AllProgrammersSettings;
         public FurnitureSlot MainCharacter;
         public PriceSettingsScriptable PcPrices;

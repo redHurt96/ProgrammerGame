@@ -41,6 +41,8 @@ namespace _Game.Logic.Systems
 
         private void CreateInterior(int number)
         {
+            _apartment.AddFurniture(Settings.Instance.Interior.FurnitureForPurchase[number]);
+
             foreach (RoomSettings room in Settings.Instance.Rooms)
             {
                 if (number < room.FurnitureForPurchase.Length)

@@ -20,9 +20,9 @@ namespace _Game.GameServices
 
         private Transform ApartmentRoot => SceneObjects.Instance.HouseRoot;
 
-        public void AddFurniture(FurnitureSlot slot)
+        public void AddFurniture(FurnitureSlot2 slot)
         {
-            foreach (string replacingType in slot.ReplacingTypes)
+            foreach (string replacingType in slot.FurnitureToRemove)
             {
                 if (!_furniture.ContainsKey(replacingType))
                     throw new Exception($"There is no furniture with type {replacingType} to replace. Check your rooms settings");
@@ -113,17 +113,6 @@ namespace _Game.GameServices
             Object.Destroy(replacingObject);
 
             _furniture.Add(slot.Name, Object.Instantiate(slot.Furniture, position, rotation, ApartmentRoot));
-        }
-
-        public void AddRoom(RoomSettings room)
-        {
-            foreach (FurnitureSlot slot in room.DefaultFurniture) 
-                AddFurniture(slot);
-
-            foreach (ProgrammerSpot programmerSpot in room.ProgrammerSpots)
-                _programmerSpots.Add(
-                    programmerSpot.ProgrammerSettings.name, 
-                    Object.Instantiate(programmerSpot.Spot, ApartmentRoot));
         }
 
         public bool ContainSpotFor(string programmerName) => 

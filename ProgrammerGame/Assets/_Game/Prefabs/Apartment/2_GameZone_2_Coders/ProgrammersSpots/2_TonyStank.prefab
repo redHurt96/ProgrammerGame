@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274842204736728113}
   - component: {fileID: 5260502537881611452}
+  - component: {fileID: -3855310481424051097}
   m_Layer: 0
   m_Name: 2_TonyStank
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.3
+--- !u!114 &-3855310481424051097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458924080652175756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: 50b364235b4d2b148b0c270cdabb4aad, type: 2}
 --- !u!1001 &6490277332348513426
 PrefabInstance:
   m_ObjectHideFlags: 0

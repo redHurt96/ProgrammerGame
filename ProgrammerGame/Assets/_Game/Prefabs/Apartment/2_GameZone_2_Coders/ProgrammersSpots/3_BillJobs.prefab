@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6628633800220593396}
   - component: {fileID: 4529663953715790043}
+  - component: {fileID: 2124092317554689753}
   m_Layer: 0
   m_Name: 3_BillJobs
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.3
+--- !u!114 &2124092317554689753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5810087823199274305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: 9e27cdbcbd3c18745983b69709d3c7c7, type: 2}
 --- !u!1001 &7661709335406399337
 PrefabInstance:
   m_ObjectHideFlags: 0

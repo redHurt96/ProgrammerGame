@@ -28,8 +28,8 @@ namespace _Game.UI.UpgradesTab
 
         private UpgradeData _upgradeData;
 
-        protected Apartment _apartment;
         private GameData _data;
+        private EventsMediator _events;
 
         private double _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
 
@@ -41,7 +41,7 @@ namespace _Game.UI.UpgradesTab
         private void Start()
         {
             _data = Services.Get<GameData>();
-            _apartment = Services.Get<Apartment>();
+            _events = Services.Get<EventsMediator>();
             _upgradeData = _data.GetUpgradeData(_upgradeType);
 
             Subscribe();
@@ -82,11 +82,11 @@ namespace _Game.UI.UpgradesTab
 
         private void BuyUpgrade()
         {
-            EventsMediator.Instance.IntentToChangeMoney(-_price);
+            _events.IntentToChangeMoney(-_price);
             PerformUpgrade();
         }
 
         private void PerformUpgrade() => 
-            EventsMediator.Instance.IntentToBuyUpgrade(_upgradeType);
+            _events.IntentToBuyUpgrade(_upgradeType);
     }
 }

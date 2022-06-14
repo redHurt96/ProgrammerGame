@@ -23,11 +23,11 @@ namespace _Game.Data
         public static ProgrammerUpgradeData GetProgrammerUpgradeData(this GameData data, string projectName) =>
             data.SavableData.AutoRunnedProjects.First(x => x.ProjectName == projectName);
 
-        public static float IncreaseSpeedTotalEffect(this GameData data) => 
+        public static float SpeedTotalEffect(this GameData data) => 
             GetUpgradeData(data, UpgradeType.Interior).Level * Settings.Instance.IncreaseSpeedEffectStrength;
 
-        public static float IncreaseMoneyTotalEffect(this GameData data) =>
-            GetUpgradeData(data, UpgradeType.PC).Level * Settings.Instance.IncreaseMoneyEffectStrength;
+        public static float MoneyTotalEffect(this GameData data) =>
+            GetUpgradeData(data, UpgradeType.Interior).Level * Settings.Instance.IncreaseMoneyEffectStrength;
 
         public static float MoneyForTap(this GameData data) => 
             Mathf.Max(1, Settings.Instance.MoneyForTap.GetPrice(GetUpgradeData(data, UpgradeType.Soft).Level) * data.PersistentData.MainBoost);
@@ -47,9 +47,6 @@ namespace _Game.Data
         public static UpgradeData GetUpgradeData(this GameData data, UpgradeType type) => 
             data.SavableData.Upgrades.First(x => x.Type == type);
 
-        public static int RoomLevel(this GameData data) => 
-            GetUpgradeData(data, UpgradeType.House).Level;
-
         public static float BoostForProgress(this GameData data) =>
             1 +
             data.SavableData.Projects
@@ -66,17 +63,6 @@ namespace _Game.Data
 
         public static float ReachNewLevelProgress(this GameData data) =>
             (float) (data.PersistentData.TotalEarnedMoney / MoneyNeededForLevel(data, data.PersistentData.Level + 1));
-
-
-        public static bool CanBuyNewRoom(this GameData data)
-        {
-            int interiorLevel = GetUpgradeData(data, UpgradeType.Interior).Level;
-            int roomLevel = GetUpgradeData(data, UpgradeType.House).Level;
-            int furnitureToPurchase = Settings.Instance.Rooms.Take(roomLevel + 1).Sum(x => x.FurnitureForPurchase.Length);
-
-            return interiorLevel == furnitureToPurchase 
-                   && roomLevel < Settings.Instance.Rooms.Length - 1;
-        }
 
         public static IEnumerable<ProjectData> GetActiveProjects(this GameData gameData) => 
             gameData.SavableData.Projects

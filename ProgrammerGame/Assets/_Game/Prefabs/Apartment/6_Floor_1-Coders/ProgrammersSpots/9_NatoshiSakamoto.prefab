@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5288879776535293017}
   - component: {fileID: -4229438959466851167}
+  - component: {fileID: 6242515682214529995}
   m_Layer: 0
   m_Name: 9_NatoshiSakamoto
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.3
+--- !u!114 &6242515682214529995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906324870990981001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: 01768c5b711cdaf4f8721f639d304886, type: 2}
 --- !u!1001 &4522094416201021744
 PrefabInstance:
   m_ObjectHideFlags: 0

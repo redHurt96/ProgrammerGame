@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6148586934134401676}
   - component: {fileID: -7769535739517124996}
+  - component: {fileID: 8482529543668823369}
   m_Layer: 0
   m_Name: 8_TomMeier
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.3
+--- !u!114 &8482529543668823369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709928035530952490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: 53e4ca4b66ad7574cbc043097edeb683, type: 2}
 --- !u!1001 &9117351064050280109
 PrefabInstance:
   m_ObjectHideFlags: 0

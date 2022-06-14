@@ -4,9 +4,8 @@ using UnityEngine;
 namespace _Game.Configs
 {
     [Serializable]
-    public class ProgrammerSpot
+    public class ProgrammerSpot : MonoBehaviour
     {
-        public GameObject Spot;
         public ProgrammerSettings ProgrammerSettings;
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4353024404601412860}
   - component: {fileID: 4872778553637694062}
+  - component: {fileID: 4108299505665304794}
   m_Layer: 0
   m_Name: 4_SteveGates
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.3
+--- !u!114 &4108299505665304794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929380129503683455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: e6349b1beb250f6419ca7f1da54ab695, type: 2}
 --- !u!1001 &2273416323782003693
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,13 +8,17 @@ namespace _Game.UI.ResetTab
     [RequireComponent(typeof(Image))]
     public class ResetButtonVisibilityComponent : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private CanvasGroup _canvasGroup;
 
-        private void Update() =>
-            _image.enabled = 
-                GameData.Instance.BoostForProgress() 
-                * GameData.Instance.PersistentData.MainBoost 
-                - GameData.Instance.PersistentData.MainBoost 
-                > Settings.Instance.OpenResetThreshold;
+        private void Update()
+        {
+            bool enabled = GameData.Instance.BoostForProgress()
+                               * GameData.Instance.PersistentData.MainBoost
+                               - GameData.Instance.PersistentData.MainBoost
+                               > Settings.Instance.OpenResetThreshold;
+
+            _canvasGroup.alpha = enabled ? 1f : 0f;
+            _canvasGroup.blocksRaycasts = enabled;
+        }
     }
 }

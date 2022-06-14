@@ -57,9 +57,7 @@ namespace _Game.Common
                 .Add(new ChangeMoneyCountSystem())
                 .Add(new BuyProgrammerSystem())
                 .Add(new BuyUpgradeSystem())
-                .Add(new CreateRoomsSystem())
                 .Add(new CreateInteriorSystem())
-                .Add(new CreatePcSystem())
                 .Add(new CreateProgrammerSystem())
                 .Add(new UpgradeProgrammersSystem())
                 .Add(new UpdateProjectsAfterUpgradeSystem())
@@ -84,8 +82,6 @@ namespace _Game.Common
                 .Add(new TutorialBuyFirstProgrammerStep_4())
                 .Add(new TutorialGoToUpgradesTabStep_7_0())
                 .Add(new TutorialUpgradePcStep_7())
-                .Add(new TutorialBuyEnoughFurnitureStep())
-                .Add(new TutorialUpgradeHouseStep())
                 .Add(new TutorialResetForBoostStep())
 
                 //ads

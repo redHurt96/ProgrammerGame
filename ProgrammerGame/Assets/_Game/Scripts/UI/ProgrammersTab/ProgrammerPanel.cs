@@ -109,7 +109,7 @@ namespace _Game.UI.ProgrammersTab
         }
 
         private bool CheckProgrammerAvailability() =>
-            _apartment.ContainSpotFor(_programmer.name)
+            _apartment.ContainSpotFor(_programmer.Name)
             && _data.SavableData.Projects
                 .First(x => x.projectSettings == _programmer.AutomatedProject)
                 .State == ProjectState.Active;
@@ -140,12 +140,12 @@ namespace _Game.UI.ProgrammersTab
 
         private void UpdateTip(UpgradeType type)
         {
-            if (type == UpgradeType.House)
+            if (type == UpgradeType.Interior)
                 UpdateTip();
         }
 
         private void UpdateTip() => 
-            _needUpgradeTip.gameObject.SetActive(!_apartment.ContainSpotFor(_programmer.name));
+            _needUpgradeTip.gameObject.SetActive(!_apartment.ContainSpotFor(_programmer.Name));
 
         private bool CheckProgrammerHasUpgrade()
         {

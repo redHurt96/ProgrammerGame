@@ -9,7 +9,7 @@ namespace _Game.Ads.Ui
 {
     public class CoffeeBreakImageVisibilityComponent : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Image[] _images;
 
         private IAdsService _ads;
         private AdsEvents _events;
@@ -36,12 +36,18 @@ namespace _Game.Ads.Ui
         }
 
         private void Hide() => 
-            _image.enabled = false;
+            SetImagesVisibility(false);
 
         private void ActivateIfHasAds() => 
-            _image.enabled = _ads.IsRewardedReady;
+            SetImagesVisibility(_ads.IsRewardedReady);
 
         private void UpdateVisibility(bool isVisible) => 
-            _image.enabled = isVisible && _data.CanShowCoffeeBreak;
+            SetImagesVisibility(isVisible && _data.CanShowCoffeeBreak);
+
+        private void SetImagesVisibility(bool isVisible)
+        {
+            foreach (Image image in _images) 
+                image.enabled = isVisible;
+        }
     }
 }

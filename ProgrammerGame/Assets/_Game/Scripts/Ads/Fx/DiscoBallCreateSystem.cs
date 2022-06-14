@@ -1,5 +1,4 @@
-﻿using System;
-using _Game.Common;
+﻿using _Game.Common;
 using _Game.Configs;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
@@ -27,6 +26,9 @@ namespace _Game.Ads.Fx
 
         public override void Dispose()
         {
+            if (_adsEvents == null)
+                return;
+            
             _adsEvents.OnCoffeeBreakStart -= Create;
             _adsEvents.OnCoffeeBreakComplete -= Destroy;
         }

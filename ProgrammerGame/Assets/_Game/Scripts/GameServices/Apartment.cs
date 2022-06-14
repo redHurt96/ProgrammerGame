@@ -32,7 +32,7 @@ namespace _Game.GameServices
             }
 
             GameObject furniture = Object.Instantiate(slot.Furniture, ApartmentRoot);
-            _furniture.Add(slot.Type, furniture);
+            _furniture.Add(slot.Name, furniture);
 
             if (GameData.Instance.GameState == GameState.Play)
                 EventsMediator.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
@@ -112,7 +112,7 @@ namespace _Game.GameServices
 
             Object.Destroy(replacingObject);
 
-            _furniture.Add(slot.Type, Object.Instantiate(slot.Furniture, position, rotation, ApartmentRoot));
+            _furniture.Add(slot.Name, Object.Instantiate(slot.Furniture, position, rotation, ApartmentRoot));
         }
 
         public void AddRoom(RoomSettings room)

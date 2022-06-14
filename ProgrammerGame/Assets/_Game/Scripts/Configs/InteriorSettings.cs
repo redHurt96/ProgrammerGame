@@ -8,5 +8,10 @@ namespace _Game.Configs
     {
         public GameObject[] DefaultFurniture;
         public List<FurnitureSlot2> FurnitureForPurchase = new List<FurnitureSlot2>();
+        
+        [SerializeField] private PriceSettings _priceSettings;
+
+        public double GetPrice(int forLevel) => 
+            _priceSettings.GetPrice(forLevel);
     }
 }

@@ -33,7 +33,9 @@ namespace _Game.Logic.Systems
 
         public override void Dispose()
         {
-            CoroutineLauncher.Stop(_currentCoroutine);
+            if (_currentCoroutine != null)
+                CoroutineLauncher.Stop(_currentCoroutine);
+            
             _events.RewardedAdsShown -= ClearRunnedCooldown;
         }
 

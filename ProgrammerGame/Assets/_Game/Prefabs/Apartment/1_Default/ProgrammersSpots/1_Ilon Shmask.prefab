@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8579306591576868534}
   - component: {fileID: 8728000257760670809}
+  - component: {fileID: -808793334622739892}
   m_Layer: 0
   m_Name: 1_Ilon Shmask
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 1, g: 0, b: 0, a: 1}
   _radius: 0.2
+--- !u!114 &-808793334622739892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019051242732082416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f1d62e68ff4d90970ae51028755121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgrammerSettings: {fileID: 11400000, guid: acb9bf33df7fc7f41a9a5388a37d1ea0, type: 2}
 --- !u!1001 &1787267337465323632
 PrefabInstance:
   m_ObjectHideFlags: 0

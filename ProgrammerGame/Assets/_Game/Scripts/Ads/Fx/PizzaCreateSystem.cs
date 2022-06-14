@@ -30,6 +30,9 @@ namespace _Game.Ads.Fx
 
         public override void Dispose()
         {
+            if (_adsEvents == null)
+                return;
+            
             _adsEvents.OnCoffeeBreakTimerUpdated -= CreatePizza;
             _adsEvents.OnCoffeeBreakComplete -= ClearAllPizzas;
         }

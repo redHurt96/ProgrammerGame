@@ -4,7 +4,6 @@ using System.Linq;
 using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
-using RH.Utilities.Saving;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -13,29 +12,47 @@ namespace _Game.GameServices
 {
     public class Apartment : IService
     {
-        public int ProgrammersSpotCount => _programmerSpots.Count;
-
         private readonly Dictionary<string, GameObject> _programmerSpots = new Dictionary<string, GameObject>();
         private readonly Dictionary<string, GameObject> _furniture = new Dictionary<string, GameObject>();
 
         private Transform ApartmentRoot => SceneObjects.Instance.HouseRoot;
 
-        public void AddFurniture(FurnitureSlot2 slot)
+        public void AddFurniture(GameObject gameObject)
         {
-            foreach (string replacingType in slot.FurnitureToRemove)
-            {
-                if (!_furniture.ContainsKey(replacingType))
-                    throw new Exception($"There is no furniture with type {replacingType} to replace. Check your rooms settings");
+            GameObject furniture = Object.Instantiate(gameObject, ApartmentRoot);
 
-                Object.Destroy(_furniture[replacingType]);
-                _furniture.Remove(replacingType);
-            }
-
-            GameObject furniture = Object.Instantiate(slot.Furniture, ApartmentRoot);
-            _furniture.Add(slot.Name, furniture);
+            if (furniture.TryGetComponent<ProgrammerSpot>(out var spot))
+                _programmerSpots.Add(spot.ProgrammerSettings.Name, furniture);
+            else
+                _furniture.Add(gameObject.name, furniture);
 
             if (GameData.Instance.GameState == GameState.Play)
                 EventsMediator.Instance.PerformOnFurnitureSpawned(furniture.transform.position);
+        }
+        
+        public void AddFurniture(FurnitureSlot2 slot)
+        {
+            ClearFurnitureToReplace();
+            AddNewFurniture();
+
+            void ClearFurnitureToReplace()
+            {
+                foreach (string replacingType in slot.FurnitureToRemove)
+                {
+                    if (!_furniture.ContainsKey(replacingType))
+                        throw new Exception(
+                            $"There is no furniture with type {replacingType} to replace. Check your rooms settings");
+
+                    Object.Destroy(_furniture[replacingType]);
+                    _furniture.Remove(replacingType);
+                }
+            }
+
+            void AddNewFurniture()
+            {
+                foreach (GameObject furnitureToStand in slot.FurnitureToStand) 
+                    AddFurniture(furnitureToStand);
+            }
         }
 
         public void AddProgrammer(string projectName, FurnitureSlot slot)

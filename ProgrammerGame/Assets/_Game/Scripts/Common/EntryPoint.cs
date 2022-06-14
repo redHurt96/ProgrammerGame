@@ -82,8 +82,6 @@ namespace _Game.Common
                 .Add(new TutorialBuyFirstProgrammerStep_4())
                 .Add(new TutorialGoToUpgradesTabStep_7_0())
                 .Add(new TutorialUpgradePcStep_7())
-                .Add(new TutorialBuyEnoughFurnitureStep())
-                .Add(new TutorialUpgradeHouseStep())
                 .Add(new TutorialResetForBoostStep())
 
                 //ads

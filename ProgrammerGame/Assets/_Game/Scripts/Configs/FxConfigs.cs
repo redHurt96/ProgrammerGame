@@ -14,5 +14,6 @@ namespace _Game.Configs
         public GameObject FurnitureSpawnFxPrefab;
         public GameObject Pizza;
         public GameObject DiscoBall;
+        public float PizzaSpawnTime = 2f;
     }
 }

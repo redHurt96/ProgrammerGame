@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2214533529001037187}
   - component: {fileID: 8667713253125018660}
   - component: {fileID: 8744765905728965759}
+  - component: {fileID: 2158175716860563785}
   m_Layer: 0
   m_Name: mattress_with_piss
   m_TagString: Untagged
@@ -82,3 +83,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2158175716860563785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610030412508500010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019399289, y: 0.019432988, z: 0.020000005}
+  m_Center: {x: 1.1666501e-12, y: -0.000013050623, z: -8.551098e-13}

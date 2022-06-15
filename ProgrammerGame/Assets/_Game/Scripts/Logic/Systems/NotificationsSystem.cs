@@ -52,6 +52,10 @@ namespace _Game.Logic.Systems
         private void ClearScheduledNotifications()
         {
             PrintIds();
+
+            foreach (int id in _data.Ids) 
+                AndroidNotificationCenter.CancelNotification(id);
+
             AndroidNotificationCenter.CancelAllNotifications();
             _data.Ids.Clear();
         }

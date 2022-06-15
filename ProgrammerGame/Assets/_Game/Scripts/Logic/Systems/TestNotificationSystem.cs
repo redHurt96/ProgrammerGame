@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using _Game.Configs;
 using _Game.Data;
 using RH.Utilities.PseudoEcs;
@@ -17,7 +18,9 @@ namespace _Game.Logic.Systems
             _data = Services.Get<GameData>().Notifications;
 
             RegisterChannel();
-            ScheduleTestNotification();
+            ScheduleTestNotification(1);
+            ScheduleTestNotification(2);
+            ScheduleTestNotification(3);
         }
 
         private void RegisterChannel()
@@ -33,13 +36,13 @@ namespace _Game.Logic.Systems
             AndroidNotificationCenter.RegisterNotificationChannel(_channel);
         }
 
-        private void ScheduleTestNotification()
+        private void ScheduleTestNotification(int minutes)
         {
             var notification = new AndroidNotification
             {
                 Title = "Programmer Idle (TEST)",
-                Text = "Test notification",
-                FireTime = DateTime.Now.AddMinutes(2),
+                Text = "Test notification " + DateTime.Now.ToString(CultureInfo.CurrentCulture),
+                FireTime = DateTime.Now.AddMinutes(minutes),
                 SmallIcon = NotificationsSettings.SMALL_ICON_NAME,
                 LargeIcon = NotificationsSettings.LARGE_ICON_NAME,
             };

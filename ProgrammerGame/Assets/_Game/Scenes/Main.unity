@@ -12770,7 +12770,6 @@ GameObject:
   - component: {fileID: 1716983543}
   - component: {fileID: 1716983542}
   - component: {fileID: 1716983541}
-  - component: {fileID: 1716983540}
   - component: {fileID: 1716983545}
   - component: {fileID: 1716983544}
   m_Layer: 0
@@ -12800,18 +12799,6 @@ RectTransform:
   m_AnchoredPosition: {x: 223.55995, y: -640}
   m_SizeDelta: {x: 362, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1716983540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716983538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e86e441b43944eca6f06a2624c0b527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1716983541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15372,10 +15359,9 @@ GameObject:
   - component: {fileID: 1987646156}
   - component: {fileID: 1987646155}
   - component: {fileID: 1987646154}
-  - component: {fileID: 1987646158}
   - component: {fileID: 1987646159}
   - component: {fileID: 1987646157}
-  - component: {fileID: 1987646160}
+  - component: {fileID: 1987646158}
   m_Layer: 0
   m_Name: Ad Button
   m_TagString: Untagged
@@ -15507,9 +15493,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1987646152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7cd57ebce7454b86ddf4fba3d8dab9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6347be1c49ef4560b57c3f078c2b65bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1987646154}
 --- !u!95 &1987646159
 Animator:
   serializedVersion: 3
@@ -15529,19 +15516,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1987646160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987646152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aac2c5f800e43c590e0ce8544a16f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 1987646154}
 --- !u!1 &1990072018
 GameObject:
   m_ObjectHideFlags: 3
@@ -15827,6 +15801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1993498355}
+  - component: {fileID: 1993498356}
   m_Layer: 5
   m_Name: Boost Tab
   m_TagString: Untagged
@@ -15854,6 +15829,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1993498356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993498354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f75f0cfc0684b48b65adf99c8a89a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1716983541}
+  _adsButton: {fileID: 1987646158}
 --- !u!1 &2006629315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}

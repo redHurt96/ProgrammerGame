@@ -23,9 +23,12 @@ namespace _Game.Ads.Ui
 
         private void OnDestroy()
         {
-            _events.OnCoffeeBreakStart -= ShowLabel;
-            _events.OnCoffeeBreakTimerUpdated -= UpdateLabel;
-            _events.OnCoffeeBreakComplete -= HideLabel;
+            if (_events != null)
+            {
+                _events.OnCoffeeBreakStart -= ShowLabel;
+                _events.OnCoffeeBreakTimerUpdated -= UpdateLabel;
+                _events.OnCoffeeBreakComplete -= HideLabel;
+            }
         }
 
         private void UpdateLabel(float time) => 

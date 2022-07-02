@@ -44,5 +44,10 @@ namespace _Game.GameServices
         
         public void LoadBanner() => 
             _bannerProvider.Load();
+
+        public void Clear()
+        {
+            
+        }
     }
 }

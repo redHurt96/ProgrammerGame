@@ -23,10 +23,9 @@ MonoBehaviour:
     _additional: 4
   _incomeSettings:
     _offset: 1
-    _linear: 0.4
+    _linear: 0.6
     _exponential: 1.2
     _additional: 0
   _timeSettings:
     _startTime: 3.5
-    _minProjectTime: 0.25
     _timerDecreaseLevelCount: 25

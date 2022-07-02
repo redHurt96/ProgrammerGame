@@ -21,8 +21,11 @@ namespace _Game.UI.LevelPanel
             _eventsMediator.MoneyCountChanged += UpdateProgressBar;
         }
 
-        private void OnDestroy() => 
-            _eventsMediator.MoneyCountChanged -= UpdateProgressBar;
+        private void OnDestroy()
+        {
+            if (_eventsMediator != null)
+                _eventsMediator.MoneyCountChanged -= UpdateProgressBar;
+        }
 
         private void UpdateProgressBar(double obj) => 
             _fill.fillAmount = _data.ReachNewLevelProgress();

@@ -13,5 +13,6 @@ namespace _Game.GameServices
         void ShowRewarded(string placement, Action onSuccess);
         bool IsBannerShown { get; }
         void LoadBanner();
+        void Clear();
     }
 }

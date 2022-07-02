@@ -11,7 +11,7 @@ namespace _Game.GameServices
         private List<Action> _onShownCallbacks = new List<Action>();
         private CachedValue<bool> _isReady;
 
-        private readonly AdsEvents _events;
+        private AdsEvents _events;
 
         public RewardedProvider()
         {
@@ -74,8 +74,9 @@ namespace _Game.GameServices
         private void RewardedVideoAvailabilityChangedEvent(bool availability)
         {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAvailabilityChangedEvent)} - {availability}");
-            
-            _events.InvokeRewardedReadyEvent(availability);
+
+            _events ??= Services.Get<EventsMediator>().Ads;
+            _events?.InvokeRewardedReadyEvent(availability);
         }
 
         private void RewardedVideoAdStartedEvent() =>

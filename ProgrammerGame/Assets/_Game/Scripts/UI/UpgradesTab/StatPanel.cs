@@ -25,8 +25,13 @@ namespace _Game.UI.UpgradesTab
             _events.OnUpgraded += UpdateValue;
         }
 
-        private void OnDestroy() => 
-            _events.OnUpgraded -= UpdateValue;
+        private void OnDestroy()
+        {
+            if (_events != null)
+            {
+                _events.OnUpgraded -= UpdateValue;
+            }
+        }
 
         private void UpdateValue(UpgradeType obj) => 
             _valueText.text = $"+{Value * 100}%";

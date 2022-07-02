@@ -46,8 +46,13 @@ namespace _Game.Debug.GameServices
 
         public void LoadBanner()
         {
-            UnityEngine.Debug.Log("Load banner");
+            UnityEngine.Debug.Log("[ADS_MOC] - Load banner");
             _adsEvents.InvokeBannerLoadedEvent();
+        }
+
+        public void Clear()
+        {
+            UnityEngine.Debug.Log("[ADS_MOC] - Clear");
         }
     }
 }

@@ -122,6 +122,8 @@ namespace _Game.Common
             GameData.DestroyInstance();
             TutorialEvents.DestroyInstance();
             GameData.DestroyInstance();
+
+            _adsService.Clear();
         }
 
         private IAdsService CreateAdsService()

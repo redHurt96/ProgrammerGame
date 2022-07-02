@@ -59,6 +59,7 @@ namespace _Game.Configs
 
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;
+        public float MinProjectTime = .23f;
 
         public AdsSettings Ads;
         public NotificationsSettings Notifications;

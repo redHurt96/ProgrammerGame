@@ -30,9 +30,12 @@ namespace _Game.Ads.Ui
 
         private void OnDestroy()
         {
-            _events.OnCoffeeBreakActive -= ActivateIfHasAds;
-            _events.OnCoffeeBreakComplete -= Hide;
-            _events.RewardedReady -= UpdateVisibility;
+            if (_events != null)
+            {
+                _events.OnCoffeeBreakActive -= ActivateIfHasAds;
+                _events.OnCoffeeBreakComplete -= Hide;
+                _events.RewardedReady -= UpdateVisibility;
+            }
         }
 
         private void Hide() => 

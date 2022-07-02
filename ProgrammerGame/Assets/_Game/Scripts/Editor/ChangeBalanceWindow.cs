@@ -125,12 +125,11 @@ namespace _Game.Editor
 
             for (int i = 0; i < _projectsCount; i++)
             {
-                int startPosition = i * 3;
+                int startPosition = i * 2;
 
                 timers[i] = new TimeSettings
                 {
                     _startTime = coeffs[startPosition],
-                    _minProjectTime = coeffs[startPosition + 1],
                     _timerDecreaseLevelCount = (int)coeffs[startPosition + 2],
                 };
             }

@@ -31,8 +31,11 @@ namespace _Game.Ads.Ui
 
         private void OnDestroy()
         {
-            _events.OnCoffeeBreakStart -= BreakShowingCoroutine;
-            _events.OnCoffeeBreakActive -= StartShowingCoroutine;
+            if (_events != null)
+            {
+                _events.OnCoffeeBreakStart -= BreakShowingCoroutine;
+                _events.OnCoffeeBreakActive -= StartShowingCoroutine;
+            }
         }
 
         private void StartShowingCoroutine() => StartCoroutine(ShowWithInterval());

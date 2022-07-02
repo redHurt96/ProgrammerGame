@@ -26,8 +26,11 @@ namespace _Game.Ads.Ui
             _events.BannerLoaded += Shift;
         }
 
-        private void OnDestroy() => 
-            _events.BannerLoaded -= Shift;
+        private void OnDestroy()
+        {
+            if (_events != null)
+                _events.BannerLoaded -= Shift;
+        }
 
         private void Shift()
         {

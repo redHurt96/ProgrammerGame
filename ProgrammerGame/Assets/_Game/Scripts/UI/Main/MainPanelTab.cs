@@ -15,6 +15,7 @@ namespace _Game.UI.Main
         Projects = 0,
         Upgrades,
         Programmers,
+        Boost,
 
         Python,
         CSharp,

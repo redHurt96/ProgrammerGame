@@ -31,6 +31,14 @@ namespace _Game.UI.ProgrammersTab
         private EventsMediator _eventsMediator;
         private Settings _settings;
 
+        private string _adPlacementForUpgrade =>
+            $"Upgrade programmer for project {_programmer.AutomatedProject.Name} " +
+            $"to level {_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level}";
+        
+        private string _adPlacementForBuy =>
+            $"Buy programmer for project {_programmer.AutomatedProject.Name} " +
+            $"- level {_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level}";
+
         private void OnEnable()
         {
             _apartment ??= Services.Get<Apartment>();
@@ -87,7 +95,8 @@ namespace _Game.UI.ProgrammersTab
 
                 _adsButton.Setup(
                     () => CheckProgrammerHasUpgrade() && _data.SavableData.MoneyCount < _programmer.GetPrice(upgradeData.Level), 
-                    PerformUpgrade);
+                    PerformUpgrade,
+                    () => _adPlacementForUpgrade);
             }
         }
 
@@ -103,7 +112,8 @@ namespace _Game.UI.ProgrammersTab
 
             _adsButton.Setup(
                 () => CheckProgrammerAvailability() && _data.SavableData.MoneyCount < _programmer.GetPrice(0), 
-                PerformBuy);
+                PerformBuy,
+                () => _adPlacementForBuy);
 
             UpdateTip();
         }

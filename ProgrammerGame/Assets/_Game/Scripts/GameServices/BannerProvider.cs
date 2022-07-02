@@ -7,6 +7,8 @@ namespace _Game.GameServices
     internal class BannerProvider : IDisposable
     {
         private readonly EventsMediator _eventsMediator;
+        
+        public bool IsShown { get; private set; }
 
         public BannerProvider()
         {
@@ -40,6 +42,7 @@ namespace _Game.GameServices
         {
             UnityEngine.Debug.Log($"[ADS] {nameof(BannerAdLoadedEvent)}");
             _eventsMediator.Ads.InvokeBannerLoadedEvent();
+            IsShown = true;
         }
 
         private void BannerAdLoadFailedEvent(IronSourceError error) => 

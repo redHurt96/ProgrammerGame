@@ -1,5 +1,5 @@
-﻿using _Game.Configs;
-using _Game.Data;
+﻿using _Game.Data;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,17 +8,14 @@ namespace _Game.UI.ResetTab
     [RequireComponent(typeof(Image))]
     public class ResetButtonVisibilityComponent : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private Button _button;
+        
+        private GameData _data;
 
-        private void Update()
-        {
-            bool enabled = GameData.Instance.BoostForProgress()
-                               * GameData.Instance.PersistentData.MainBoost
-                               - GameData.Instance.PersistentData.MainBoost
-                               > Settings.Instance.OpenResetThreshold;
+        private void Start() => 
+            _data = Services.Get<GameData>();
 
-            _canvasGroup.alpha = enabled ? 1f : 0f;
-            _canvasGroup.blocksRaycasts = enabled;
-        }
+        private void Update() =>
+            _button.interactable = _data.CanReset();
     }
 }

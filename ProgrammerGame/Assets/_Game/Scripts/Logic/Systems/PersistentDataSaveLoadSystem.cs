@@ -2,29 +2,39 @@
 using _Game.Data;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Saving;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class PersistentDataSaveLoadSystem : BaseInitSystem
     {
+        private readonly GameData _data;
+        private readonly EventsMediator _events;
+
+        public PersistentDataSaveLoadSystem()
+        {
+            _data = Services.Get<GameData>();
+            _events = Services.Get<EventsMediator>();
+        }
+
         public override void Init()
         {
-            GameData.Instance.PersistentData.LoadIfExist();
+            _data.PersistentData.LoadIfExist();
 
-            EventsMediator.Instance.TutorialStepReceived += Save;
-            EventsMediator.Instance.LevelChanged += Save;
-            EventsMediator.Instance.ApplicationPaused += Save;
+            _events.TutorialStepReceived += Save;
+            _events.LevelChanged += Save;
+            _events.ApplicationPaused += Save;
         }
 
         public override void Dispose()
         {
-            GameData.Instance.PersistentData.Save();
+            _data.PersistentData.Save();
 
-            EventsMediator.Instance.TutorialStepReceived -= Save;
-            EventsMediator.Instance.LevelChanged -= Save;
-            EventsMediator.Instance.ApplicationPaused -= Save;
+            _events.TutorialStepReceived -= Save;
+            _events.LevelChanged -= Save;
+            _events.ApplicationPaused -= Save;
         }
 
-        private void Save() => GameData.Instance.PersistentData.Save();
+        private void Save() => _data.PersistentData.Save();
     }
 }

@@ -17,7 +17,7 @@ namespace _Game.UI.ResetTab
             if (GameData.Instance == null)
                 return;
 
-            _text.text = "x " + GameData.Instance.BoostForProgress().ToString("F1");
+            _text.text = "x " + GameData.Instance.FullResetBoost().ToString("F1");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace _Game.Logic.Systems
 
             yield return null;
 
-            GameData.Instance.PersistentData.MainBoost = boost * GameData.Instance.PersistentData.MainBoost;
+            GameData.Instance.PersistentData.MainBoost += boost;
 
             SceneManager.LoadScene(0);
         }

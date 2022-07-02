@@ -12,7 +12,7 @@ namespace _Game.UI.Windows
         [SerializeField] private Text _countTitle;
         [SerializeField] private Button _adsButton;
 
-        private double _countValue;
+        private double _moneyCount;
 
         private IAdsService _ads;
         private EventsMediator _events;
@@ -29,31 +29,29 @@ namespace _Game.UI.Windows
             _events.Ads.RewardedReady += ShowButton;
         }
 
-        private void DoubleReward()
-        {
-            _ads.ShowRewarded("Idle income", () =>
+        private void DoubleReward() =>
+            _ads.ShowRewarded($"Idle income; amount:{_moneyCount}", () =>
             {
-                _events.IntentToChangeMoney(_countValue);
+                _events.IntentToChangeMoney(_moneyCount);
                 _windowsManager.Hide(this);
             });
-        }
 
         private void ShowButton(bool availability) => 
             _adsButton.interactable = availability;
 
         public void SetCount(double count)
         {
-            _countValue = count;
+            _moneyCount = count;
 
             _countTitle.text = count.ToPriceString();
         }
 
         protected override void PerformBeforeClose()
         {
-            _events.IntentToChangeMoney(_countValue);
+            _events.IntentToChangeMoney(_moneyCount);
             _events.Ads.RewardedReady -= ShowButton;
             _adsButton.onClick.RemoveListener(DoubleReward);
-            _countValue = 0;
+            _moneyCount = 0;
         }
     }
 }

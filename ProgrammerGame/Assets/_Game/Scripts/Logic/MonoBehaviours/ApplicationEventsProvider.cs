@@ -19,6 +19,6 @@ namespace _Game.Logic.MonoBehaviours
         }
 
         private void OnApplicationQuit() => 
-            _eventsMediator.InvokeOnApplicationPause(true);
+            _eventsMediator?.InvokeOnApplicationPause(true);
     }
 }

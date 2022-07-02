@@ -16,20 +16,16 @@ namespace _Game.UI.ProjectsTab
 
         private Func<bool> _visibilityCondition;
         private Action _onAdvComplete;
+        private Func<string> _adsPlacement;
 
         private bool CanBeVisible => _visibilityCondition != null && _visibilityCondition.Invoke();
 
-        private void OnDestroy()
-        {
-            _events.MoneyCountChanged -= UpdateFromMoneys;
-            _events.Ads.RewardedReady -= UpdateButtonFromAdsAvailability;
-        }
-
-        public void Setup(Func<bool> visibilityCondition, Action onAdvComplete)
+        public void Setup(Func<bool> visibilityCondition, Action onAdvComplete, Func<string> placement)
         {
             _ads ??= Services.Get<IAdsService>();
             _events ??= Services.Get<EventsMediator>();
 
+            _adsPlacement = placement;
             _events.MoneyCountChanged += UpdateFromMoneys;
             _events.Ads.RewardedReady += UpdateButtonFromAdsAvailability;
 
@@ -42,6 +38,15 @@ namespace _Game.UI.ProjectsTab
             UpdateButtonVisibility();
         }
 
+        private void OnDestroy()
+        {
+            if (_events?.Ads != null)
+            {
+                _events.MoneyCountChanged -= UpdateFromMoneys;
+                _events.Ads.RewardedReady -= UpdateButtonFromAdsAvailability;
+            }
+        }
+
         private void UpdateButtonFromAdsAvailability(bool adsAvailability) => 
             UpdateButtonVisibility();
 
@@ -52,7 +57,7 @@ namespace _Game.UI.ProjectsTab
             _button.gameObject.SetActive(CanBeVisible && _ads.IsRewardedReady);
 
         private void ShowAd() => 
-            _ads.ShowRewarded("Project", AddLevel);
+            _ads.ShowRewarded(_adsPlacement.Invoke(), AddLevel);
 
         private void AddLevel() => 
             _onAdvComplete.Invoke();

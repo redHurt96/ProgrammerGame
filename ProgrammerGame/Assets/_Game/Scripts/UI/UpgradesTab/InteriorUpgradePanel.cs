@@ -27,6 +27,7 @@ namespace _Game.UI.UpgradesTab
         private InteriorSettings _settings;
 
         private double _price => _settings.GetPrice(_upgradeData.Level);
+        private string _adsPlacement => $"Upgrade {_upgradeType} to level {_upgradeData.Level} by ad";
 
         private void Start()
         {
@@ -62,7 +63,7 @@ namespace _Game.UI.UpgradesTab
 
             _buttonVisibilityComponent.UpdateVisibility();
 
-            _adsButton.Setup(CanUpgrade, PerformUpgrade);
+            _adsButton.Setup(CanUpgrade, PerformUpgrade, () => _adsPlacement);
         }
 
         private bool CanUpgrade() => 

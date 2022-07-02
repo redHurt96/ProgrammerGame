@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Game.Common;
+using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
 {
     public class InterstitialProvider
     {
+        private readonly AdsEvents _events;
+
         public InterstitialProvider()
         {
+            _events = Services.Get<EventsMediator>().Ads;
+            
             IronSourceEvents.onInterstitialAdReadyEvent += InterstitialAdReadyEvent;
             IronSourceEvents.onInterstitialAdLoadFailedEvent += InterstitialAdLoadFailedEvent;        
             IronSourceEvents.onInterstitialAdShowSucceededEvent += InterstitialAdShowSucceededEvent; 
@@ -56,8 +62,11 @@ namespace _Game.GameServices
         private void InterstitialAdClosedEvent() => 
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdClosedEvent));
 
-        private void InterstitialAdShowSucceededEvent() => 
+        private void InterstitialAdShowSucceededEvent()
+        {
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdShowSucceededEvent));
+            _events.InvokeOnInterstitialShown();
+        }
 
         private void InterstitialAdLoadFailedEvent(IronSourceError error) => 
             UnityEngine.Debug.Log($"[ADS] {nameof(InterstitialAdLoadFailedEvent)} with code {error.getCode()}");

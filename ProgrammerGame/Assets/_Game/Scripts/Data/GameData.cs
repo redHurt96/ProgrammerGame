@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
-using _Game.Configs;
-using _Game.Tutorial;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
-using UnityEngine;
 
 namespace _Game.Data
 {

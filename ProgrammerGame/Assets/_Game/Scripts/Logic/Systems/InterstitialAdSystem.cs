@@ -28,7 +28,9 @@ namespace _Game.Logic.Systems
         {
             UnityEngine.Debug.Log("Run " + nameof(InterstitialAdSystem));
             RunFirstInterstitialAfterDelay();
+            
             _events.RewardedAdsShown += ClearRunnedCooldown;
+            _events.InterstitialShown += RunNextInterstitialAfterCooldown;
         }
 
         public override void Dispose()
@@ -37,6 +39,7 @@ namespace _Game.Logic.Systems
                 CoroutineLauncher.Stop(_currentCoroutine);
             
             _events.RewardedAdsShown -= ClearRunnedCooldown;
+            _events.InterstitialShown -= RunNextInterstitialAfterCooldown;
         }
 
         private void RunFirstInterstitialAfterDelay()

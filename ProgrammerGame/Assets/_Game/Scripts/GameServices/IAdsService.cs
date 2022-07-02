@@ -11,6 +11,7 @@ namespace _Game.GameServices
         void ShowInterstitial();
         void LoadRewarded();
         void ShowRewarded(string placement, Action onSuccess);
+        bool IsBannerShown { get; }
         void LoadBanner();
     }
 }

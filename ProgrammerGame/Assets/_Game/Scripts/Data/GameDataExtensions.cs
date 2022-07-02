@@ -8,8 +8,14 @@ namespace _Game.Data
 {
     public static class GameDataExtensions
     {
+        public static float FullResetBoost(this GameData data) =>
+            data.PersistentData.AddendBoost.Value + data.PersistentData.MainBoost;
+        
+        public static float ResetProgress(this GameData data) =>
+            data.PersistentData.AddendBoost.Value / Settings.Instance.OpenResetThreshold;
+        
         public static bool CanReset(this GameData data) =>
-            BoostForProgress(data) * data.PersistentData.MainBoost - data.PersistentData.MainBoost > Settings.Instance.OpenResetThreshold;
+            data.ResetProgress() >= 1f;
 
         public static bool ContainsTutorialStep(this GameData data, TutorialStep step) =>
             data.PersistentData.TutorialData.Steps.Contains(step);
@@ -48,7 +54,6 @@ namespace _Game.Data
             data.SavableData.Upgrades.First(x => x.Type == type);
 
         public static float BoostForProgress(this GameData data) =>
-            1 +
             data.SavableData.Projects
                 .Where(x => x.State == ProjectState.Active)
                 .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;

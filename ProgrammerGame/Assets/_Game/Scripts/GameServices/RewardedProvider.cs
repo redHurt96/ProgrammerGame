@@ -94,7 +94,7 @@ namespace _Game.GameServices
 
             _onShownCallbacks.Clear();
 
-            _events.InvokeOnRewardedAdsShown();
+            _events.InvokeOnRewardedShown();
         }
 
         private void RewardedVideoAdShowFailedEvent(IronSourceError error)

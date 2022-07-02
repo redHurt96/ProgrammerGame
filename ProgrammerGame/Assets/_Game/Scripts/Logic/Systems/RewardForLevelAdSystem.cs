@@ -30,12 +30,15 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             _adsEvents.OnRewardForLevelIntent -= ShowAd;
 
-        private void ShowAd() => 
-            _ads.ShowRewarded("Level reward", PerformOnSuccess);
+        private void ShowAd()
+        {
+            var level = _data.PersistentData.Level;
+            _ads.ShowRewarded($"Level reward; level:{level}", PerformOnSuccess);
+        }
 
         private void PerformOnSuccess()
         {
-            double money = _data.GetRewardForLevel() * (_settings.Ads.ResetBoost - 1);
+            double money = _data.GetRewardForLevel() * 2f * (_settings.Ads.ResetBoost - 1);
             _eventsMediator.IntentToChangeMoney(money);
         }
     }

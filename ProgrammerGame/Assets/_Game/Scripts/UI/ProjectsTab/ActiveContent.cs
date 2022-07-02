@@ -32,6 +32,9 @@ namespace _Game.UI.ProjectsTab
         private EventsMediator _eventsMediator;
         private Settings _settings;
 
+        private string _adPlacement => 
+            $"Upgrade project {_projectData.Name} to level {_projectData.Level}";
+        
         private void Awake()
         {
             _data = Services.Get<GameData>();
@@ -51,7 +54,7 @@ namespace _Game.UI.ProjectsTab
             UpdateContent();
             Subscribe();
 
-            _adsButton.Setup(CanShowAdsButton, AddLevelToProject);
+            _adsButton.Setup(CanShowAdsButton, AddLevelToProject, () => _adPlacement);
         }
 
         private bool CanShowAdsButton() => 

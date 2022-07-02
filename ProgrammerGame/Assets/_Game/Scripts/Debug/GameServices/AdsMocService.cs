@@ -38,9 +38,11 @@ namespace _Game.Debug.GameServices
             }
             else
             {
-                UnityEngine.Debug.LogError($"[ADS_MOC] - Interstitial not ready");
+                UnityEngine.Debug.LogError($"[ADS_MOC] - Rewarded not ready");
             }
         }
+
+        public bool IsBannerShown => AdsMocSettings.IsBannerShown;
 
         public void LoadBanner()
         {

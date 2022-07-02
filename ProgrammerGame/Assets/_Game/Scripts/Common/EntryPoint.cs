@@ -20,6 +20,8 @@ namespace _Game.Common
         [SerializeField] private SceneObjects _sceneObjects;
         [SerializeField] private TutorialSettings _tutorialSettings;
 
+        private static IAdsService _adsService;
+
         protected override void RegisterServices()
         {
             _settings.CreateInstance();
@@ -36,20 +38,17 @@ namespace _Game.Common
                 .RegisterSingle(new EventsMediator())
                 .RegisterSingle(new GameData())
                 .RegisterSingle(new TutorialEvents())
-#if UNITY_EDITOR
-                .RegisterSingle<IAdsService>(new AdsMocService());
-#else
-                .RegisterSingle<IAdsService>(new AdsService());
-#endif
+                .RegisterSingle(CreateAdsService());
         }
 
         protected override void RegisterSystems()
         {
             _systems
 
-                //game logic
+                //logic
                 .Add(new SaveLoadSystem())
                 .Add(new PersistentDataSaveLoadSystem())
+                .Add(new ResetBoostAddendVariableInitializeSystem())
                 .Add(new ResetForBoostSystem())
                 .Add(new UpdateProjectAvailabilitySystem())
                 .Add(new RunProjectSystem())
@@ -123,6 +122,20 @@ namespace _Game.Common
             GameData.DestroyInstance();
             TutorialEvents.DestroyInstance();
             GameData.DestroyInstance();
+        }
+
+        private IAdsService CreateAdsService()
+        {
+            if (_adsService == null)
+            {
+#if UNITY_EDITOR
+                _adsService = new AdsMocService();
+#else
+                _adsService = new AdsService();
+#endif       
+            }
+
+            return _adsService;
         }
     }
 }

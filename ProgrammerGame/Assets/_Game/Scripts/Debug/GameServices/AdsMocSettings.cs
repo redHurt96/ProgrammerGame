@@ -8,9 +8,11 @@ namespace _Game.Debug.GameServices
     {
         private const string IS_INTERSTITIAL_READY_KEY = "debug_is_interstitial_ready";
         private const string IS_REWARDED_READY_KEY = "debug_is_rewarded_ready";
+        private const string IS_BANNER_SHOWN_KEY = "debug_is_rewarded_ready";
 
         public static bool IsInterstitialReady => PlayerPrefs.HasKey(IS_INTERSTITIAL_READY_KEY) && PlayerPrefs.GetInt(IS_INTERSTITIAL_READY_KEY) == 1;
         public static bool IsRewardedReady => PlayerPrefs.HasKey(IS_REWARDED_READY_KEY) && PlayerPrefs.GetInt(IS_REWARDED_READY_KEY) == 1;
+        public static bool IsBannerShown => PlayerPrefs.HasKey(IS_BANNER_SHOWN_KEY) && PlayerPrefs.GetInt(IS_BANNER_SHOWN_KEY) == 1;
 
 #if UNITY_EDITOR
         [MenuItem("🎮 Game/🎞 Adv/ Toggle interstitial")]
@@ -20,6 +22,10 @@ namespace _Game.Debug.GameServices
         [MenuItem("🎮 Game/🎞 Adv/ Toggle rewarded")]
         private static void ToggleRewarded() => 
             ToggleSettingsValue(IS_REWARDED_READY_KEY, () => IsRewardedReady);
+        
+        [MenuItem("🎮 Game/🎞 Adv/ Toggle banner")]
+        private static void ToggleBanner() => 
+            ToggleSettingsValue(IS_BANNER_SHOWN_KEY, () => IsBannerShown);
 
         private static void ToggleSettingsValue(string key, Func<bool> valueFunc)
         {

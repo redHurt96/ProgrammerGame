@@ -22,8 +22,11 @@ namespace _Game.Ads.Ui
             _eventsMediator = Services.Get<EventsMediator>();
         }
 
-        protected override void PerformOnClick() => 
-            _ads.ShowRewarded("Additional boost", PerformOnSuccess);
+        protected override void PerformOnClick()
+        {
+            var newBoostValue = _data.BoostForProgress() * _settings.Ads.ResetBoost;
+            _ads.ShowRewarded($"Show ad for additional boost {newBoostValue} ", PerformOnSuccess);
+        }
 
         private void PerformOnSuccess()
         {

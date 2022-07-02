@@ -37,6 +37,8 @@ namespace _Game.Debug
                 .First(x => x.gameObject.name == "Tutorials")
                 .gameObject.SetActive(false);
 
+            _tutorialSettings ??= Services.Get<TutorialSettings>();
+            
             _tutorialSettings.Background.SetActive(false);
 
             _data.PersistentData.IsProgrammersTabUnlocked = true;

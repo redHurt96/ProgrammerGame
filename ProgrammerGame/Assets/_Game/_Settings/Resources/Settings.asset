@@ -31,6 +31,7 @@ MonoBehaviour:
     FurnitureSpawnFxPrefab: {fileID: 395031058680739610, guid: b2f0b8902a31c8a46a1c4bb24ed9ea36, type: 3}
     Pizza: {fileID: 6704774662884183030, guid: e35068cf6c20cf943a50d6ab63aaeea4, type: 3}
     DiscoBall: {fileID: 4160000743111497946, guid: 8468ee99b1f92134b9c38fed6d34c8b1, type: 3}
+    PizzaSpawnTime: 2
   MoneyFallForce: 2
   MoneySpawnTime: 1.5
   MaxMoneySpawnCount: 3
@@ -68,15 +69,15 @@ MonoBehaviour:
   PcPrices: {fileID: 11400000, guid: d54a954f23af5fb4d8e0f05c2f375c40, type: 2}
   HousePrices: {fileID: 11400000, guid: 46c7452d9b6833b44838be2c550a51a7, type: 2}
   BoostForResetBaseValue: 10
-  OpenResetThreshold: 1
+  OpenResetThreshold: 0.5
   DailyBonusPerDay: 0.5
   TimeForLevelReward: 10
   MinLevelReward: 20
   ChangeProgressBarAnchorTime: 0.25
   Ads:
     AppId: 15056d1c9
-    FirstInterstitialDelay: 180
-    InterstitialCooldown: 100
+    FirstInterstitialDelay: 100
+    InterstitialCooldown: 90
     CoffeeBreakLenght: 60
     CoffeeBreakDelay: 30
     CoffeeBreakBoost: 2

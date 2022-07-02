@@ -1,4 +1,5 @@
 ﻿using System;
+using RH.Utilities;
 using RH.Utilities.Saving;
 
 namespace _Game.Data
@@ -12,6 +13,10 @@ namespace _Game.Data
         public TutorialData TutorialData = new TutorialData();
         public bool IsProgrammersTabUnlocked;
         public bool IsUpgradesTabUnlocked;
+        public bool IsBoostTabUnlocked;
+
+        [NonSerialized]
+        public CachedValue<float> AddendBoost;
 
         public string Key => "Persistent";
     }

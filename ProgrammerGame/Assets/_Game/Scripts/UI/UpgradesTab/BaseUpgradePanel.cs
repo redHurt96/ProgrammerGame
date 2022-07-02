@@ -32,6 +32,7 @@ namespace _Game.UI.UpgradesTab
         private EventsMediator _events;
 
         private double _price => priceSettingsScriptable.GetPrice(_upgradeData.Level);
+        private string _adsPlacementText => $"Upgrade {_upgradeType} to level {_upgradeData.Level} by ad";
 
         protected abstract string EffectTitle { get; }
         protected abstract string TotalEffectTitle { get; }
@@ -74,7 +75,7 @@ namespace _Game.UI.UpgradesTab
             
             _buttonVisibilityComponent.UpdateVisibility();
 
-            _adsButton.Setup(CanUpgrade, PerformUpgrade);
+            _adsButton.Setup(CanUpgrade, PerformUpgrade, () => _adsPlacementText);
         }
 
         private bool CanUpgrade() => 

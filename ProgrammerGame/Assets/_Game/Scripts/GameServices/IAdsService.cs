@@ -3,7 +3,7 @@ using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
 {
-    public interface IAdsService : IService
+    public interface IAdsService : IService, IDisposable
     {
         bool IsInterstitialReady { get; }
         bool IsRewardedReady { get; }
@@ -13,6 +13,5 @@ namespace _Game.GameServices
         void ShowRewarded(string placement, Action onSuccess);
         bool IsBannerShown { get; }
         void LoadBanner();
-        void Clear();
     }
 }

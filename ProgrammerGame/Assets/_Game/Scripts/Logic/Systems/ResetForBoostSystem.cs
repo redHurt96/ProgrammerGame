@@ -2,6 +2,7 @@
 using _Game.Common;
 using _Game.Data;
 using AP.ProgrammerGame;
+using GameAnalyticsSDK.Setup;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.Coroutines;
 using UnityEngine;
@@ -29,8 +30,9 @@ namespace _Game.Logic.Systems
             yield return null;
 
             GameData.Instance.PersistentData.MainBoost += boost;
+            GameData.Instance.PersistentData.ResetCount++;
 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Main");
         }
     }
 }

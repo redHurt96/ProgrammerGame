@@ -1,6 +1,7 @@
 ﻿using _Game.Common;
 using _Game.Configs;
 using _Game.Data;
+using _Game.GameServices;
 using _Game.UI.ProjectsTab;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace _Game.Ads.Ui
         private GameData _data;
         private EventsMediator _events;
         private Settings _settings;
+        private IAdsService _ads;
 
         private bool _canReset => _data.CanReset();
 
@@ -24,12 +26,15 @@ namespace _Game.Ads.Ui
             _data ??= Services.Get<GameData>();
             _events ??= Services.Get<EventsMediator>();
             _settings ??= Services.Get<Settings>();
+            _ads ??= Services.Get<IAdsService>();
             
             _button.interactable = _canReset;
         }
 
         private void Start()
         {
+            _events.Ads.RewardedAvailabilityRequestForAnalytics?.Invoke($"Show ad for additional boost", _ads.IsRewardedReady);
+            
             _button.onClick.AddListener(ResetForBoost);
             _adsButton.Setup(
                 () => _canReset, 

@@ -32,6 +32,8 @@ namespace _Game.UI.Windows
             bool isRewardedReady = _ads.IsRewardedReady;
 
             _adsIncreaseRewardButton.interactable = isRewardedReady;
+            
+            _adsEvents.RewardedAvailabilityRequestForAnalytics?.Invoke("Show reward for level - LevelRewardWindow", isRewardedReady);
 
             if (isRewardedReady)
                 _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);

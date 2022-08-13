@@ -50,9 +50,6 @@ namespace _Game.Debug.GameServices
             _adsEvents.InvokeBannerLoadedEvent();
         }
 
-        public void Clear()
-        {
-            UnityEngine.Debug.Log("[ADS_MOC] - Clear");
-        }
+        public void Dispose() {}
     }
 }

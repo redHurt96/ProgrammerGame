@@ -2,17 +2,20 @@
 using System.Linq;
 using _Game.Configs;
 using _Game.Tutorial;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Data
 {
     public static class GameDataExtensions
     {
+        private static Settings _settings => Services.Get<Settings>(); 
+        
         public static float FullResetBoost(this GameData data) =>
             data.PersistentData.AddendBoost.Value + data.PersistentData.MainBoost;
         
         public static float ResetProgress(this GameData data) =>
-            data.PersistentData.AddendBoost.Value / Settings.Instance.OpenResetThreshold;
+            data.PersistentData.AddendBoost.Value / _settings.OpenResetThreshold;
         
         public static bool CanReset(this GameData data) =>
             data.ResetProgress() >= 1f;
@@ -30,18 +33,18 @@ namespace _Game.Data
             data.SavableData.AutoRunnedProjects.First(x => x.ProjectName == projectName);
 
         public static float SpeedTotalEffect(this GameData data) => 
-            GetUpgradeData(data, UpgradeType.Interior).Level * Settings.Instance.IncreaseSpeedEffectStrength;
+            GetUpgradeData(data, UpgradeType.Interior).Level * _settings.IncreaseSpeedEffectStrength;
 
         public static float MoneyTotalEffect(this GameData data) =>
-            GetUpgradeData(data, UpgradeType.Interior).Level * Settings.Instance.IncreaseMoneyEffectStrength;
+            GetUpgradeData(data, UpgradeType.Interior).Level * _settings.IncreaseMoneyEffectStrength;
 
         public static float MoneyForTap(this GameData data) => 
-            Mathf.Max(1, Settings.Instance.MoneyForTap.GetPrice(GetUpgradeData(data, UpgradeType.Soft).Level) * data.PersistentData.MainBoost);
+            Mathf.Max(1, _settings.MoneyForTap.GetPrice(GetUpgradeData(data, UpgradeType.Soft).Level) * data.PersistentData.MainBoost);
 
         public static float MoneyForTapForNewLevel(this GameData data)
         {
             int level = GetUpgradeData(data, UpgradeType.Soft).Level;
-            return (Settings.Instance.MoneyForTap.GetPrice(level + 1) - Settings.Instance.MoneyForTap.GetPrice(level)) *
+            return (_settings.MoneyForTap.GetPrice(level + 1) - _settings.MoneyForTap.GetPrice(level)) *
                    data.PersistentData.MainBoost;
         }
 
@@ -56,10 +59,10 @@ namespace _Game.Data
         public static float BoostForProgress(this GameData data) =>
             data.SavableData.Projects
                 .Where(x => x.State == ProjectState.Active)
-                .Sum(x => x.Level / 500f) / 9f * Settings.Instance.BoostForResetBaseValue;
+                .Sum(x => x.Level / 500f) / 9f * _settings.BoostForResetBaseValue;
 
-        public static double GetRewardForLevel(this GameData data) => Mathf.Max(Settings.Instance.MinLevelReward,
-            IncomePerSec(data) * Settings.Instance.TimeForLevelReward);
+        public static double GetRewardForLevel(this GameData data) => Mathf.Max(_settings.MinLevelReward,
+            IncomePerSec(data) * _settings.TimeForLevelReward);
 
         public static int CalculateLevel(this GameData data) => 
             (int) Mathf.Log10((float) data.PersistentData.TotalEarnedMoney);

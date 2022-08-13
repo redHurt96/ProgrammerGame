@@ -14,6 +14,8 @@ namespace _Game.Data
         public bool IsProgrammersTabUnlocked;
         public bool IsUpgradesTabUnlocked;
         public bool IsBoostTabUnlocked;
+        public int SessionsCount;
+        public int ResetCount;
 
         [NonSerialized]
         public CachedValue<float> AddendBoost;

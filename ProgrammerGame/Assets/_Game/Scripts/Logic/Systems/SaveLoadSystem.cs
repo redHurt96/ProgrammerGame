@@ -5,6 +5,7 @@ using _Game.Data;
 using _Game.Extensions;
 using AP.ProgrammerGame;
 using RH.Utilities.PseudoEcs;
+using RH.Utilities.Saving;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
@@ -59,22 +60,13 @@ namespace _Game.Logic.Systems
         private void Save()
         {
             _data.SavableData.SaveDateTime = DateTime.Now.ToBinary();
-
-            string data = JsonUtility.ToJson(GameData.Instance.SavableData);
-            UnityEngine.Debug.Log(data);
-
-            PlayerPrefs.SetString("Save", data);
-            PlayerPrefs.Save();
+            _data.SavableData.Save();
         }
 
         private void LoadData()
         {
-            string rawData = PlayerPrefs.GetString("Save");
-            SavableData data = JsonUtility.FromJson<SavableData>(rawData);
-
-            data.Init();
-
-            _data.SavableData = data;
+            _data.SavableData.LoadIfExist();
+            _data.SavableData.Init(_settings);
         }
 
         private void CreateProjectsData()
@@ -99,8 +91,8 @@ namespace _Game.Logic.Systems
 
         private void CreateUpgradesData()
         {
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
-            GameData.Instance.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
+            _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
+            _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
         }
     }
 }

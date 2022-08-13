@@ -16,17 +16,28 @@ namespace _Game.Logic.Systems
         protected abstract bool _waitCondition { get; }
         protected abstract float _delay { get; }
 
-        private Coroutine _coroutine;
+        protected readonly GameData _data;
+        protected readonly Settings _settings;
+
         private readonly WindowsManager _windowsManager;
+        private readonly TutorialEvents _tutorialEvents;
+
+        private Coroutine _coroutine;
 
         private WaitForSeconds _updateConditionRandomTime => new WaitForSeconds(Random.Range(.01f, .2f));
 
-        protected BaseTutorialWaitForStepSystem() => 
+        protected BaseTutorialWaitForStepSystem()
+        {
+            _data = Services.Get<GameData>();
+            _settings = Services.Get<Settings>();
+
             _windowsManager = Services.Get<WindowsManager>();
+            _tutorialEvents = Services.Get<TutorialEvents>();
+        }
 
         public sealed override void Init()
         {
-            if (!GameData.Instance.PersistentData.TutorialData.Steps.Contains(Step))
+            if (!_data.PersistentData.TutorialData.Steps.Contains(Step))
                 _coroutine = CoroutineLauncher.Start(WaitForPerform());
         }
 
@@ -43,7 +54,7 @@ namespace _Game.Logic.Systems
 
             yield return new WaitForSeconds(_delay);
 
-            TutorialEvents.Instance.InvokeEvent(Step);
+            _tutorialEvents.InvokeEvent(Step);
         }
     }
 }

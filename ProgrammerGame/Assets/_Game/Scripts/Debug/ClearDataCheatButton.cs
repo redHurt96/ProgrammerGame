@@ -15,7 +15,7 @@ namespace _Game.Debug
             if (_targetClickCount == ++_clickCount)
             {
                 _clickCount = 0;
-                SceneManager.LoadScene(sceneBuildIndex: 1);
+                SceneManager.LoadScene("ClearDataScene");
             }
         }
     }

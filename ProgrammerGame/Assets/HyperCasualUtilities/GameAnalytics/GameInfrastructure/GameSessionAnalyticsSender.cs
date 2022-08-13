@@ -1,58 +1,72 @@
 using UnityEngine;
-using GameAnalyticsSDK;
 using _Game.Common;
 using _Game.Data;
-using _Game.Extensions;
+using _Game.GameServices.Analytics;
+using RH.Utilities.ServiceLocator;
 
 namespace AP.Utilities.Analytics
 {
     public class GameSessionAnalyticsSender : MonoBehaviour
     {
-        private void Awake() => 
-            GameAnalytics.Initialize();
+        private AnalyticsService _analyticsService;
+        private EventsMediator _events;
 
         private void Start()
         {
-            SendStats(GAProgressionStatus.Start, "Start session");
+            _events = Services.Get<EventsMediator>();
+            _analyticsService = Services.Get<AnalyticsService>();
+            
+            _analyticsService.SendSessionStart("Start session");
 
-            EventsMediator.Instance.LevelChanged += SendOnNewLevel;
-            EventsMediator.Instance.OnUpgraded += SendOnBuyUpgrade;
-            EventsMediator.Instance.ProgrammedPurchased += SendOnProgrammedPurchased;
-            EventsMediator.Instance.ResetForBoostIntent += SendOnReset;
+            _events.LevelChanged += SendOnNewLevel;
+            _events.OnUpgraded += SendOnBuyUpgrade;
+            _events.ProgrammedPurchased += SendOnProgrammedPurchased;
+            _events.ResetForBoostIntent += SendOnReset;
+            
+            _events.Ads.RewardedAdsShown += SendAdsEvent;
+            _events.Ads.RewardedAdsStart += SendAdsEvent;
+            _events.Ads.RewardedAvailabilityRequestForAnalytics.AddListener(SendAdsAvailabilityEvent);
+        }
+
+        private void OnDestroy()
+        {
+            _events.LevelChanged -= SendOnNewLevel;
+            _events.OnUpgraded -= SendOnBuyUpgrade;
+            _events.ProgrammedPurchased -= SendOnProgrammedPurchased;
+            _events.ResetForBoostIntent -= SendOnReset;
+
+            if (_events?.Ads != null)
+            {
+                _events.Ads.RewardedAdsShown -= SendAdsEvent;
+                _events.Ads.RewardedAdsStart -= SendAdsEvent;
+                _events.Ads.RewardedAvailabilityRequestForAnalytics.RemoveListener(SendAdsAvailabilityEvent);
+            }
         }
 
         private void OnApplicationPause(bool pause)
         {
             if (pause)
-                SendStats(GAProgressionStatus.Complete,"App pause");
+                _analyticsService.SendSessionComplete("Pause");
         }
 
         private void OnApplicationQuit() => 
-            SendStats(GAProgressionStatus.Complete,"App close");
-
-        private void OnDestroy()
-        {
-            EventsMediator.Instance.LevelChanged -= SendOnNewLevel;
-            EventsMediator.Instance.OnUpgraded -= SendOnBuyUpgrade;
-            EventsMediator.Instance.ProgrammedPurchased -= SendOnProgrammedPurchased;
-            EventsMediator.Instance.ResetForBoostIntent -= SendOnReset;
-        }
+            _analyticsService.SendSessionComplete("Quit");
 
         private void SendOnReset(float f) => SendStats("Reset for boost");
+
         private void SendOnProgrammedPurchased() => SendStats("Programmer purchased");
+
         private void SendOnBuyUpgrade(UpgradeType arg1) => SendStats("Buy upgrade");
+
         private void SendOnNewLevel() => SendStats("New level");
 
-        private void SendStats(GAProgressionStatus status, string eventName)
-        {
-            GameAnalytics.NewProgressionEvent(status, eventName, GameData.Instance.ToDictionary());
-            Debug.Log($"Send progression event {status} - {eventName}");
-        }
+        private void SendAdsEvent(AdsEventType eventType, AdType adType, string placement, string result) => 
+            _analyticsService.SendAdsEvent(eventType, adType, placement, result);
 
-        private void SendStats(string eventName)
-        {
-            GameAnalytics.NewDesignEvent(eventName, GameData.Instance.ToDictionary());
-            Debug.Log($"Send design event {eventName}");
-        }
+        private void SendStats(string eventName) => 
+            _analyticsService.Send(eventName);
+
+        private void SendAdsAvailabilityEvent(string placement, bool isAvailable) => 
+            _analyticsService.SendAdsEvent(AdsEventType.video_ads_available, AdType.rewarded, placement, isAvailable.ToString());
     }
 }

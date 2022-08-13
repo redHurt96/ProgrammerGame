@@ -5,8 +5,10 @@ using UnityEngine;
 namespace _Game.Configs
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "Game/Settings", order = 0)]
-    public class Settings : SingletonScriptableObject<Settings>, IService
+    public class Settings : ScriptableObject, IService
     {
+        public const string INCREASE_SESSIONS_COUNT_INTENT = "Increase sessions count intent";
+        
         public FxConfigs FX;
 
         [Header("Money spawning")]

@@ -20,6 +20,7 @@ namespace _Game.GameServices
         {
             _settings = Services.Get<Settings>();
             _data = Services.Get<GameData>();
+            
             IronSource.Agent.init(_settings.Ads.AppId);
 
             _interstitialProvider = new InterstitialProvider();
@@ -37,7 +38,7 @@ namespace _Game.GameServices
         {
             UnityEngine.Debug.Log("AdsService - show rewarded ad from " + placement);
             GameAnalytics.NewDesignEvent(placement, _data.ToDictionary());
-            _rewardedProvider.Show(onSuccess);
+            _rewardedProvider.Show(placement, onSuccess);
         }
 
         public bool IsBannerShown => _bannerProvider.IsShown;
@@ -45,9 +46,10 @@ namespace _Game.GameServices
         public void LoadBanner() => 
             _bannerProvider.Load();
 
-        public void Clear()
+        public void Dispose()
         {
-            
+            _rewardedProvider?.Dispose();
+            _bannerProvider?.Dispose();
         }
     }
 }

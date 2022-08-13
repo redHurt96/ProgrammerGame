@@ -2,6 +2,7 @@
 using _Game.Common;
 using _Game.Configs;
 using _Game.GameServices;
+using _Game.GameServices.Analytics;
 using RH.Utilities.Coroutines;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
@@ -49,6 +50,9 @@ namespace _Game.Logic.Systems
             RunShowAdCoroutine(firstTime);
         }
 
+        private void RunNextInterstitialAfterCooldown(AdsEventType arg1, AdType arg2, string arg3, string arg4) => 
+            RunNextInterstitialAfterCooldown();
+
         private void RunNextInterstitialAfterCooldown()
         {
             UnityEngine.Debug.Log(nameof(RunNextInterstitialAfterCooldown));
@@ -78,7 +82,7 @@ namespace _Game.Logic.Systems
             RunNextInterstitialAfterCooldown();
         }
 
-        private void ClearRunnedCooldown()
+        private void ClearRunnedCooldown(AdsEventType adsEventType, AdType adType, string arg3, string arg4)
         {
             CoroutineLauncher.Stop(_currentCoroutine);
             RunNextInterstitialAfterCooldown();

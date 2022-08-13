@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Game.Common;
 using _Game.Configs;
 using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
 namespace _Game.Logic.MonoBehaviours
@@ -14,9 +15,12 @@ namespace _Game.Logic.MonoBehaviours
         private Transform _parent => SceneObjects.Instance.MoneyParentObject;
 
         private Coroutine _currentCoroutine;
+        private Settings _settings;
 
         private void Start()
         {
+            _settings = Services.Get<Settings>();
+
             _transform = transform;
 
             EventsMediator.Instance.MoneyCountChanged += SpawnMoney;
@@ -34,14 +38,14 @@ namespace _Game.Logic.MonoBehaviours
             if (amount <= 0 && _currentCoroutine != null)
                 return;
 
-            List<Money> moneysPrefabs = Settings.Instance.GetMoneysPrefabsList(amount);
+            List<Money> moneysPrefabs = _settings.GetMoneysPrefabsList(amount);
 
             _currentCoroutine = StartCoroutine(SpawnMoneyDelayed(moneysPrefabs));
         }
 
         private IEnumerator SpawnMoneyDelayed(List<Money> prefabs)
         {
-            float spawnDelay = Settings.Instance.MoneySpawnTime / prefabs.Count;
+            float spawnDelay = _settings.MoneySpawnTime / prefabs.Count;
             WaitForSeconds wait = new WaitForSeconds(spawnDelay);
 
             foreach (Money prefab in prefabs)
@@ -58,9 +62,9 @@ namespace _Game.Logic.MonoBehaviours
             Money money = Instantiate(prefab, position, Random.rotation, _parent);
 
             money.GetComponent<Collider>().isTrigger = true;
-            money.GetComponent<Rigidbody>().AddForce(Vector3.down * Settings.Instance.MoneyFallForce);
+            money.GetComponent<Rigidbody>().AddForce(Vector3.down * _settings.MoneyFallForce);
 
-            Destroy(money.gameObject, Settings.Instance.MoneyBasementSpawnDelay);
+            Destroy(money.gameObject, _settings.MoneyBasementSpawnDelay);
         }
     }
 }

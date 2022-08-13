@@ -8,10 +8,6 @@ namespace _Game.Logic.Systems
     public class TutorialBuyAnotherProjectStep_6 : BaseTutorialWaitForStepSystem
     {
         private Coroutine _coroutine;
-        private readonly GameData _data;
-
-        public TutorialBuyAnotherProjectStep_6() => 
-            _data = Services.Get<GameData>();
 
         protected override TutorialStep Step => TutorialStep.BuyAnotherProject_6;
 

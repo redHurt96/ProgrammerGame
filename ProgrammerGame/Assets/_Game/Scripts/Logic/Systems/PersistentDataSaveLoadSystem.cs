@@ -21,6 +21,8 @@ namespace _Game.Logic.Systems
         {
             _data.PersistentData.LoadIfExist();
 
+
+
             _events.TutorialStepReceived += Save;
             _events.LevelChanged += Save;
             _events.ApplicationPaused += Save;

@@ -6,11 +6,6 @@ namespace _Game.Logic.Systems
 {
     public class TutorialResetForBoostStep : BaseTutorialWaitForStepSystem
     {
-        private readonly GameData _data;
-
-        public TutorialResetForBoostStep() => 
-            _data = Services.Get<GameData>();
-
         protected override TutorialStep Step => TutorialStep.ResetForBoost_10;
 
         protected override bool _waitCondition =>

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using _Game.Common;
+﻿using _Game.Common;
+using _Game.GameServices.Analytics;
 using RH.Utilities.ServiceLocator;
 
 namespace _Game.GameServices
@@ -50,22 +49,31 @@ namespace _Game.GameServices
                 UnityEngine.Debug.LogError("[ADS] Interstitial doesn't ready");
         }
             
-        private void InterstitialAdShowFailedEvent(IronSourceError error) => 
+        private void InterstitialAdShowFailedEvent(IronSourceError error)
+        {
             UnityEngine.Debug.Log($"[ADS] {nameof(InterstitialAdShowFailedEvent)} with code {error.getCode()}");
+            _events.InvokeOnInterstitialShown(AdsEventType.video_ads_watch, AdType.interstitial, "main", "fail");
+        }
 
         private void InterstitialAdClickedEvent() => 
             UnityEngine.Debug.Log(nameof(InterstitialAdClickedEvent));
 
-        public void InterstitialAdOpenedEvent() => 
+        public void InterstitialAdOpenedEvent()
+        {
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdOpenedEvent));
+            _events.InvokeOnInterstitialShown(AdsEventType.video_ads_started, AdType.interstitial, "main", "start");
+        }
 
-        private void InterstitialAdClosedEvent() => 
+        private void InterstitialAdClosedEvent()
+        {
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdClosedEvent));
+            _events.InvokeOnInterstitialShown(AdsEventType.video_ads_started, AdType.interstitial, "main", "close");
+        }
 
         private void InterstitialAdShowSucceededEvent()
         {
             UnityEngine.Debug.Log("[ADS] " + nameof(InterstitialAdShowSucceededEvent));
-            _events.InvokeOnInterstitialShown();
+            _events.InvokeOnInterstitialShown(AdsEventType.video_ads_watch, AdType.interstitial, "main", "success");
         }
 
         private void InterstitialAdLoadFailedEvent(IronSourceError error) => 

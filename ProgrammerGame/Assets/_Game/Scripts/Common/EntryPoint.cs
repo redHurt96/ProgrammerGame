@@ -3,6 +3,7 @@ using _Game.Configs;
 using _Game.Data;
 using _Game.Logic.Systems;
 using _Game.GameServices;
+using _Game.GameServices.Analytics;
 using _Game.Tutorial;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
@@ -24,8 +25,6 @@ namespace _Game.Common
 
         protected override void RegisterServices()
         {
-            _settings.CreateInstance();
-
             if (EventsMediator.Instance != null)
                 EventsMediator.DestroyInstance();
 
@@ -38,6 +37,7 @@ namespace _Game.Common
                 .RegisterSingle(new EventsMediator())
                 .RegisterSingle(new GameData())
                 .RegisterSingle(new TutorialEvents())
+                .RegisterSingle(new AnalyticsService())
                 .RegisterSingle(CreateAdsService());
         }
 
@@ -48,6 +48,7 @@ namespace _Game.Common
                 //logic
                 .Add(new SaveLoadSystem())
                 .Add(new PersistentDataSaveLoadSystem())
+                .Add(new IncreaseSessionsCountSystem())
                 .Add(new ResetBoostAddendVariableInitializeSystem())
                 .Add(new ResetForBoostSystem())
                 .Add(new UpdateProjectAvailabilitySystem())
@@ -115,15 +116,9 @@ namespace _Game.Common
         private void OnDestroy()
         {
             _systems.Dispose();
+            
             Services.DestroyInstance();
-
-            _settings.DestroyInstance();
-
             GameData.DestroyInstance();
-            TutorialEvents.DestroyInstance();
-            GameData.DestroyInstance();
-
-            _adsService.Clear();
         }
 
         private IAdsService CreateAdsService()

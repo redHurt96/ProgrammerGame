@@ -11,7 +11,7 @@ namespace _Game.Logic.Systems
         protected override bool _waitCondition =>
             GameData.Instance.PersistentData.TutorialData.Steps.Contains(TutorialStep.BuyFirstProgrammer_4)
             && GameData.Instance.SavableData.Projects[1].State == ProjectState.Active
-            && GameData.Instance.SavableData.MoneyCount > Settings.Instance.PcPrices.GetPrice(1);
+            && GameData.Instance.SavableData.MoneyCount > _settings.PcPrices.GetPrice(1);
 
         protected override float _delay => 1f;
     }

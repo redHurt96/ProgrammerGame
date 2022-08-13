@@ -1,21 +1,10 @@
-﻿using _Game.Configs;
-using _Game.Data;
+﻿using _Game.Data;
 using _Game.Tutorial;
-using RH.Utilities.ServiceLocator;
 
 namespace _Game.Logic.Systems
 {
     public class TutorialGoToProgrammersTabStep_4_0 : BaseTutorialWaitForStepSystem
     {
-        private readonly GameData _data;
-        private readonly Settings _settings;
-
-        public TutorialGoToProgrammersTabStep_4_0()
-        {
-            _data = Services.Get<GameData>();
-            _settings = Services.Get<Settings>();
-        }
-
         protected override TutorialStep Step => TutorialStep.GoToProgrammersTab_4_0;
 
         protected override bool _waitCondition =>

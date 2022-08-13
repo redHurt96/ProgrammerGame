@@ -1,5 +1,6 @@
 ﻿using _Game.Common;
 using _Game.GameServices;
+using _Game.GameServices.Analytics;
 using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
 
@@ -25,6 +26,9 @@ namespace _Game.Logic.Systems
         public override void Dispose() => 
             _events.RewardedAdsShown -= LoadAd;
 
+        private void LoadAd(AdsEventType adsEventType, AdType adType, string arg3, string arg4) =>
+            LoadAd();
+        
         private void LoadAd() => 
             _ads.LoadRewarded();
     }

@@ -9,7 +9,7 @@ using UnityEngine.Events;
 
 namespace _Game.Tutorial
 {
-    public class TutorialEvents : Singleton<TutorialEvents>, IService
+    public class TutorialEvents : IService
     {
         private readonly Dictionary<TutorialStep, UnityAction> _actions = new Dictionary<TutorialStep, UnityAction>();
 

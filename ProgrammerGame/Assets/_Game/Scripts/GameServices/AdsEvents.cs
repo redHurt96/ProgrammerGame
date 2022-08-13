@@ -1,10 +1,15 @@
 ﻿using System;
+using _Game.GameServices.Analytics;
+using UnityEngine.Events;
 
 namespace _Game.Common
 {
     public class AdsEvents
     {
-        public event Action RewardedAdsShown;
+        public UnityEvent<string, bool> RewardedAvailabilityRequestForAnalytics = new UnityEvent<string, bool>();
+        
+        public event Action<AdsEventType, AdType, string, string> RewardedAdsShown;
+        public event Action<AdsEventType, AdType, string, string> RewardedAdsStart;
         public event Action<bool> RewardedReady;
         public event Action OnCoffeeBreakIntent;
         public event Action OnRewardForLevelIntent;
@@ -13,9 +18,12 @@ namespace _Game.Common
         public event Action OnCoffeeBreakStart;
         public event Action OnCoffeeBreakActive;
         public event Action BannerLoaded;
-        public event Action InterstitialShown;
+        public event Action<AdsEventType, AdType, string, string> InterstitialShown;
 
-        public void InvokeOnRewardedShown() => RewardedAdsShown?.Invoke();
+        public void InvokeOnRewardedShown(AdsEventType eventType, AdType type, string placement, string result) => 
+            RewardedAdsShown?.Invoke(eventType, type, placement, result);
+        public void InvokeOnRewardedStart(AdsEventType eventType, AdType type, string placement, string result) => 
+            RewardedAdsStart?.Invoke(eventType, type, placement, result);
         public void CoffeeBreakIntent() => OnCoffeeBreakIntent?.Invoke();
         public void IntentRewardForLevel() => OnRewardForLevelIntent?.Invoke();
         public void CoffeeBreakTimeUpdate(float left) => OnCoffeeBreakTimerUpdated?.Invoke(left);
@@ -26,6 +34,7 @@ namespace _Game.Common
 
         public void InvokeBannerLoadedEvent() => BannerLoaded?.Invoke();
 
-        public void InvokeOnInterstitialShown() => InterstitialShown?.Invoke();
+        public void InvokeOnInterstitialShown(AdsEventType eventType, AdType type, string placement, string result) => 
+            InterstitialShown?.Invoke(eventType, type, placement, result);
     }
 }

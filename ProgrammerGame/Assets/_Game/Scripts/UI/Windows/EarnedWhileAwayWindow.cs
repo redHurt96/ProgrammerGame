@@ -22,6 +22,8 @@ namespace _Game.UI.Windows
             _ads ??= Services.Get<IAdsService>();
             _events ??= Services.Get<EventsMediator>();
 
+            _events.Ads.RewardedAvailabilityRequestForAnalytics?.Invoke($"Idle income; amount:{_moneyCount}", _ads.IsRewardedReady);
+            
             if (!_ads.IsRewardedReady) 
                 _adsButton.interactable = false;
 

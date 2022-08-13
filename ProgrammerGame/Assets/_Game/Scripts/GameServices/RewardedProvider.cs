@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Game.Common;
+using _Game.GameServices.Analytics;
 using RH.Utilities;
 using RH.Utilities.ServiceLocator;
 
@@ -12,6 +13,7 @@ namespace _Game.GameServices
         private CachedValue<bool> _isReady;
 
         private AdsEvents _events;
+        private string _placement;
 
         public RewardedProvider()
         {
@@ -47,7 +49,7 @@ namespace _Game.GameServices
 
         public bool IsReady => _isReady.Value;
 
-        public void Show(Action onDone)
+        public void Show(string placement, Action onDone)
         {
             if (IsReady)
             {
@@ -55,6 +57,8 @@ namespace _Game.GameServices
 
                 if (onDone != null)
                     _onShownCallbacks.Add(onDone);
+
+                _placement = placement;
             }
             else
             {
@@ -69,8 +73,12 @@ namespace _Game.GameServices
             UnityEngine.Debug.Log(
                 $"[ADS] {nameof(RewardedVideoAdClickedEvent)} with placement {placement.getPlacementName()}");
 
-        private void RewardedVideoAdClosedEvent() =>
+        private void RewardedVideoAdClosedEvent()
+        {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAdClosedEvent)}");
+            
+            _events.InvokeOnRewardedStart(AdsEventType.video_ads_started, AdType.rewarded, _placement, "close");
+        }
 
         private void RewardedVideoAvailabilityChangedEvent(bool availability)
         {
@@ -80,8 +88,12 @@ namespace _Game.GameServices
             _events?.InvokeRewardedReadyEvent(availability);
         }
 
-        private void RewardedVideoAdStartedEvent() =>
+        private void RewardedVideoAdStartedEvent()
+        {
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAdStartedEvent)}");
+            
+            _events.InvokeOnRewardedStart(AdsEventType.video_ads_started, AdType.rewarded, _placement, "start");
+        }
 
         private void RewardedVideoAdEndedEvent() =>
             UnityEngine.Debug.Log($"[ADS] {nameof(RewardedVideoAdEndedEvent)}");
@@ -94,9 +106,9 @@ namespace _Game.GameServices
             foreach (Action callback in _onShownCallbacks) 
                 callback.Invoke();
 
-            _onShownCallbacks.Clear();
-
-            _events.InvokeOnRewardedShown();
+            _events.InvokeOnRewardedShown(AdsEventType.video_ads_watch, AdType.rewarded, _placement, "success");
+            
+            ClearAfterShown();
         }
 
         private void RewardedVideoAdShowFailedEvent(IronSourceError error)
@@ -104,7 +116,15 @@ namespace _Game.GameServices
             UnityEngine.Debug.Log(
                 $"[ADS] {nameof(RewardedVideoAdRewardedEvent)} with placement {error.getCode()} - {error.getDescription()}");
 
+            _events.InvokeOnRewardedShown(AdsEventType.video_ads_watch, AdType.rewarded, _placement, "fail");
+
+            ClearAfterShown();
+        }
+
+        private void ClearAfterShown()
+        {
             _onShownCallbacks.Clear();
+            _placement = null;
         }
     }
 }

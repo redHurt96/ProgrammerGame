@@ -4,6 +4,7 @@ using _Game.Logic.Systems;
 using RH.Utilities.ServiceLocator;
 using RH.Utilities.SingletonAccess;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Game.Common
 {

@@ -1,7 +1,4 @@
-﻿using _Game.Configs;
-using _Game.Data;
-using _Game.Tutorial;
-using RH.Utilities.ServiceLocator;
+﻿using _Game.Tutorial;
 using UnityEngine;
 
 namespace _Game.Logic.Systems
@@ -9,15 +6,6 @@ namespace _Game.Logic.Systems
     public class TutorialBuyFirstProgrammerStep_4 : BaseTutorialWaitForStepSystem
     {
         private Coroutine _coroutine;
-
-        private readonly GameData _data;
-        private readonly Settings _settings;
-
-        public TutorialBuyFirstProgrammerStep_4()
-        {
-            _data = Services.Get<GameData>();
-            _settings = Services.Get<Settings>();
-        }
 
         protected override TutorialStep Step => TutorialStep.BuyFirstProgrammer_4;
 

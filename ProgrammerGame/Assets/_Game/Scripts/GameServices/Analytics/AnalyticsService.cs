@@ -14,12 +14,16 @@ namespace _Game.GameServices.Analytics
             new AppsflyerAnalyticsProvider(),
             new AppmetricaAnalyticsProvider(),
             new UnityLogsAnalyticsProvider(),
+            new FBAnalyticsProvider(),
         };
 
         private static readonly List<IAdsAnalyticsProvider> _adsProviders = new List<IAdsAnalyticsProvider>
         {
             new AppmetricaAnalyticsProvider(),
+            new AppsflyerAnalyticsProvider(),
+            new GAAnalyticsProvider(),
             new UnityLogsAnalyticsProvider(),
+            new FBAnalyticsProvider(),
         };
 
         private readonly GameData _data;

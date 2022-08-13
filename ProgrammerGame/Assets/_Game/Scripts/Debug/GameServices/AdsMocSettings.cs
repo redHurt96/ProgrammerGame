@@ -8,7 +8,7 @@ namespace _Game.Debug.GameServices
     {
         private const string IS_INTERSTITIAL_READY_KEY = "debug_is_interstitial_ready";
         private const string IS_REWARDED_READY_KEY = "debug_is_rewarded_ready";
-        private const string IS_BANNER_SHOWN_KEY = "debug_is_rewarded_ready";
+        private const string IS_BANNER_SHOWN_KEY = "debug_is_bunner_ready";
 
         public static bool IsInterstitialReady => PlayerPrefs.HasKey(IS_INTERSTITIAL_READY_KEY) && PlayerPrefs.GetInt(IS_INTERSTITIAL_READY_KEY) == 1;
         public static bool IsRewardedReady => PlayerPrefs.HasKey(IS_REWARDED_READY_KEY) && PlayerPrefs.GetInt(IS_REWARDED_READY_KEY) == 1;

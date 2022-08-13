@@ -380,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 82.20001}
+  m_AnchoredPosition: {x: 0, y: 82.19922}
   m_SizeDelta: {x: 0, y: -164.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40207338
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 96604370}
   - component: {fileID: 96604369}
   - component: {fileID: 96604368}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 130201083}
   - component: {fileID: 130201082}
   - component: {fileID: 130201081}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FictionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 207665427}
   - component: {fileID: 207665429}
   - component: {fileID: 207665428}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,7 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252903542}
   - component: {fileID: 252903543}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LayoutGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 260679066}
   - component: {fileID: 260679070}
   - component: {fileID: 260679069}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Close_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1623,7 +1623,7 @@ GameObject:
   - component: {fileID: 280922144}
   - component: {fileID: 280922146}
   - component: {fileID: 280922145}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BoostCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1724,7 +1724,7 @@ GameObject:
   - component: {fileID: 324586300}
   - component: {fileID: 324586302}
   - component: {fileID: 324586301}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1805,7 +1805,7 @@ GameObject:
   - component: {fileID: 328674525}
   - component: {fileID: 328674524}
   - component: {fileID: 328674527}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CheatButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 336151391}
   - component: {fileID: 336151394}
   - component: {fileID: 336151393}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1991,7 +1991,7 @@ GameObject:
   - component: {fileID: 359946073}
   - component: {fileID: 359946075}
   - component: {fileID: 359946074}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377155585}
   - component: {fileID: 377155586}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoffeeBreakWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 381762722}
   - component: {fileID: 381762724}
   - component: {fileID: 381762723}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WindowBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2982,12 +2982,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848159056371058883, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Text
       value: Now you can afford to take on a few more projects! Take him!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3020,6 +3032,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: BuySecondProject_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -3121,6 +3137,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -545
       objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
 --- !u!224 &434525667 stripped
@@ -3150,7 +3170,7 @@ GameObject:
   - component: {fileID: 447349959}
   - component: {fileID: 447349961}
   - component: {fileID: 447349960}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3226,7 +3246,7 @@ GameObject:
   - component: {fileID: 465947819}
   - component: {fileID: 465947818}
   - component: {fileID: 465947820}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Current Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3318,7 +3338,7 @@ GameObject:
   - component: {fileID: 477756902}
   - component: {fileID: 477756904}
   - component: {fileID: 477756903}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Added Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3637,7 +3657,7 @@ GameObject:
   - component: {fileID: 518295488}
   - component: {fileID: 518295490}
   - component: {fileID: 518295489}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DayTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3742,7 +3762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &521813010
@@ -4040,7 +4060,7 @@ GameObject:
   - component: {fileID: 551989539}
   - component: {fileID: 551989541}
   - component: {fileID: 551989540}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4119,7 +4139,7 @@ GameObject:
   - component: {fileID: 569034185}
   - component: {fileID: 569034187}
   - component: {fileID: 569034186}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WindowBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4343,7 +4363,7 @@ GameObject:
   - component: {fileID: 596089545}
   - component: {fileID: 596089548}
   - component: {fileID: 596089546}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tutorials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4589,7 +4609,7 @@ GameObject:
   - component: {fileID: 616392460}
   - component: {fileID: 616392462}
   - component: {fileID: 616392461}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Day group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4832,7 +4852,7 @@ GameObject:
   - component: {fileID: 627115842}
   - component: {fileID: 627115844}
   - component: {fileID: 627115843}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4904,12 +4924,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848159056371058883, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Text
       value: Now click on the project icon to complete it and earn some money!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4954,6 +4986,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: RunFirstProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -5054,6 +5090,10 @@ PrefabInstance:
     - target: {fileID: 6371741154283410735, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
@@ -5322,7 +5362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 72.23001}
+  m_AnchoredPosition: {x: 0, y: 72.23047}
   m_SizeDelta: {x: 0, y: -191.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &656205418
@@ -5485,7 +5525,7 @@ GameObject:
   - component: {fileID: 677977788}
   - component: {fileID: 677977790}
   - component: {fileID: 677977789}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Current Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5561,6 +5601,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5568,6 +5612,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Hire your first programmer and you don't have to click on the project
         yourself
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5600,6 +5652,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: BuyFirstProgrammer_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -5721,6 +5777,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
 --- !u!224 &686817127 stripped
@@ -5739,7 +5799,7 @@ GameObject:
   - component: {fileID: 718881823}
   - component: {fileID: 718881825}
   - component: {fileID: 718881824}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5854,7 +5914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763323184}
   - component: {fileID: 763323185}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EarnedWhileAwayWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5909,7 +5969,7 @@ GameObject:
   - component: {fileID: 784011701}
   - component: {fileID: 784011703}
   - component: {fileID: 784011702}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6038,6 +6098,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6045,6 +6109,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Now you have enough money to upgrade your apartment and start earning
         more!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6077,6 +6149,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: UpgradePC_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -6197,6 +6273,10 @@ PrefabInstance:
     - target: {fileID: 6371741154283410735, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
@@ -6449,7 +6529,7 @@ GameObject:
   - component: {fileID: 905868990}
   - component: {fileID: 905868992}
   - component: {fileID: 905868991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WindowBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6613,7 +6693,7 @@ GameObject:
   - component: {fileID: 929979748}
   - component: {fileID: 929979747}
   - component: {fileID: 929979746}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6743,6 +6823,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6764,6 +6848,14 @@ PrefabInstance:
 
         You can also
         move the camera to see the whole apartment!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6800,6 +6892,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: TapMoney
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -6900,6 +6996,10 @@ PrefabInstance:
     - target: {fileID: 6371741154283410735, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 267.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
@@ -7060,7 +7160,7 @@ GameObject:
   - component: {fileID: 968705869}
   - component: {fileID: 968705868}
   - component: {fileID: 968705867}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7164,7 +7264,7 @@ GameObject:
   - component: {fileID: 969981016}
   - component: {fileID: 969981018}
   - component: {fileID: 969981017}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Current Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7360,7 +7460,7 @@ GameObject:
   - component: {fileID: 991443609}
   - component: {fileID: 991443611}
   - component: {fileID: 991443610}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7440,7 +7540,7 @@ GameObject:
   - component: {fileID: 1030713721}
   - component: {fileID: 1030713720}
   - component: {fileID: 1030713719}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7572,7 +7672,7 @@ GameObject:
   - component: {fileID: 1036182558}
   - component: {fileID: 1036182557}
   - component: {fileID: 1036182556}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Clear Data Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7705,7 +7805,7 @@ GameObject:
   - component: {fileID: 1054335026}
   - component: {fileID: 1054335028}
   - component: {fileID: 1054335027}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Count_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7784,7 +7884,7 @@ GameObject:
   - component: {fileID: 1057172412}
   - component: {fileID: 1057172413}
   - component: {fileID: 1057172414}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResetProgressWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7850,7 +7950,7 @@ GameObject:
   - component: {fileID: 1059039599}
   - component: {fileID: 1059039601}
   - component: {fileID: 1059039600}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7934,7 +8034,7 @@ GameObject:
   - component: {fileID: 1062186229}
   - component: {fileID: 1062186231}
   - component: {fileID: 1062186230}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8105,7 +8205,7 @@ GameObject:
   - component: {fileID: 1071050120}
   - component: {fileID: 1071050122}
   - component: {fileID: 1071050121}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BoostTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8262,7 +8362,7 @@ GameObject:
   - component: {fileID: 1117864257}
   - component: {fileID: 1117864261}
   - component: {fileID: 1117864260}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Close button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8413,7 +8513,7 @@ GameObject:
   - component: {fileID: 1117968258}
   - component: {fileID: 1117968260}
   - component: {fileID: 1117968259}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Money image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8561,7 +8661,7 @@ GameObject:
   - component: {fileID: 1161065647}
   - component: {fileID: 1161065649}
   - component: {fileID: 1161065648}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WindowBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8640,7 +8740,7 @@ GameObject:
   - component: {fileID: 1163284990}
   - component: {fileID: 1163284992}
   - component: {fileID: 1163284991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8979,7 +9079,7 @@ GameObject:
   - component: {fileID: 1185022661}
   - component: {fileID: 1185022663}
   - component: {fileID: 1185022662}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9245,7 +9345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.599976}
+  m_AnchoredPosition: {x: 0, y: -9.599609}
   m_SizeDelta: {x: -17, y: -26.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1243364111
@@ -9878,7 +9978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1363938433}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9915,7 +10015,7 @@ GameObject:
   - component: {fileID: 1379174689}
   - component: {fileID: 1379174691}
   - component: {fileID: 1379174690}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10098,7 +10198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.025024414}
+  m_AnchoredPosition: {x: 0, y: -0.025390625}
   m_SizeDelta: {x: 0, y: 0.050049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1432188359
@@ -10318,6 +10418,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -10325,6 +10429,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Now you have enough money to upgrade your computer and start earning
         more!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10357,6 +10469,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: GoToUpgradesTab_7_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -10478,6 +10594,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -127.97
       objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
 --- !u!224 &1447973052 stripped
@@ -10524,7 +10644,7 @@ GameObject:
   - component: {fileID: 1479804238}
   - component: {fileID: 1479804240}
   - component: {fileID: 1479804239}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10603,7 +10723,7 @@ GameObject:
   - component: {fileID: 1482795418}
   - component: {fileID: 1482795420}
   - component: {fileID: 1482795419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10682,7 +10802,7 @@ GameObject:
   - component: {fileID: 1485093506}
   - component: {fileID: 1485093508}
   - component: {fileID: 1485093507}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Money_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10758,7 +10878,7 @@ GameObject:
   - component: {fileID: 1508613639}
   - component: {fileID: 1508613638}
   - component: {fileID: 1508613640}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Added Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10850,7 +10970,7 @@ GameObject:
   - component: {fileID: 1521715254}
   - component: {fileID: 1521715256}
   - component: {fileID: 1521715255}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ads icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10953,7 +11073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 198.07}
+  m_AnchoredPosition: {x: 0, y: 198.07031}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &1526477773
@@ -11216,7 +11336,7 @@ GameObject:
   - component: {fileID: 1553155415}
   - component: {fileID: 1553155420}
   - component: {fileID: 1553155419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Adv button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11380,7 +11500,7 @@ GameObject:
   - component: {fileID: 1569636795}
   - component: {fileID: 1569636797}
   - component: {fileID: 1569636796}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11458,7 +11578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584825556}
   - component: {fileID: 1584825557}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DailyBonusWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11513,7 +11633,7 @@ GameObject:
   - component: {fileID: 1587818142}
   - component: {fileID: 1587818144}
   - component: {fileID: 1587818143}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11592,7 +11712,7 @@ GameObject:
   - component: {fileID: 1591133337}
   - component: {fileID: 1591133339}
   - component: {fileID: 1591133338}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11826,7 +11946,7 @@ GameObject:
   - component: {fileID: 1643299822}
   - component: {fileID: 1643299824}
   - component: {fileID: 1643299823}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11905,7 +12025,7 @@ GameObject:
   - component: {fileID: 1644501994}
   - component: {fileID: 1644501996}
   - component: {fileID: 1644501995}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DayCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11984,7 +12104,7 @@ GameObject:
   - component: {fileID: 1652301241}
   - component: {fileID: 1652301243}
   - component: {fileID: 1652301242}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Boost group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12248,7 +12368,7 @@ GameObject:
   - component: {fileID: 1665628334}
   - component: {fileID: 1665628338}
   - component: {fileID: 1665628337}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ads_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12400,7 +12520,7 @@ GameObject:
   - component: {fileID: 1669599433}
   - component: {fileID: 1669599435}
   - component: {fileID: 1669599434}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Added Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12478,7 +12598,7 @@ GameObject:
   - component: {fileID: 1687857050}
   - component: {fileID: 1687857052}
   - component: {fileID: 1687857051}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ads icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12772,7 +12892,7 @@ GameObject:
   - component: {fileID: 1716983541}
   - component: {fileID: 1716983545}
   - component: {fileID: 1716983544}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13183,7 +13303,7 @@ GameObject:
   - component: {fileID: 1785522685}
   - component: {fileID: 1785522687}
   - component: {fileID: 1785522686}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ads Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13257,6 +13377,10 @@ PrefabInstance:
     - target: {fileID: 183544, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
       propertyPath: m_Name
       value: LunarConsole
+      objectReference: {fileID: 0}
+    - target: {fileID: 183544, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 406632, guid: 6d0acc00cc82d436b9d11446d2ddfef6, type: 3}
       propertyPath: m_RootOrder
@@ -13425,12 +13549,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848159056371058883, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Text
       value: Upgrade the project to level 15 so you can afford another one
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13467,6 +13603,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: UpgradeProject_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -13587,6 +13727,10 @@ PrefabInstance:
     - target: {fileID: 6371741154283410735, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.428
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
@@ -13952,7 +14096,7 @@ GameObject:
   - component: {fileID: 1855666207}
   - component: {fileID: 1855666206}
   - component: {fileID: 1855666205}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Skip Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14092,6 +14236,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -14099,6 +14247,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: You can reset all progress to increase your earning rate! it will help
         you get to the final projects faster.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14135,6 +14291,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: ResetForBoost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -14236,6 +14396,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -697
       objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
 --- !u!224 &1873733694 stripped
@@ -14254,7 +14418,7 @@ GameObject:
   - component: {fileID: 1878584299}
   - component: {fileID: 1878584301}
   - component: {fileID: 1878584300}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14708,6 +14872,10 @@ PrefabInstance:
       value: TutorialOverlay
       objectReference: {fileID: 0}
     - target: {fileID: 3712009379843121344, guid: 05c6b3e6d81e29c42bbf5a47967d22ef, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712009379843121344, guid: 05c6b3e6d81e29c42bbf5a47967d22ef, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -14803,6 +14971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3712009380232445651, guid: 05c6b3e6d81e29c42bbf5a47967d22ef, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05c6b3e6d81e29c42bbf5a47967d22ef, type: 3}
 --- !u!224 &1937836559 stripped
@@ -14880,7 +15052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950748046}
   - component: {fileID: 1950748047}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelRewardWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14932,12 +15104,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848159056371058883, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Text
       value: Go to programmers tab to hire your first programmer!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14970,6 +15154,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: GoToProgrammerTab_4_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -15091,6 +15279,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 28.743
       objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
 --- !u!224 &1961671540 stripped
@@ -15137,7 +15329,7 @@ GameObject:
   - component: {fileID: 1964535754}
   - component: {fileID: 1964535756}
   - component: {fileID: 1964535755}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WindowBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15217,7 +15409,7 @@ GameObject:
   - component: {fileID: 1970498126}
   - component: {fileID: 1970498128}
   - component: {fileID: 1970498127}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15295,7 +15487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976051168}
   - component: {fileID: 1976051167}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15362,7 +15554,7 @@ GameObject:
   - component: {fileID: 1987646159}
   - component: {fileID: 1987646157}
   - component: {fileID: 1987646158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ad Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15649,7 +15841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 945.08746, y: -72}
+  m_AnchoredPosition: {x: 945.08594, y: -72}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1990665894
@@ -16139,7 +16331,7 @@ GameObject:
   - component: {fileID: 2028150424}
   - component: {fileID: 2028150426}
   - component: {fileID: 2028150425}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16220,7 +16412,7 @@ GameObject:
   - component: {fileID: 2032770151}
   - component: {fileID: 2032770150}
   - component: {fileID: 2032770149}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16259,7 +16451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bdd20b97c745e0a63913f7bf4460bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeSec: 2
+  TimeSec: 86400
 --- !u!114 &2032770150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16354,7 +16546,7 @@ GameObject:
   - component: {fileID: 2034691346}
   - component: {fileID: 2034691345}
   - component: {fileID: 2034691344}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16787,7 +16979,7 @@ GameObject:
   - component: {fileID: 2064201085}
   - component: {fileID: 2064201084}
   - component: {fileID: 2064201083}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16906,7 +17098,7 @@ GameObject:
   - component: {fileID: 2065746193}
   - component: {fileID: 2065746195}
   - component: {fileID: 2065746194}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16985,7 +17177,7 @@ GameObject:
   - component: {fileID: 2070843280}
   - component: {fileID: 2070843282}
   - component: {fileID: 2070843281}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Count text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17067,7 +17259,7 @@ GameObject:
   - component: {fileID: 2072136141}
   - component: {fileID: 2072136145}
   - component: {fileID: 2072136144}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ads button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17461,7 +17653,7 @@ GameObject:
   - component: {fileID: 2111246310}
   - component: {fileID: 2111246309}
   - component: {fileID: 2111246308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Close_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17843,7 +18035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.01251, y: -72}
+  m_AnchoredPosition: {x: 135.01172, y: -72}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270034636266117886
@@ -20260,12 +20452,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 596089545}
     m_Modifications:
     - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425641606723470842, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848159056371058883, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Text
       value: Programming is easy! Buy first project to get started
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159056371058893, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057230066889, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057230066894, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -20294,6 +20498,10 @@ PrefabInstance:
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_Name
       value: BuyFirstProject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4848159057311693938, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_IsActive
@@ -20402,6 +20610,10 @@ PrefabInstance:
     - target: {fileID: 6371741154283410735, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -742
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967582382844854931, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8a85c47fa4c244b939f41d47944ceb, type: 3}
@@ -20684,7 +20896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 405.03748, y: -72}
+  m_AnchoredPosition: {x: 405.03906, y: -72}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6269463352797457017

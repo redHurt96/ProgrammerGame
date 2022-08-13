@@ -26,7 +26,8 @@ namespace _Game.GameServices
             IronSourceEvents.onRewardedVideoAdRewardedEvent += RewardedVideoAdRewardedEvent;
             IronSourceEvents.onRewardedVideoAdShowFailedEvent += RewardedVideoAdShowFailedEvent;
 
-            _isReady = CachedValue<bool>.Create(() => IronSource.Agent.isRewardedVideoAvailable());
+            _isReady = CachedValue<bool>
+                .Create(() => IronSource.Agent.isRewardedVideoAvailable());
         }
 
         public void Dispose()

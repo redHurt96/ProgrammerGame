@@ -305,6 +305,6 @@ MonoBehaviour:
     FurnitureToRemove: []
   _priceSettings:
     _offset: 100
-    _linear: 2
+    _linear: 3
     _exponential: 7
-    _additional: 3
+    _additional: 6

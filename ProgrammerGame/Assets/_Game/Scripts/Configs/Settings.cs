@@ -1,5 +1,4 @@
 using RH.Utilities.ServiceLocator;
-using RH.Utilities.SingletonAccess;
 using UnityEngine;
 
 namespace _Game.Configs
@@ -19,6 +18,7 @@ namespace _Game.Configs
         public float MoneyBasementRandomizeForce = 100f;
         public float MoneyBasementSpawnDelay = .5f;
         public int MaxBasementMoneysCount = 500;
+        public float MoneySpawnRandomPosition;
 
         [Space]
         public float MoneyRigidbodyRemoveTime = 3f;

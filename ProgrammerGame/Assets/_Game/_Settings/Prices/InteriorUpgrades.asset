@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InteriorUpgrades
   m_EditorClassIdentifier: 
   _prices:
-  - 200
+  - 200000
   - 500
   - 700
   - 1500

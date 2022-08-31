@@ -33,12 +33,13 @@ MonoBehaviour:
     DiscoBall: {fileID: 4160000743111497946, guid: 8468ee99b1f92134b9c38fed6d34c8b1, type: 3}
     PizzaSpawnTime: 2
   MoneyFallForce: 2
-  MoneySpawnTime: 1.5
-  MaxMoneySpawnCount: 3
+  MoneySpawnTime: 0.5
+  MaxMoneySpawnCount: 5
   MoneyBasementForce: 300
   MoneyBasementRandomizeForce: 100
   MoneyBasementSpawnDelay: 0.8
   MaxBasementMoneysCount: 500
+  MoneySpawnRandomPosition: 1
   MoneyRigidbodyRemoveTime: 2
   TargetLevels: 19000000320000004b0000006400000096000000c8000000fa0000002c01000090010000f4010000ee020000e8030000d0070000b80b0000a00f00008813000010270000a861000050c30000a086010040420f0080969800
   ProjectsSettings:
@@ -74,6 +75,7 @@ MonoBehaviour:
   TimeForLevelReward: 10
   MinLevelReward: 20
   ChangeProgressBarAnchorTime: 0.25
+  MinProjectTime: 0.23
   Ads:
     AppId: 15056d1c9
     FirstInterstitialDelay: 100

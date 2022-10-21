@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prices:
     _offset: 10
-    _linear: 40
+    _linear: 25
     _exponential: 1.03
     _additional: 2

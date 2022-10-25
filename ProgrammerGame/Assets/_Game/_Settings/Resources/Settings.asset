@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FX:
     MoneyPrefabs:
-    - {fileID: 3785540177810785152, guid: 2c88379fc7873a04fb6330e3740eb06e, type: 3}
-    - {fileID: 4408963661407793558, guid: 3a0016077e8e14849aa34546d477049f, type: 3}
-    - {fileID: 1642756940641289941, guid: a1bf8606316e6684bb3f3f2126bdcaed, type: 3}
-    - {fileID: 3785540177810785152, guid: ca563eb020da1444a9f794eec0c68d06, type: 3}
-    - {fileID: 3785540177810785152, guid: 77b17c1dc33fe534592757075461f182, type: 3}
-    - {fileID: 6968237193631797689, guid: 795faf8989c9a274daecc60c71de1900, type: 3}
-    - {fileID: 1110901431330550640, guid: ad217056b24f2ae49a4fad453c7141fb, type: 3}
-    - {fileID: 3641330207068289558, guid: 7d0f743dafc55b24c9d2a452fc19ef5f, type: 3}
-    - {fileID: 408941679757575002, guid: bf894fe9fc689f343ae9899bfce42bac, type: 3}
-    - {fileID: 69764277859703185, guid: c7cc482bb59a9ff48bc186c898b6c214, type: 3}
-    - {fileID: 61447697821237462, guid: eb408be0fe660774a8eb678364406f3a, type: 3}
-    - {fileID: 2186123660477493312, guid: d7aa02088d7b4224c8c8f57a5456af47, type: 3}
+    - {fileID: 1642756940641289941, guid: d3b1ae5666f58f54bbb3467a21352bc1, type: 3}
+    - {fileID: 1642756940641289941, guid: 6b6138052298bc2479dc2d0a8e6cf188, type: 3}
+    - {fileID: 1642756940641289941, guid: 9cc0af0412013cf4fb5f56586156be4d, type: 3}
+    - {fileID: 1642756940641289941, guid: e0444870f31252e4e935362f5d11a36d, type: 3}
+    - {fileID: 1642756940641289941, guid: 858cf6f33c7551b458faa87956c02073, type: 3}
+    - {fileID: 1642756940641289941, guid: 59d8e033e251262488fbbc00735a1904, type: 3}
+    - {fileID: 1642756940641289941, guid: 416a5889f22c94746a441874831f8013, type: 3}
+    - {fileID: 1642756940641289941, guid: a6921531ddea7374f8c5e677f6769643, type: 3}
+    - {fileID: 1642756940641289941, guid: 49106ea2a942dad4a93797e5ee134f8a, type: 3}
+    - {fileID: 1642756940641289941, guid: 5fb24fcb1eac70f4288525b8eeda9505, type: 3}
+    - {fileID: 1642756940641289941, guid: b2d44bc645f791c4f8c18b306c3ab535, type: 3}
+    - {fileID: 1642756940641289941, guid: 90cddd6e14afcc74ca6336f44e5858be, type: 3}
     TapFxPrefab: {fileID: 3897329392985473680, guid: 0d860ae2ad6297a4095d810cd46d3bd1, type: 3}
     TapFxPrefab2: {fileID: 395031058680739610, guid: 95186da3d9e1a9649a14e4ea6d5980b9, type: 3}
     FurnitureSpawnFxPrefab: {fileID: 395031058680739610, guid: b2f0b8902a31c8a46a1c4bb24ed9ea36, type: 3}

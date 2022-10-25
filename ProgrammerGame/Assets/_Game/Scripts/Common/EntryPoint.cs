@@ -90,7 +90,7 @@ namespace _Game.Common
                 .Add(new LoadRewardedAdSystem())
                 .Add(new CoffeeBreakAdSystem())
                 .Add(new RewardForLevelAdSystem())
-                .Add(new LoadAdvBannerSystem())
+                //.Add(new LoadAdvBannerSystem())
 
                 //notifications
                 .Add(new NotificationsSaveSystem())

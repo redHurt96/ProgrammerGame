@@ -74,6 +74,7 @@ MonoBehaviour:
   DailyBonusPerDay: 0.5
   TimeForLevelReward: 10
   MinLevelReward: 20
+  NewLevelsFrequency: 3
   ChangeProgressBarAnchorTime: 0.25
   MinProjectTime: 0.23
   Ads:

@@ -65,9 +65,10 @@ namespace _Game.Data
             IncomePerSec(data) * _settings.TimeForLevelReward);
 
         public static int CalculateLevel(this GameData data) => 
-            (int) Mathf.Log10((float) data.PersistentData.TotalEarnedMoney);
+            (int) Mathf.Log10((float) data.PersistentData.TotalEarnedMoney * _settings.NewLevelsFrequency);
 
-        public static double MoneyNeededForLevel(this GameData data, int level) => Mathf.Pow(10, level);
+        public static double MoneyNeededForLevel(this GameData data, int level) => 
+            Mathf.Pow(10, level) / _settings.NewLevelsFrequency;
 
         public static float ReachNewLevelProgress(this GameData data) =>
             (float) (data.PersistentData.TotalEarnedMoney / MoneyNeededForLevel(data, data.PersistentData.Level + 1));

@@ -58,6 +58,7 @@ namespace _Game.Configs
         [Header("Level reward")]
         public long TimeForLevelReward = 120;
         public float MinLevelReward;
+        public float NewLevelsFrequency;
 
         [Header("Project panel")]
         public double ChangeProgressBarAnchorTime = .1f;

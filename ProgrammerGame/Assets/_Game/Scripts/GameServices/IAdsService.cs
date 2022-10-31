@@ -7,11 +7,10 @@ namespace _Game.GameServices
     {
         bool IsInterstitialReady { get; }
         bool IsRewardedReady { get; }
-        void LoadInterstitial();
         void ShowInterstitial();
-        void LoadRewarded();
         void ShowRewarded(string placement, Action onSuccess);
         bool IsBannerShown { get; }
         void LoadBanner();
+        void OnApplicationPause(bool pauseStatus);
     }
 }

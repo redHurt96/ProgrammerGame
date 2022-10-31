@@ -70,8 +70,6 @@ namespace _Game.Logic.Systems
 
         private IEnumerator ShowAdAfterDelay(float time)
         {
-            _ads.LoadInterstitial();
-
             yield return new WaitForSeconds(time);
 
             while (!_ads.IsInterstitialReady)

@@ -14,6 +14,7 @@ namespace _Game.Debug.GameServices
 
         public bool IsInterstitialReady => AdsMocSettings.IsInterstitialReady;
         public bool IsRewardedReady => AdsMocSettings.IsRewardedReady;
+        public bool IsBannerShown => AdsMocSettings.IsBannerShown;
 
         public void LoadInterstitial() => 
             UnityEngine.Debug.Log($"[ADS_MOC] - Interstitial load");
@@ -42,14 +43,13 @@ namespace _Game.Debug.GameServices
             }
         }
 
-        public bool IsBannerShown => AdsMocSettings.IsBannerShown;
-
         public void LoadBanner()
         {
             UnityEngine.Debug.Log("[ADS_MOC] - Load banner");
             _adsEvents.InvokeBannerLoadedEvent();
         }
 
+        public void OnApplicationPause(bool pauseStatus) {}
         public void Dispose() {}
     }
 }

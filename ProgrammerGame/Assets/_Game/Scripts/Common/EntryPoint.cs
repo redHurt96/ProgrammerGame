@@ -87,7 +87,6 @@ namespace _Game.Common
                 //ads
                 .Add(new AdsOnPauseEventProvider())
                 .Add(new InterstitialAdSystem())
-                .Add(new LoadRewardedAdSystem())
                 .Add(new CoffeeBreakAdSystem())
                 .Add(new RewardForLevelAdSystem())
                 //.Add(new LoadAdvBannerSystem())
@@ -128,7 +127,7 @@ namespace _Game.Common
 #if UNITY_EDITOR
                 _adsService = new AdsMocService();
 #else
-                _adsService = new AdsService();
+                _adsService = new ApplovinAdsService();
 #endif       
             }
 

@@ -4103,7 +4103,7 @@ GameObject:
   - component: {fileID: 536453300}
   - component: {fileID: 536453299}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AutoToonMaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

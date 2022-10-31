@@ -41,8 +41,7 @@ namespace _Game.Common
                 .RegisterSingle(CreateAdsService());
         }
 
-        protected override void RegisterSystems()
-        {
+        protected override void RegisterSystems() =>
             _systems
 
                 //logic
@@ -65,7 +64,7 @@ namespace _Game.Common
                 .Add(new AddMoneyForTapSystem())
                 .Add(new AddStartMoneySystem())
                 .Add(new AddCurrentMoneySystem())
-                .Add(new ShowLevelWindowSystem())
+                .Add(new ShowNewLevelButtonSystem())
                 .Add(new UpdatePlayerLevelSystem())
                 .Add(new DailyBonusSaveLoadSystem())
                 .Add(new DailyBonusUpdateSystem())
@@ -107,7 +106,6 @@ namespace _Game.Common
 
                 //must be the last
                 .Add(new ChangeGameStateToPlaySystem());
-        }
 
         private void Update() => 
             _systems.Update();

@@ -22,5 +22,8 @@ namespace _Game.Common
         public DailyBonusWindow DailyBonusWindow;
         public LevelRewardWindow LevelWindow;
         public BaseWindow CoffeeBreakWindow;
+        
+        [Space]
+        public GameObject NewLevelButton;
     }
 }

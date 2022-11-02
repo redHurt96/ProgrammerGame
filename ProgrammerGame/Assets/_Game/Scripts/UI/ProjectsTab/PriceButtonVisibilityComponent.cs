@@ -1,7 +1,7 @@
 ﻿using System;
 using _Game.Common;
 using _Game.Data;
-using AP.ProgrammerGame;
+using RH.Utilities.ServiceLocator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,45 +14,48 @@ namespace _Game.UI.ProjectsTab
 
         private Func<double> _calculatePrice;
         private Func<bool> _additionalCondition;
+        
+        private EventsMediator _events;
+        private GameData _data;
 
         public void SetPriceFunc(Func<double> calculatePrice)
         {
+            _events ??= Services.Get<EventsMediator>();
+            _data ??= Services.Get<GameData>();
+            
             _calculatePrice = calculatePrice;
 
-            EventsMediator.Instance.MoneyCountChanged += UpdateVisibility;
-            EventsMediator.Instance.OnUpgraded += UpdateVisibility;
+            _events.MoneyCountChanged += UpdateVisibility;
+            _events.OnUpgraded += UpdateVisibility;
 
             UpdateVisibility();
         }
-
-        public void SetAdditionalCondition(Func<bool> additionalCondition) => 
-            _additionalCondition = additionalCondition;
 
         private void OnEnable() => 
             UpdateVisibility();
 
         private void OnDestroy()
         {
-            EventsMediator.Instance.OnUpgraded -= UpdateVisibility;
-            EventsMediator.Instance.MoneyCountChanged -= UpdateVisibility;
+            _events.OnUpgraded -= UpdateVisibility;
+            _events.MoneyCountChanged -= UpdateVisibility;
         }
 
-        public void UpdateVisibility() => 
-            UpdateVisibility(0d);
+        public void SetAdditionalCondition(Func<bool> additionalCondition) => 
+            _additionalCondition = additionalCondition;
 
-        private void UpdateVisibility(UpgradeType type) => 
-            UpdateVisibility(0d);
-
-        private void UpdateVisibility(double obj)
+        public void UpdateVisibility(double obj = 0)
         {
-            if (GameData.Instance == null)
+            if (_data == null)
             {
                 _button.interactable = false;
                 return;
             }
 
-            _button.interactable = GameData.Instance.SavableData.MoneyCount >= _calculatePrice?.Invoke()
+            _button.interactable = _data.SavableData.MoneyCount >= _calculatePrice?.Invoke()
                                    && (_additionalCondition?.Invoke() ?? true);
         }
+
+        private void UpdateVisibility(UpgradeType type) => 
+            UpdateVisibility();
     }
 }

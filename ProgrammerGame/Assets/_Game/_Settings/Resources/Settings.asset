@@ -83,10 +83,10 @@ MonoBehaviour:
     FirstInterstitialDelay: 100
     InterstitialCooldown: 90
     CoffeeBreakLenght: 60
-    CoffeeBreakDelay: 30
+    CoffeeBreakDelay: 20
     CoffeeBreakBoost: 2
-    CoffeeBreakIconShowTime: 7
-    CoffeeBreakIconHideTime: 60
+    CoffeeBreakIconShowTime: 10
+    CoffeeBreakIconHideTime: 40
     ResetBoost: 2
     LevelRewardBoost: 2
   Notifications:

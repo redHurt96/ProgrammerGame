@@ -25,12 +25,20 @@ namespace _Game.Configs
         public GameObject[] DefaultFurniture;
         public List<FurnitureSlot2> FurnitureForPurchase = new List<FurnitureSlot2>();
         
-        [SerializeField] private PriceSettings _priceSettings;
+        [SerializeField] private PriceSettings _pcPriceSettings;
+        [SerializeField] private PriceSettings _housePriceSettings;
+        [SerializeField] private PriceSettings _interiorPriceSettings;
         [SerializeField] private int[] _pcUpgradesIndexes;
         [SerializeField] private int[] _interiorUpgradesIndexes;
         [SerializeField] private int[] _houseUpgradesIndexes;
 
-        public double GetPrice(int forLevel) => 
-            _priceSettings.GetPrice(forLevel);
+        public double GetInteriorPrice(int forLevel) => 
+            _interiorPriceSettings.GetPrice(forLevel);
+        
+        public double GetPcPrice(int forLevel) => 
+            _pcPriceSettings.GetPrice(forLevel);
+
+        public double GetHousePrice(int forLevel) => 
+            _housePriceSettings.GetPrice(forLevel);
     }
 }

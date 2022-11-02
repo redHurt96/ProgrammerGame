@@ -93,6 +93,8 @@ namespace _Game.Logic.Systems
         {
             _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Interior });
             _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.Soft });
+            _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.PC });
+            _data.SavableData.Upgrades.Add(new UpgradeData { Type = UpgradeType.House });
         }
     }
 }

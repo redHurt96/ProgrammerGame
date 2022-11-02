@@ -7,15 +7,15 @@ using UnityEngine;
 
 namespace _Game.Logic.Systems
 {
-    public class CreateInteriorSystem : BaseInitSystem
+    public class CreatePCSystem : BaseInitSystem
     {
-        private UpgradeData _interiorUpgradeData;
+        private UpgradeData _pcUpgradeData;
 
         private readonly Apartment _apartment;
         private readonly Settings _settings;
         private readonly GameData _data;
 
-        public CreateInteriorSystem()
+        public CreatePCSystem()
         {
             _apartment = Services.Get<Apartment>();
             _settings = Services.Get<Settings>();
@@ -24,26 +24,26 @@ namespace _Game.Logic.Systems
         
         public override void Init()
         {
-            _interiorUpgradeData = _data.GetUpgradeData(UpgradeType.Interior);
+            _pcUpgradeData = _data.GetUpgradeData(UpgradeType.PC);
 
             CreatePurchasedInteriors();
 
-            _interiorUpgradeData.Upgraded += UpgradeInterior;
+            _pcUpgradeData.Upgraded += UpgradePC;
         }
 
         public override void Dispose() => 
-            _interiorUpgradeData.Upgraded -= UpgradeInterior;
+            _pcUpgradeData.Upgraded -= UpgradePC;
 
         private void CreatePurchasedInteriors()
         {
-            for (int i = 0; i < _interiorUpgradeData.Level; i++) 
+            for (int i = 0; i < _pcUpgradeData.Level; i++) 
                 CreateInterior(i);
         }
 
-        private void UpgradeInterior() => 
-            CreateInterior(_interiorUpgradeData.Level - 1);
+        private void UpgradePC() => 
+            CreateInterior(_pcUpgradeData.Level - 1);
 
         private void CreateInterior(int number) => 
-            _apartment.AddFurniture(_settings.Interior.InteriorUpgrades[number]);
+            _apartment.AddFurniture(_settings.Interior.PcUpgrades[number]);
     }
 }

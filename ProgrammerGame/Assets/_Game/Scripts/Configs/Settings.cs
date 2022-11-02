@@ -38,8 +38,10 @@ namespace _Game.Configs
         [Header("Upgrades")]
         public float IncreaseSpeedEffectStrength;
         public float IncreaseMoneyEffectStrength;
-        [Space] 
+        
+        [Header("Money for tap")] 
         public PriceSettings MoneyForTap;
+        public float MoneyForTapIncomeCoefficient;
 
         [Header("House")] 
         public InteriorSettings Interior;

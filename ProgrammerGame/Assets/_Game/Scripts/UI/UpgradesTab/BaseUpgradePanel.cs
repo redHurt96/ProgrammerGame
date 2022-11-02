@@ -51,9 +51,10 @@ namespace _Game.UI.UpgradesTab
 
         private void Subscribe()
         {
-            _buyButton.onClick.AddListener(BuyUpgrade);
             _buttonVisibilityComponent.SetPriceFunc(() => _price);
             _buttonVisibilityComponent.SetAdditionalCondition(CheckAdditionalBuyAvailability);
+
+            _buyButton.onClick.AddListener(BuyUpgrade);
             _upgradeData.Upgraded += UpdateContent;
         }
 

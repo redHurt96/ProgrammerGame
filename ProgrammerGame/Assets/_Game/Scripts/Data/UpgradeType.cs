@@ -3,6 +3,8 @@
     public enum UpgradeType
     {
         Interior,
-        Soft
+        Soft,
+        PC,
+        House,
     }
 }

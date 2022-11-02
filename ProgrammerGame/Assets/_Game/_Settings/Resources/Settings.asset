@@ -61,6 +61,7 @@ MonoBehaviour:
     _linear: 1
     _exponential: 1.02
     _additional: 1
+  MoneyForTapIncomeCoefficient: 0
   Interior: {fileID: 11400000, guid: ea9b3ef4d8d805240b98046345c9b680, type: 2}
   AllProgrammersSettings: {fileID: 11400000, guid: d664e9c194f1116418dce0f24bbbfa40, type: 2}
   MainCharacter:

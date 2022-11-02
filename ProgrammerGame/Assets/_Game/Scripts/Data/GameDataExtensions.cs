@@ -38,8 +38,17 @@ namespace _Game.Data
         public static float MoneyTotalEffect(this GameData data) =>
             GetUpgradeData(data, UpgradeType.Interior).Level * _settings.IncreaseMoneyEffectStrength;
 
-        public static float MoneyForTap(this GameData data) => 
-            Mathf.Max(1, _settings.MoneyForTap.GetPrice(GetUpgradeData(data, UpgradeType.Soft).Level) * data.PersistentData.MainBoost);
+        public static float MoneyForTap(this GameData data)
+        {
+            float baseValue = Mathf.Max(1,
+                _settings.MoneyForTap.GetPrice(GetUpgradeData(data, UpgradeType.Soft).Level) *
+                data.PersistentData.MainBoost);
+
+            if (_settings.MoneyForTapIncomeCoefficient > 0f)
+                baseValue *= data.IncomePerSec() * _settings.MoneyForTapIncomeCoefficient;
+            
+            return baseValue;
+        }
 
         public static float MoneyForTapForNewLevel(this GameData data)
         {

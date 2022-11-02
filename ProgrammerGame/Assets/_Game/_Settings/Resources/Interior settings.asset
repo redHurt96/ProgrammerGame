@@ -303,7 +303,17 @@ MonoBehaviour:
   - FurnitureToStand:
     - {fileID: 5439008610958476456, guid: 30abf78130afaec4a9ca9e914698b955, type: 3}
     FurnitureToRemove: []
-  _priceSettings:
+  _pcPriceSettings:
+    _offset: 100
+    _linear: 3
+    _exponential: 4
+    _additional: 6
+  _housePriceSettings:
+    _offset: 1000
+    _linear: 3
+    _exponential: 4
+    _additional: 6
+  _interiorPriceSettings:
     _offset: 100
     _linear: 3
     _exponential: 4

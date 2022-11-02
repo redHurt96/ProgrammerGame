@@ -39,6 +39,11 @@ namespace _Game.UI.ProgrammersTab
             $"Buy programmer for project {_programmer.AutomatedProject.Name} " +
             $"- level {_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level}";
 
+        private int _level => _data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level;
+
+        private bool _isPurchased =>
+            _data.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == _programmer.AutomatedProject.Name);
+
         private void OnEnable()
         {
             _apartment ??= Services.Get<Apartment>();
@@ -54,7 +59,7 @@ namespace _Game.UI.ProgrammersTab
         {
             SetupCommonData();
 
-            if (_data.SavableData.AutoRunnedProjects.Any(x => x.ProjectName == _programmer.AutomatedProject.Name))
+            if (_isPurchased)
                 SetupForPurchasedProgrammer();
             else
                 SetupForAvailableProgrammer();
@@ -69,8 +74,23 @@ namespace _Game.UI.ProgrammersTab
 
         private void SetupCommonData()
         {
-            _name.text = _programmer.Name;
+            _name.text = _programmer.Name + GetPost();
             _icon.sprite = _programmer.Icon;
+        }
+
+        private string GetPost()
+        {
+            if (!_isPurchased)
+                return string.Empty;
+            
+            if (_level < 4)
+                return " (junior)";
+            if (_level < 7)
+                return " (middle)";
+            if (_level < 10)
+                return " (senior)";
+            
+            return " (CTO)";
         }
 
         private void SetupForPurchasedProgrammer()
@@ -140,6 +160,7 @@ namespace _Game.UI.ProgrammersTab
         {
             _eventsMediator.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level));
             PerformUpgrade();
+            _name.text = _programmer.Name + GetPost();
         }
 
         private void PerformUpgrade()
@@ -159,10 +180,9 @@ namespace _Game.UI.ProgrammersTab
 
         private bool CheckProgrammerHasUpgrade()
         {
-            int level = _data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level;
             int upgradesCount = _settings.AllProgrammersSettings.Upgrades.Length;
 
-            return level < upgradesCount;
+            return _level < upgradesCount;
         }
     }
 }

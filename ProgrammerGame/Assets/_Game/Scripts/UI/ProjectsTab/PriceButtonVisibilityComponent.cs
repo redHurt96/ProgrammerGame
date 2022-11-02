@@ -36,6 +36,9 @@ namespace _Game.UI.ProjectsTab
 
         private void OnDestroy()
         {
+            if (_events == null)
+                return;
+            
             _events.OnUpgraded -= UpdateVisibility;
             _events.MoneyCountChanged -= UpdateVisibility;
         }

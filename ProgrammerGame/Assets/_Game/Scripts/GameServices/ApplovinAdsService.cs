@@ -5,14 +5,14 @@ namespace _Game.GameServices
 {
     public class ApplovinAdsService : IAdsService
     {
-        public bool IsInterstitialReady => MaxSdk.IsInterstitialReady(adUnitId);
-        public bool IsRewardedReady => MaxSdk.IsInterstitialReady(adUnitId);
+        public bool IsInterstitialReady => MaxSdk.IsInterstitialReady(_adUnitId);
+        public bool IsRewardedReady => MaxSdk.IsInterstitialReady(_adUnitId);
         public bool IsBannerShown => false;
 
         private readonly InterstitialProvider _interstitialProvider;
         private readonly RewardedProvider _rewardedProvider;
         
-        private string adUnitId;
+        private string _adUnitId;
 
         public ApplovinAdsService()
         {
@@ -26,19 +26,10 @@ namespace _Game.GameServices
         public void ShowRewarded(string placement, Action onSuccess) => 
             _rewardedProvider.Show(onSuccess);
 
-        public void LoadBanner()
-        {
-            
-        }
+        public void LoadBanner() {}
 
-        public void OnApplicationPause(bool pauseStatus)
-        {
-            
-        }
+        public void OnApplicationPause(bool pauseStatus) {}
 
-        public void Dispose()
-        {
-            
-        }
+        public void Dispose() {}
     }
 }

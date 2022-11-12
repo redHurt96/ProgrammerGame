@@ -32,6 +32,8 @@ namespace _Game.UI.ProjectsTab
 
         private void SetupIdleProgressBar()
         {
+            _isIdleProgressBarSetup = true;
+            
             _fill.fillAmount = 1f;
             _arrow.SetActive(true);
         }

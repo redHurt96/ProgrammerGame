@@ -5,12 +5,14 @@ namespace _Game.GameServices
 {
     public class ApplovinAdsService : IAdsService
     {
-        public bool IsInterstitialReady { get; }
-        public bool IsRewardedReady { get; }
-        public bool IsBannerShown { get; }
-        
+        public bool IsInterstitialReady => MaxSdk.IsInterstitialReady(adUnitId);
+        public bool IsRewardedReady => MaxSdk.IsInterstitialReady(adUnitId);
+        public bool IsBannerShown => false;
+
         private readonly InterstitialProvider _interstitialProvider;
         private readonly RewardedProvider _rewardedProvider;
+        
+        private string adUnitId;
 
         public ApplovinAdsService()
         {

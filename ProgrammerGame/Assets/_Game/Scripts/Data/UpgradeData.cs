@@ -9,7 +9,7 @@ namespace _Game.Data
 
         public UpgradeType Type;
         public int Level;
-
+        
         public void Upgrade()
         {
             Level++;

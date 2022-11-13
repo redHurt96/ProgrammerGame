@@ -17,5 +17,6 @@ namespace _Game.Data
         public int BuyCount = 1;
         public GameState GameState;
         public AdsData Ads = new AdsData();
+
     }
 }

@@ -32,6 +32,10 @@ namespace _Game.Data
         public static ProgrammerUpgradeData GetProgrammerUpgradeData(this GameData data, string projectName) =>
             data.SavableData.AutoRunnedProjects.First(x => x.ProjectName == projectName);
 
+        public static bool HasProgrammerData(this GameData data, string projectName) => 
+            data.SavableData.AutoRunnedProjects.FirstOrDefault(x => x.ProjectName == projectName) 
+            != null;
+
         public static float SpeedTotalEffect(this GameData data) => 
             GetUpgradeData(data, UpgradeType.Interior).Level * _settings.IncreaseSpeedEffectStrength;
 

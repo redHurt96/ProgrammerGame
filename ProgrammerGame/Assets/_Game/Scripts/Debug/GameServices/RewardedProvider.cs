@@ -11,7 +11,7 @@ namespace _Game.Debug.GameServices
 {
     public class RewardedProvider
     {
-        string adUnitId = "176c9c1f10c51d21";
+        string adUnitId = "b8037e02da7d86e5";
         int retryAttempt;
         
         private AdsEvents _events;

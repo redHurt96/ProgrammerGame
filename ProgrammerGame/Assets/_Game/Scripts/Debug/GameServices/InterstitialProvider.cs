@@ -10,7 +10,7 @@ namespace _Game.Debug.GameServices
 {
     public class InterstitialProvider
     {
-        string adUnitId = "df0d4f291de16830";
+        string adUnitId = "641fda6833ef61b0";
         int retryAttempt;
         
         private readonly AdsEvents _events;

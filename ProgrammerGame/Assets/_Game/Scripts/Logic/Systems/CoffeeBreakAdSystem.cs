@@ -12,6 +12,8 @@ namespace _Game.Logic.Systems
 {
     public class CoffeeBreakAdSystem : BaseInitSystem
     {
+        private Coroutine _routine;
+        
         private readonly GameData _data;
         private readonly AdsEvents _events;
         private readonly IAdsService _ads;
@@ -25,17 +27,29 @@ namespace _Game.Logic.Systems
             _settings = Services.Get<Settings>().Ads;
         }
 
-        public override void Init() => 
+        public override void Init()
+        {
             _events.OnCoffeeBreakIntent += ShowAd;
 
-        public override void Dispose() => 
+            CoroutineLauncher.Start(DelayUntilNewCoffeeBreak());
+        }
+
+        public override void Dispose()
+        {
+            BreakRoutineIfExist();
+
             _events.OnCoffeeBreakIntent -= ShowAd;
+        }
 
         private void ShowAd() => 
             _ads.ShowRewarded("CoffeeBreak", PerformOnAdComplete);
 
-        private void PerformOnAdComplete() => 
-            CoroutineLauncher.Start(DelayUntilNewCoffeeBreak());
+        private void PerformOnAdComplete()
+        {
+            BreakRoutineIfExist();
+
+            _routine = CoroutineLauncher.Start(DelayUntilNewCoffeeBreak());
+        }
 
         private IEnumerator DelayUntilNewCoffeeBreak()
         {
@@ -59,6 +73,9 @@ namespace _Game.Logic.Systems
 
             yield return new WaitForSeconds(_settings.CoffeeBreakDelay);
 
+            while (!_ads.IsRewardedReady)
+                yield return new WaitForSeconds(_settings.CoffeeBreakDelay);
+
             _data.Ads.CanShowCoffeeBreak = true;
             _events.ReloadCoffeeBreak();
         }
@@ -67,6 +84,12 @@ namespace _Game.Logic.Systems
         {
             foreach (ProjectData project in _data.GetActiveProjects())
                 project.ChangeSpeedBoost(boost);
+        }
+
+        private void BreakRoutineIfExist()
+        {
+            if (_routine != null)
+                CoroutineLauncher.Stop(_routine);
         }
     }
 }

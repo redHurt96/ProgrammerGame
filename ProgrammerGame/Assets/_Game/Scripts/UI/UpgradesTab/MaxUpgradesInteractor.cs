@@ -40,8 +40,11 @@ namespace _Game.UI.UpgradesTab
             _upgradeData.Upgraded += UpdateTipVisibility;
         }
 
-        private void OnDestroy() => 
-            _upgradeData.Upgraded -= UpdateTipVisibility;
+        private void OnDestroy()
+        {
+            if (_upgradeData != null)
+                _upgradeData.Upgraded -= UpdateTipVisibility;
+        }
 
         protected abstract void UpdateTipVisibility();
     }

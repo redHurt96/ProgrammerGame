@@ -12,5 +12,7 @@ namespace _Game.GameServices
         bool IsBannerShown { get; }
         void LoadBanner();
         void OnApplicationPause(bool pauseStatus);
+        void LoadRewarded();
+        void LoadInterstitial();
     }
 }

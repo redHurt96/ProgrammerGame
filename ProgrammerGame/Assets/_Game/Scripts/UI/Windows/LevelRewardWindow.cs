@@ -1,4 +1,5 @@
-﻿using _Game.Common;
+﻿using System;
+using _Game.Common;
 using _Game.Data;
 using _Game.GameServices;
 using _Game.Scripts.Exception;
@@ -15,6 +16,9 @@ namespace _Game.UI.Windows
 
         private IAdsService _ads;
         private AdsEvents _adsEvents;
+
+        private void Start() => 
+            _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);
 
         protected override void PerformBeforeOpen()
         {
@@ -35,9 +39,7 @@ namespace _Game.UI.Windows
             
             _adsEvents.RewardedAvailabilityRequestForAnalytics?.Invoke("Show reward for level - LevelRewardWindow", isRewardedReady);
 
-            if (isRewardedReady)
-                _adsIncreaseRewardButton.onClick.AddListener(DoubleReward);
-            else
+            if (!isRewardedReady)
                 _adsEvents.RewardedReady += EnableButton;
         }
 

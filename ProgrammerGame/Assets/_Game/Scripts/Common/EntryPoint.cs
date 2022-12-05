@@ -9,10 +9,6 @@ using RH.Utilities.PseudoEcs;
 using RH.Utilities.ServiceLocator;
 using UnityEngine;
 
-#if UNITY_EDITOR
-    using _Game.Debug.GameServices;
-#endif
-
 namespace _Game.Common
 {
     public class EntryPoint : AbstractEntryPoint
@@ -121,18 +117,6 @@ namespace _Game.Common
             GameData.DestroyInstance();
         }
 
-        private IAdsService CreateAdsService()
-        {
-            if (_adsService == null)
-            {
-#if UNITY_EDITOR
-                _adsService = new AdsMocService();
-#else
-                _adsService = new ApplovinAdsService();
-#endif       
-            }
-
-            return _adsService;
-        }
+        private IAdsService CreateAdsService() => _adsService ??= new ApplovinAdsService();
     }
 }

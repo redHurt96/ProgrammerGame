@@ -23,10 +23,10 @@ namespace _Game.Configs
                 .ToArray();
 
         public GameObject[] DefaultFurniture;
-        public List<FurnitureSlot2> FurnitureForPurchase = new List<FurnitureSlot2>();
+        public List<FurnitureSlot2> FurnitureForPurchase = new();
         
         [SerializeField] private PriceSettings _pcPriceSettings;
-        [SerializeField] private PriceSettings _housePriceSettings;
+        [SerializeField] private ManualPriceSettings _housePriceSettings;
         [SerializeField] private PriceSettings _interiorPriceSettings;
         [SerializeField] private int[] _pcUpgradesIndexes;
         [SerializeField] private int[] _interiorUpgradesIndexes;

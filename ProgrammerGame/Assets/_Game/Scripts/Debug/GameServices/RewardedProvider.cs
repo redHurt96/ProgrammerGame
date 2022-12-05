@@ -11,11 +11,14 @@ namespace _Game.Debug.GameServices
 {
     public class RewardedProvider
     {
-        string adUnitId = "b8037e02da7d86e5";
-        int retryAttempt;
+        private const string adUnitId = "b8037e02da7d86e5";
         
-        private AdsEvents _events;
-        private List<Action> _onShownCallbacks;
+        public bool IsReady => MaxSdk.IsRewardedAdReady(adUnitId);
+
+        private int retryAttempt;
+        private List<Action> _onShownCallbacks = new();
+        
+        private readonly AdsEvents _events;
 
         public RewardedProvider()
         {
@@ -29,21 +32,23 @@ namespace _Game.Debug.GameServices
             MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdHiddenEvent;
             MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent += OnRewardedAdFailedToDisplayEvent;
             MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
-            
-            LoadRewardedAd();
         }
+
 
         public void Show(Action onSuccess)
         {
-            if (MaxSdk.IsRewardedAdReady(adUnitId))
+            if (IsReady)
             {
                 _onShownCallbacks.Add(onSuccess);
                 MaxSdk.ShowRewardedAd(adUnitId);
             }
         }
 
-        private void LoadRewardedAd() => 
+        public void LoadAd()
+        {
+            UnityEngine.Debug.Log($"Load rewarded ad");
             MaxSdk.LoadRewardedAd(adUnitId);
+        }
 
         private void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
@@ -66,7 +71,7 @@ namespace _Game.Debug.GameServices
         private void OnRewardedAdFailedToDisplayEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
         {
             _events.InvokeOnRewardedShown(AdsEventType.video_ads_watch, AdType.rewarded, adInfo.Placement, "fail");
-            LoadRewardedAd();
+            LoadAd();
             ClearAfterShown();
         }
 
@@ -77,7 +82,7 @@ namespace _Game.Debug.GameServices
         private void OnRewardedAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
             _events.InvokeOnRewardedStart(AdsEventType.video_ads_watch, AdType.rewarded, adInfo.Placement, "close");
-            LoadRewardedAd();
+            LoadAd();
         }
 
         private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
@@ -96,7 +101,7 @@ namespace _Game.Debug.GameServices
         {
             yield return new WaitForSeconds(delay);
             
-            LoadRewardedAd();
+            LoadAd();
         }
 
         private void ClearAfterShown() => 

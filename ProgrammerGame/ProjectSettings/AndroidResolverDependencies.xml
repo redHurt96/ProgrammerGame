@@ -76,7 +76,7 @@
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar</file>
     <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-2.2.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-11.5.4.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-11.6.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.facebook-adapter-6.12.0.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.fyber-adapter-8.2.0.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.google-adapter-21.3.0.2.aar</file>
@@ -143,7 +143,7 @@
   </files>
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.AnybodyParty.ProgrammerGame" />
+    <setting name="bundleId" value="com.AnybodyParty.DevsIdle" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="False" />

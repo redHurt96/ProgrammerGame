@@ -10,8 +10,11 @@ namespace _Game.Debug.GameServices
 {
     public class InterstitialProvider
     {
-        string adUnitId = "641fda6833ef61b0";
-        int retryAttempt;
+        private const string adUnitId = "641fda6833ef61b0";
+
+        public bool IsReady => MaxSdk.IsInterstitialReady(adUnitId);
+        
+        private int retryAttempt;
         
         private readonly AdsEvents _events;
 
@@ -26,13 +29,13 @@ namespace _Game.Debug.GameServices
             MaxSdkCallbacks.Interstitial.OnAdClickedEvent += OnInterstitialClickedEvent;
             MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialHiddenEvent;
             MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += OnInterstitialAdFailedToDisplayEvent;
-    
-            // Load the first interstitial
-            LoadInterstitial();
         }
 
-        private void LoadInterstitial() => 
+        public void LoadAd()
+        {
+            UnityEngine.Debug.Log($"Load interstitial ad");
             MaxSdk.LoadInterstitial(adUnitId);
+        }
 
         private void OnInterstitialLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
@@ -58,7 +61,7 @@ namespace _Game.Debug.GameServices
             UnityEngine.Debug.Log($"[ADS] {nameof(OnInterstitialAdFailedToDisplayEvent)} with code {errorInfo.Code}");
             _events.InvokeOnInterstitialShown(AdsEventType.video_ads_watch, AdType.interstitial, "main", "fail");
             
-            LoadInterstitial();
+            LoadAd();
         }
 
         private void OnInterstitialClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) =>
@@ -67,12 +70,12 @@ namespace _Game.Debug.GameServices
         private void OnInterstitialHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
             _events.InvokeOnInterstitialShown(AdsEventType.video_ads_started, AdType.interstitial, "main", "close");
-            LoadInterstitial();
+            LoadAd();
         }
 
         public void ShowInterstitial()
         {
-            if (MaxSdk.IsInterstitialReady(adUnitId))
+            if (IsReady)
                 MaxSdk.ShowInterstitial(adUnitId);
             else
                 UnityEngine.Debug.LogError("[ADS] Interstitial doesn't ready");
@@ -82,7 +85,7 @@ namespace _Game.Debug.GameServices
         {
             yield return new WaitForSeconds(delay);
             
-            LoadInterstitial();
+            LoadAd();
         }
     }
 }

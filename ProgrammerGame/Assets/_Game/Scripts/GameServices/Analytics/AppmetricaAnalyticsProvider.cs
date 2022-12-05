@@ -36,15 +36,19 @@ namespace _Game.GameServices.Analytics
         private static Dictionary<string, object> CreateFullAdsData(AdsEventType eventType, AdType adType, string placement, string result,
             bool connection)
         {
+            Dictionary<string, object> data = CreateAdsData(adType, placement, result, connection);
+
             if (eventType == AdsEventType.video_ads_watch)
-                return (Dictionary<string, object>) CreateAdsData(adType, placement, result, connection)
-                    .Concat(CreateProgressionData());
+            {
+                foreach (KeyValuePair<string,object> pair in CreateProgressionData())
+                    data.Add(pair.Key, pair.Value);
+            }
             
-            return CreateAdsData(adType, placement, result, connection);
+            return data;
         }
 
         private static Dictionary<string, object> CreateAdsData(AdType adType, string placement, string result, bool connection) =>
-            new Dictionary<string, object>
+            new()
             {
                 ["ad_type"] = adType.ToString(),
                 ["placement"] = placement,
@@ -53,7 +57,7 @@ namespace _Game.GameServices.Analytics
             };
 
         private static Dictionary<string, object> CreateProgressionData() =>
-            new Dictionary<string, object>
+            new()
             {
                 ["level_count"] = GameData.Instance.PersistentData.SessionsCount,
                 ["level_loop"] = GameData.Instance.PersistentData.ResetCount,
@@ -61,7 +65,7 @@ namespace _Game.GameServices.Analytics
 
         private static Dictionary<string, object> CreateExitData()
         {
-            var data = CreateProgressionData();
+            Dictionary<string, object> data = CreateProgressionData();
             
             data.Add("result", "leave");
             data.Add("time", Time.realtimeSinceStartup);

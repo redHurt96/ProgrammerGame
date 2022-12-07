@@ -17,6 +17,7 @@ namespace _Game.UI.ProgrammersTab
 
         [Space]
         [SerializeField] private Text _name;
+        [SerializeField] private Text _post;
         [SerializeField] private Text _description;
         [SerializeField] private Image _icon;
         [SerializeField] private Button _button;
@@ -74,7 +75,8 @@ namespace _Game.UI.ProgrammersTab
 
         private void SetupCommonData()
         {
-            _name.text = _programmer.Name + GetPost();
+            _name.text = _programmer.Name;
+            _post.text = GetPost();
             _icon.sprite = _programmer.Icon;
         }
 
@@ -84,13 +86,13 @@ namespace _Game.UI.ProgrammersTab
                 return string.Empty;
             
             if (_level < 4)
-                return " (junior)";
+                return "junior";
             if (_level < 7)
-                return " (middle)";
+                return "middle";
             if (_level < 10)
-                return " (senior)";
+                return "senior";
             
-            return " (CTO)";
+            return "CTO";
         }
 
         private void SetupForPurchasedProgrammer()
@@ -160,7 +162,7 @@ namespace _Game.UI.ProgrammersTab
         {
             _eventsMediator.IntentToChangeMoney(-_programmer.GetPrice(_data.GetProgrammerUpgradeData(_programmer.AutomatedProject.Name).Level));
             PerformUpgrade();
-            _name.text = _programmer.Name + GetPost();
+            _name.text = _programmer.Name;
         }
 
         private void PerformUpgrade()
@@ -171,6 +173,8 @@ namespace _Game.UI.ProgrammersTab
 
         private void UpdateTip(UpgradeType type)
         {
+            _post.text = GetPost();
+
             if (type == UpgradeType.Interior)
                 UpdateTip();
         }
